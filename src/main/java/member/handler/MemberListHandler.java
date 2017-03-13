@@ -16,15 +16,15 @@ public class MemberListHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
-		SqlSession sqlSession = MySqlSessionFactory.openSession();
+		SqlSession session = MySqlSessionFactory.openSession();
 		try {
-			MemberDao dao = sqlSession.getMapper(MemberDao.class);
+			MemberDao dao = session.getMapper(MemberDao.class);
 			
 			List<User> list = null;
-			//list = dao.selectList(conn);
+			list = dao.selectList();
 			req.setAttribute("viewData", list);			
 		} finally {
-			//JdbcUtil.close(conn);
+			session.close();
 		}
 		return "/WEB-INF/view/memberList.jsp";
 	}

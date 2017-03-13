@@ -19,16 +19,21 @@
 				<th>아이디</th>
 				<th>이름</th>
 				<th>암호</th>
+				<th>이메일</th>
+				<th>폰번호</th>
 				<th>가입일</th>
 			</tr>
 			<c:forEach var="member" items="${viewData }">
+			<c:if test="${member.outmember == 0 }">
 				<tr>
 					<td>${member.id }</td>
 					<td>${member.uname }</td>
 					<td>${member.upassword }</td>
-					<td>${member.regDate }</td>
-					
+					<td>${member.email }</td>
+					<td>${member.phone }</td>
+					<td>${member.regDate }</td>					
 				</tr>
+			</c:if>
 			</c:forEach>
 		</table>	
 	

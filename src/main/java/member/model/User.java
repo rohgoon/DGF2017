@@ -11,11 +11,28 @@ public class User {
 	private String email;
 	private String phone;
 	private Date regDate;	
+	private int outmember;
+	
 	
 	public User() {
 		// TODO Auto-generated constructor stub
 	}
 	
+	
+	public User(int uno, String id, String uname, String upassword, String email, String phone, Date regDate,
+			int outmember) {
+		super();
+		this.uno = uno;
+		this.id = id;
+		this.uname = uname;
+		this.upassword = upassword;
+		this.email = email;
+		this.phone = phone;
+		this.regDate = regDate;
+		this.outmember = outmember;
+	}
+
+
 	public User(int uno, String id, String uname, String upassword, String email, String phone, Date regDate) {
 		super();
 		this.uno = uno;
@@ -77,6 +94,16 @@ public class User {
 	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
 	}
+
+	public int getOutmember() {
+		return outmember;
+	}
+
+
+	public void setOutmember(int outmember) {
+		this.outmember = outmember;
+	}
+
 
 	@Override
 	public String toString() {
