@@ -1,0 +1,6 @@
+/auth/
+/db.properties
+/mappers/
+/member/
+/mvc/
+/mybatis-config.xml
