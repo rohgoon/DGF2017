@@ -1,17 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 	<form action="login.do" method="post">
-		<label for="id">¾ÆÀÌµğ : </label><input type="text" id="id" name="id"><br>
-		<label for="password">ºñ¹Ğ¹øÈ£ : </label><input type="password" id="password" name="password"><br>
-		<input type="submit" value="·Î±×ÀÎ">
-		<input type="reset" value="Ãë¼Ò">
+		<label for="id">ì•„ì´ë”” : </label><input type="text" id="id" name="id"><br>
+		<label for="password">ë¹„ë°€ë²ˆí˜¸ : </label><input type="password" id="password" name="password"><br>
+		<input type="submit" value="ë¡œê·¸ì¸">
+		<input type="reset" value="ì·¨ì†Œ">
 	</form>
 </body>
 </html>
