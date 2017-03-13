@@ -1,6 +1,3 @@
 /auth/
-<<<<<<< HEAD
-=======
 /member/
->>>>>>> refs/remotes/origin/rcg1
-/mappers/
+/mvc/
