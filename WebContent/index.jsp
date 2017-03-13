@@ -14,8 +14,7 @@
 		<a href="list.do">회원리스트 보기</a>
 		<a href="changePwd.do">비밀번호 변경</a>
 		<br>
-		<a href="write.do">[게시글 작성하기]</a>
-		<a href="listarticle.do">[게시글 목록보기]</a>
+		<a href="reservation.do">예약</a>
 	</c:if>
 	<c:if test="${empty auth}">
 		<a href="login.do">로그인</a>
