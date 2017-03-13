@@ -1,5 +1,4 @@
 create database dgf;
-
 -- 페스티벌
 DROP SCHEMA IF EXISTS dgf;
 
@@ -74,7 +73,8 @@ CREATE TABLE dgf.user (
 	upassword VARCHAR(20) NOT NULL COMMENT '비밀번호', -- 비밀번호
 	email     VARCHAR(50) NOT NULL COMMENT '이메일', -- 이메일
 	phone     VARCHAR(20) NOT NULL COMMENT '전화번호', -- 전화번호
-	regdate   DATE        NOT NULL COMMENT '가입일' -- 가입일
+	regdate   DATE        NOT NULL COMMENT '가입일', -- 가입일
+	outmember BOOLEAN     NOT NULL COMMENT '탈퇴' -- 탈퇴
 )
 COMMENT '회원';
 
