@@ -3,6 +3,7 @@ package member.model;
 import java.util.Date;
 
 public class User {
+	
 	private int uno;
 	private String id;
 	private String uname;

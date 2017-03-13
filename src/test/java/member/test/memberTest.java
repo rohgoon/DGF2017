@@ -1,12 +1,10 @@
 package member.test;
 
-import java.util.Date;
-
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
-import member.model.User;
 import member.model.MemberDao;
+import member.model.User;
 import mvc.util.MySqlSessionFactory;
 
 public class memberTest {
