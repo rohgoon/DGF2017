@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member.model.MemberDao"> 
+  <insert id="insert" parameterType="user">
+      insert into user(id,uname,upassword,email,phone, regdate) values(#{id},#{uname},#{upassword},#{email},#{phone},#{regDate})
+  </insert>
+  <select id="selectAllById" parameterType="string" resultType="user">
+      select uno,id,uname,upassword,email,phone,regDate from user where id = #{id}
+  </select>
+  <select id="selectList" resultType="user">
+      select * from user order by uno desc
+  </select>
+  <update id="updatePwdById" parameterType="string">
+      update user set upassword = #{param1} where upassword = #{param2}     
+  </update>
+</mapper>
