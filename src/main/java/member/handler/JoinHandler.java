@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.session.SqlSession;
 
-import member.model.Member;
+import member.model.User;
 import member.model.MemberDao;
 import mvc.controller.CommandHandler;
 import mvc.util.MySqlSessionFactory;
@@ -20,7 +20,7 @@ public class JoinHandler implements CommandHandler {
 			return "/WEB-INF/view/join.jsp";
 		}else if (req.getMethod().equalsIgnoreCase("post")) {
 			String phone = req.getParameter("phone1")+"-"+req.getParameter("phone2")+"-"+req.getParameter("phone3");
-			Member mem = new Member(req.getParameter("id"), 
+			User mem = new User(req.getParameter("id"), 
 					req.getParameter("name"), req.getParameter("password"),
 					req.getParameter("email"), phone, 
 					new Date());

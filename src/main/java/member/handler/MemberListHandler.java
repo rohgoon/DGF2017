@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.session.SqlSession;
 
-import member.model.Member;
+import member.model.User;
 import member.model.MemberDao;
 import mvc.controller.CommandHandler;
 import mvc.util.MySqlSessionFactory;
@@ -20,7 +20,7 @@ public class MemberListHandler implements CommandHandler {
 		try {
 			MemberDao dao = sqlSession.getMapper(MemberDao.class);
 			
-			List<Member> list = null;
+			List<User> list = null;
 			//list = dao.selectList(conn);
 			req.setAttribute("viewData", list);			
 		} finally {

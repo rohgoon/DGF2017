@@ -2,15 +2,20 @@ package member.model;
 
 import java.util.Date;
 
-public class Member {
+public class User {
 	private int uno;
 	private String id;
 	private String uname;
 	private String upassword;
 	private String email;
 	private String phone;
-	private Date regDate;
-	public Member(int uno, String id, String uname, String upassword, String email, String phone, Date regDate) {
+	private Date regDate;	
+	
+	public User() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public User(int uno, String id, String uname, String upassword, String email, String phone, Date regDate) {
 		super();
 		this.uno = uno;
 		this.id = id;
@@ -20,7 +25,7 @@ public class Member {
 		this.phone = phone;
 		this.regDate = regDate;
 	}
-	public Member(String id, String uname, String upassword, String email, String phone, Date regDate) {
+	public User(String id, String uname, String upassword, String email, String phone, Date regDate) {
 		super();
 		this.id = id;
 		this.uname = uname;
@@ -70,6 +75,11 @@ public class Member {
 	}
 	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
+	}
+	@Override
+	public String toString() {
+		return "User [uno=" + uno + ", id=" + id + ", uname=" + uname + ", upassword=" + upassword + ", email=" + email
+				+ ", phone=" + phone + ", regDate=" + regDate + "]";
 	}
 	
 	

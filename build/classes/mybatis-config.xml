@@ -6,7 +6,7 @@
 	<properties resource="db.properties"/>
   
   <typeAliases>
-    <typeAlias type="member.model.Member" alias="member"/>
+    <typeAlias type="member.model.User" alias="User"/>
   </typeAliases>
   
   <environments default="development">

@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import jdbc.ConnectionProvider;
 import jdbc.JdbcUtil;
-import member.model.Member;
-import member.model.MemberDao_help;
+import member.model.User;
+import member.test.MemberDao_help;
 import mvc.controller.CommandHandler;
 
 public class ChangePwdHandler implements CommandHandler {

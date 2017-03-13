@@ -105,4 +105,4 @@ insert into lineup(dno,aname) values
 (6,'트와이스');
 select * from lineup;
 
-
+select uno,id,uname,upassword,email,phone, regDate from user where id = 't1111';
