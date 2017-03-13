@@ -82,6 +82,9 @@ public class User {
 		return "User [uno=" + uno + ", id=" + id + ", uname=" + uname + ", upassword=" + upassword + ", email=" + email
 				+ ", phone=" + phone + ", regDate=" + regDate + "]";
 	}
-	
+
+	public boolean matchPassword(String pwd){
+		return upassword.equals(pwd);
+	}
 	
 }

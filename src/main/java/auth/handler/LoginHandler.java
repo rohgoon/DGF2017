@@ -1,11 +1,15 @@
 package auth.handler;
 
-import java.sql.Connection;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.ibatis.session.SqlSession;
+
+import auth.model.LoginUser;
+import member.model.MemberDao;
+import member.model.User;
 import mvc.controller.CommandHandler;
+import mvc.util.MySqlSessionFactory;
 
 public class LoginHandler implements CommandHandler {
 	private final String FORM_VIEW = "/WEB-INF/view/login.jsp";
@@ -16,25 +20,25 @@ public class LoginHandler implements CommandHandler {
 		}else if (req.getMethod().equalsIgnoreCase("post")) {
 			String id = req.getParameter("id");
 			String password = req.getParameter("password");
-			Connection conn =null;
-			
+			SqlSession session = null;
+			MemberDao dao = session.getMapper(MemberDao.class);
 			try{
-			/*	conn = ConnectionProvider.getConnection();
-				Member member = dao.selectAllById(conn, id);
-				if (member == null) {
+				session = MySqlSessionFactory.openSession();
+				User user = dao.selectAllById(id);
+				if (user == null) {
 					req.setAttribute("notJoin", true);
 					return FORM_VIEW;
 				}
-				if (!member.matchPassword(password)) {
+				if (!user.matchPassword(password)) {
 					req.setAttribute("idOrPwdNotMatch", true);
 					return FORM_VIEW;
 				}
-				User user =new User(id, member.getName());
+				LoginUser loginUser =new LoginUser(id, user.getUname());
 				req.getSession().setAttribute("auth", user);
 				return "index.jsp";
-				*/
+			
 			}finally {
-				//JdbcUtil.close(conn);
+				session.close();
 			}
 		}
 		return null;
