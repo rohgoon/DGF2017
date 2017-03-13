@@ -13,6 +13,6 @@
       select * from user order by regdate desc
   </select>
   <update id="updatePwdById" parameterType="string">
-      update user set upassword = #{upassword} where upassword = #{upassword}      
+      update user set upassword = #{param1} where upassword = #{param2}     
   </update>
 </mapper>

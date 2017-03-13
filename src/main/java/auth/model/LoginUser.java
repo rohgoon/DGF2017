@@ -2,16 +2,16 @@ package auth.model;
 
 public class LoginUser {
 	private String id;
-	private String name;
-	public LoginUser(String id, String name) {
+	private String uname;
+	public LoginUser(String id, String uname) {
 		super();
 		this.id = id;
-		this.name = name;
+		this.uname = uname;
 	}
 	public String getId() {
 		return id;
 	}
 	public String getName() {
-		return name;
+		return uname;
 	}
 }

@@ -77,6 +77,7 @@ public class User {
 	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
 	}
+
 	@Override
 	public String toString() {
 		return "User [uno=" + uno + ", id=" + id + ", uname=" + uname + ", upassword=" + upassword + ", email=" + email

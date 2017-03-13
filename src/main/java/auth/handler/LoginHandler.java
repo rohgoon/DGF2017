@@ -20,10 +20,10 @@ public class LoginHandler implements CommandHandler {
 		}else if (req.getMethod().equalsIgnoreCase("post")) {
 			String id = req.getParameter("id");
 			String password = req.getParameter("password");
-			SqlSession session = null;
-			MemberDao dao = session.getMapper(MemberDao.class);
+			SqlSession session = null;			
 			try{
 				session = MySqlSessionFactory.openSession();
+				MemberDao dao = session.getMapper(MemberDao.class);
 				User user = dao.selectAllById(id);
 				if (user == null) {
 					req.setAttribute("notJoin", true);

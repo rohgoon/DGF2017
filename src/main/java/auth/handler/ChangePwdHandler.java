@@ -1,15 +1,14 @@
 package auth.handler;
 
-import java.sql.Connection;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jdbc.ConnectionProvider;
-import jdbc.JdbcUtil;
+import org.apache.ibatis.session.SqlSession;
+
+import member.model.MemberDao;
 import member.model.User;
-import member.test.MemberDao_help;
 import mvc.controller.CommandHandler;
+import mvc.util.MySqlSessionFactory;
 
 public class ChangePwdHandler implements CommandHandler {
 	@Override
@@ -19,15 +18,17 @@ public class ChangePwdHandler implements CommandHandler {
 		}else if (req.getMethod().equalsIgnoreCase("post")) {
 			String newPwd = req.getParameter("confirmPassword");
 			String password = req.getParameter("password");
-			Connection conn =null;
-			MemberDao_help dao = MemberDao_help.getInstance();
+			
+			SqlSession session = null;			
 			try{
-				conn = ConnectionProvider.getConnection();
-				dao.updatePwdById(conn, newPwd, password);
+				session = MySqlSessionFactory.openSession();
+				MemberDao dao = session.getMapper(MemberDao.class);
+				dao.updatePwdById(newPwd, password);
+				session.commit();
 				return "/WEB-INF/view/changePwdSuccess.jsp";
 				
 			}finally {
-				JdbcUtil.close(conn);
+				session.close();
 			}
 		}
 		return null;
