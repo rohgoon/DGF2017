@@ -6,12 +6,19 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+	function fesSelectChange(){
+		var fesSelect = $("")
+
+		}
+
+</script>
 </head>
 <body>
 	<form action="reservation.do?fno=${param.fesno }" method="post">
 		제 ${param.fesno }회 대구 걸그룹 페스티벌 예매<br>
 		일정 선택 :
-		<select name="fesSelect">
+		<select name="fesSelect" onchange="fesSelectChange()">
 			<c:forEach var="daysItem" items="${daysInfo }">
 				<option value="${daysItem.dno }">${daysItem.day } => ${daysItem.stime } ~ ${daysItem.etime }</option>
 			</c:forEach>
@@ -21,7 +28,7 @@
 		<select name="seatSelect">
 			<c:forEach var="seatItem" items="${seatInfo }">
 				<c:if test="${param.fesSelect == seaItem.dno }">
-					<option value="${seatItem.sno }">${seatItem.class }</option>
+					<option value="${seatItem.sno }">${seatItem.grade }</option>
 				</c:if>				
 			</c:forEach>
 		</select>
@@ -40,7 +47,7 @@
 			<option value="card">신용카드</option>
 			<option value="bank">계좌이체</option>
 			<option value="cacaoPay">카카오페이</option>
-		</select>
+		</select><br>
 		<input type="submit" value="결제 완료"><input type="reset" value="취소">
 	</form>
 </body>

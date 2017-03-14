@@ -7,13 +7,13 @@
       insert into days(fno,day,stime,etime) values(#{fno},#{day},#{stime},#{etime})
   </insert>
   <select id="selectByDno" parameterType="int" resultType="days">
-      select * from user where dno = #{dno}
+      select * from days where dno = #{dno}
   </select>
   <select id="selectListAll" resultType="days">
       select * from days order by dno desc
   </select>
   <select id="selectListByFno" parameterType="int" resultType="days">
-      select * from user where fno = #{fno}
+      select * from days where fno = #{fno}
   </select>
   <update id="updateByDno" parameterType="days">
       update days set fno = #{fno}, day=#{day}, stime=#{stime}, etime=#{etime} where dno = #{dno}

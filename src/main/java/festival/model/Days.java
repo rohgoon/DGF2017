@@ -6,26 +6,26 @@ import java.util.Date;
 public class Days {
 	private int dno;
 	private int fno;
-	private Date days;
-	private Time sTime;
-	private Time eTime;
+	private Date day;
+	private Time stime;
+	private Time etime;
 	public Days() {
 		super();
 	}
-	public Days(int dno, int fno, Date days, Time sTime, Time eTime) {
+	public Days(int dno, int fno, Date day, Time stime, Time etime) {
 		super();
 		this.dno = dno;
 		this.fno = fno;
-		this.days = days;
-		this.sTime = sTime;
-		this.eTime = eTime;
+		this.day = day;
+		this.stime = stime;
+		this.etime = etime;
 	}
-	public Days(int fno, Date days, Time sTime, Time eTime) {
+	public Days(int fno, Date day, Time stime, Time etime) {
 		super();
 		this.fno = fno;
-		this.days = days;
-		this.sTime = sTime;
-		this.eTime = eTime;
+		this.day = day;
+		this.stime = stime;
+		this.etime = etime;
 	}
 	public int getDno() {
 		return dno;
@@ -39,23 +39,23 @@ public class Days {
 	public void setFno(int fno) {
 		this.fno = fno;
 	}
-	public Date getDays() {
-		return days;
+	public Date getDay() {
+		return day;
 	}
-	public void setDays(Date days) {
-		this.days = days;
+	public void setDay(Date day) {
+		this.day = day;
 	}
-	public Time getsTime() {
-		return sTime;
+	public Time getStime() {
+		return stime;
 	}
-	public void setsTime(Time sTime) {
-		this.sTime = sTime;
+	public void setStime(Time stime) {
+		this.stime = stime;
 	}
-	public Time geteTime() {
-		return eTime;
+	public Time getEtime() {
+		return etime;
 	}
-	public void seteTime(Time eTime) {
-		this.eTime = eTime;
+	public void setEtime(Time etime) {
+		this.etime = etime;
 	}
 	
 	
