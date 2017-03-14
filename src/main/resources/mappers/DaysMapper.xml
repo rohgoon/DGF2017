@@ -2,32 +2,20 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="member.model.SeatDao"> 
-  <insert id="insert" parameterType="seat">
-      insert into seat(dno,grade,price,max,sold) values(#{dno},#{grade},#{price},#{max},#{sold})
+<mapper namespace="member.model.DaysDao"> 
+  <insert id="insert" parameterType="days">
+      insert into days(fno,day,stime,etime) values(#{fno},#{day},#{stime},#{etime})
   </insert>
-  <select id="selectBySno" parameterType="int" resultType="seat">
-      select dno,grade,price,max,sold from user where sno = #{sno}
+  <select id="selectByDno" parameterType="int" resultType="days">
+      select * from user where dno = #{dno}
   </select>
-  <select id="selectBySno" parameterType="seat" resultType="seat">
-      select * from user where dno = #{sno} and grade=#{grade}
+  <select id="selectListAll" resultType="days">
+      select * from days order by dno desc
   </select>
-  <select id="selectListByDno" resultType="seat">
-      select * from seat where dno =#{dno} order by sno desc 
+  <select id="selectListByFno" parameterType="int" resultType="days">
+      select * from user where fno = #{fno}
   </select>
-  <select id="selectListByDno" resultType="seat">
-      select * from seat order by sno desc
-  </select>
-  <update id="updateByDnoAndGrade" parameterType="seat">
-      update seat set dno = #{dno}, grade=#{grade}, price=#{price}, max=#{max}, sold=#{sold} where dno = #{dno} and grade=#{grade}  
-  </update>
-  <update id="updateBySno" parameterType="seat">
-      update seat set dno = #{dno}, grade=#{grade}, price=#{price}, max=#{max}, sold=#{sold} where sno=#{sno} 
-  </update>
-  <select id="selectMaxAndSoldBySno" parameterType="int" resultType="seat">
-      select max, sold from seat where sno =#{sno} 
-  </select>
-  <update id="updateSoldBySno" parameterType="seat">
-      update seat set sold=#{sold} where sno=#{sno} 
+  <update id="updateByDno" parameterType="days">
+      update days set fno = #{fno}, day=#{day}, stime=#{stime}, etime=#{etime} where dno = #{dno}
   </update>
 </mapper>

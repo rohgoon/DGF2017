@@ -8,6 +8,6 @@ public interface DaysDao {
 	public Days selectByDno(int dno) throws SQLException;
 	public List<Days> selectListAll() throws SQLException;
 	public List<Days> selectListByFno(int fno) throws SQLException;
-	public void updateByDno(int dno) throws SQLException;
+	public void updateByDno(Days days) throws SQLException;
 	
 }

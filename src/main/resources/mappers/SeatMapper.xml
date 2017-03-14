@@ -7,15 +7,15 @@
       insert into seat(dno,grade,price,max,sold) values(#{dno},#{grade},#{price},#{max},#{sold})
   </insert>
   <select id="selectBySno" parameterType="int" resultType="seat">
-      select dno,grade,price,max,sold from user where sno = #{sno}
+      select * from user where sno = #{sno}
   </select>
-  <select id="selectBySno" parameterType="seat" resultType="seat">
+  <select id="selectByDnoAnoGrade" parameterType="seat" resultType="seat">
       select * from user where dno = #{sno} and grade=#{grade}
   </select>
-  <select id="selectListByDno" resultType="seat">
+  <select id="selectListByDno" parameterType="int" resultType="seat">
       select * from seat where dno =#{dno} order by sno desc 
   </select>
-  <select id="selectListByDno" resultType="seat">
+  <select id="selectListAll" resultType="seat">
       select * from seat order by sno desc
   </select>
   <update id="updateByDnoAndGrade" parameterType="seat">
