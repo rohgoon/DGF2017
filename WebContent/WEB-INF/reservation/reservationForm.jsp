@@ -9,7 +9,7 @@
 </head>
 <body>
 	<form action="reservation.do" method="post">
-		제 ${fesInfo.fno }회 대구 걸그룹 페스티벌 예매<br>
+		<%-- 제 ${fesInfo.fno }회  --%>대구 걸그룹 페스티벌 예매<br>
 		일정 선택 :
 		<select name="fesSelect">
 			<c:forEach var="daysItem" items="${daysInfo }">

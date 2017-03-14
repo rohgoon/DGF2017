@@ -9,7 +9,11 @@ public class SeatHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
-		// TODO Auto-generated method stub
+		if (req.getMethod().equalsIgnoreCase("get")) {
+			
+		}else if (req.getMethod().equalsIgnoreCase("post")) {
+			
+		}
 		return null;
 	}
 

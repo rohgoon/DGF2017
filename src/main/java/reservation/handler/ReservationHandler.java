@@ -16,6 +16,8 @@ public class ReservationHandler implements CommandHandler {
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		if (req.getMethod().equalsIgnoreCase("get")) {
+			
+			
 			return "/WEB-INF/reservation/reservationForm.jsp";
 		}else if (req.getMethod().equalsIgnoreCase("post")) {
 			

@@ -106,3 +106,6 @@ insert into lineup(dno,aname) values
 select * from lineup;
 
 select uno,id,uname,upassword,email,phone, regDate from user where id = 't1111';
+select * from seat where dno =2 order by sno desc;
+
+update seat set dno = 2, grade='A', price='70000', max='100', sold='0' where dno = '2' and grade='A';
