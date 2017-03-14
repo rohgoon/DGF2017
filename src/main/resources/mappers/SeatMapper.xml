@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="member.model.SeatDao"> 
+<mapper namespace="festival.model.SeatDao"> 
   <insert id="insert" parameterType="seat">
       insert into seat(dno,grade,price,max,sold) values(#{dno},#{grade},#{price},#{max},#{sold})
   </insert>
