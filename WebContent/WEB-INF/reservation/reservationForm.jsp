@@ -6,48 +6,41 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script type="text/javascript">
-	var seatDno = '<c:out value="${seatDno}"/>';
-	var seatSno = '<c:out value="${seatSno}"/>';
-	var seatGrade = '<c:out value="${seatGrade}"/>';
-	var seatPrice = '<c:out value="${seatPrice}"/>';
-	var seatMax = '<c:out value="${seatMax}"/>';
-	var seatSold = '<c:out value="${seatSold}"/>';
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript">	
+	var seatDno = new Array();
+	var seatSno = new Array();	
+	var seatGrade =new Array(); 
+	var seatPrice =new Array(); 
+	var seatMax =new Array(); 
+	var seatSold =new Array();
+	<c:forEach var='item' items='${seatInfo}'>
+		seatDno.push(${item.dno});
+		seatSno.push(${item.sno});
+		seatGrade.push('${item.grade}');
+		seatPrice.push(${item.price});
+		seatMax.push(${item.max});
+		seatSold.push(${item.sold});
+	</c:forEach>
 	$(document).on("change", '#fesSelect', function() {
+		$('#seatSelect').empty();
 		var fesSelectVal = Number($("#fesSelect").val());
-		alert(seatDno[1]);
-		for(int i = 0 ; i <seatDno.length; i++){
+		for(var i = 0 ; i < seatDno.length; i++){			
 			if(fesSelectVal == seatDno[i]){
-				$('#seatSelect').append('<option value="'+seatSno[i]+'">'+seatGrade[i]+'</option>');
+				$('#seatSelect').append('<option value="'+seatSno[i]+'">'+seatGrade[i]+'</option>');				
+			}
+		} 
+	});
+	
+	$(document).on("change", '#seatSelect', function() {
+		var seatSelectVal = Number($("#seatSelect").val());
+		for(var i = 0 ; i <seatSno.length; i++){
+			if(seatSelectVal == seatSno[i]){
+				$('#money').html('결제 금액 : '+seatPrice[i]+'원<br>'
+						+'남은 티켓 수 : '+(seatMax[i]-seatSold[i])+'장 <input type="hidden" name="seatResult" value="'+seatSold[i]+'">');
 			}
 		}
 	});
-	/* function fesSelectChange(){
-		var fesSelectVal = Number($("#fesSelect").val());
-		alert(seatDno[1]);
-		for(int i = 0 ; i <seatDno.length; i++){
-			if(fesSelectVal == seatDno[i]){
-				$('#seatSelect').append('<option value="'+seatSno[i]+'">'+seatGrade[i]+'</option>');
-			}
-		}
-		
-
-	} */
-	function seatSelectChange(){
-		var seatSelectVal = Number($("#seatSelect").val());
-
-		for(int i = 0 ; i <seatSno.length; i++){
-			if(seatSelectVal == seatSno[i]){
-				$('#seatSelect').after('<br>결제 금액 : '+seatPrice[i]+'원<br>'
-						+'남은 티켓 수 : '+(seatMax[i]-seatSold[i])+'/'+seatMax[i]+'장 <input type="hidden" name="seatResult" value="'+seatSold[i]+'">');
-			}
-		}
-		
-
-	}
-
 </script>
 </head>
 <body>
@@ -58,24 +51,13 @@
 				<option value="${daysItem.dno }">${daysItem.day }=>
 					${daysItem.stime } ~ ${daysItem.etime }</option>
 			</c:forEach>
-		</select> <br> 티켓 등급 : <select name="seatSelect" id="seatSelect"
-			onselect="seatSelectChange()">
-			<%-- <c:forEach var="seatItem" items="${seatInfo }">
-				<c:if test="${param.fesSelect == seaItem.dno }">
-					<option value="${seatItem.sno }">${seatItem.grade }</option>
-				</c:if>				
-			</c:forEach> --%>
-		</select>
-		<%-- 가격 : 
-		<c:forEach var="price" items="${seatInfo }">
-			<c:if test="${price.sno == param.sno }">
-				${price.price }원
-				<br>
-				남은 좌석 수 : ${price.max - price.sold }/${price.max }
-				<input type="hidden" name="seatResult" value="${price.sno }">  
-			</c:if>			
-		</c:forEach> --%>
-		<br> 결제 수단 선택 : <select name="pay">
+		</select> <br>
+		티켓 등급 : <select name="seatSelect" id="seatSelect">
+					<option>일정을 먼저 선택해 주세요.</option>
+				</select>
+		<br>
+		<div id="money"></div>
+		<br> 결제 수단 선택 : <select name="pay" id="pay">
 			<option value="card">신용카드</option>
 			<option value="bank">계좌이체</option>
 			<option value="cacaoPay">카카오페이</option>

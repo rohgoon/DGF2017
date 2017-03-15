@@ -32,37 +32,6 @@ public class ReservationHandler implements CommandHandler {
 				SeatDao seatDao = session.getMapper(SeatDao.class);
 				seatList = seatDao.selectListAll();
 				req.setAttribute("seatInfo", seatList);
-				int[] dnoForReservation = new int[seatList.size()];
-				for (int i = 0; i < seatList.size(); i++) {
-					dnoForReservation[i] = seatList.get(i).getDno();
-				}
-				req.setAttribute("seatDno", dnoForReservation);
-				int[] snoForReservation = new int[seatList.size()];
-				for (int i = 0; i < seatList.size(); i++) {
-					snoForReservation[i] = seatList.get(i).getSno();
-				}
-				req.setAttribute("seatSno", snoForReservation);
-				String[] greadeForReservation = new String[seatList.size()];
-				for (int i = 0; i < seatList.size(); i++) {
-					greadeForReservation[i] = seatList.get(i).getGrade();
-				}
-				req.setAttribute("seatGrade", greadeForReservation);
-				int[] priceForReservation = new int[seatList.size()];
-				for (int i = 0; i < seatList.size(); i++) {
-					priceForReservation[i] = seatList.get(i).getSno();
-				}
-				req.setAttribute("seatPrice", priceForReservation);
-				int[] maxForReservation = new int[seatList.size()];
-				for (int i = 0; i < seatList.size(); i++) {
-					maxForReservation[i] = seatList.get(i).getMax();
-				}
-				req.setAttribute("seatMax", maxForReservation);
-				int[] soldForReservation = new int[seatList.size()];
-				for (int i = 0; i < seatList.size(); i++) {
-					soldForReservation[i] = seatList.get(i).getSold();
-				}
-				req.setAttribute("seatSold", soldForReservation);
-				
 				
 				
 			}catch (Exception e) {
