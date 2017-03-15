@@ -6,4 +6,13 @@
   <insert id="insert" parameterType="reservation">
       insert into reservation(uno, sno, rtime) values(#{uno},#{sno},#{rtime})
   </insert>
+  <select id="selectAllbyUno" parameterType="int" resultType="reservation">
+      select * from reservation where uno = #{uno}
+  </select>
+  <select id="selectList" resultType="reservation">
+      select * from reservation order by rno desc
+  </select>
+  <update id="updateSnoAndRtimeByRno" parameterType="reservation">
+      update reservation set sno = #{sno}, rtime=#{rtime} where rno=#{rno} 
+  </update>
 </mapper>

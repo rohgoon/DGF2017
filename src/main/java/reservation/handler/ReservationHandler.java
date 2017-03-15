@@ -76,8 +76,8 @@ public class ReservationHandler implements CommandHandler {
 				} else {
 					ticket = false;
 				}
-
-				req.setAttribute("ticket", ticket);
+				req.setAttribute("seatInfo", seatBefore);
+				req.setAttribute("ticket", ticket);// true면 예매 완료, false면 매진으로 예매 불가
 				
 				
 				
