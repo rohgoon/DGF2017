@@ -43,7 +43,10 @@
 				var seatLast = seatMax[i]-seatSold[i];
 				if(seatLast>0){
 					$('#money').html('결제 금액 : '+seatPrice[i]+'원<br>'
-							+'남은 티켓 수 : '+seatLast+'장 <input type="hidden" name="seatResult" value="'+seatSold[i]+'">');
+							+'남은 티켓 수 : '+seatLast+'장'
+							+'<input type="hidden" name="seatSoldOut" value="'+(seatSold[i]+1)+'">'
+							+'<input type="hidden" name="seatNoResult" value="'+seatSno[i]+'">'
+							);
 					resultPrice = seatPrice[i];
 					resultGrade = seatGrade[i];
 					$('#btnOk').removeAttr('disabled');
@@ -66,7 +69,7 @@
 </script>
 </head>
 <body>
-	<form action="reservation.do?fno=${param.fesno }" method="post">
+	<form action="reservation.do" method="post">
 		<input type="hidden" name="uno" value="${user.uno }">
 		환영합니다 ${user.uname } 고객님<br>
 		제 ${param.fesno }회 대구 걸그룹 페스티벌 예매<br> 일정 선택 : 

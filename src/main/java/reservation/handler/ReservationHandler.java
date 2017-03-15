@@ -1,6 +1,7 @@
 package reservation.handler;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -49,7 +50,41 @@ public class ReservationHandler implements CommandHandler {
 			
 			return "/WEB-INF/reservation/reservationForm.jsp";
 		}else if (req.getMethod().equalsIgnoreCase("post")) {
+			int sno =Integer.parseInt(req.getParameter("seatNoResult"));
+			int soldOut = Integer.parseInt(req.getParameter("seatSoldOut"));
+			int uno = Integer.parseInt(req.getParameter("uno"));
+			Date date = new Date();
+			SqlSession session = null;
+			try {
+				session = MySqlSessionFactory.openSession();
+				SeatDao seatDao = session.getMapper(SeatDao.class);
+				Seat seatBefore = seatDao.selectBySno(sno);
+				boolean ticket = false;
+				if ((seatBefore.getMax()-seatBefore.getSold()) > 0) {
+					seatBefore.setSold(soldOut);//팔린 티켓 수를 클래스변수에 삽입
+					seatDao.updateBySno(seatBefore);//팔린 티켓 수 업데이트
+					session.commit();
+					//reservation 테이블로 update
+					
+					ticket = true;
+					
+				} else {
+					ticket = false;
+				}
+
+				req.setAttribute("ticket", ticket);
+				
+				
+				
+			}catch (Exception e) {
+				session.rollback();
+				e.printStackTrace();
 			
+			}finally {
+				session.close();
+			}
+			
+			return "/WEB-INF/reservation/reservationSuccess.jsp";
 		}
 		return null;
 	}
