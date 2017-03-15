@@ -38,22 +38,30 @@
 	});	
 	$(document).on("change", '#seatSelect', function() {
 		var seatSelectVal = Number($("#seatSelect").val());
-		for(var i = 0 ; i <seatSno.length; i++){
+		for(var i = 0 ; i <seatSno.length; i++){			
 			if(seatSelectVal == seatSno[i]){
-				$('#money').html('결제 금액 : '+seatPrice[i]+'원<br>'
-						+'남은 티켓 수 : '+(seatMax[i]-seatSold[i])+'장 <input type="hidden" name="seatResult" value="'+seatSold[i]+'">');
-				resultPrice = seatPrice[i];
-				resultGrade = seatGrade[i];
+				var seatLast = seatMax[i]-seatSold[i];
+				if(seatLast>0){
+					$('#money').html('결제 금액 : '+seatPrice[i]+'원<br>'
+							+'남은 티켓 수 : '+seatLast+'장 <input type="hidden" name="seatResult" value="'+seatSold[i]+'">');
+					resultPrice = seatPrice[i];
+					resultGrade = seatGrade[i];
+					$('#btnOk').removeAttr('disabled');
+				}else{
+					alert(seatGrade[i]+"의 티켓이 매진 되었습니다.");
+					$('#btnOk').attr('disabled','disabled');
+				}
 			}
 		}
 	});
-	$(document).on('click', '#btnOk', function() {
-		/* var ok =  */confirm(uname+" 고객님, "+ resultGrade+"열 티켓 "+resultPrice+"원의 결재를 완료 하시겠습니까?");
-		/* if(ok){
+	$(document).on('click', '#btnOk', function() {		
+		
+		var ok =  confirm(uname+" 고객님, "+ resultGrade+"열 티켓 "+resultPrice+"원의 결재를 완료 하시겠습니까?");
+		if(ok){
 			return true;			
 		}else{			
 			return false;
-		} */
+		} 
 	});
 </script>
 </head>
@@ -77,8 +85,9 @@
 			<option value="card">신용카드</option>
 			<option value="bank">계좌이체</option>
 			<option value="cacaoPay">카카오페이</option>
-		</select><br> <input type="submit" value="결제 완료" id="btnOk"><input
-			type="reset" value="취소" id="btnBack">
+		</select><br> 
+		<input type="submit" value="결제 완료" id="btnOk" disabled="disabled">
+		<input type="reset" value="취소" id="btnBack">
 	</form>
 </body>
 </html>
