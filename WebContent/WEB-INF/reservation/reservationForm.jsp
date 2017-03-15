@@ -30,8 +30,7 @@
 				$('#seatSelect').append('<option value="'+seatSno[i]+'">'+seatGrade[i]+'</option>');				
 			}
 		} 
-	});
-	
+	});	
 	$(document).on("change", '#seatSelect', function() {
 		var seatSelectVal = Number($("#seatSelect").val());
 		for(var i = 0 ; i <seatSno.length; i++){
@@ -45,6 +44,7 @@
 </head>
 <body>
 	<form action="reservation.do?fno=${param.fesno }" method="post">
+		<input type="hidden" name="uno" value="${param.uno }">
 		제 ${param.fesno }회 대구 걸그룹 페스티벌 예매<br> 일정 선택 : 
 		<select name="fesSelect" id="fesSelect" >
 			<c:forEach var="daysItem" items="${daysInfo }">
