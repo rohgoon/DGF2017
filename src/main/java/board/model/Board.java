@@ -5,6 +5,10 @@ public class Board {
 	private String name;
 	private int no;
 	
+	
+	
+	
+	// Getter & Setter
 	public String getName() {
 		return name;
 	}
