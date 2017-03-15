@@ -14,13 +14,13 @@
 		<a href="list.do">회원리스트 보기</a>
 		<a href="changePwd.do">비밀번호 변경</a>
 		<br>
-		<a href="reservation.do?fesno=2">예약</a> <!-- 임시로 fesno 지정 -->
+		<a href="reservation.do?fesno=2&id=${auth.id}">예매</a> <!-- 임시로 fesno 지정 -->
 	</c:if>
 	<c:if test="${empty auth}">
 		<a href="login.do">로그인</a>
 		<a href="list.do">회원리스트 보기</a>
 		<a href="join.do">회원가입</a>
-		<a href="reservation.do?fesno=2">예약(test)</a> <!-- 임시로 fesno 지정 -->
+		<!-- <a href="reservation.do?fesno=2">예약(test)</a> 임시로 fesno 지정 -->
 	</c:if>
 </body>
 </html>

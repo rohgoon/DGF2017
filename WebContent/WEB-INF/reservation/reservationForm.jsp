@@ -14,6 +14,11 @@
 	var seatPrice =new Array(); 
 	var seatMax =new Array(); 
 	var seatSold =new Array();
+	var uname = '${user.uname }';
+	var id = '${user.id }';
+	var upassword = '${user.upassword }';
+	var resultGrade;
+	var resultPrice;
 	<c:forEach var='item' items='${seatInfo}'>
 		seatDno.push(${item.dno});
 		seatSno.push(${item.sno});
@@ -37,14 +42,25 @@
 			if(seatSelectVal == seatSno[i]){
 				$('#money').html('결제 금액 : '+seatPrice[i]+'원<br>'
 						+'남은 티켓 수 : '+(seatMax[i]-seatSold[i])+'장 <input type="hidden" name="seatResult" value="'+seatSold[i]+'">');
+				resultPrice = seatPrice[i];
+				resultGrade = seatGrade[i];
 			}
 		}
+	});
+	$(document).on('click', '#btnOk', function() {
+		/* var ok =  */confirm(uname+" 고객님, "+ resultGrade+"열 티켓 "+resultPrice+"원의 결재를 완료 하시겠습니까?");
+		/* if(ok){
+			return true;			
+		}else{			
+			return false;
+		} */
 	});
 </script>
 </head>
 <body>
 	<form action="reservation.do?fno=${param.fesno }" method="post">
-		<input type="hidden" name="uno" value="${param.uno }">
+		<input type="hidden" name="uno" value="${user.uno }">
+		환영합니다 ${user.uname } 고객님<br>
 		제 ${param.fesno }회 대구 걸그룹 페스티벌 예매<br> 일정 선택 : 
 		<select name="fesSelect" id="fesSelect" >
 			<c:forEach var="daysItem" items="${daysInfo }">
@@ -56,13 +72,13 @@
 					<option>일정을 먼저 선택해 주세요.</option>
 				</select>
 		<br>
-		<div id="money"></div>
+		<div id="money">원하는 티켓 등급을 선택해 주세요.</div>
 		<br> 결제 수단 선택 : <select name="pay" id="pay">
 			<option value="card">신용카드</option>
 			<option value="bank">계좌이체</option>
 			<option value="cacaoPay">카카오페이</option>
-		</select><br> <input type="submit" value="결제 완료"><input
-			type="reset" value="취소">
+		</select><br> <input type="submit" value="결제 완료" id="btnOk"><input
+			type="reset" value="취소" id="btnBack">
 	</form>
 </body>
 </html>
