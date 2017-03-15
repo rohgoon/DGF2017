@@ -240,184 +240,86 @@ ALTER TABLE dgf.biz
 		
 		
 		
-		
-		
+-- 게시판
+CREATE TABLE `dgf`.`board` (
+	`board_no`   INT         NOT NULL AUTO_INCREMENT COMMENT '게시판넘버', -- 게시판넘버
+	`board_name` VARCHAR(40) NOT NULL COMMENT '게시판이름', -- 게시판이름
+	PRIMARY KEY (`board_no`)
+)
+COMMENT '게시판';
+
+ALTER TABLE `dgf`.`board`
+	AUTO_INCREMENT = 1;		
 		
 -- 게시물
-CREATE TABLE `dgf`.`board` (
-	`bno`      INT(11)      NOT NULL COMMENT '게시물번호', -- 게시물번호
-	`uno`      INT(11)      NOT NULL COMMENT '작성자(회원번호)', -- 작성자(회원번호)
-	`cno`      INT(11)      NOT NULL COMMENT '카테고리번호', -- 카테고리번호
-	`btitle`   VARCHAR(120) NOT NULL COMMENT '게시물제목', -- 게시물제목
-	`bcontent` TEXT         NOT NULL COMMENT '게시물내용', -- 게시물내용
-	`bdate`    DATETIME     NOT NULL COMMENT '게시물작성시간', -- 게시물작성시간
-	`bhit`     INT(11)      NOT NULL COMMENT '게시물조회수', -- 게시물조회수
-	`brec`     INT(11)      NOT NULL COMMENT '게시물추천수', -- 게시물추천수
-	`battach`  MEDIUMBLOB   NULL     COMMENT '게시물첨부파일' -- 게시물첨부파일
+CREATE TABLE `dgf`.`article` (
+	`article_no`    INT(11)      NOT NULL AUTO_INCREMENT COMMENT '게시물번호', -- 게시물번호
+	`board_no`      INT          NOT NULL COMMENT '게시판넘버', -- 게시판넘버
+	`uno`           INT(11)      NOT NULL COMMENT '회원번호', -- 회원번호
+	`title`         VARCHAR(120) NOT NULL COMMENT '게시물제목', -- 제목
+	`content`       TEXT         NOT NULL COMMENT '게시물내용', -- 내용
+	`category`      VARCHAR(30)  NOT NULL COMMENT '카테고리', -- 카테고리
+	`wrtie_time`    DATETIME     NOT NULL COMMENT '게시물작성시간', -- 작성시간
+	`hits`          INT(11)      NOT NULL DEFAULT 0 COMMENT '게시물조회수', -- 조회수
+	`recommend`     INT(11)      NOT NULL DEFAULT 0 COMMENT '게시물추천수', -- 추천수
+	`attached_file` VARCHAR(200) NULL     COMMENT '게시물첨부파일', -- 첨부파일
+	`file_location` VARCHAR(200) NULL     COMMENT '첨부파일주소', -- 첨부파일주소
+	`delete`        TINYINT(1)   NOT NULL DEFAULT 0 COMMENT '삭제여부', -- 삭제여부
+	PRIMARY KEY (`article_no`, `board_no`),
+	FOREIGN KEY (`board_no`) REFERENCES `dgf`.`board` (`board_no`),
+	FOREIGN KEY (`uno`)	REFERENCES `dgf`.`user` ( `uno`)
 )
 COMMENT '게시물';
 
--- 게시물
-ALTER TABLE `dgf`.`board`
-	ADD CONSTRAINT
-		PRIMARY KEY (
-			`bno` -- 게시물번호
-		);
-
-ALTER TABLE `dgf`.`board`
-	MODIFY COLUMN `bno` INT(11) NOT NULL AUTO_INCREMENT COMMENT '게시물번호';
-
-ALTER TABLE `dgf`.`board`
+ALTER TABLE `dgf`.`article`
 	AUTO_INCREMENT = 1;
 
+	
+	
 -- 게시물추천목록
-CREATE TABLE `dgf`.`boardreclist` (
-	`bno` INT(11) NOT NULL COMMENT '게시물번호', -- 게시물번호
-	`uno` INT(11) NOT NULL COMMENT '회원번호' -- 회원번호
+CREATE TABLE `dgf`.`articleRecList` (
+	`board_no`   INT     NOT NULL COMMENT '게시판넘버', -- 게시판넘버
+	`article_no` INT(11) NOT NULL COMMENT '게시물번호', -- 게시물번호
+	`uno`        INT(11) NOT NULL COMMENT '회원번호', -- 회원번호
+	PRIMARY KEY (`board_no`, `article_no`, `uno`),
+	FOREIGN KEY (`article_no`, `board_no`) REFERENCES `dgf`.`article` (`article_no`, `board_no`),
+	FOREIGN KEY (`uno`)	REFERENCES `dgf`.`user` ( `uno` )
 )
 COMMENT '게시물추천목록';
 
--- 게시물추천목록
-ALTER TABLE `dgf`.`boardreclist`
-	ADD CONSTRAINT
-		PRIMARY KEY (
-			`bno`, -- 게시물번호
-			`uno`  -- 회원번호
-		);
-
--- 카테고리
-CREATE TABLE `dgf`.`category` (
-	`cno`   INT(11)     NOT NULL COMMENT '카테고리번호', -- 카테고리번호
-	`ctype` VARCHAR(20) NOT NULL COMMENT '카테고리이름' -- 카테고리이름
-)
-COMMENT '카테고리';
-
--- 카테고리
-ALTER TABLE `dgf`.`category`
-	ADD CONSTRAINT
-		PRIMARY KEY (
-			`cno` -- 카테고리번호
-		);
-
-ALTER TABLE `dgf`.`category`
-	MODIFY COLUMN `cno` INT(11) NOT NULL AUTO_INCREMENT COMMENT '카테고리번호';
-
-ALTER TABLE `dgf`.`category`
-	AUTO_INCREMENT = 1;
-
 -- 댓글
 CREATE TABLE `dgf`.`reply` (
-	`bno`      INT(11)    NOT NULL COMMENT '게시물번호', -- 게시물번호
-	`rno`      INT(11)    NOT NULL COMMENT '댓글번호', -- 댓글번호
-	`uno`      INT(11)    NOT NULL COMMENT '회원번호', -- 회원번호
-	`rparent`  INT(11)    NOT NULL COMMENT '부모댓글', -- 부모댓글
-	`rlvl`     TINYINT(4) NOT NULL COMMENT '댓글들여쓰기', -- 댓글들여쓰기
-	`rcontent` TEXT       NOT NULL COMMENT '댓글내용', -- 댓글내용
-	`rdate`    DATETIME   NOT NULL COMMENT '댓글작성시간' -- 댓글작성시간
+	`board_no`   INT        NOT NULL COMMENT '게시판넘버', -- 게시판넘버
+	`article_no` INT(11)    NOT NULL COMMENT '게시물번호', -- 게시물번호
+	`reply_no`   INT(11)    NOT NULL AUTO_INCREMENT COMMENT '댓글번호', -- 댓글번호
+	`uno`        INT(11)    NOT NULL COMMENT '회원번호', -- 회원번호
+	`content`    TEXT       NOT NULL COMMENT '댓글내용', -- 댓글내용
+	`parent`     INT(11)    NOT NULL DEFAULT 0 COMMENT '부모댓글', -- 부모댓글
+	`indent`     TINYINT(1) NOT NULL DEFAULT 0 COMMENT '댓글들여쓰기', -- 댓글들여쓰기
+	`write_time` DATETIME   NOT NULL COMMENT '댓글작성시간', -- 댓글작성시간
+	`delete`     TINYINT(1) NOT NULL DEFAULT 0 COMMENT '삭제여부', -- 삭제여부
+	PRIMARY KEY (`reply_no`, `board_no`, `article_no`),
+	FOREIGN KEY (`article_no`, `board_no`)
+	REFERENCES `dgf`.`article` (`article_no`, `board_no`),
+	FOREIGN KEY (`uno`)	REFERENCES `dgf`.`user` (`uno`)
 )
 COMMENT '댓글';
 
--- 댓글
-ALTER TABLE `dgf`.`reply`
-	ADD CONSTRAINT
-		PRIMARY KEY (
-			`bno`, -- 게시물번호
-			`rno`  -- 댓글번호
-		);
-
-ALTER TABLE `dgf`.`reply`
-	MODIFY COLUMN `rno` INT(11) NOT NULL AUTO_INCREMENT COMMENT '댓글번호';
-
 ALTER TABLE `dgf`.`reply`
 	AUTO_INCREMENT = 1;
 
+	
+	
 -- 댓글추천목록
-CREATE TABLE `dgf`.`replyreclist` (
-	`uno` INT(11) NOT NULL COMMENT '회원번호', -- 회원번호
-	`bno` INT(11) NOT NULL COMMENT '게시물번호', -- 게시물번호
-	`rno` INT(11) NOT NULL COMMENT '댓글번호' -- 댓글번호
+CREATE TABLE `dgf`.`replyRecList` (
+	`board_no`   INT     NOT NULL COMMENT '게시판넘버', -- 게시판넘버
+	`article_no` INT(11) NOT NULL COMMENT '게시물번호', -- 게시물번호
+	`reply_no`   INT(11) NOT NULL COMMENT '댓글번호', -- 댓글번호
+	`uno`        INT(11) NOT NULL COMMENT '회원번호', -- 회원번호
+	PRIMARY KEY (`uno`, `reply_no`,  `article_no`, `board_no`),
+	FOREIGN KEY (`reply_no`, `board_no`, `article_no`) REFERENCES `dgf`.`reply`(`reply_no`, `board_no`, `article_no`),
+	FOREIGN KEY (`uno`) REFERENCES `dgf`.`user`(`uno`)
 )
 COMMENT '댓글추천목록';
 
--- 댓글추천목록
-ALTER TABLE `dgf`.`replyreclist`
-	ADD CONSTRAINT
-		PRIMARY KEY (
-			`uno`, -- 회원번호
-			`bno`, -- 게시물번호
-			`rno`  -- 댓글번호
-		);
-
--- 게시물
-ALTER TABLE `dgf`.`board`
-	ADD CONSTRAINT `FK_category_TO_board` -- FK_category_TO_board
-		FOREIGN KEY (
-			`cno` -- 카테고리번호
-		)
-		REFERENCES `dgf`.`category` ( -- 카테고리
-			`cno` -- 카테고리번호
-		),
-	ADD INDEX `FK_category_TO_board` (
-		`cno` -- 카테고리번호
-	);
-
--- 게시물
-ALTER TABLE `dgf`.`board`
-	ADD CONSTRAINT `FK_user_TO_board` -- FK_user_TO_board
-		FOREIGN KEY (
-			`uno` -- 작성자(회원번호)
-		)
-		REFERENCES `dgf`.`user` ( -- 회원
-			`uno` -- 회원번호
-		),
-	ADD INDEX `FK_user_TO_board` (
-		`uno` -- 작성자(회원번호)
-	);
-
--- 댓글
-ALTER TABLE `dgf`.`reply`
-	ADD CONSTRAINT `FK_board_TO_reply` -- FK_board_TO_reply
-		FOREIGN KEY (
-			`bno` -- 게시물번호
-		)
-		REFERENCES `dgf`.`board` ( -- 게시물
-			`bno` -- 게시물번호
-		),
-	ADD INDEX `FK_board_TO_reply` (
-		`bno` -- 게시물번호
-	);
-
--- 댓글
-ALTER TABLE `dgf`.`reply`
-	ADD CONSTRAINT `FK_user_TO_reply` -- FK_user_TO_reply
-		FOREIGN KEY (
-			`uno` -- 회원번호
-		)
-		REFERENCES `dgf`.`user` ( -- 회원
-			`uno` -- 회원번호
-		),
-	ADD INDEX `FK_user_TO_reply` (
-		`uno` -- 회원번호
-	);
-
--- 게시물추천목록
-ALTER TABLE `dgf`.`boardreclist`
-	ADD CONSTRAINT `FK_board_TO_boardreclist` -- FK_board_TO_boardreclist
-		FOREIGN KEY (
-			`bno` -- 게시물번호
-		)
-		REFERENCES `dgf`.`board` ( -- 게시물
-			`bno` -- 게시물번호
-		);
-
--- 댓글추천목록
-ALTER TABLE `dgf`.`replyreclist`
-	ADD CONSTRAINT `FK_reply_TO_replyreclist` -- 댓글 -> 댓글추천목록
-		FOREIGN KEY (
-			`bno`, -- 게시물번호
-			`rno`  -- 댓글번호
-		)
-		REFERENCES `dgf`.`reply` ( -- 댓글
-			`bno`, -- 게시물번호
-			`rno`  -- 댓글번호
-		);
+	

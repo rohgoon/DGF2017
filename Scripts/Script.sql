@@ -109,47 +109,4 @@ select uno,id,uname,upassword,email,phone, regDate from user where id = 't1111';
 
 
 
-insert into category VALUES(1, "공지사항"),(2, "잡담"),(3, "질문"),(4, "정보");
-
-insert into board(uno, cno, btitle, bcontent, bdate, bhit, brec) VALUES
-(1, 1, "공지사항1", "공지사항입니다.", "2016-03-01", 10, 5),
-(2, 1, "공지사항2", "공지사항입니다.", "2016-03-11", 50, 0),
-(1, 2, "잡담1", "잡담입니다.", "2017-03-01", 110, 5),
-(2, 3, "질문입니다.", "질문.", "2016-05-01", 10, 5);
-
-SELECT * from board;
-SELECT * from reply;
-insert into reply(bno, uno, rparent, rlvl, rcontent, rdate, rrec) VALUES
-(1, 1, 0, 0, "공지사항1 댓글", "2016-03-01", 1),
-(1, 2, 0, 0, "공지사항1 댓글2", "2016-03-02", 2),
-(1, 2, 2, 1, "공지사항1 대댓글2", "2016-03-02", 2),
-(2, 2, 0, 0, "공지사항2 댓글2", "2016-03-03", 0),
-(3, 2, 0, 0, "공지사항2 댓글2", "2016-03-03", 0);
-
-SELECT * from replyreclist;
-insert into replyreclist(uno, bno, rno) VALUES
-(1, 1, 1),
-(1, 1, 2),
-(2, 1, 2),
-(3, 1, 3),
-(4, 1, 3);
-
-
-SELECT * from boardreclist;
-insert into boardreclist(bno, uno) VALUES
-(1, 1),
-(1, 2),
-(1, 3),
-(1, 4),
-(1, 5),
-(3, 1),
-(3, 2),
-(3, 3),
-(3, 4),
-(3, 5),
-(4, 1),
-(4, 2),
-(4, 3),
-(4, 4),
-(4, 5);
 
