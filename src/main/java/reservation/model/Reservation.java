@@ -1,18 +1,19 @@
 package reservation.model;
 
 import java.sql.Time;
+import java.util.Date;
 
 public class Reservation {
 	private int rno;
 	private int uno;
 	private int sno;
-	private Time rtime;
+	private Date rtime;
 	
 	public Reservation() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Reservation(int rno, int uno, int sno, Time rtime) {
+	public Reservation(int rno, int uno, int sno, Date rtime) {
 		super();
 		this.rno = rno;
 		this.uno = uno;
@@ -20,7 +21,7 @@ public class Reservation {
 		this.rtime = rtime;
 	}
 
-	public Reservation(int uno, int sno, Time rtime) {
+	public Reservation(int uno, int sno, Date rtime) {
 		super();
 		this.uno = uno;
 		this.sno = sno;
@@ -51,11 +52,11 @@ public class Reservation {
 		this.sno = sno;
 	}
 
-	public Time getRtime() {
+	public Date getRtime() {
 		return rtime;
 	}
 
-	public void setRtime(Time rtime) {
+	public void setRtime(Date rtime) {
 		this.rtime = rtime;
 	}
 	

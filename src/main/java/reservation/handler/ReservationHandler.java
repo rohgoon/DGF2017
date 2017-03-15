@@ -17,6 +17,8 @@ import member.model.MemberDao;
 import member.model.User;
 import mvc.controller.CommandHandler;
 import mvc.util.MySqlSessionFactory;
+import reservation.model.Reservation;
+import reservation.model.ReservationDao;
 
 public class ReservationHandler implements CommandHandler {
 	
@@ -53,7 +55,7 @@ public class ReservationHandler implements CommandHandler {
 			int sno =Integer.parseInt(req.getParameter("seatNoResult"));
 			int soldOut = Integer.parseInt(req.getParameter("seatSoldOut"));
 			int uno = Integer.parseInt(req.getParameter("uno"));
-			Date date = new Date();
+			Date rtime = new Date();
 			SqlSession session = null;
 			try {
 				session = MySqlSessionFactory.openSession();
@@ -63,11 +65,14 @@ public class ReservationHandler implements CommandHandler {
 				if ((seatBefore.getMax()-seatBefore.getSold()) > 0) {
 					seatBefore.setSold(soldOut);//팔린 티켓 수를 클래스변수에 삽입
 					seatDao.updateBySno(seatBefore);//팔린 티켓 수 업데이트
-					session.commit();
+					//session.commit();
 					//reservation 테이블로 update
-					
+					ReservationDao reservationDao =session.getMapper(ReservationDao.class);
+					Reservation reservation = new Reservation(uno, sno, rtime);
+					reservationDao.insert(reservation);					
 					ticket = true;
-					
+					req.setAttribute("reservationInfo", reservation);
+					session.commit();
 				} else {
 					ticket = false;
 				}
