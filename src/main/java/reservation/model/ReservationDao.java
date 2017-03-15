@@ -8,4 +8,6 @@ public interface ReservationDao {
 	public List<Reservation> selectAllbyUno(int uno) throws SQLException;
 	public List<Reservation> selectList() throws SQLException;
 	public void updateSnoByRno(Reservation reservation) throws SQLException;
+	public List<ReservationView> selectDetailListbyUno(int uno) throws SQLException;
+	public ReservationView selectDetailByRno(int rno) throws SQLException;
 }

@@ -15,4 +15,10 @@
   <update id="updateSnoAndRtimeByRno" parameterType="reservation">
       update reservation set sno = #{sno}, rtime=#{rtime} where rno=#{rno} 
   </update>
+  <select id="selectDetailListbyUno" parameterType="int" resultType="ReservationView">
+      select * from v_reservation_detail where uno =#{uno}
+  </select>
+  <select id="selectDetailByRno" parameterType="int" resultType="ReservationView">
+      select * from v_reservation_detail where rno =#{rno}
+  </select>
 </mapper>

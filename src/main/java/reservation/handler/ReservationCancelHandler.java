@@ -20,7 +20,7 @@ import mvc.util.MySqlSessionFactory;
 import reservation.model.Reservation;
 import reservation.model.ReservationDao;
 
-public class ReservationModifyHandler implements CommandHandler {
+public class ReservationCancelHandler implements CommandHandler {
 	
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {

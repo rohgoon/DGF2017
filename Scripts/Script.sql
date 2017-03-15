@@ -1,7 +1,9 @@
+DROP VIEW v_class_detail;
+
 CREATE VIEW v_class_detail
 AS select
 s.sno as no,
-s.class as class,
+s.grade as grade,
 s.price as price,
 s.max as maxseat,
 s.sold as soldseat,
@@ -109,3 +111,30 @@ select uno,id,uname,upassword,email,phone, regDate from user where id = 't1111';
 select * from seat where dno =2 order by sno desc;
 
 update seat set dno = 2, grade='A', price='70000', max='100', sold='0' where dno = '2' and grade='A';
+
+/*예매확인용 뷰*/
+CREATE VIEW v_reservation_detail
+AS select
+r.rno as rno,
+r.uno as uno,
+r.rtime as rtime,
+s.sno as sno,
+s.grade as grade,
+s.price as price,
+s.max as maxseat,
+s.sold as soldseat,
+d.dno as dno,
+d.day as day,
+d.stime as stime,
+d.etime as etime,
+f.fno as fno,
+f.place as place,
+f.sday as sday,
+f.eday as eday
+from reservation r
+left join seat s on r.sno = s.sno
+left join days d on s.dno = d.dno
+left join fesinfo f on d.fno = f.fno;
+
+select * from v_reservation_detail;
+select * from v_reservation_detail where uno = 1;

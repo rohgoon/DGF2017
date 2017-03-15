@@ -11,8 +11,8 @@ import member.model.MemberDao;
 import member.model.User;
 import mvc.controller.CommandHandler;
 import mvc.util.MySqlSessionFactory;
-import reservation.model.Reservation;
 import reservation.model.ReservationDao;
+import reservation.model.ReservationView;
 
 public class ReservationConfirmHandler implements CommandHandler {
 	
@@ -27,8 +27,11 @@ public class ReservationConfirmHandler implements CommandHandler {
 				User user = memberDao.selectAllByUno(uno);
 				req.setAttribute("userInfo", user);
 				ReservationDao reservationDao = session.getMapper(ReservationDao.class);
-				List<Reservation> reservationList = reservationDao.selectAllbyUno(uno);
-				req.setAttribute("reservationList", reservationList);
+				List<ReservationView> reservationViews = reservationDao.selectDetailListbyUno(uno);
+				req.setAttribute("reservationList", reservationViews);
+				/*List<Reservation> reservationList = reservationDao.selectAllbyUno(uno);
+				req.setAttribute("reservationList", reservationList);*/
+				
 				
 			}catch (Exception e) {
 				session.rollback();
