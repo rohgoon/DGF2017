@@ -14,6 +14,7 @@
 	var seatPrice =new Array(); 
 	var seatMax =new Array(); 
 	var seatSold =new Array();
+	var seatLast;
 	var uname = '${user.uname }';
 	var id = '${user.id }';
 	var upassword = '${user.upassword }';
@@ -40,7 +41,7 @@
 		var seatSelectVal = Number($("#seatSelect").val());
 		for(var i = 0 ; i <seatSno.length; i++){			
 			if(seatSelectVal == seatSno[i]){
-				var seatLast = seatMax[i]-seatSold[i];
+				seatLast = seatMax[i]-seatSold[i];
 				if(seatLast>0){
 					$('#money').html('결제 금액 : '+seatPrice[i]+'원<br>'
 							+'남은 티켓 수 : '+seatLast+'장'
@@ -60,21 +61,23 @@
 		}
 	});
 	$(document).on('click', '#howMany', function() {
-		var num = 1;
-		var seatLast = seatMax[i]-seatSold[i];
+		var num = 1;		
 		$('#howMany').change(function() {
-			num = Number($('#howMany').val());			
+			$('#howMany').attr("max", seatLast);
+			num = Number($('#howMany').val());	
+			$('#btnOk').removeAttr('disabled');/* 					
 			if(num > seatLast ){
 				alert("잔여 티켓 수를 초과 했습니다.");
 				$('#btnOk').attr('disabled','disabled');
 			}else{				
 				$('#btnOk').removeAttr('disabled');
-			}			
+			}			 */
 		});
 		if(num > seatLast ){
 			alert("잔여 티켓 수를 초과 했습니다.");
 			$('#btnOk').attr('disabled','disabled');
-		}else{				
+		}else{			
+			$('#howMany').attr("max", seatLast);
 			$('#btnOk').removeAttr('disabled');
 		}
 	}
