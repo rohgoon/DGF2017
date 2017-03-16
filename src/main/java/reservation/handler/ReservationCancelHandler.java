@@ -56,7 +56,7 @@ public class ReservationCancelHandler implements CommandHandler {
 				session.close();
 			}
 			
-			return "/WEB-INF/reservation/reservationConfirmForm.jsp";
+			return "reservationConfirm.do?uno="+uno;
 		
 	}
 

@@ -16,13 +16,13 @@
       update reservation set sno = #{sno}, rtime=#{rtime} where rno=#{rno} 
   </update> 
   <delete id="delectByRno" parameterType="int">
-      delete reservation where rno =#{rno}
+      delete from reservation where rno =#{rno}
   </delete>
   <select id="selectAllByUnoAndRtime" parameterType="reservation" resultType="reservation">
       select * from reservation where uno = #{uno} and rtime = #{rtime}
   </select>
   <delete id="delectByUnoAndRtime" parameterType="reservation">
-      delete reservation where uno = #{uno} and rtime = #{rtime}
+      delete from reservation where uno = #{uno} and rtime = #{rtime}
   </delete>
   <select id="selectCountTicketByUnoAndRtime" parameterType="reservation" resultType="int">
       select count(*) from reservation where uno = #{uno} and rtime = #{rtime}
