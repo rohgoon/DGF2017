@@ -1,6 +1,5 @@
 package reservation.model;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -9,6 +8,7 @@ public class Reservation {
 	private int uno;
 	private int sno;
 	private Date rtime;
+	private int countTicket;
 	
 	public Reservation() {
 		// TODO Auto-generated constructor stub
@@ -56,6 +56,7 @@ public class Reservation {
 	public Date getRtime(){
 		return rtime;
 	}
+	
 	public String getRtimeString(){
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 		String daySdf = sdf.format(rtime);
@@ -64,6 +65,14 @@ public class Reservation {
 
 	public void setRtime(Date rtime) {
 		this.rtime = rtime;
+	}
+
+	public int getCount() {
+		return countTicket;
+	}
+
+	public void setCount(int count) {
+		this.countTicket = count;
 	}
 	
 	
