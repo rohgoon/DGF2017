@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
-	var check;
+	var check =null;
 	var num=0;
 	var displayIndex= new Array();
 	var sumDivs =1;
@@ -22,7 +22,7 @@
 			<c:if test="${item.rtimeString == check }">
 				sumDivs++;					
 			</c:if>
-			check = ${item.rtimeString }
+			check = "${item.rtimeString }";
 			num++;
 	</c:forEach>
 	
