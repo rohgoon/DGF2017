@@ -31,7 +31,7 @@
 					<td>${member.upassword }</td>
 					<td>${member.email }</td>
 					<td>${member.phone }</td>
-					<td>${member.regDate }</td>					
+					<td>${member.regDateString }</td>					
 				</tr>
 			</c:if>
 			</c:forEach>

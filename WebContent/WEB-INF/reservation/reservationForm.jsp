@@ -75,7 +75,7 @@
 		제 ${param.fesno }회 대구 걸그룹 페스티벌 예매<br> 일정 선택 : 
 		<select name="fesSelect" id="fesSelect" >
 			<c:forEach var="daysItem" items="${daysInfo }">
-				<option value="${daysItem.dno }">${daysItem.day }=>
+				<option value="${daysItem.dno }">${daysItem.dayString }=>
 					${daysItem.stime } ~ ${daysItem.etime }</option>
 			</c:forEach>
 		</select> <br>

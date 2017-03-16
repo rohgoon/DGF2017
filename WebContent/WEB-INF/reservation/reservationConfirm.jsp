@@ -27,7 +27,7 @@
 			<c:forEach var="item" items="${reservationList }">
 				<c:if test="${item.uno == userInfo.uno }">
 					페스티벌 회차 : ${item.fno }회<br> 
-					공연일 : ${item.day }<br>
+					공연일 : ${item.dayString }<br>
 					티켓 등급 : ${item.grade }<br>
 					가격 : ${item.price }<br>
 					결제 시간: ${item.rtime }<br>
