@@ -1,5 +1,7 @@
 package member.model;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class User {
@@ -88,8 +90,10 @@ public class User {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public Date getRegDate() {
-		return regDate;
+	public Date getRegDate() throws ParseException {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String daySdf = sdf.format(regDate);
+		return sdf.parse(daySdf);
 	}
 	public void setRegDate(Date regDate) {
 		this.regDate = regDate;

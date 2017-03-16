@@ -23,8 +23,7 @@ public class reservationViewTest {
 			}
 		}catch (Exception e) {
 			session.rollback();
-			e.printStackTrace();
-		
+			e.printStackTrace();		
 		}finally {
 			session.close();
 		}

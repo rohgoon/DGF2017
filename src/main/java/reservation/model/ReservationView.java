@@ -1,6 +1,8 @@
 package reservation.model;
 
 import java.sql.Time;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class ReservationView {
@@ -53,8 +55,10 @@ public class ReservationView {
 	public void setUno(int uno) {
 		this.uno = uno;
 	}
-	public Date getRtime() {
-		return rtime;
+	public Date getRtime() throws ParseException {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String daySdf = sdf.format(rtime);
+		return sdf.parse(daySdf);
 	}
 	public void setRtime(Date rtime) {
 		this.rtime = rtime;
@@ -89,8 +93,10 @@ public class ReservationView {
 	public void setDno(int dno) {
 		this.dno = dno;
 	}
-	public Date getDay() {
-		return day;
+	public Date getDay() throws ParseException {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String daySdf = sdf.format(day);
+		return sdf.parse(daySdf);
 	}
 	public void setDay(Date day) {
 		this.day = day;
@@ -119,23 +125,29 @@ public class ReservationView {
 	public void setPlace(String place) {
 		this.place = place;
 	}
-	public Date getSday() {
-		return sday;
+	public Date getSday() throws ParseException {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String daySdf = sdf.format(sday);
+		return sdf.parse(daySdf);
 	}
 	public void setSday(Date sday) {
 		this.sday = sday;
 	}
-	public Date getEday() {
-		return eday;
+	public Date getEday() throws ParseException {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String daySdf = sdf.format(eday);
+		return sdf.parse(daySdf);
 	}
 	public void setEday(Date eday) {
 		this.eday = eday;
 	}
 	@Override
 	public String toString() {
-		return "ReservationView [rno=" + rno + ", uno=" + uno + ", rtime=" + rtime + ", sno=" + sno + ", grade=" + grade
-				+ ", maxseat=" + maxseat + ", soldseat=" + soldseat + ", dno=" + dno + ", day=" + day + ", stime="
-				+ stime + ", etime=" + etime + ", fno=" + fno + ", place=" + place + ", sday=" + sday + ", eday=" + eday
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		
+		return "ReservationView [rno=" + rno + ", uno=" + uno + ", rtime=" + sdf.format(rtime) + ", sno=" + sno + ", grade=" + grade
+				+ ", maxseat=" + maxseat + ", soldseat=" + soldseat + ", dno=" + dno + ", day=" + sdf.format(day) + ", stime="
+				+ stime + ", etime=" + etime + ", fno=" + fno + ", place=" + place + ", sday=" + sdf.format(sday) + ", eday=" + sdf.format(eday)
 				+ "]";
 	}
 	

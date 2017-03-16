@@ -1,6 +1,8 @@
 package festival.model;
 
 import java.sql.Time;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Days {
@@ -39,8 +41,10 @@ public class Days {
 	public void setFno(int fno) {
 		this.fno = fno;
 	}
-	public Date getDay() {
-		return day;
+	public Date getDay() throws ParseException {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String daySdf = sdf.format(day);
+		return sdf.parse(daySdf);
 	}
 	public void setDay(Date day) {
 		this.day = day;
