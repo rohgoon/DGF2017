@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="festival.model.ReservationDao"> 
+<mapper namespace="reservation.model.ReservationDao"> 
   <insert id="insert" parameterType="reservation">
       insert into reservation(uno, sno, rtime) values(#{uno},#{sno},#{rtime})
   </insert>
@@ -14,11 +14,5 @@
   </select>
   <update id="updateSnoAndRtimeByRno" parameterType="reservation">
       update reservation set sno = #{sno}, rtime=#{rtime} where rno=#{rno} 
-  </update><!-- 
-  <select id="selectDetailListbyUno" parameterType="int" resultType="ReservationView">
-      select * from v_reservation_detail where uno =#{uno}
-  </select>
-  <select id="selectDetailByRno" parameterType="int" resultType="ReservationView">
-      select * from v_reservation_detail where rno =#{rno}
-  </select> -->
+  </update> 
 </mapper>

@@ -136,5 +136,28 @@ left join seat s on r.sno = s.sno
 left join days d on s.dno = d.dno
 left join fesinfo f on d.fno = f.fno;
 
-select * from v_reservation_detail;
+select * from reservationView;
 select * from v_reservation_detail where uno = 1;
+
+CREATE VIEW reservationView
+AS select
+r.rno as rno,
+r.uno as uno,
+r.rtime as rtime,
+s.sno as sno,
+s.grade as grade,
+s.price as price,
+s.max as maxseat,
+s.sold as soldseat,
+d.dno as dno,
+d.day as day,
+d.stime as stime,
+d.etime as etime,
+f.fno as fno,
+f.place as place,
+f.sday as sday,
+f.eday as eday
+from reservation r
+left join seat s on r.sno = s.sno
+left join days d on s.dno = d.dno
+left join fesinfo f on d.fno = f.fno;

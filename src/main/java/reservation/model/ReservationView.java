@@ -131,6 +131,13 @@ public class ReservationView {
 	public void setEday(Date eday) {
 		this.eday = eday;
 	}
+	@Override
+	public String toString() {
+		return "ReservationView [rno=" + rno + ", uno=" + uno + ", rtime=" + rtime + ", sno=" + sno + ", grade=" + grade
+				+ ", maxseat=" + maxseat + ", soldseat=" + soldseat + ", dno=" + dno + ", day=" + day + ", stime="
+				+ stime + ", etime=" + etime + ", fno=" + fno + ", place=" + place + ", sday=" + sday + ", eday=" + eday
+				+ "]";
+	}
 	
 	
 }

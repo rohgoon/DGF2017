@@ -28,15 +28,10 @@ public class ReservationConfirmHandler implements CommandHandler {
 				req.setAttribute("userInfo", user);
 				ReservationDao reservationDao = session.getMapper(ReservationDao.class);
 				List<ReservationView> reservationViews = reservationDao.selectDetailListbyUno(uno);
-				req.setAttribute("reservationList", reservationViews);
-				/*List<Reservation> reservationList = reservationDao.selectAllbyUno(uno);
-				req.setAttribute("reservationList", reservationList);*/
-				
-				
+				req.setAttribute("reservationList", reservationViews);				
 			}catch (Exception e) {
 				session.rollback();
 				e.printStackTrace();
-			
 			}finally {
 				session.close();
 			}
