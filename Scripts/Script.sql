@@ -73,6 +73,9 @@ insert into user(id,uname,upassword,email,phone, regdate,outmember) values
 ('t9999','정구수','t9999','t9999@dgit.or.kr','010-9999-1111','2015-11-07',0),
 ('t0000','임십수','t0000','t0000@dgit.or.kr','010-1010-1111','2015-11-08',0);
 
+insert into user(id,uname,upassword,email,phone, regdate,outmember) values
+('admin', 'admin', 'admin', 'admin@admin.co.kr', '010-0000-0000', '2015-01-01', 0);
+
 /*예매*/
 	/*<예매시 수행*/
 insert into reservation(uno,sno,rtime) values
@@ -109,4 +112,17 @@ select uno,id,uname,upassword,email,phone, regDate from user where id = 't1111';
 
 
 
+
+
+select * from board;
+select * from board order by board_no;
+select * from board order by board_no ;
+
+insert into board(board_name) VALUES "board1";
+
+INSERT INTO dgf.board (board_name) VALUES('board');
+
+UPDATE board SET board_name='board' WHERE board_no = 4    
+
+delete from board where board_no = 9;
 

@@ -32,13 +32,15 @@ public class memberTest {
 		try {
 			session = MySqlSessionFactory.openSession();
 			MemberDao dao = session.getMapper(MemberDao.class);
+			
+			
+			
 			String id = "t1111";
 			User user = dao.selectAllById(id);
 			System.out.println(user.toString());
 		} catch (Exception e) {
 			session.rollback();
 			e.printStackTrace();
-
 		} finally {
 			session.close();
 		}

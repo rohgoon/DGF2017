@@ -5,12 +5,18 @@
 <configuration>
 	<properties resource="db.properties"/>
   
+	<settings>
+        <setting name="mapUnderscoreToCamelCase" value="true" />
+     </settings>
+	
   <typeAliases>
     <typeAlias type="member.model.User" alias="User"/>
     <typeAlias type="article.model.Article" alias="Article"/>
     <typeAlias type="board.model.Board" alias="Board"/>
     <typeAlias type="reply.model.Reply" alias="Reply"/>
   </typeAliases>
+  
+  
   
   <environments default="development">
     <environment id="development">

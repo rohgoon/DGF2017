@@ -8,14 +8,18 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<c:if test="${auth.id == 'admin'}">
+		<p>관리자 계정으로 로그인 하셨습니다.</p>
+		<a href="readBoardList.do">게시판 리스트</a>
+	</c:if>
 	<c:if test="${!empty auth}">
 		<p>${auth.uname}님. 반갑습니다.</p>
 		<a href="logout.do">로그아웃</a>
 		<a href="list.do">회원리스트 보기</a>
 		<a href="changePwd.do">비밀번호 변경</a>
 		<br>
-		<a href="write.do">[게시글 작성하기]</a>
-		<a href="listarticle.do">[게시글 목록보기]</a>
+		<a href="write.do">[자유게시판 글 작성하기]</a>
+		<a href="listarticle.do">[자유게시판 보기]</a>
 	</c:if>
 	<c:if test="${empty auth}">
 		<a href="login.do">로그인</a>
