@@ -8,14 +8,14 @@
   </insert>
   <select id="selectAllById" parameterType="string" resultType="user">
       select uno,id,uname,upassword,email,phone,regDate from user where id = #{id}
-  </select>
-   <select id="selectAllById" parameterType="int" resultType="user">
-      select * from user where uno = #{uno}
-  </select>
+  </select>   
   <select id="selectList" resultType="user">
       select * from user order by uno desc
   </select>
   <update id="updatePwdById" parameterType="string">
       update user set upassword = #{param1} where upassword = #{param2}     
   </update>
+  <select id="selectAllByUno" parameterType="int" resultType="user">
+      select * from user where uno = #{uno}
+  </select>
 </mapper>
