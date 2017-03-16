@@ -54,24 +54,28 @@ public class ReservationHandler implements CommandHandler {
 		}else if (req.getMethod().equalsIgnoreCase("post")) {
 			int sno =Integer.parseInt(req.getParameter("seatNoResult"));
 			int soldOut = Integer.parseInt(req.getParameter("seatSoldOut"));
+			//soldOut에 구매 티켓 수를 빼야함
+			int howMany = Integer.parseInt(req.getParameter("howMany"));//
 			int uno = Integer.parseInt(req.getParameter("uno"));
 			Date rtime = new Date();
-			System.out.println(rtime.toLocaleString());
+			System.out.println(rtime);
 			SqlSession session = null;
 			try {
 				session = MySqlSessionFactory.openSession();
 				SeatDao seatDao = session.getMapper(SeatDao.class);
 				Seat seatBefore = seatDao.selectBySno(sno);
 				boolean ticket = false;
-				if ((seatBefore.getMax()-seatBefore.getSold()) > 0) {
-					seatBefore.setSold(soldOut);//팔린 티켓 수를 클래스변수에 삽입
+				if ((seatBefore.getMax()-seatBefore.getSold()) > 0 && howMany <soldOut) {
+					seatBefore.setSold(soldOut+howMany);//팔린 티켓 수를 클래스변수에 삽입
 					seatDao.updateBySno(seatBefore);//팔린 티켓 수 업데이트
 					session.commit();
 					System.out.println("팔린 티켓수 업데이트 완료 : "+soldOut);
 					//reservation 테이블로 update
 					ReservationDao reservationDao =session.getMapper(ReservationDao.class);
-					Reservation reservation = new Reservation(uno, sno, rtime);
-					reservationDao.insert(reservation);					
+					Reservation reservation = new Reservation(uno, sno, rtime);					
+					for (int i = 0; i < howMany; i++) {
+						reservationDao.insert(reservation);						
+					}										
 					ticket = true;
 					req.setAttribute("reservationInfo", reservation);
 					session.commit();

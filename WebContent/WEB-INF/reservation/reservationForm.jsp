@@ -45,7 +45,7 @@
 				if(seatLast>0){
 					$('#money').html('결제 금액 : '+seatPrice[i]+'원<br>'
 							+'남은 티켓 수 : '+seatLast+'장'
-							+'<input type="hidden" name="seatSoldOut" value="'+(seatSold[i]+1)+'">'
+							+'<input type="hidden" name="seatSoldOut" value="'+seatSold[i]+'">'
 							+'<input type="hidden" name="seatNoResult" value="'+seatSno[i]+'">'
 							);
 					resultPrice = seatPrice[i];
@@ -64,17 +64,17 @@
 		var num = 1;		
 		$('#howMany').change(function() {
 			$('#howMany').attr("max", seatLast);
-			num = Number($('#howMany').val());	
-			$('#btnOk').removeAttr('disabled');/* 					
-			if(num > seatLast ){
+			num = Number($('#howMany').val());
+			$('#btnOk').removeAttr('disabled');			
+			/* if(num > seatLast ){
 				alert("잔여 티켓 수를 초과 했습니다.");
 				$('#btnOk').attr('disabled','disabled');
 			}else{				
 				$('#btnOk').removeAttr('disabled');
-			}			 */
+			}	 */		 
 		});
 		if(num > seatLast ){
-			alert("잔여 티켓 수를 초과 했습니다.");
+			alert("티켓이 이미 매진입니다.");
 			$('#btnOk').attr('disabled','disabled');
 		}else{			
 			$('#howMany').attr("max", seatLast);
@@ -108,7 +108,7 @@
 				</select>
 		<br>
 		<div id="money">원하는 티켓 등급을 선택해 주세요.</div>
-		<input type="number" id="howMany" min="1" disabled="disabled">
+		<input type="number" name="howMany" id="howMany" min="1" disabled="disabled">
 		<br> 결제 수단 선택 : <select name="pay" id="pay">
 			<option value="card">신용카드</option>
 			<option value="bank">계좌이체</option>

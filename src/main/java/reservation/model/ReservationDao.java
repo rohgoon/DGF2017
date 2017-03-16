@@ -9,5 +9,5 @@ public interface ReservationDao {
 	public List<Reservation> selectList() throws SQLException;
 	public void updateSnoAndRtimeByRno(Reservation reservation) throws SQLException;
 	public void delectByRno(int rno) throws SQLException;
-	
+	public List<Reservation> selectAllByUnoAndRtime(Reservation reservation) throws SQLException;
 }
