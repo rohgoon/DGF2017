@@ -136,7 +136,8 @@ left join seat s on r.sno = s.sno
 left join days d on s.dno = d.dno
 left join fesinfo f on d.fno = f.fno;
 
-SELECT rtime from reservationView;
+SELECT * from reservationView;
 
 
 select count(*) from reservation where uno = 1 and rtime = '2017-03-16 00:00:00';
+
