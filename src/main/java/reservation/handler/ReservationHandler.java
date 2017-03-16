@@ -65,7 +65,8 @@ public class ReservationHandler implements CommandHandler {
 				if ((seatBefore.getMax()-seatBefore.getSold()) > 0) {
 					seatBefore.setSold(soldOut);//팔린 티켓 수를 클래스변수에 삽입
 					seatDao.updateBySno(seatBefore);//팔린 티켓 수 업데이트
-					//session.commit();
+					session.commit();
+					System.out.println("팔린 티켓수 업데이트 완료 : "+soldOut);
 					//reservation 테이블로 update
 					ReservationDao reservationDao =session.getMapper(ReservationDao.class);
 					Reservation reservation = new Reservation(uno, sno, rtime);
@@ -73,6 +74,7 @@ public class ReservationHandler implements CommandHandler {
 					ticket = true;
 					req.setAttribute("reservationInfo", reservation);
 					session.commit();
+					System.out.println("예매 테이블 삽입 완료 : "+reservation.getRtimeString());
 				} else {
 					ticket = false;
 				}
