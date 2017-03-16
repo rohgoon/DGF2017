@@ -31,7 +31,7 @@
 					티켓 등급 : ${item.grade }<br>
 					가격 : ${item.price }<br>
 					결제 시간: ${item.rtimeString }<br>
-					<a href="reservationCancel.do?rno=${item.rno }" id="cancel">예매 취소</a>
+					<a href="reservationCancel.do?rno=${item.rno }&grade=${item.grade}&rtime=${item.rtime}" id="cancel">예매 취소</a>
 					<hr>
 				</c:if>
 			</c:forEach>			
