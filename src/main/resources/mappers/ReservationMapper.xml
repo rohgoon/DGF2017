@@ -15,4 +15,7 @@
   <update id="updateSnoAndRtimeByRno" parameterType="reservation">
       update reservation set sno = #{sno}, rtime=#{rtime} where rno=#{rno} 
   </update> 
+  <delete id="delectByRno" parameterType="int">
+      delete reservation where rno =#{rno}
+  </delete>
 </mapper>

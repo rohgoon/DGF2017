@@ -1,6 +1,5 @@
 package reservation.model;
 
-import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -54,10 +53,13 @@ public class Reservation {
 		this.sno = sno;
 	}
 
-	public Date getRtime() throws ParseException {
+	public Date getRtime(){
+		return rtime;
+	}
+	public String getRtimeString(){
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		String daySdf = sdf.format(rtime);
-		return sdf.parse(daySdf);
+		return daySdf;
 	}
 
 	public void setRtime(Date rtime) {

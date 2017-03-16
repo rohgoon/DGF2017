@@ -55,10 +55,14 @@ public class ReservationView {
 	public void setUno(int uno) {
 		this.uno = uno;
 	}
-	public Date getRtime() throws ParseException {
+	public Date getRtime(){
+		
+		return rtime;
+	}
+	public String getRtimeSting() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		String daySdf = sdf.format(rtime);
-		return sdf.parse(daySdf);
+		return daySdf;
 	}
 	public void setRtime(Date rtime) {
 		this.rtime = rtime;
@@ -93,10 +97,14 @@ public class ReservationView {
 	public void setDno(int dno) {
 		this.dno = dno;
 	}
-	public Date getDay() throws ParseException {
+	public Date getDay() {
+		
+		return day;
+	}
+	public String getDayString() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		String daySdf = sdf.format(day);
-		return sdf.parse(daySdf);
+		return daySdf;
 	}
 	public void setDay(Date day) {
 		this.day = day;
@@ -125,18 +133,25 @@ public class ReservationView {
 	public void setPlace(String place) {
 		this.place = place;
 	}
-	public Date getSday() throws ParseException {
+	public Date getSday() {
+	
+		return sday;
+	}
+	public String getSdayString() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		String daySdf = sdf.format(sday);
-		return sdf.parse(daySdf);
+		return daySdf;
 	}
 	public void setSday(Date sday) {
 		this.sday = sday;
 	}
-	public Date getEday() throws ParseException {
+	public Date getEday() {
+		return eday;
+	}
+	public String getEdayString() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		String daySdf = sdf.format(eday);
-		return sdf.parse(daySdf);
+		return daySdf;
 	}
 	public void setEday(Date eday) {
 		this.eday = eday;

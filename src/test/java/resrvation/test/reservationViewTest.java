@@ -19,7 +19,7 @@ public class reservationViewTest {
 			ReservationViewDao reservationViewDao = session.getMapper(ReservationViewDao.class);
 			List<ReservationView> reservationViews = reservationViewDao.selectDetailListbyUno(uno);
 			for (ReservationView reservationView : reservationViews) {
-				System.out.println(reservationView.toString());
+				System.out.println(reservationView.getDay());
 			}
 		}catch (Exception e) {
 			session.rollback();

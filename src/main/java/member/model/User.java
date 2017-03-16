@@ -90,10 +90,13 @@ public class User {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public Date getRegDate() throws ParseException {
+	public Date getRegDate() {		
+		return regDate;
+	}
+	public String getRegDateString() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		String daySdf = sdf.format(regDate);
-		return sdf.parse(daySdf);
+		return daySdf;
 	}
 	public void setRegDate(Date regDate) {
 		this.regDate = regDate;

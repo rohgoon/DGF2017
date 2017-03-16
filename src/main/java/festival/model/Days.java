@@ -41,10 +41,13 @@ public class Days {
 	public void setFno(int fno) {
 		this.fno = fno;
 	}
-	public Date getDay() throws ParseException {
+	public Date getDay() throws ParseException {		
+		return day;
+	}
+	public String getDayString() throws ParseException {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		String daySdf = sdf.format(day);
-		return sdf.parse(daySdf);
+		return daySdf;
 	}
 	public void setDay(Date day) {
 		this.day = day;
