@@ -13,19 +13,17 @@
 	var displayIndex= new Array();
 	var sumDivs =1;
 	var sumDivsNum = new Array();
-	<c:forEach var="item" items="${reservationList }">			
-			<c:if test="${item.rtimeString != check }">
-				displayIndex.push(num);
-				sumDivsNum.push(sumDivs);
-				sumDivs = 1;					
-			</c:if>
-			<c:if test="${item.rtimeString == check }">
-				sumDivs++;					
-			</c:if>
-			check = "${item.rtimeString }";
-			num++;
+	<c:forEach var='item' items='${reservationList }'>	
+		if(check == '${item.rtimeString}'){
+			sumDivs++;	
+		}else{
+			displayIndex.push(num);
+			sumDivsNum.push(sumDivs);
+			sumDivs = 1;
+		}
+		check = '${item.rtimeString }';
+		num++;
 	</c:forEach>
-	
 	$(document).on("click", "#cancel", function() {
 		var ok = confirm("정말로 취소 하시겠습니까?");
 		if(ok){
@@ -36,7 +34,7 @@
 	});
 	$(document).ready(function() {
 		$(".divItems").css("display", "none");
-		for(var i; i < displayIndex.length; i++){
+		for(var i =0; i < displayIndex.length; i++){
 			$(".divItems").eq(displayIndex[i]).css("display", "block");
 			$(".divItems").eq(displayIndex[i]).append("구매수 : "+sumDivsNum[i]+"장<hr>");		
 		};
