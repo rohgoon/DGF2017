@@ -21,4 +21,7 @@
   <select id="selectAllByUnoAndRtime" parameterType="reservation" resultType="reservation">
       select * from reservation where uno = #{uno} and rtime = #{rtime}
   </select>
+  <delete id="delectByUnoAndRtime" parameterType="reservation">
+      delete reservation where uno = #{uno} and rtime = #{rtime}
+  </delete>
 </mapper>

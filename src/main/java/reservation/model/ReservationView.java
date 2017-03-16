@@ -62,7 +62,7 @@ public class ReservationView {
 		return rtime;
 	}
 	public String getRtimeString() {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd, hh:mm");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 		String daySdf = sdf.format(rtime);
 		return daySdf;
 	}
