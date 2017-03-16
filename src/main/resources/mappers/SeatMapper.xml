@@ -9,7 +9,7 @@
   <select id="selectBySno" parameterType="int" resultType="seat">
       select * from user where sno = #{sno}
   </select>
-  <select id="selectByDnoAnoGrade" parameterType="seat" resultType="seat">
+  <select id="selectByDnoAndGrade" parameterType="seat" resultType="seat">
       select * from user where dno = #{sno} and grade=#{grade}
   </select>
   <select id="selectListByDno" parameterType="int" resultType="seat">
