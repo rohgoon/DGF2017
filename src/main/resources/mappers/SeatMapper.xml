@@ -24,6 +24,7 @@
   <update id="updateBySno" parameterType="seat">
       update seat set dno = #{dno}, grade=#{grade}, price=#{price}, max=#{max}, sold=#{sold} where sno=#{sno} 
   </update>
+  
   <select id="selectMaxAndSoldBySno" parameterType="int" resultType="seat">
       select max, sold from seat where sno =#{sno} 
   </select>

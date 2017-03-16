@@ -36,7 +36,7 @@
 		$(".divItems").css("display", "none");
 		for(var i =0; i < displayIndex.length; i++){
 			$(".divItems").eq(displayIndex[i]).css("display", "block");
-			$(".divItems").eq(displayIndex[i]).append("구매수 : "+sumDivsNum[i]+"장<hr>");		
+			$(".divItems").eq(displayIndex[i]).append("구매수 : "+sumDivsNum[i]+"매<hr>");		
 		};
 	});
 </script>
@@ -56,7 +56,7 @@
 						가격 : ${item.price }<br>
 						결제 시간: ${item.rtimeString }<br>
 						<input type="hidden" class="checkRtime" value="${item.rtimeString }">
-						<a href="reservationCancel.do?rno=${item.rno }&rtime=${item.rtimeString}" id="cancel">예매 취소</a>
+						<a href="reservationCancel.do?uno=${item.uno }&rtime=${item.rtimeString}" id="cancel">예매 취소</a>
 						<br>
 					</div>
 				</c:if>
