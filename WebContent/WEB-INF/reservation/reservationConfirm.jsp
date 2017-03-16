@@ -40,17 +40,6 @@
 			$(".divItems").eq(displayIndex[i]).css("display", "block");
 			$(".divItems").eq(displayIndex[i]).append("구매수 : "+sumDivsNum[i]+"장<hr>");		
 		};
-		
-
-		/* 
-		$(".divItems").css("display", "none");
-		$(".divItems").each(function(i, element) {
-			var rtime = $(element).find(".checkRtime").val();
-			wrapItem.push(rtime);
-		});
-		for(var i = 0 ; i < wrapItem.length; i++){
-			
-		} */
 	});
 </script>
 </head>
