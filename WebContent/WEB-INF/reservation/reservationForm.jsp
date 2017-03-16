@@ -51,12 +51,19 @@
 					resultGrade = seatGrade[i];
 					$('#btnOk').removeAttr('disabled');
 				}else{
-					alert(seatGrade[i]+"의 티켓이 매진 되었습니다.");
-					$('#btnOk').attr('disabled','disabled');
+					alert("티켓("+seatGrade[i]+")이 매진 되었습니다.");
+					$('#btnOk').attr('disabled','disabled');// input number로 기능 이동 할것
 				}
 			}
 		}
 	});
+	$(document).on('click', '#howMany', function() {
+		var num = 1;
+		$('#howMany').change(function() {
+			num = Number($('#howMany').val());
+			
+		});
+	}
 	$(document).on('click', '#btnOk', function() {		
 		
 		var ok =  confirm(uname+" 고객님, "+ resultGrade+"열 티켓 "+resultPrice+"원의 결재를 완료 하시겠습니까?");
@@ -84,6 +91,7 @@
 				</select>
 		<br>
 		<div id="money">원하는 티켓 등급을 선택해 주세요.</div>
+		<input type="number" id="howMany" min="1">
 		<br> 결제 수단 선택 : <select name="pay" id="pay">
 			<option value="card">신용카드</option>
 			<option value="bank">계좌이체</option>
