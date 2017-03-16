@@ -11,6 +11,7 @@ public class ReservationView {
 	private Date rtime;
 	private int sno;
 	private String grade;
+	private int price;
 	private int maxseat;
 	private int soldseat;
 	private int dno;
@@ -24,14 +25,15 @@ public class ReservationView {
 	public ReservationView() {
 		super();
 	}
-	public ReservationView(int rno, int uno, Date rtime, int sno, String grade, int maxseat, int soldseat, int dno,
-			Date day, Time stime, Time etime, int fno, String place, Date sday, Date eday) {
+	public ReservationView(int rno, int uno, Date rtime, int sno, String grade, int price, int maxseat, int soldseat,
+			int dno, Date day, Time stime, Time etime, int fno, String place, Date sday, Date eday) {
 		super();
 		this.rno = rno;
 		this.uno = uno;
 		this.rtime = rtime;
 		this.sno = sno;
 		this.grade = grade;
+		this.price = price;
 		this.maxseat = maxseat;
 		this.soldseat = soldseat;
 		this.dno = dno;
@@ -59,8 +61,8 @@ public class ReservationView {
 		
 		return rtime;
 	}
-	public String getRtimeSting() {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+	public String getRtimeString() {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd, hh:mm");
 		String daySdf = sdf.format(rtime);
 		return daySdf;
 	}
@@ -155,6 +157,13 @@ public class ReservationView {
 	}
 	public void setEday(Date eday) {
 		this.eday = eday;
+	}
+	
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
 	}
 	@Override
 	public String toString() {

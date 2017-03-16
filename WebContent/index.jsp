@@ -15,6 +15,7 @@
 		<a href="changePwd.do">비밀번호 변경</a>
 		<br>
 		<a href="reservation.do?fesno=2&id=${auth.id}">예매</a> <!-- 임시로 fesno 지정 -->
+		<a href="reservationConfirm.do?uno=${auth.uno }">예매 확인</a>
 	</c:if>
 	<c:if test="${empty auth}">
 		<a href="login.do">로그인</a>

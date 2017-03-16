@@ -56,6 +56,7 @@ public class ReservationHandler implements CommandHandler {
 			int soldOut = Integer.parseInt(req.getParameter("seatSoldOut"));
 			int uno = Integer.parseInt(req.getParameter("uno"));
 			Date rtime = new Date();
+			System.out.println(rtime.toLocaleString());
 			SqlSession session = null;
 			try {
 				session = MySqlSessionFactory.openSession();

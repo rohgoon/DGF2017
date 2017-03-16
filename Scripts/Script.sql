@@ -1,6 +1,6 @@
-DROP VIEW v_reservation_detail;
+DROP VIEW seatDetailView;
 
-CREATE VIEW v_class_detail
+CREATE VIEW seatDetailView
 AS select
 s.sno as no,
 s.grade as grade,
@@ -19,7 +19,7 @@ from seat s
 left join days d on s.dno = d.dno
 left join fesinfo f on d.fno = f.fno;
 
-select * from v_class_detail;
+select * from seatDetailView;
 
 /*페스티벌정보*/
 insert into fesinfo(place,sday,eday) values
