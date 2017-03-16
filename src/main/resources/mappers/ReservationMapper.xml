@@ -24,4 +24,7 @@
   <delete id="delectByUnoAndRtime" parameterType="reservation">
       delete reservation where uno = #{uno} and rtime = #{rtime}
   </delete>
+  <select id="selectCountTicketByUnoAndRtime" parameterType="reservation" resultType="int">
+      select count(*) from reservation where uno = #{uno} and rtime = #{rtime}
+  </select>
 </mapper>

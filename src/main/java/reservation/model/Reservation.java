@@ -8,7 +8,7 @@ public class Reservation {
 	private int uno;
 	private int sno;
 	private Date rtime;
-	private int countTicket;
+	//private int countTicket;
 	
 	public Reservation() {
 		// TODO Auto-generated constructor stub
@@ -67,13 +67,13 @@ public class Reservation {
 		this.rtime = rtime;
 	}
 
-	public int getCount() {
+	/*public int getCount() {
 		return countTicket;
 	}
 
 	public void setCount(int count) {
 		this.countTicket = count;
-	}
+	}*/
 	
 	
 }
