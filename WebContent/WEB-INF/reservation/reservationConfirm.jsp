@@ -13,13 +13,22 @@
 	var displayIndex= new Array();
 	var sumDivs =1;
 	var sumDivsNum = new Array();
-	<c:forEach var='item' items='${reservationList }'>	
+	var length = 0;
+	<c:forEach var='item' items='${reservationList }'>
+		length++;	
 		if(check == '${item.rtimeString}'){
 			sumDivs++;	
 		}else{
-			displayIndex.push(num);
-			sumDivsNum.push(sumDivs);
-			sumDivs = 1;
+			if((length-num)==1){
+				displayIndex.push(num);
+				sumDivs++;
+				sumDivsNum.push(sumDivs);
+				sumDivs = 1;
+			}else{			
+				displayIndex.push(num);
+				sumDivsNum.push(sumDivs);
+				sumDivs = 1;
+			}
 		}
 		check = '${item.rtimeString }';
 		num++;

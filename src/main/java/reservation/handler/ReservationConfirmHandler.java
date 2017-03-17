@@ -15,28 +15,28 @@ import reservation.model.ReservationView;
 import reservation.model.ReservationViewDao;
 
 public class ReservationConfirmHandler implements CommandHandler {
-	
+
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
-			
-			int uno = Integer.parseInt(req.getParameter("uno"));
-			SqlSession session = null;
-			try {
-				session = MySqlSessionFactory.openSession();
-				MemberDao memberDao = session.getMapper(MemberDao.class);
-				User user = memberDao.selectAllByUno(uno);
-				req.setAttribute("userInfo", user);
-				ReservationViewDao reservationViewDao = session.getMapper(ReservationViewDao.class);
-				List<ReservationView> reservationViews = reservationViewDao.selectDetailListbyUno(uno);
-				req.setAttribute("reservationList", reservationViews);				
-			}catch (Exception e) {
-				session.rollback();
-				e.printStackTrace();
-			}finally {
-				session.close();
-			}
-			return "/WEB-INF/reservation/reservationConfirm.jsp";
-		
+
+		int uno = Integer.parseInt(req.getParameter("uno"));
+		SqlSession session = null;
+		try {
+			session = MySqlSessionFactory.openSession();
+			MemberDao memberDao = session.getMapper(MemberDao.class);
+			User user = memberDao.selectAllByUno(uno);
+			req.setAttribute("userInfo", user);
+			ReservationViewDao reservationViewDao = session.getMapper(ReservationViewDao.class);
+			List<ReservationView> reservationViews = reservationViewDao.selectDetailListbyUno(uno);
+			req.setAttribute("reservationList", reservationViews);
+		} catch (Exception e) {
+			session.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return "/WEB-INF/reservation/reservationConfirm.jsp";
+
 	}
 
 }

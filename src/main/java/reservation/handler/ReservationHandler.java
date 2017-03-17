@@ -64,25 +64,26 @@ public class ReservationHandler implements CommandHandler {
 				session = MySqlSessionFactory.openSession();
 				SeatDao seatDao = session.getMapper(SeatDao.class);
 				Seat seatBefore = seatDao.selectBySno(sno);
+				Reservation reservation = new Reservation(uno, sno, rtime);
 				boolean ticket = false;
-				if ((seatBefore.getMax()-seatBefore.getSold()) > 0 && howMany <soldOut) {
+				if ((seatBefore.getMax()-seatBefore.getSold()) > 0 && howMany < (seatBefore.getMax()-seatBefore.getSold())) {
 					seatBefore.setSold(soldOut+howMany);//팔린 티켓 수를 클래스변수에 삽입
 					seatDao.updateBySno(seatBefore);//팔린 티켓 수 업데이트
 					session.commit();
 					System.out.println("팔린 티켓수 업데이트 완료 : "+soldOut);
 					//reservation 테이블로 update
 					ReservationDao reservationDao =session.getMapper(ReservationDao.class);
-					Reservation reservation = new Reservation(uno, sno, rtime);					
+										
 					for (int i = 0; i < howMany; i++) {
 						reservationDao.insert(reservation);						
 					}										
-					ticket = true;
-					req.setAttribute("reservationInfo", reservation);
+					ticket = true;					
 					session.commit();
 					System.out.println("예매 테이블 삽입 완료 : "+reservation.getRtimeString());
 				} else {
 					ticket = false;
 				}
+				req.setAttribute("reservationInfo", reservation);
 				req.setAttribute("seatInfo", seatBefore);
 				req.setAttribute("ticket", ticket);// true면 예매 완료, false면 매진으로 예매 불가
 				
