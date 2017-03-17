@@ -33,7 +33,7 @@ public class CreateBoardHandler implements CommandHandler {
 				} finally {
 					session.close();
 				}
-				return "boardlist.do";
+				return "readBoardList.do";
 		}
 		return null;
 	}//method

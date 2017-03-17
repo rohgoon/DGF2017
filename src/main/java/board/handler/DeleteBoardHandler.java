@@ -28,7 +28,7 @@ public class DeleteBoardHandler implements CommandHandler {
 			session.close();
 		}
 		
-		return "boardlist.do";
+		return "readBoardList.do";
 	}
 
 }

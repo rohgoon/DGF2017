@@ -9,8 +9,8 @@ public class ReadArticleListHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return "WEB-INF/view/article/articleList.jsp";
 	}
 
 }

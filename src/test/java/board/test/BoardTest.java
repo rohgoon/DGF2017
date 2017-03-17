@@ -54,12 +54,12 @@ public class BoardTest {
 //		}
 //	}
 	
-/*	//성공
+	//성공
 	@Test
 	public void testSelectById() {
 		SqlSession session = null;
 		
-		int boardNo = 4;
+		int boardNo = 16;
 		String boardName = "수정할이름";
 		
 		try {
@@ -74,7 +74,7 @@ public class BoardTest {
 		} finally {
 			session.close();
 		}
-	}*/
+	}
 	
 //	성공
 //	@Test

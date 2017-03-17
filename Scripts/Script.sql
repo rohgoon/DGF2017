@@ -126,3 +126,11 @@ UPDATE board SET board_name='board' WHERE board_no = 4
 
 delete from board where board_no = 9;
 
+SELECT * from `user`;
+
+SELECT * FROM article;
+
+select a.article_no, u.id, a.title, a.category, a.write_time, a.hits, a.recommend, a.attached_file
+from article as a, `user` as u
+where a.uno=u.uno && a.del = 0
+ORDER by article_no DESC;

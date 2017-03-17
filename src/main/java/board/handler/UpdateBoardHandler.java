@@ -14,30 +14,36 @@ public class UpdateBoardHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
-		int boardNo = Integer.parseInt(req.getParameter("boardNo"));
-		SqlSession session = null;
-		Board board = null;
-		try{
-			session = MySqlSessionFactory.openSession();
-			BoardDao dao = session.getMapper(BoardDao.class);
-					
-			if(req.getMethod().equalsIgnoreCase("get")){
+		if(req.getMethod().equalsIgnoreCase("get")){
+			Board board = null;
+			SqlSession session = null;
+			try{
+				int boardNo = Integer.parseInt(req.getParameter("boardNo"));
+				session = MySqlSessionFactory.openSession();
+				BoardDao dao = session.getMapper(BoardDao.class);
 				board = dao.selectBoardByNo(boardNo);
 				req.setAttribute("board", board);
 				return "/WEB-INF/view/board/namechange.jsp";
-					
-			}else if(req.getMethod().equalsIgnoreCase("post")){
-				boardNo = Integer.parseInt(req.getParameter("boardNo"));
-				String boardName = req.getParameter("boardName");
+			}finally{
+				session.close();
+			}
+			
+		}else if(req.getMethod().equalsIgnoreCase("post")){
+			Board board = null;
+			SqlSession session = null;
+			System.out.println(req.getParameter("boardNo"));
+			int boardNo = Integer.parseInt(req.getParameter("boardNo"));
+			String boardName = req.getParameter("boardName");
+			try{
+				session = MySqlSessionFactory.openSession();
+				BoardDao dao = session.getMapper(BoardDao.class);
 				board = new Board(boardName, boardNo);
 				dao.updateBoardByNo(board);
-				return "boardlist.do";
+				session.commit();
+				return "readBoardList.do";
+			}finally{
+				session.close();
 			}
-		} catch (Exception e) {
-			session.rollback();
-			e.printStackTrace();
-		} finally {
-			session.close();
 		}
 		return null;
 	}

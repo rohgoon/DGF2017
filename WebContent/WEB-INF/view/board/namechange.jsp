@@ -6,9 +6,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>게시판 만들기</h2>
-	<form action="createBoard.do" method="post">
-		<p><input type="text" name="boardName" placeholder="게시판 이름을 입력하세요"></p>
+	<h2>게시판 수정</h2>
+	<form action="updateBoard.do" method="post">
+		<p><input type="text" name="boardNo" value="${param.boardNo}" readonly="readonly">
+		<p><input type="text" name="boardName" placeholder="수정할 이름을 넣으세요"></p>
 		<p><input type="submit"><input type="button" value="뒤로" onclick="goBack();"></p>
 		<script>
 			function goBack(){

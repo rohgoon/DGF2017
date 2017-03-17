@@ -7,29 +7,23 @@ import member.model.User;
 
 public class Article {
 
-	private int no; 
+	private int articleNo; 
 	private int boardNo;
-	private int uNo; 
+	private int uno; 
 	private String title;
 	private String content;
 	private String category;
-	private Date writeDate;
+	private Date writeTime;
 	private int hits;
 	private int recommend;
 	private String attachedFile;
 	private String fileLocation;
-	private int delete;
-	
-	
-	
-	// Getter & Setter
-	
-
-	public int getNo() {
-		return no;
+	private int del;
+	public int getArticleNo() {
+		return articleNo;
 	}
-	public void setNo(int no) {
-		this.no = no;
+	public void setArticleNo(int articleNo) {
+		this.articleNo = articleNo;
 	}
 	public int getBoardNo() {
 		return boardNo;
@@ -37,11 +31,11 @@ public class Article {
 	public void setBoardNo(int boardNo) {
 		this.boardNo = boardNo;
 	}
-	public int getuNo() {
-		return uNo;
+	public int getUno() {
+		return uno;
 	}
-	public void setuNo(int uNo) {
-		this.uNo = uNo;
+	public void setUno(int uno) {
+		this.uno = uno;
 	}
 	public String getTitle() {
 		return title;
@@ -61,11 +55,11 @@ public class Article {
 	public void setCategory(String category) {
 		this.category = category;
 	}
-	public Date getWriteDate() {
-		return writeDate;
+	public Date getWriteTime() {
+		return writeTime;
 	}
-	public void setWriteDate(Date writeDate) {
-		this.writeDate = writeDate;
+	public void setWriteTime(Date writeTime) {
+		this.writeTime = writeTime;
 	}
 	public int getHits() {
 		return hits;
@@ -91,11 +85,11 @@ public class Article {
 	public void setFileLocation(String fileLocation) {
 		this.fileLocation = fileLocation;
 	}
-	public int getDelete() {
-		return delete;
+	public int getDel() {
+		return del;
 	}
-	public void setDelete(int delete) {
-		this.delete = delete;
+	public void setDel(int del) {
+		this.del = del;
 	}
 	
 }

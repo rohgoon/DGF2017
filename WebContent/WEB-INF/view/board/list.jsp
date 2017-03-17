@@ -22,7 +22,7 @@
 				<tr>
 					<td>${board.boardNo}</td>
 					<td><a href="articleList.do?no=${board.boardNo}">${board.boardName}</a></td>
-					<td><a href="deleteBoard.do?no=${board.boardNo}">삭제</a><a href="updateBoard.do?no=${board.boardNo}">수정</a>
+					<td><a href="deleteBoard.do?boardNo=${board.boardNo}">삭제</a><a href="updateBoard.do?boardNo=${board.boardNo}">수정</a>
 				</tr>
 			</c:forEach>
 			</table>		
