@@ -23,5 +23,5 @@
 		<a href="join.do">회원가입</a>
 		<!-- <a href="reservation.do?fesno=2">예약(test)</a> 임시로 fesno 지정 -->
 	</c:if>
-</body>
+</body>w
 </html>
