@@ -80,7 +80,7 @@
 			$('#howMany').attr("max", seatLast);
 			$('#btnOk').removeAttr('disabled');
 		}
-	}
+	});
 	$(document).on('click', '#btnOk', function() {		
 		
 		var ok =  confirm(uname+" 고객님, "+ resultGrade+"열 티켓 "+resultPrice+"원의 결재를 완료 하시겠습니까?");

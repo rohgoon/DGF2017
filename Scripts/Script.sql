@@ -141,3 +141,5 @@ SELECT * from reservationView;
 
 select count(*) from reservation where uno = 1 and rtime = '2017-03-16 00:00:00';
 
+DELETE from reservation;
+UPDATE seat set sold = 0;
