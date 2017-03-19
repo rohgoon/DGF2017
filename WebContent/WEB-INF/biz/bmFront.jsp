@@ -8,7 +8,16 @@
 <title>Insert title here</title>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
-	
+	$('.bmContent').css('display', 'none');
+	$('.bmContent').eq(0).css('display', 'block');
+	$(document).ready(function() {
+		$('.bmNav').each(function(i, element) {
+			$(element).click(function() {
+				$('.bmContent').css('display', 'none');
+				$('.bmContent').eq(i).css('display', 'block');			
+			});
+		});
+	});
 </script>
 </head>
 <body>
