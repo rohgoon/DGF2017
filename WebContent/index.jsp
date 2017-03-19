@@ -12,7 +12,7 @@
 		<p>${auth.uname}님. 반갑습니다.</p>
 		<a href="logout.do">로그아웃</a>
 		<a href="list.do">회원리스트 보기</a>
-		<a href="changePwd.do">비밀번호 변경</a>
+		<a href="changePwd.do">비밀번호 변경</a> 
 		<br>
 		<a href="reservation.do?fesno=2&id=${auth.id}">예매</a> <!-- 임시로 fesno 지정 -->
 		<a href="reservationConfirm.do?uno=${auth.uno }">예매 확인</a>
