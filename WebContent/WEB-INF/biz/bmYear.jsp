@@ -7,10 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="#">회차별 매출액</a>
-	<a href="#">연도별 매출액</a>
-	<a href="#">월별 매출액</a>
-	<a href="#">주별 매출액</a>
-	<a href="#">일별 매출액</a>
+	
 </body>
 </html>
