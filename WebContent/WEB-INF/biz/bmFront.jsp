@@ -36,7 +36,10 @@
 				<tr>
 					<th>회차</th>
 					<th>기간</th>
-					<th>티켓 판매수</th>
+					<th>티켓 등급</th>
+					<th>등급별 판매수</th>
+					<th>등급별 매출</th>
+					<th>총 판매수</th>
 					<th>총 매출</th>			
 				</tr>
 				<c:forEach var="item" items="${bmFestival}"> <!-- 회차별 -->
@@ -61,7 +64,9 @@
 			<table>
 				<tr>
 					<th>연도</th>
-					<th>티켓 판매수</th>
+					<th>티켓 등급</th>
+					<th>등급별 판매수</th>
+					<th>등급별 매출</th>
 					<th>총 매출</th>			
 				</tr>
 				<c:forEach var="item" items="${bmYear}"> <!-- 회차별 -->
@@ -83,7 +88,9 @@
 			<table>
 				<tr>
 					<th>월</th>
-					<th>티켓 판매수</th>
+					<th>티켓 등급</th>
+					<th>등급별 판매수</th>
+					<th>등급별 매출</th>
 					<th>총 매출</th>			
 				</tr>
 				<c:forEach var="item" items="${bmMonth}"> <!-- 회차별 -->
@@ -105,7 +112,9 @@
 			<table>
 				<tr>
 					<th>주</th>
-					<th>티켓 판매수</th>
+					<th>티켓 등급</th>
+					<th>등급별 판매수</th>
+					<th>등급별 매출</th>
 					<th>총 매출</th>			
 				</tr>
 				<c:forEach var="item" items="${bmWeek}"> <!-- 회차별 -->
@@ -127,7 +136,9 @@
 			<table>
 				<tr>
 					<th>일</th>
-					<th>티켓 판매수</th>
+					<th>티켓 등급</th>
+					<th>등급별 판매수</th>
+					<th>등급별 매출</th>
 					<th>총 매출</th>			
 				</tr>
 				<c:forEach var="item" items="${bmDay}"> <!-- 회차별 -->
