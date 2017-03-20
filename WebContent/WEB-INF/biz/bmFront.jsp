@@ -15,7 +15,7 @@
 			$(element).click(function() {
 				$('.bmContent').css('display', 'none');
 				$('.bmContent').eq(i).css('display', 'block');			
-			});
+			}); 
 		});
 	});
 </script>
