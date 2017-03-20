@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="festival.model.FestivalDao">
+	<insert id="insert" parameterType="festival">
+		insert into fesinfo(fno, place, sday, eday)
+		values(#{fno},#{place},#{sday},#{eday})
+	</insert>
+	
+	<select id="selectList" resultType="festival">
+		select * from fesinfo order by fno desc
+	</select>
+	
+	<select id="selectListById" parameterType="int" resultType="festival">
+		select fno, place, sday, eday from fesinfo where fno = #{fno}
+	</select>
+	
+	<delete id="deleteFestival" parameterType="int">
+		delete from fesinfo where fno = #{fno}
+	</delete>
+	
+	<update id="updateFestival" parameterType="festival">
+		update fesinfo set
+	    fno = #{fno},
+	    place = #{place},
+	    sday = #{sday},
+	    eday = #{eday}
+  		where fno = #{fno}
+	</update>
+</mapper>

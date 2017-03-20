@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/reset.css">
 <link rel="stylesheet" type="text/css" href="css/common.css">
 <style type="text/css">
 
@@ -12,8 +13,18 @@
 </head>
 <body>
 <div id="container">
-	<div id="header">
-		<jsp:include page="template/header.jsp"></jsp:include>
+	<div id="history">
+			<jsp:include page="template/history.jsp"></jsp:include>	
+	</div>
+
+	<div id="title">
+		<div id="header">
+			<jsp:include page="template/header.jsp"></jsp:include>
+		</div>
+		
+		<div id="aside">
+			<jsp:include page="template/aside.jsp"></jsp:include>
+		</div>
 	</div>
 	
 	<div id="nav">

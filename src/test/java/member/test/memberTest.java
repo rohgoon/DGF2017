@@ -1,4 +1,4 @@
-package member.test;
+ package member.test;
 
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;

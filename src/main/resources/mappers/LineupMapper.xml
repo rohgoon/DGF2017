@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="lineup.model.LineupDao">
+	<select id="selectList" resultType="lineup">
+		select * from lineup order by lno asc
+	</select>
+	
+	<insert id="insert" parameterType="lineup">
+		insert into lineup(lno, dno, aname)
+		values(#{lno},#{dno},#{aname})
+	</insert>
+	
+	<select id="selectListById" parameterType="int" resultType="lineup">
+		select lno, dno, aname from lineup where lno = #{lno}
+	</select>
+	
+	<delete id="deleteLineup" parameterType="int">
+		delete from lineup where lno = #{lno}
+	</delete>
+	
+	<update id="updateLineup" parameterType="lineup">
+		update lineup set
+	    lno = #{lno},
+	    dno = #{dno},
+	    aname = #{aname}
+  		where lno = #{lno}
+	</update>
+	
+</mapper>
