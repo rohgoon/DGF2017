@@ -36,13 +36,12 @@
 				<tr>
 					<th>회차</th>
 					<th>기간</th>
-					<th>티켓 등급</th>
 					<th>등급별 판매수</th>
 					<th>등급별 매출</th>
 					<th>총 판매수</th>
 					<th>총 매출</th>			
 				</tr>
-				<c:forEach var="item" items="${bmFestival}"> <!-- 회차별 -->
+				<c:forEach var="item" items="${bmFestivals}"> <!-- 회차별 -->
 					<tr>
 						<td>
 						  	${item.fno }회차
@@ -51,10 +50,18 @@
 							${item.sday }~${item.eday }
 						</td>
 						<td>
-							${item.sno } <!-- 핸들러에서 sno로 티켓 장수를 임의로 넣음 -->
+							<c:forEach var="spg" items="${item.seatPerGrade }">
+								${spg.toStringForSPG() }<br>
+							</c:forEach>
+						</td>
+							<c:forEach var="spg" items="${item.seatPerGrade }">
+								${spg.toStringForPPG() }<br>
+							</c:forEach>
+						<td>
+							${item.totalTicket }장
 						</td>
 						<td>
-							${item.price }
+							${item.totalPrice }원
 						</td>
 					</tr>
 				</c:forEach>
