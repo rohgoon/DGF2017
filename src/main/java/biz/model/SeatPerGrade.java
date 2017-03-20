@@ -2,37 +2,38 @@ package biz.model;
 
 public class SeatPerGrade {
 	private String grade;
-	private int howMany;
+	private int soldSeat;
 	private int howMuch;
 	public SeatPerGrade() {
 		super();
 	}
-	public SeatPerGrade(String grade, int howMany, int howMuch) {
-		super();
-		this.grade = grade;
-		this.howMany = howMany;
-		this.howMuch = howMuch;
-	}
+	
 	public String getGrade() {
 		return grade;
 	}
+
 	public void setGrade(String grade) {
 		this.grade = grade;
 	}
-	public int getHowMany() {
-		return howMany;
+	public int getSoldSeat() {
+		return soldSeat;
 	}
-	public void setHowMany(int howMany) {
-		this.howMany = howMany;
+
+	public void setSoldSeat(int soldSeat) {
+		this.soldSeat = soldSeat;
 	}
+
 	public int getHowMuch() {
 		return howMuch;
 	}
+
 	public void setHowMuch(int howMuch) {
+		howMuch *= this.soldSeat;
 		this.howMuch = howMuch;
 	}
+
 	public String toStringForSPG() {
-		return grade + ":" + howMany+" ";
+		return grade + ":" + soldSeat+"석 ";
 	}
 	public String toStringForPPG() {
 		return grade + ":" + howMuch + "원 ";

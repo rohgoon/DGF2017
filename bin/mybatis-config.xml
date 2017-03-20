@@ -11,6 +11,7 @@
     <typeAlias type="festival.model.Days" alias="Days"/>
     <typeAlias type="reservation.model.Reservation" alias="Reservation"/>
     <typeAlias type="reservation.model.ReservationView" alias="ReservationView"/>
+    <typeAlias type="biz.model.SeatDetailView" alias="SeatDetailView"/>
   </typeAliases>
   
   <environments default="development">
@@ -47,5 +48,6 @@
     <mapper resource="mappers/ReservationMapper.xml"/>    
     <mapper resource="mappers/SeatMapper.xml"/>
     <mapper resource="mappers/ReservationViewMapper.xml"/> 
+    <mapper resource="mappers/SeatDetailView.xml"/>
   </mappers>
 </configuration>

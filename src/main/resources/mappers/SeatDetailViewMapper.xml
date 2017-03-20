@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="biz.model.SeatDetailViewDao"> 
+  <select id="selectAllByFno" parameterType="int" resultType="SeatDetailView">
+      select * from seatDetailView where fno =#{fno}
+  </select>
+  <select id="selectAllBySno" parameterType="int" resultType="SeatDetailView">
+      select * from seatDetailView where no =#{no}
+  </select>
+  <select id="selectByFnoAndGrade" parameterType="SeatDetailView" resultType="SeatDetailView">
+      select * from seatDetailView where fno=#{fno} and grade =#{grade}
+  </select>
+</mapper>

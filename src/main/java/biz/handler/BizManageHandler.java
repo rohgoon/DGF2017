@@ -16,6 +16,15 @@ public class BizManageHandler implements CommandHandler {
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		if (req.getMethod().equalsIgnoreCase("get")) {
+			SqlSession session = null;			
+			try{
+				session = MySqlSessionFactory.openSession();
+				
+			
+			}finally {
+				session.close();
+			}
+			
 			return FORM_VIEW;
 		}else if (req.getMethod().equalsIgnoreCase("post")) {
 			
