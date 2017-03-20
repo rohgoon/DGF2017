@@ -1,7 +1,13 @@
-<%@page import="java.util.Calendar"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<% 
+	Date date = new Date();
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+	String newDate = sdf.format(date);
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -69,31 +75,34 @@
 			</table>
 		</div>
 		<div class="bmContent">
-			<input type="date" name="Year" value="">
-			<table>
-				<tr>
-					<th>연도</th>
-					<th>티켓 등급</th>
-					<th>등급별 판매수</th>
-					<th>등급별 매출</th>
-					<th>총 매출</th>			
-				</tr>
-				<c:forEach var="item" items="${bmYear}"> <!-- 회차별 -->
-					<tr>						
-						<td>
-							${item.sday }
-						</td>
-						<td>
-							${item.sno } <!-- 핸들러에서 sno로 티켓 장수를 임의로 넣음 -->
-						</td>
-						<td>
-							${item.price }
-						</td>
+			<input type="date" name="startYear" value="${newDate }">-<input type="date" name="endYear" value="${newDate }"> <button id="searchYear">검색</button>
+			<!-- ajax 활용 -->
+			<div id="divForYear">
+				<table>
+					<tr>
+						<th>연도</th>
+						<th>티켓 등급</th>
+						<th>등급별 판매수</th>
+						<th>등급별 매출</th>
+						<th>총 매출</th>			
 					</tr>
-				</c:forEach>
-			</table>
+					<c:forEach var="item" items="${bmYear}"> <!-- 회차별 -->
+						<tr>						
+							<td>
+								${item.sday }
+							</td>
+							<td>
+								${item.sno } <!-- 핸들러에서 sno로 티켓 장수를 임의로 넣음 -->
+							</td>
+							<td>
+								${item.price }
+							</td>
+						</tr>
+					</c:forEach>
+				</table>
+			</div>
 		</div>
-		<div class="bmContent">
+		<%-- <div class="bmContent">
 			<table>
 				<tr>
 					<th>월</th>
@@ -164,8 +173,8 @@
 					</tr>
 				</c:forEach>
 			</table>
-		</div>
-	</div>
+		</div>--%>
+	</div> 
 	
 </body>
 </html>
