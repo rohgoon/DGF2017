@@ -58,7 +58,8 @@ public class BizManageHandler implements CommandHandler {
 				}
 				req.setAttribute("bmFestivals", bmFestivals);
 			//bmFestival 처리
-				
+			//
+			//bmYear 시작
 				
 			}finally {
 				session.close();

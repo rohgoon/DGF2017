@@ -50,6 +50,6 @@
     <mapper resource="mappers/ReservationMapper.xml"/>    
     <mapper resource="mappers/SeatMapper.xml"/>
     <mapper resource="mappers/ReservationViewMapper.xml"/> 
-    <mapper resource="mappers/SeatDetailView.xml"/>
+    <mapper resource="mappers/SeatDetailViewMapper.xml"/>
   </mappers>
 </configuration>
