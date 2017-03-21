@@ -5,6 +5,6 @@ import java.util.List;
 
 public interface BmMonthViewDao {
 	public List<BmMonthView> selectListAll() throws SQLException;
-	public List<BmMonthView> selectListByYear(String sym, String eym) throws SQLException;
+	public List<BmMonthView> selectListByYmDate(String sym, String eym) throws SQLException;
 	
 }

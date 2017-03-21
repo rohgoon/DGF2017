@@ -6,7 +6,7 @@
 	<select id="selectListAll" resultType="BmDayView">
 		select * from bmDayView
 	</select>
-	<select id="selectListByYear" parameterType="string" resultType="BmDayView">
+	<select id="selectListByYmdDate" parameterType="string" resultType="BmDayView">
 		select * from bmDayView where ymdDate &gt;= #{param1} and ymdDate &lt;=#{param2}		
 	</select>
 </mapper>
