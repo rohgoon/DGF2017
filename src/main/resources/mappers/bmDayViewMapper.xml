@@ -6,8 +6,7 @@
 	<select id="selectListAll" resultType="BmDayView">
 		select * from bmDayView
 	</select>
-	<select id="selectListByYear" parameterType="int" resultType="BmDayView">
-		select * from bmDayView where year &gt;= #{param1} and month &gt;=#{param2} and nowDay &gt;= #{param3} 
-		and year &lt;= #{param4} and month &gt;=#{param5} and nowDay &lt;=#{param6}		
+	<select id="selectListByYear" parameterType="string" resultType="BmDayView">
+		select * from bmDayView where ymdDate &gt;= #{param1} and ymdDate &lt;=#{param2}		
 	</select>
 </mapper>
