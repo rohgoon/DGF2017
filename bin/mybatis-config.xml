@@ -13,9 +13,9 @@
     <typeAlias type="reservation.model.Reservation" alias="Reservation"/>
     <typeAlias type="reservation.model.ReservationView" alias="ReservationView"/>
     <typeAlias type="biz.model.SeatDetailView" alias="SeatDetailView"/>
-    <typeAlias type="biz.model.bmYearView" alias="bmYearView"/>
-    <typeAlias type="biz.model.bmMonthView" alias="bmMonthView"/>
-    <typeAlias type="biz.model.bmDayView" alias="bmDayView"/>
+    <typeAlias type="biz.model.BmYearView" alias="BmYearView"/>
+    <typeAlias type="biz.model.BmMonthView" alias="BmMonthView"/>
+    <typeAlias type="biz.model.BmDayView" alias="BmDayView"/>
   </typeAliases>
   
   <environments default="development">

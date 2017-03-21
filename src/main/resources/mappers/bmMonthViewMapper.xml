@@ -2,6 +2,11 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="biz.model.bmMonthViewDao"> 
-  
+<mapper namespace="biz.model.BmMonthViewDao">
+	<select id="selectListAll" resultType="BmYearView">
+		select * from bmYearView
+	</select>
+	<select id="selectListByYear" parameterType="int" resultType="BmYearView">
+		select * from bmYearView where year = #{param1}, month=#{param2}
+	</select>
 </mapper>
