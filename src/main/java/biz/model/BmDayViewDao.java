@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface BmDayViewDao {
-	public List<BmYearView> selectListAll() throws SQLException;
-	public List<BmYearView> selectListByYear(int year, int month, int nowDay) throws SQLException;
+	public List<BmDayView> selectListAll() throws SQLException;
+	public List<BmDayView> selectListByYear(int sy, int sm, int sd, int ey, int em, int ed) throws SQLException;
 	
 }

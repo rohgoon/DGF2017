@@ -90,5 +90,4 @@ public class BmDayView {
 	public void setTotalCount(int totalCount) {
 		this.totalCount = totalCount;
 	}
-	
 }

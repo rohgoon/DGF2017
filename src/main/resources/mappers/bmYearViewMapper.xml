@@ -7,6 +7,6 @@
       select * from bmYearView
   </select>
   <select id="selectListByYear" parameterType="int" resultType="BmYearView">
-      select * from bmYearView where year = #{param1}
+      select * from bmYearView where year &gt;= #{param1} and year &lt;= #{param2}
   </select>
 </mapper>

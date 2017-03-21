@@ -7,7 +7,6 @@ public class BmYearView {
 	private String grade;
 	private int totalPrice;
 	private int totalCount;
-	
 	public BmYearView() {
 		super();
 	}

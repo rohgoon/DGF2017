@@ -81,4 +81,5 @@ public class BmMonthView {
 		this.totalCount = totalCount;
 	}
 	
+	
 }

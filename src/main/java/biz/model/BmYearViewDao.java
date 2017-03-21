@@ -5,5 +5,5 @@ import java.util.List;
 
 public interface BmYearViewDao {
 	public List<BmYearView> selectListAll() throws SQLException;
-	public List<BmYearView> selectListByYear(int year) throws SQLException;
+	public List<BmYearView> selectListByYear(int sy, int ey) throws SQLException;
 }
