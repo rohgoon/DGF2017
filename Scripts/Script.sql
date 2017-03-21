@@ -144,4 +144,4 @@ select count(*) from reservation where uno = 1 and rtime = '2017-03-16 00:00:00'
 DELETE from reservation;
 UPDATE seat set sold = 0;
 
- select * from seatDetailView where day > '2015-01-01' and day < '2015-12-01';
+ select * from seatDetailView where day >= '2015-04' and day <= '2015-05';

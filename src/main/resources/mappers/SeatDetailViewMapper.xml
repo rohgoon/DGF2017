@@ -13,6 +13,6 @@
       select * from seatDetailView where fno=#{fno} and grade =#{grade}
   </select>
   <select id="selectListByDate" parameterType="string" resultType="SeatDetailView">
-      select * from seatDetailView where day &gt; #{param1} and day &lt; #{param2}
+      select * from seatDetailView where day &gt;= #{param1} and day &lt;= #{param2}
   </select>
 </mapper>

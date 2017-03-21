@@ -91,7 +91,7 @@
 		</div>
 		<div class="bmContent">
 			<form action="bmYear.do" method="post" id="bmYear">
-				<input type="date" name="startYear" value="${newDate }" id="sy">-<input type="date" name="endYear" value="${newDate }" id="ey"> 
+				<input type="date" name="sdate" value="${newDate }" id="sdate">-<input type="date" name="edate" value="${newDate }" id="edate"> 
 				<input type="submit" value="검색">
 			</form><hr>
 			<!-- ajax 활용 -->
