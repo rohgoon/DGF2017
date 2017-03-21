@@ -1,5 +1,6 @@
 package biz.handler;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -13,6 +14,8 @@ import biz.model.SeatDetailView;
 import biz.model.SeatDetailViewDao;
 import mvc.controller.CommandHandler;
 import mvc.util.MySqlSessionFactory;
+import reservation.model.ReservationView;
+import reservation.model.ReservationViewDao;
 
 public class BmDateHandler implements CommandHandler {
 	private final String FORM_VIEW = "/WEB-INF/biz/bmFront.jsp";
@@ -38,7 +41,7 @@ public class BmDateHandler implements CommandHandler {
 			try {
 				session = MySqlSessionFactory.openSession();
 				// bmDate 시작
-				SeatDetailViewDao seatDetailViewDao = session.getMapper(SeatDetailViewDao.class);				
+							
 				switch (bm) {
 				case "year":					
 					sdate = sy+"-01-01";
@@ -53,8 +56,8 @@ public class BmDateHandler implements CommandHandler {
 					edate = ey+"-"+em+"-"+ed;
 					break;
 				}
-				
-				List<SeatDetailView> seatDetailView = seatDetailViewDao.selectListByDate(sdate, edate);
+				ReservationViewDao reservationViewDao = session.getMapper(ReservationViewDao.class);
+				List<ReservationView> reservationViews = reservationViewDao.selectListByDate(sdate, edate);
 				List<SeatDetailView> sdvResultforYear = new ArrayList<>();
 				Date checkDate = null;
 				int sumPrice = 0;
@@ -62,55 +65,60 @@ public class BmDateHandler implements CommandHandler {
 				int index = 0;
 				//SeatDetailView(no, grade, price, maxSeat, soldSeat, dno, day, stime, etime, fno, place, sday, eday)
 				//bmYear용 foreach				
-				for (SeatDetailView sdv : seatDetailView) {
-					sumPrice += sdv.getPrice();
+				for (ReservationView rvv : reservationViews) {
+					sumPrice += rvv.getPrice();
 					countTicket++;
 					
-					if (sdv.getDay().getYear() != checkDate.getYear() && checkDate != null) {
+					if (rvv.getDay().getYear() != checkDate.getYear() && checkDate != null) {
 						//index 증가
 						index++;						
 						//초기화 구문	
-						sumPrice = sdv.getPrice();
+						sumPrice = rvv.getPrice();
 						countTicket = 1;					
 					}else if (checkDate != null) {
 						//list에 삽입				
+						SimpleDateFormat sdf= new SimpleDateFormat("yyyy년");
+						String yearString = sdf.format(rvv.getDay());
 						sdvResultforYear.set(index, 
-								new SeatDetailView(sdv.getNo(), sdv.getGrade(), sumPrice, sdv.getMaxSeat(), countTicket, sdv.getDno(), sdv.getDay(),
-										sdv.getStime(), sdv.getEtime(), sdv.getFno(), sdv.getPlace(), sdv.getSday(), sdv.getEday())
+								new SeatDetailView(rvv.getRno(), yearString, sumPrice, rvv.getMaxseat(), countTicket, rvv.getDno(), rvv.getDay(),
+										rvv.getStime(), rvv.getEtime(), rvv.getFno(), rvv.getPlace(), rvv.getSday(), rvv.getEday())
 								);						
 					}					
 				}
 				req.setAttribute("bmYear", sdvResultforYear);
+				//SeatDetailView(no, grade, price, maxSeat, soldSeat, dno, day, stime, etime, fno, place, sday, eday)
+				//grade에 연도 스트링으로 삽입.
+				//price = 총액
+				//countTicket = 총판매수
 				//bmYear 끝
+				
 				//bmMonth 시작
 				List<SeatDetailView> sdvResultforMonth = new ArrayList<>();
 				checkDate = null;
 				sumPrice = 0;
 				countTicket = 0;
 				index = 0;
-				for (SeatDetailView sdv : seatDetailView) {
-					sumPrice += sdv.getPrice();
+				for (ReservationView rvv : reservationViews) {
+					sumPrice += rvv.getPrice();
 					countTicket++;
-					if (sdv.getDay().getYear() != checkDate.getYear()){
-						if (sdv.getDay().getMonth() != checkDate.getMonth() && checkDate != null) {
-							//index 증가
-							index++;						
-							//초기화 구문	
-							sumPrice = sdv.getPrice();
-							countTicket = 1;					
-						}else if (checkDate != null) {
-							//list에 삽입				
-							sdvResultforMonth.set(index, 
-									new SeatDetailView(sdv.getNo(), sdv.getGrade(), sumPrice, sdv.getMaxSeat(), countTicket, sdv.getDno(), sdv.getDay(),
-											sdv.getStime(), sdv.getEtime(), sdv.getFno(), sdv.getPlace(), sdv.getSday(), sdv.getEday())
-									);						
-						}					
+					
+					if (rvv.getDay().getYear() != checkDate.getYear() && checkDate != null) {
+						//index 증가
+						index++;						
+						//초기화 구문	
+						sumPrice = rvv.getPrice();
+						countTicket = 1;					
 					}else if (checkDate != null) {
-						
-						
-						
-					}
+						//list에 삽입				
+						SimpleDateFormat sdf= new SimpleDateFormat("yyyy년");
+						String yearString = sdf.format(rvv.getDay());
+						sdvResultforYear.set(index, 
+								new SeatDetailView(rvv.getRno(), yearString, sumPrice, rvv.getMaxseat(), countTicket, rvv.getDno(), rvv.getDay(),
+										rvv.getStime(), rvv.getEtime(), rvv.getFno(), rvv.getPlace(), rvv.getSday(), rvv.getEday())
+								);						
+					}					
 				}
+				req.setAttribute("bmMonth", sdvResultforMonth);
 				
 				
 			} finally {
