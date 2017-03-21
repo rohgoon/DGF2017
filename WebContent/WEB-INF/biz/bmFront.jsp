@@ -99,9 +99,8 @@
 				<table>
 					<tr>
 						<th>연도</th>
-						<th>티켓 등급</th>
-						<th>등급별 판매수</th>
-						<th>등급별 매출</th>
+						<th>회차</th>
+						<th>티켓 판매수</th>
 						<th>총 매출</th>			
 					</tr>
 					<c:forEach var="item" items="${bmYear}"> <!-- 회차별 -->

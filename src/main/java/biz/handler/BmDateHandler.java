@@ -53,40 +53,69 @@ public class BmDateHandler implements CommandHandler {
 					edate = ey+"-"+em+"-"+ed;
 					break;
 				}
+				
 				List<SeatDetailView> seatDetailView = seatDetailViewDao.selectListByDate(sdate, edate);
-				List<SeatDetailView> sdvResult = new ArrayList<>();
+				List<SeatDetailView> sdvResultforYear = new ArrayList<>();
 				Date checkDate = null;
-				//SeatDetailView(no, grade, price, maxSeat, soldSeat, dno, day, stime, etime, fno, place, sday, eday)
-				//bmYear용 foreach
 				int sumPrice = 0;
 				int countTicket = 0;
 				int index = 0;
+				//SeatDetailView(no, grade, price, maxSeat, soldSeat, dno, day, stime, etime, fno, place, sday, eday)
+				//bmYear용 foreach				
 				for (SeatDetailView sdv : seatDetailView) {
 					sumPrice += sdv.getPrice();
-					
+					countTicket++;
 					
 					if (sdv.getDay().getYear() != checkDate.getYear() && checkDate != null) {
 						//index 증가
 						index++;						
 						//초기화 구문	
 						sumPrice = sdv.getPrice();
-						countTicket = 1;
-					
+						countTicket = 1;					
 					}else if (checkDate != null) {
 						//list에 삽입				
-						sdvResult.set(index, new SeatDetailView(no, grade, price, maxSeat, soldSeat, dno, day, stime, etime, fno, place, sday, eday));						
+						sdvResultforYear.set(index, 
+								new SeatDetailView(sdv.getNo(), sdv.getGrade(), sumPrice, sdv.getMaxSeat(), countTicket, sdv.getDno(), sdv.getDay(),
+										sdv.getStime(), sdv.getEtime(), sdv.getFno(), sdv.getPlace(), sdv.getSday(), sdv.getEday())
+								);						
 					}					
+				}
+				req.setAttribute("bmYear", sdvResultforYear);
+				//bmYear 끝
+				//bmMonth 시작
+				List<SeatDetailView> sdvResultforMonth = new ArrayList<>();
+				checkDate = null;
+				sumPrice = 0;
+				countTicket = 0;
+				index = 0;
+				for (SeatDetailView sdv : seatDetailView) {
+					sumPrice += sdv.getPrice();
+					countTicket++;
+					if (sdv.getDay().getYear() != checkDate.getYear()){
+						if (sdv.getDay().getMonth() != checkDate.getMonth() && checkDate != null) {
+							//index 증가
+							index++;						
+							//초기화 구문	
+							sumPrice = sdv.getPrice();
+							countTicket = 1;					
+						}else if (checkDate != null) {
+							//list에 삽입				
+							sdvResultforMonth.set(index, 
+									new SeatDetailView(sdv.getNo(), sdv.getGrade(), sumPrice, sdv.getMaxSeat(), countTicket, sdv.getDno(), sdv.getDay(),
+											sdv.getStime(), sdv.getEtime(), sdv.getFno(), sdv.getPlace(), sdv.getSday(), sdv.getEday())
+									);						
+						}					
+					}else if (checkDate != null) {
+						
+						
+						
+					}
 				}
 				
 				
-
 			} finally {
 				session.close();
 			}
-			
-			
-			
-			
 			return "/WEB-INF/view/bmDate.html";
 
 		}

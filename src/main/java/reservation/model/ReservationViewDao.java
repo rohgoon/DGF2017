@@ -6,4 +6,5 @@ import java.util.List;
 public interface ReservationViewDao {
 	public List<ReservationView> selectDetailListbyUno(int uno) throws SQLException;
 	public ReservationView selectDetailByRno(int rno) throws SQLException;
+	public List<ReservationView> selectListByDate(String sdate, String edate) throws SQLException;
 }
