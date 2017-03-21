@@ -24,6 +24,21 @@
 				$('.bmContent').eq(i).css('display', 'block');			
 			}); 
 		});
+		$("#bmYear").on("submit", function() {
+			var d = $(this).serialize();		
+			$.ajax({
+				url: "bmDate.do?bm=year",
+				type: "post",
+				data: "d",
+				dataType: "html",
+				success:function(bm){
+					$("#divForYear").html(bm);
+				}
+	
+			});//ajax
+		});
+		
+		
 	});
 </script>
 </head>
@@ -75,7 +90,10 @@
 			</table>
 		</div>
 		<div class="bmContent">
-			<input type="date" name="startYear" value="${newDate }">-<input type="date" name="endYear" value="${newDate }"> <button id="searchYear">검색</button>
+			<form action="bmYear.do" method="post" id="bmYear">
+				<input type="date" name="startYear" value="${newDate }" id="sy">-<input type="date" name="endYear" value="${newDate }" id="ey"> 
+				<input type="submit" value="검색">
+			</form><hr>
 			<!-- ajax 활용 -->
 			<div id="divForYear">
 				<table>
