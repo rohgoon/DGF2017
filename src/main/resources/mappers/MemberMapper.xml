@@ -10,9 +10,9 @@
       select uno,id,uname,upassword,email,phone,regDate from user where id = #{id}
   </select>
   <select id="selectList" resultType="user">
-      select * from user order by regdate desc
+      select * from user order by uno desc
   </select>
   <update id="updatePwdById" parameterType="string">
-      update user set upassword = #{upassword} where upassword = #{upassword}      
+      update user set upassword = #{param1} where upassword = #{param2}     
   </update>
 </mapper>
