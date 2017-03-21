@@ -322,4 +322,29 @@ CREATE TABLE `dgf`.`replyRecList` (
 )
 COMMENT '댓글추천목록';
 
-	
+
+
+
+
+
+
+SELECT * FROM article;
+
+
+-- 게시판용 VIEW테이블
+
+CREATE VIEW article_list_view(board_no, board_name, article_no, category, title, write_time, hits, recommend, attached_file, uno, id, name)
+AS SELECT b.board_no, b.board_name, a.article_no, a.category, a.title, a.write_time, a.hits, a.recommend, a.attached_file, u.uno, u.id, u.uname
+FROM `article` as a, `user` as u, `board` as b
+where a.uno = u.uno && a.del = 0 && a.board_no = b.board_no;
+
+select * from article_list_view;
+
+select * from article_list_view where category = '공지사항';
+
+select * from article_list_view where board_no = 6 ORDER by article_no desc;
+
+drop view article_list_view;
+
+
+select * from article_list_view where board_no = 6 ORDER by article_no desc limit 0, 10;

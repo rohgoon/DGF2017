@@ -8,6 +8,8 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
+import article.model.ArticleListView;
+import article.model.ArticleListViewDao;
 import board.model.Board;
 import board.model.BoardDao;
 import member.model.MemberDao;
@@ -54,27 +56,27 @@ public class BoardTest {
 //		}
 //	}
 	
-	//성공
-	@Test
-	public void testSelectById() {
-		SqlSession session = null;
-		
-		int boardNo = 16;
-		String boardName = "수정할이름";
-		
-		try {
-			session = MySqlSessionFactory.openSession();
-			BoardDao dao = session.getMapper(BoardDao.class);
-			Board board = new Board(boardName, boardNo);
-			dao.updateBoardByNo(board);
-			session.commit();
-		} catch (Exception e) {
-			session.rollback();
-			e.printStackTrace();
-		} finally {
-			session.close();
-		}
-	}
+//	//성공
+//	@Test
+//	public void testSelectById() {
+//		SqlSession session = null;
+//		
+//		int boardNo = 16;
+//		String boardName = "수정할이름";
+//		
+//		try {
+//			session = MySqlSessionFactory.openSession();
+//			BoardDao dao = session.getMapper(BoardDao.class);
+//			Board board = new Board(boardName, boardNo);
+//			dao.updateBoardByNo(board);
+//			session.commit();
+//		} catch (Exception e) {
+//			session.rollback();
+//			e.printStackTrace();
+//		} finally {
+//			session.close();
+//		}
+//	}
 	
 //	성공
 //	@Test

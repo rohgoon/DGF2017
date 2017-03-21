@@ -9,7 +9,7 @@ public class Article {
 
 	private int articleNo; 
 	private int boardNo;
-	private int uno; 
+	private int uno;
 	private String title;
 	private String content;
 	private String category;
@@ -19,6 +19,9 @@ public class Article {
 	private String attachedFile;
 	private String fileLocation;
 	private int del;
+	
+	
+	
 	public int getArticleNo() {
 		return articleNo;
 	}

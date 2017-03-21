@@ -12,6 +12,7 @@
   <typeAliases>
     <typeAlias type="member.model.User" alias="User"/>
     <typeAlias type="article.model.Article" alias="Article"/>
+    <typeAlias type="article.model.ArticleListView" alias="ArticleList"/>
     <typeAlias type="board.model.Board" alias="Board"/>
     <typeAlias type="reply.model.Reply" alias="Reply"/>
   </typeAliases>
@@ -49,6 +50,7 @@
   <mappers>
     <mapper resource="mappers/MemberMapper.xml"/>
     <mapper resource="mappers/ArticleMapper.xml"/>
+    <mapper resource="mappers/ArticleListViewMapper.xml"/>
     <mapper resource="mappers/BoardMapper.xml"/>
     <mapper resource="mappers/ReplyMapper.xml"/>
   </mappers>
