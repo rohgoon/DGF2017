@@ -5,34 +5,71 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="css/reset.css">
-<link rel="stylesheet" type="text/css" href="css/common.css">
+<link rel="stylesheet" type="text/css" href="css/common.css?ver=2">
+<link rel="stylesheet" type="text/css" href="css/reset.css?ver=2">
+<link rel="stylesheet" type="text/css" href="css/front.css?ver=2">
 <style type="text/css">
-
+	body{
+		font-family: 'Arca Majora 3 Heavy', '12롯데마트행복Medium';
+	}
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		
+		$('#day1 div').hover(function() {
+			$(this).css('background-color', '#F48FB1');
+		}, function() {
+			$(this).css('background-color', '#ffffff');
+		});
+	});
+</script>
 </head>
 <body>
 <div id="container">
-	<div id="history">
-			<jsp:include page="template/history.jsp"></jsp:include>	
-	</div>
-
-	<div id="title">
-		<div id="header">
-			<jsp:include page="template/header.jsp"></jsp:include>
+	<div id="header">
+		<div id="nav">
+			<jsp:include page="template/nav.jsp"></jsp:include>
 		</div>
 		
-		<div id="aside">
-			<jsp:include page="template/aside.jsp"></jsp:include>
+		<div id="login">
+			<jsp:include page="template/login.jsp"></jsp:include>
 		</div>
 	</div>
 	
-	<div id="nav">
-		<jsp:include page="template/nav.jsp"></jsp:include>
+
+	<div id="title">
+		<jsp:include page="template/title.jsp"></jsp:include>
 	</div>
-	
+
 	<div id="content">
-		<p>content 영역</p>
+		<div id="day1">
+			<div class="day1"></div>
+			<div class="day1"></div>
+			<div class="day1"></div>
+			<div class="day1"></div>
+			<div class="day1"></div>
+			<div class="day1"></div>
+		</div>
+		
+		<div id="day2">
+			<div class="day2"></div>
+			<div class="day2"></div>
+			<div class="day2"></div>
+			<div class="day2"></div>
+			<div class="day2"></div>
+			<div class="day2"></div>
+		</div>
+		
+		<div id="day3">
+			<div class="day3"></div>
+			<div class="day3"></div>
+			<div class="day3"></div>
+			<div class="day3"></div>
+			<div class="day3"></div>
+			<div class="day3"></div>
+		</div>
+		
 	</div>
 	
 	<div id="footer">

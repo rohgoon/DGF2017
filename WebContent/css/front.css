@@ -1,0 +1,47 @@
+@CHARSET "UTF-8";
+#day1{
+	width: 30%;
+	height: auto;
+	display: inline-block;
+	margin-left: 80px;
+}
+
+#day2{
+	width: 30%;
+	height: auto;
+	display: inline-block;
+	margin-left: 30px;
+}
+
+#day3{
+	width: 30%;
+	height: auto;
+	display: inline-block;
+	margin-left: 30px;
+}
+
+.day1{
+	width: 90%;
+	height: 300px;
+	border: 1px solid #000000;
+	margin: 10px;
+}
+
+.day1:NTH-CHILD(1){
+	background-image: url("../img/redvelvet02.jpg");
+	background-size: cover;
+}
+
+.day2{
+	width: 90%;
+	height: 300px;
+	border: 1px solid #000000;
+	margin: 10px;
+}
+
+.day3{
+	width: 90%;
+	height: 300px;
+	border: 1px solid #000000;
+	margin: 10px;
+}

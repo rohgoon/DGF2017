@@ -2,19 +2,19 @@
     pageEncoding="UTF-8"%>
 <ul>
 	<li>
-		<a href="#">HOME</a>
+		<a href="/DGF2017/front.jsp">HOME</a>
 	</li>
 	
 	<li>
-		<a href="#">INFO</a>
-	</li>
-	
-	<li>
-		<a href="#">LINEUP</a>
+		<a href="lineupList.do">LINE-UP</a>
 	</li>
 	
 	<li>
 		<a href="#">TICKETS</a>
+	</li>
+	
+	<li>
+		<a href="#">INFO</a>
 	</li>
 	
 	<li>
