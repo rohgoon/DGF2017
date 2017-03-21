@@ -1,6 +1,7 @@
 package biz.handler;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -8,12 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.session.SqlSession;
 
-import biz.model.BmFestival;
 import biz.model.SeatDetailView;
 import biz.model.SeatDetailViewDao;
-import biz.model.SeatPerGrade;
-import festival.model.Festival;
-import festival.model.FestivalDao;
 import mvc.controller.CommandHandler;
 import mvc.util.MySqlSessionFactory;
 
@@ -57,8 +54,28 @@ public class BmDateHandler implements CommandHandler {
 					break;
 				}
 				List<SeatDetailView> seatDetailView = seatDetailViewDao.selectListByDate(sdate, edate);
+				List<SeatDetailView> sdvResult = new ArrayList<>();
+				Date checkDate = null;
+				//SeatDetailView(no, grade, price, maxSeat, soldSeat, dno, day, stime, etime, fno, place, sday, eday)
+				//bmYear용 foreach
+				int sumPrice = 0;
+				int countTicket = 0;
+				int index = 0;
 				for (SeatDetailView sdv : seatDetailView) {
+					sumPrice += sdv.getPrice();
 					
+					
+					if (sdv.getDay().getYear() != checkDate.getYear() && checkDate != null) {
+						//index 증가
+						index++;						
+						//초기화 구문	
+						sumPrice = sdv.getPrice();
+						countTicket = 1;
+					
+					}else if (checkDate != null) {
+						//list에 삽입				
+						sdvResult.set(index, new SeatDetailView(no, grade, price, maxSeat, soldSeat, dno, day, stime, etime, fno, place, sday, eday));						
+					}					
 				}
 				
 				
