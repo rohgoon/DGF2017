@@ -13,6 +13,9 @@
     <typeAlias type="reservation.model.Reservation" alias="Reservation"/>
     <typeAlias type="reservation.model.ReservationView" alias="ReservationView"/>
     <typeAlias type="biz.model.SeatDetailView" alias="SeatDetailView"/>
+    <typeAlias type="biz.model.bmYearView" alias="bmYearView"/>
+    <typeAlias type="biz.model.bmMonthView" alias="bmMonthView"/>
+    <typeAlias type="biz.model.bmDayView" alias="bmDayView"/>
   </typeAliases>
   
   <environments default="development">
@@ -51,5 +54,8 @@
     <mapper resource="mappers/SeatMapper.xml"/>
     <mapper resource="mappers/ReservationViewMapper.xml"/> 
     <mapper resource="mappers/SeatDetailViewMapper.xml"/>
+    <mapper resource="mappers/bmYearViewMapper.xml"/>
+    <mapper resource="mappers/bmMonthViewMapper.xml"/>
+    <mapper resource="mappers/bmDayViewMapper.xml"/>
   </mappers>
 </configuration>

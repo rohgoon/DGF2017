@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.ibatis.session.SqlSession;
 
 import biz.model.SeatDetailView;
-import biz.model.SeatDetailViewDao;
 import mvc.controller.CommandHandler;
 import mvc.util.MySqlSessionFactory;
 import reservation.model.ReservationView;
