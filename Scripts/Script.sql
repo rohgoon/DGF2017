@@ -195,7 +195,8 @@ from reservationView s2
 where YEAR(s1.rtime) = YEAR(s2.rtime)
 GROUP by YEAR(s2.rtime)) as totalcount
 from reservationView s1
-GROUP by YEAR(day),grade;
+GROUP by YEAR(day),grade
+ORDER BY year desc, grade asc;
 
 -- 월별 영업현황
 CREATE VIEW bmMonthView AS
@@ -210,7 +211,8 @@ from reservationView s2
 where DATE_FORMAT(s1.rtime, '%Y%m') = DATE_FORMAT(s2.rtime, '%Y%m')
 GROUP by DATE_FORMAT(s2.rtime, '%Y%m')) as totalcount
 from reservationView s1
-GROUP by DATE_FORMAT(rtime, '%Y%m'),grade;
+GROUP by DATE_FORMAT(rtime, '%Y%m'),grade
+ORDER BY ymDate desc, grade asc;
 
 -- 일별 영업현황
 CREATE VIEW bmDayView AS
@@ -225,7 +227,8 @@ from reservationView s2
 where DATE_FORMAT(s1.rtime, '%Y%m%d') = DATE_FORMAT(s2.rtime, '%Y%m%d')
 GROUP by DATE_FORMAT(s2.rtime, '%Y%m%d')) as totalcount
 from reservationView s1
-GROUP by DATE_FORMAT(rtime, '%Y%m%d'),grade;
+GROUP by DATE_FORMAT(rtime, '%Y%m%d'),grade
+ORDER BY ymdDate desc, grade asc;
 
 -- 회차별 영업현황
 DROP VIEW bmFesInfoView;
