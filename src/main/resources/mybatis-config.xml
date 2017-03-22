@@ -16,6 +16,7 @@
     <typeAlias type="biz.model.BmYearView" alias="BmYearView"/>
     <typeAlias type="biz.model.BmMonthView" alias="BmMonthView"/>
     <typeAlias type="biz.model.BmDayView" alias="BmDayView"/>
+    <typeAlias type="biz.model.BmFesInfoView" alias="BmFesInfoView"/>
   </typeAliases>
   
   <environments default="development">
@@ -57,5 +58,6 @@
     <mapper resource="mappers/bmYearViewMapper.xml"/>
     <mapper resource="mappers/bmMonthViewMapper.xml"/>
     <mapper resource="mappers/bmDayViewMapper.xml"/>
+    <mapper resource="mappers/bmFesInfoViewMapper.xml"/>
   </mappers>
 </configuration>

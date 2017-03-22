@@ -28,7 +28,7 @@
 			var d = $(this).serialize();		
 			$.ajax({
 				url: "bmDate.do?bm=year",
-				type: "post",
+				type: "get",
 				data: "d",
 				dataType: "html",
 				success:function(bm){
@@ -54,7 +54,7 @@
 	</nav>
 	<div id="wrapContent">
 		<div class="bmContent">
-			<table>
+			<table border="1">
 				<tr>
 					<th>회차</th>
 					<th>기간</th>
@@ -69,7 +69,7 @@
 						  	${item.fno }회차
 						</td>
 						<td>
-							${item.sday }~${item.eday }
+							${item.sdayString }~${item.edayString }
 						</td>
 						<td>
 							<c:forEach var="spg" items="${item.seatPerGrade }">
@@ -95,102 +95,9 @@
 				<input type="submit" value="검색">
 			</form><hr>
 			<!-- ajax 활용 -->
-			<div id="divForYear">
-				<table>
-					<tr>
-						<th>연도</th>
-						<th>회차</th>
-						<th>티켓 판매수</th>
-						<th>총 매출</th>			
-					</tr>
-					<c:forEach var="item" items="${bmYear}"> <!-- 회차별 -->
-						<tr>						
-							<td>
-								${item.sday }
-							</td>
-							<td>
-								${item.sno } <!-- 핸들러에서 sno로 티켓 장수를 임의로 넣음 -->
-							</td>
-							<td>
-								${item.price }
-							</td>
-						</tr>
-					</c:forEach>
-				</table>
+			<div id="divForYear">				
 			</div>
-		</div>
-		<%-- <div class="bmContent">
-			<table>
-				<tr>
-					<th>월</th>
-					<th>티켓 등급</th>
-					<th>등급별 판매수</th>
-					<th>등급별 매출</th>
-					<th>총 매출</th>			
-				</tr>
-				<c:forEach var="item" items="${bmMonth}"> <!-- 회차별 -->
-					<tr>						
-						<td>
-							${item.sday }
-						</td>
-						<td>
-							${item.sno } <!-- 핸들러에서 sno로 티켓 장수를 임의로 넣음 -->
-						</td>
-						<td>
-							${item.price }
-						</td>
-					</tr>
-				</c:forEach>
-			</table>
-		</div>
-		<div class="bmContent">
-			<table>
-				<tr>
-					<th>주</th>
-					<th>티켓 등급</th>
-					<th>등급별 판매수</th>
-					<th>등급별 매출</th>
-					<th>총 매출</th>			
-				</tr>
-				<c:forEach var="item" items="${bmWeek}"> <!-- 회차별 -->
-					<tr>						
-						<td>
-							${item.sday }
-						</td>
-						<td>
-							${item.sno } <!-- 핸들러에서 sno로 티켓 장수를 임의로 넣음 -->
-						</td>
-						<td>
-							${item.price }
-						</td>
-					</tr>
-				</c:forEach>
-			</table>
-		</div>
-		<div class="bmContent">
-			<table>
-				<tr>
-					<th>일</th>
-					<th>티켓 등급</th>
-					<th>등급별 판매수</th>
-					<th>등급별 매출</th>
-					<th>총 매출</th>			
-				</tr>
-				<c:forEach var="item" items="${bmDay}"> <!-- 회차별 -->
-					<tr>						
-						<td>
-							${item.sday }
-						</td>
-						<td>
-							${item.sno } <!-- 핸들러에서 sno로 티켓 장수를 임의로 넣음 -->
-						</td>
-						<td>
-							${item.price }
-						</td>
-					</tr>
-				</c:forEach>
-			</table>
-		</div>--%>
+		</div>		
 	</div> 
 	
 </body>

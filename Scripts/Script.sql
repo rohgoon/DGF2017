@@ -78,18 +78,36 @@ insert into user(id,uname,upassword,email,phone, regdate,outmember) values
 /*예매*/
 	/*<예매시 수행*/
 insert into reservation(uno,sno,rtime) values
-(1,1,'2015-03-30 00:00:00'),
-(1,2,'2015-03-30 00:00:00'),
-(1,3,'2015-03-30 00:00:00');
+(1,1,'2015-03-20 00:00:00'),
+(1,2,'2015-03-25 00:00:00'),
+(1,3,'2015-03-30 00:00:00'),
+(1,4,'2015-03-15 00:00:00'),
+(1,5,'2015-03-26 00:00:00'),
+(1,6,'2015-03-31 00:00:00');
 	/*예매시 구매된 좌석 카운트*/
 update seat set sold=1 where sno=1;
 update seat set sold=1 where sno=2;
 update seat set sold=1 where sno=3;
-	/*예매시 영업정보에 insert>*/
-insert into biz(rno,sno,fno) values
-(1,1,1),
-(1,2,1),
-(1,3,1);
+update seat set sold=1 where sno=4;
+update seat set sold=1 where sno=5;
+update seat set sold=1 where sno=6;
+	
+insert into reservation(uno,sno,rtime) values
+(1,7,'2015-03-21 00:00:00'),
+(1,8,'2015-03-23 00:00:00'),
+(1,9,'2015-03-29 00:00:00'),
+(1,10,'2016-03-15 00:00:00'),
+(1,11,'2016-03-16 00:00:00'),
+(1,12,'2016-03-17 00:00:00'),
+(1,13,'2016-03-18 00:00:00'),
+(1,14,'2016-03-19 00:00:00'),
+(1,15,'2016-03-20 00:00:00'),
+(1,16,'2016-03-21 00:00:00'),
+(1,17,'2016-03-22 00:00:00'),
+(1,18,'2016-03-23 00:00:00');
+update seat set sold=1 where sno=7;
+update seat set sold=1 where sno>7;
+
 
 
 select * from `user`;
@@ -147,18 +165,18 @@ UPDATE seat set sold = 0;
 select * from seatDetailView where day >= '2015-04' and day <= '2015-05';
 -- test용
 drop view testView;
-CREATE VIEW testView AS
-SELECT DATE_FORMAT(day, '%Y%m%d') as ymdDate, YEAR(day) as year, count(*) as ticketcount, sum(price) as sumgradeprice ,grade,
+
+SELECT DATE_FORMAT(day, '%Y-%m-%d') as ymdDate, fno, grade,price,count(*) as ticketcount, sum(price) as sumgradeprice ,
 (SELECT sum(s2.price)
 from seatDetailView s2
-where YEAR(s1.day) = YEAR(s2.day)
-GROUP by YEAR(s2.day)) as totalPrice,
+where s1.fno = s2.fno
+GROUP by s2.fno) as totalPrice,
 (SELECT count(*)
 from seatDetailView s2
-where YEAR(s1.day) = YEAR(s2.day)
-GROUP by YEAR(s2.day)) as totalcount
+where s1.fno = s2.fno
+GROUP by s2.fno) as totalcount
 from seatDetailView s1
-GROUP by YEAR(day),grade;
+GROUP by fno,grade;
 
 drop view bmYearView;
 drop view bmMonthView;
@@ -204,6 +222,20 @@ where DATE_FORMAT(s1.rtime, '%Y%m%d') = DATE_FORMAT(s2.rtime, '%Y%m%d')
 GROUP by DATE_FORMAT(s2.rtime, '%Y%m%d')) as totalcount
 from reservationView s1
 GROUP by DATE_FORMAT(rtime, '%Y%m%d'),grade;
+
+-- 회차별 영업현황
+CREATE VIEW bmFesInfoView AS
+SELECT DATE_FORMAT(day, '%Y-%m-%d') as ymdDate, fno, grade,price,count(*) as ticketcount, sum(price) as sumgradeprice ,
+(SELECT sum(s2.price)
+from seatDetailView s2
+where s1.fno = s2.fno
+GROUP by s2.fno) as totalPrice,
+(SELECT count(*)
+from seatDetailView s2
+where s1.fno = s2.fno
+GROUP by s2.fno) as totalcount
+from seatDetailView s1
+GROUP by fno,grade;
 
 
 

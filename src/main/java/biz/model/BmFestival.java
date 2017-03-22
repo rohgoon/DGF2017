@@ -1,5 +1,6 @@
 package biz.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -36,6 +37,11 @@ public class BmFestival {
 	public Date getSday() {
 		return sday;
 	}
+	public String getSdayString() {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String res = sdf.format(sday);
+		return res;
+	}
 
 
 	public void setSday(Date sday) {
@@ -45,6 +51,11 @@ public class BmFestival {
 
 	public Date getEday() {
 		return eday;
+	}
+	public String getEdayString() {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String res = sdf.format(eday);
+		return res;
 	}
 
 

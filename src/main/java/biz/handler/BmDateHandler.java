@@ -60,13 +60,13 @@ public class BmDateHandler implements CommandHandler {
 			// return을 switch로 할것
 			switch (bm) {
 			case "year":
-				return "/WEB-INF/view/bmYear.html";
+				return "/WEB-INF/biz/bm/bmYear.jsp";
 					
 			case "month":
-				return "/WEB-INF/view/bmMonth.html";
+				return "/WEB-INF/biz/bm/bmMonth.jsp";
 
 			case "day":
-				return "/WEB-INF/view/bmDay.html";
+				return "/WEB-INF/biz/bm/bmDay.jsp";
 
 			}
 
