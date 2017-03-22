@@ -1,6 +1,5 @@
 package biz.handler;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,13 +17,9 @@ import mvc.controller.CommandHandler;
 import mvc.util.MySqlSessionFactory;
 
 public class BmDateHandler implements CommandHandler {
-	private final String FORM_VIEW = "/WEB-INF/biz/bmFront.jsp";
-
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
-		if (req.getMethod().equalsIgnoreCase("get")) {
-			return FORM_VIEW;
-		} else if (req.getMethod().equalsIgnoreCase("post")) {
+		
 			String bm = req.getParameter("bm");
 			SqlSession session = null;
 			try {
@@ -33,23 +28,39 @@ public class BmDateHandler implements CommandHandler {
 				List<BmYearView> bmYearViews = yearViewDao.selectListAll();
 				int lineCheck =0;
 				for (int i = 0; i < bmYearViews.size(); i++) {
-					if (bmYearViews.get(i).getFno() != lineCheck) {
+					if (bmYearViews.get(i).getYear() != lineCheck) {
 						bmYearViews.get(i).setFirstLine(true);
-						lineCheck = bmYearViews.get(i).getFno();
+						lineCheck = bmYearViews.get(i).getYear();
 					}else{
 						bmYearViews.get(i).setFirstLine(false);
-					}
-					
-					
+					}									
 				}
 				req.setAttribute("bmYear", bmYearViews);
 
 				BmMonthViewDao monthViewDao = session.getMapper(BmMonthViewDao.class);
 				List<BmMonthView> bmMonthViews = monthViewDao.selectListAll();
+				lineCheck =0;
+				for (int i = 0; i < bmMonthViews.size(); i++) {
+					if (Integer.parseInt(bmMonthViews.get(i).getYmDate()) != lineCheck) {
+						bmMonthViews.get(i).setFirstLine(true);
+						lineCheck = Integer.parseInt(bmMonthViews.get(i).getYmDate());
+					}else{
+						bmMonthViews.get(i).setFirstLine(false);
+					}									
+				}
 				req.setAttribute("bmMonth", bmMonthViews);
 
 				BmDayViewDao dayViewDao = session.getMapper(BmDayViewDao.class);
 				List<BmDayView> bmDayViews = dayViewDao.selectListAll();
+				lineCheck =0;
+				for (int i = 0; i < bmDayViews.size(); i++) {
+					if (Integer.parseInt(bmDayViews.get(i).getYmdDate()) != lineCheck) {
+						bmDayViews.get(i).setFirstLine(true);
+						lineCheck = Integer.parseInt(bmDayViews.get(i).getYmdDate());
+					}else{
+						bmDayViews.get(i).setFirstLine(false);
+					}									
+				}
 				req.setAttribute("bmDay", bmDayViews);
 			} finally {
 				session.close();
@@ -65,26 +76,9 @@ public class BmDateHandler implements CommandHandler {
 
 			case "day":
 				return "/WEB-INF/biz/bm/bmDay.jsp";
-
+			default:
+				return null;
 			}
 
-		}
-		return null;
 	}
-	/*private ArrayList<T> setLine(List<T> bmList){
-		int lineCheck =0;
-		for (int i = 0; i < bmList.size(); i++) {
-			if (bmList.get(i).getFno() != lineCheck) {
-				bmList.get(i).setFirstLine(true);
-				lineCheck = bmList.get(i).getFno();
-			}else{
-				bmList.get(i).setFirstLine(false);
-			}
-			
-			
-		}
-		
-	}*/
-
-
 }

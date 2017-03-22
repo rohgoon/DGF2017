@@ -12,6 +12,7 @@ public class BmDayView {
 	private int totalPrice;
 	private int totalCount;
 	private boolean firstLine;
+	private int price;
 	
 	public BmDayView() {
 		super();
@@ -117,6 +118,14 @@ public class BmDayView {
 
 	public void setFno(int fno) {
 		this.fno = fno;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
 	}
 
 }

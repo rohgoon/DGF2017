@@ -1,7 +1,7 @@
 package biz.model;
 
 public class BmMonthView {
-	private int ymDate;
+	private String ymDate;
 	private int year;
 	private int month;
 	private int fno;
@@ -11,12 +11,13 @@ public class BmMonthView {
 	private int totalPrice;
 	private int totalCount;
 	private boolean firstLine;
+	private int price;
 	
 	public BmMonthView() {
 		super();
 	}
 
-	public BmMonthView(int ymDate, int year, int month, int ticketCount, int sumGradePrice, String grade,
+	public BmMonthView(String ymDate, int year, int month, int ticketCount, int sumGradePrice, String grade,
 			int totalPrice, int totalCount) {
 		super();
 		this.ymDate = ymDate;
@@ -29,11 +30,11 @@ public class BmMonthView {
 		this.totalCount = totalCount;
 	}
 
-	public int getYmDate() {
+	public String getYmDate() {
 		return ymDate;
 	}
 
-	public void setYmDate(int ymDate) {
+	public void setYmDate(String ymDate) {
 		this.ymDate = ymDate;
 	}
 
@@ -107,6 +108,14 @@ public class BmMonthView {
 
 	public void setFno(int fno) {
 		this.fno = fno;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
 	}
 
 	
