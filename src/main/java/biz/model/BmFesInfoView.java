@@ -14,6 +14,7 @@ public class BmFesInfoView {
 	private int sumGradePrice;
 	private int totalPrice;
 	private int totalCount;
+	private boolean firstLine;
 	public BmFesInfoView() {
 		super();
 	}
@@ -100,5 +101,11 @@ public class BmFesInfoView {
 	}
 	public void setTotalCount(int totalCount) {
 		this.totalCount = totalCount;
+	}
+	public boolean isFirstLine() {
+		return firstLine;
+	}
+	public void setFirstLine(boolean firstLine) {
+		this.firstLine = firstLine;
 	}
 }

@@ -13,6 +13,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+	table{
+		border-collapse: collapse;
+	}
+	table tr, td{
+		padding: 10px;
+		text-align: center;
+	}
+</style>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
 	
@@ -50,30 +59,38 @@
 			<table border="1">
 				<tr>
 					<th>회차</th>
+					<th>기간</th>
+					<th>총 티켓판매</th>
+					<th>총 매출</th>
 					<th>등급별 판매수</th>
-					<th>등급별 매출</th>
-					<th>총 판매수</th>
-					<th>총 매출</th>			
+					<th>등급별 매출</th>			
 				</tr>
 				<c:forEach var="item" items="${bmFestivals}"> <!-- 회차별 -->
 					<tr>
-						<td>
+						<c:if test="${item.firstLine == true }">
+							<td rowspan="3">
 						  	${item.fno }회차
+							</td>
+							<td rowspan="3">
+								${item.sdayString }~${item.edayString }
+							</td>
+							<td rowspan="3">
+								${item.totalCount }장
+							</td>
+							<td rowspan="3">
+								${item.totalPrice }원
+							</td>
+						</c:if>
+						<c:if test="${item.firstLine == false }">
+							
+						</c:if>
+						<td>
+							${item.grade } : ${item.ticketCount }장							
 						</td>
 						<td>
-							<c:forEach var="spg" items="${item.seatPerGrade }">
-								${spg.toStringForSPG() }<br>
-							</c:forEach>
+							${item.grade } : ${item.sumGradePrice }원							
 						</td>
-							<c:forEach var="spg" items="${item.seatPerGrade }">
-								${spg.toStringForPPG() }<br>
-							</c:forEach>
-						<td>
-							${item.totalTicket }장
-						</td>
-						<td>
-							${item.totalPrice }원
-						</td>
+						
 					</tr>
 				</c:forEach>
 			</table>

@@ -1,6 +1,5 @@
 package biz.handler;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,12 +9,6 @@ import org.apache.ibatis.session.SqlSession;
 
 import biz.model.BmFesInfoView;
 import biz.model.BmFesInfoViewDao;
-import biz.model.BmFestival;
-import biz.model.SeatDetailView;
-import biz.model.SeatDetailViewDao;
-import biz.model.SeatPerGrade;
-import festival.model.Festival;
-import festival.model.FestivalDao;
 import mvc.controller.CommandHandler;
 import mvc.util.MySqlSessionFactory;
 
@@ -29,8 +22,18 @@ public class BizManageHandler implements CommandHandler {
 				session = MySqlSessionFactory.openSession();
 				BmFesInfoViewDao bmFesInfoViewDao = session.getMapper(BmFesInfoViewDao.class);
 				List<BmFesInfoView> bmFesInfoViews = bmFesInfoViewDao.selectListAll();
-				req.setAttribute("bmFestivals", bmFesInfoViews);
-				
+				int lineCheck =0;
+				for (int i = 0; i < bmFesInfoViews.size(); i++) {
+					if (bmFesInfoViews.get(i).getFno() != lineCheck) {
+						bmFesInfoViews.get(i).setFirstLine(true);
+						lineCheck = bmFesInfoViews.get(i).getFno();
+					}else{
+						bmFesInfoViews.get(i).setFirstLine(false);
+					}
+					
+					
+				}
+				req.setAttribute("bmFestivals", bmFesInfoViews);				
 				
 			}finally {
 				session.close();
