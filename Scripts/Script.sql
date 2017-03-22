@@ -184,7 +184,8 @@ drop view bmMonthView;
 drop view bmDayView;
 -- 연도별 영업현황
 CREATE VIEW bmYearView AS
-SELECT YEAR(rtime) as year, count(*) as ticketcount, sum(price) as sumgradeprice ,grade,
+SELECT YEAR(rtime) as year, fno,
+count(*) as ticketcount, sum(price) as sumgradeprice ,grade,
 (SELECT sum(s2.price)
 from reservationView s2
 where YEAR(s1.rtime) = YEAR(s2.rtime)
@@ -198,7 +199,8 @@ GROUP by YEAR(day),grade;
 
 -- 월별 영업현황
 CREATE VIEW bmMonthView AS
-SELECT DATE_FORMAT(rtime, '%Y%m') as ymDate, YEAR(rtime) as year, MONTH(rtime) as month, count(*) as ticketcount, sum(price) as sumgradeprice ,grade,
+SELECT DATE_FORMAT(rtime, '%Y%m') as ymDate, YEAR(rtime) as year, MONTH(rtime) as month, fno, 
+count(*) as ticketcount, sum(price) as sumgradeprice ,grade,
 (SELECT sum(s2.price)
 from reservationView s2
 where DATE_FORMAT(s1.rtime, '%Y%m') = DATE_FORMAT(s2.rtime, '%Y%m')
@@ -212,7 +214,8 @@ GROUP by DATE_FORMAT(rtime, '%Y%m'),grade;
 
 -- 일별 영업현황
 CREATE VIEW bmDayView AS
-SELECT DATE_FORMAT(rtime, '%Y%m%d') as ymdDate, YEAR(rtime) as year, MONTH(rtime) as month, DAY(rtime) as nowday, count(*) as ticketcount, sum(price) as sumgradeprice ,grade,
+SELECT DATE_FORMAT(rtime, '%Y%m%d') as ymdDate, YEAR(rtime) as year, MONTH(rtime) as month, DAY(rtime) as nowday,
+fno,count(*) as ticketcount, sum(price) as sumgradeprice ,grade,
 (SELECT sum(s2.price)
 from reservationView s2
 where DATE_FORMAT(s1.rtime, '%Y%m%d') = DATE_FORMAT(s2.rtime, '%Y%m%d')

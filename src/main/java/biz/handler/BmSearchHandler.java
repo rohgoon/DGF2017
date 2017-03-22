@@ -1,6 +1,5 @@
 package biz.handler;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +16,7 @@ import biz.model.BmYearViewDao;
 import mvc.controller.CommandHandler;
 import mvc.util.MySqlSessionFactory;
 
-public class BmDateHandler implements CommandHandler {
+public class BmSearchHandler implements CommandHandler {
 	private final String FORM_VIEW = "/WEB-INF/biz/bmFront.jsp";
 
 	@Override
@@ -26,30 +25,33 @@ public class BmDateHandler implements CommandHandler {
 			return FORM_VIEW;
 		} else if (req.getMethod().equalsIgnoreCase("post")) {
 			String bm = req.getParameter("bm");
+			String sdate = req.getParameter("sdate");
+			String edate = req.getParameter("edate");
+			String[] sdArr = sdate.split("-");
+			String[] edArr = edate.split("-");
+			int sy = Integer.parseInt(sdArr[0]);
+			int ey = Integer.parseInt(edArr[0]);
+			int sm = Integer.parseInt(sdArr[1]);
+			int em = Integer.parseInt(edArr[1]);
+			int sd = Integer.parseInt(sdArr[2]);
+			int ed = Integer.parseInt(sdArr[2]);
+			String sym = sdArr[0]+sdArr[1];
+			String eym = edArr[0]+edArr[1];
+			String symd = sdArr[0]+sdArr[1]+sdArr[2];
+			String eymd = edArr[0]+edArr[1]+edArr[2];
 			SqlSession session = null;
 			try {
 				session = MySqlSessionFactory.openSession();
 				BmYearViewDao yearViewDao = session.getMapper(BmYearViewDao.class);
-				List<BmYearView> bmYearViews = yearViewDao.selectListAll();
-				int lineCheck =0;
-				for (int i = 0; i < bmYearViews.size(); i++) {
-					if (bmYearViews.get(i).getFno() != lineCheck) {
-						bmYearViews.get(i).setFirstLine(true);
-						lineCheck = bmYearViews.get(i).getFno();
-					}else{
-						bmYearViews.get(i).setFirstLine(false);
-					}
-					
-					
-				}
+				List<BmYearView> bmYearViews = yearViewDao.selectListByYear(sy, ey);
 				req.setAttribute("bmYear", bmYearViews);
 
 				BmMonthViewDao monthViewDao = session.getMapper(BmMonthViewDao.class);
-				List<BmMonthView> bmMonthViews = monthViewDao.selectListAll();
+				List<BmMonthView> bmMonthViews = monthViewDao.selectListByYmDate(sym, eym);
 				req.setAttribute("bmMonth", bmMonthViews);
 
 				BmDayViewDao dayViewDao = session.getMapper(BmDayViewDao.class);
-				List<BmDayView> bmDayViews = dayViewDao.selectListAll();
+				List<BmDayView> bmDayViews = dayViewDao.selectListByYmdDate(symd, eymd);
 				req.setAttribute("bmDay", bmDayViews);
 			} finally {
 				session.close();
@@ -71,20 +73,5 @@ public class BmDateHandler implements CommandHandler {
 		}
 		return null;
 	}
-	/*private ArrayList<T> setLine(List<T> bmList){
-		int lineCheck =0;
-		for (int i = 0; i < bmList.size(); i++) {
-			if (bmList.get(i).getFno() != lineCheck) {
-				bmList.get(i).setFirstLine(true);
-				lineCheck = bmList.get(i).getFno();
-			}else{
-				bmList.get(i).setFirstLine(false);
-			}
-			
-			
-		}
-		
-	}*/
-
 
 }

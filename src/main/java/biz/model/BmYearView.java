@@ -2,11 +2,13 @@ package biz.model;
 
 public class BmYearView {
 	private int year;
+	private int fno;
 	private int ticketCount;
 	private int sumGradePrice;
 	private String grade;
 	private int totalPrice;
 	private int totalCount;
+	private boolean firstLine;
 	public BmYearView() {
 		super();
 	}
@@ -55,6 +57,22 @@ public class BmYearView {
 	}
 	public void setTotalCount(int totalCount) {
 		this.totalCount = totalCount;
+	}
+
+	public boolean isFirstLine() {
+		return firstLine;
+	}
+
+	public void setFirstLine(boolean firstLine) {
+		this.firstLine = firstLine;
+	}
+
+	public int getFno() {
+		return fno;
+	}
+
+	public void setFno(int fno) {
+		this.fno = fno;
 	}
 	
 	

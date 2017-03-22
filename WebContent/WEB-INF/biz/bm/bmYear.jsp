@@ -33,52 +33,50 @@
 </script>
 </head>
 <body>
-	<nav> 
-		<ul>
-			<li class="bmNav"><a href="bizManage.do">회차별 매출액</a></li>
-			<li class="bmDate.do?bm=year">연도별 매출액</li>
-			<li class="bmDate.do?bm=month">월별 매출액</li>
-			<li class="bmDate.do?bm=day">일별 매출액</li>
-			<li class="bmDate.do?bm=search">기간별 매출액</li>		
-		</ul>		
-	</nav>
+			<a href="bizManage.do">회차별 매출액</a>
+			<a href="bmDate.do?bm=year">연도별 매출액</a>
+			<a href="bmDate.do?bm=month">월별 매출액</a>
+			<a href="bmDate.do?bm=day">일별 매출액</a>
+			<a href="bmDate.do?bm=search">기간별 매출액</a>
 	<div id="wrapContent">
 		<div class="bmContent">
 			<table>
 				<tr>
+					<th>연도</th>
 					<th>회차</th>
-					<th>기간</th>
-					<th>총 티켓판매</th>
-					<th>총 매출</th>
+					<th>등급별 가격</th>
 					<th>등급별 판매수</th>
-					<th>등급별 매출</th>			
+					<th>등급별 매출</th>
+					<th>총 티켓판매</th>
+					<th>총 매출</th>								
 				</tr>
-				<c:forEach var="item" items="${bmFestivals}"> <!-- 회차별 -->
-					<tr>
+				<c:forEach var="item" items="${bmYear}"> <!-- 회차별 -->
+					<tr>						
+						<c:if test="${item.firstLine == true }">							
+							<td rowspan="3">
+								${item.year }
+							</td>
+							<td rowspan="3">
+						  		${item.fno }회차
+							</td>							
+						</c:if>
+						<td>
+							${item.grade } : ${item.price }원							
+						</td>
+						<td>
+							${item.grade } : ${item.ticketCount }매							
+						</td>
+						<td>
+							${item.grade } : ${item.sumGradePrice }원							
+						</td>
 						<c:if test="${item.firstLine == true }">
 							<td rowspan="3">
-						  	${item.fno }회차
-							</td>
-							<td rowspan="3">
-								${item.sdayString }~${item.edayString }
-							</td>
-							<td rowspan="3">
-								${item.totalCount }장
+								${item.totalCount }매
 							</td>
 							<td rowspan="3">
 								${item.totalPrice }원
 							</td>
 						</c:if>
-						<c:if test="${item.firstLine == false }">
-							
-						</c:if>
-						<td>
-							${item.grade } : ${item.ticketCount }장							
-						</td>
-						<td>
-							${item.grade } : ${item.sumGradePrice }원							
-						</td>
-						
 					</tr>
 				</c:forEach>
 			</table>

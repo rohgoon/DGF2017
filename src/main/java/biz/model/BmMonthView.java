@@ -4,11 +4,13 @@ public class BmMonthView {
 	private int ymDate;
 	private int year;
 	private int month;
+	private int fno;
 	private int ticketCount;
 	private int sumGradePrice;
 	private String grade;
 	private int totalPrice;
 	private int totalCount;
+	private boolean firstLine;
 	
 	public BmMonthView() {
 		super();
@@ -89,6 +91,22 @@ public class BmMonthView {
 
 	public void setTotalCount(int totalCount) {
 		this.totalCount = totalCount;
+	}
+
+	public boolean isFirstLine() {
+		return firstLine;
+	}
+
+	public void setFirstLine(boolean firstLine) {
+		this.firstLine = firstLine;
+	}
+
+	public int getFno() {
+		return fno;
+	}
+
+	public void setFno(int fno) {
+		this.fno = fno;
 	}
 
 	
