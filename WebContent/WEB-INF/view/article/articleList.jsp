@@ -10,6 +10,15 @@
 		color:blue;
 		text-decoration: none;
 	}
+	
+	table{
+		margin:0 auto;
+	}
+
+	p, table{
+		text-align: center;
+	}
+	
 </style>
 <!-- <script src="WEB-INF/lib/webjars/jquery/1.12.4/dist/jquery.min.js"></script> -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -126,7 +135,6 @@
 	
 	
 	
-	
 	<p>
 		<select name="searchby">
 			<option val="all">전체</option>
@@ -137,6 +145,7 @@
 		</select>
 		<input type="search" name="search">
 		<input type="button" value="검색">
+		<input type="button" value="글쓰기">
 	</p>
 </body>
 </html>
