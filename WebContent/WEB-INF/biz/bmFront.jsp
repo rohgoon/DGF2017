@@ -15,10 +15,12 @@
 <title>Insert title here</title>
 <style type="text/css">
 	table{
+		border:2px solid black;
 		border-collapse: collapse;
 	}
-	table tr, td{
-		padding: 10px;
+	table th, td{
+		border:1px solid black;
+		padding: 5px;
 		text-align: center;
 	}
 </style>
@@ -26,20 +28,6 @@
 <script type="text/javascript">
 	
 	$(document).ready(function() {		
-		/* $("#bmYear").on("submit", function() {
-			var d = $(this).serialize();		
-			$.ajax({
-				url: "bmDate.do?bm=year",
-				type: "get",
-				data: "d",
-				dataType: "html",
-				success:function(bm){
-					$("#divForYear").html(bm);
-				}
-	
-			});//ajax */
-		});
-		
 		
 	});
 </script>
@@ -47,16 +35,16 @@
 <body>
 	<nav> 
 		<ul>
-			<li class="bmNav">회차별 매출액</li>
-			<li class="bmNav">연도별 매출액</li>
-			<li class="bmNav">월별 매출액</li>
-			<li class="bmNav">주별 매출액</li>
-			<li class="bmNav">일별 매출액</li>		
+			<li class="bmNav"><a href="bizManage.do">회차별 매출액</a></li>
+			<li class="bmDate.do?bm=year">연도별 매출액</li>
+			<li class="bmDate.do?bm=month">월별 매출액</li>
+			<li class="bmDate.do?bm=day">일별 매출액</li>
+			<li class="bmDate.do?bm=search">기간별 매출액</li>		
 		</ul>		
 	</nav>
 	<div id="wrapContent">
 		<div class="bmContent">
-			<table border="1">
+			<table>
 				<tr>
 					<th>회차</th>
 					<th>기간</th>
@@ -95,15 +83,6 @@
 				</c:forEach>
 			</table>
 		</div>
-		<%-- <div class="bmContent">
-			<form action="bmYear.do" method="post" id="bmYear">
-				<input type="date" name="sdate" value="${newDate }" id="sdate">-<input type="date" name="edate" value="${newDate }" id="edate"> 
-				<input type="submit" value="검색">
-			</form><hr>
-			<!-- ajax 활용 -->
-			<div id="divForYear">				
-			</div>
-		</div> --%>		
 	</div> 
 	
 </body>
