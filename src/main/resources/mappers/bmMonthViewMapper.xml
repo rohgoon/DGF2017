@@ -6,7 +6,7 @@
 	<select id="selectListAll" resultType="bmMonthView">
 		select * from bmMonthView
 	</select>
-	<select id="selectListByYear" parameterType="int" resultType="bmMonthView">
-		select * from bmMonthView where year &gt;= #{param1} and month &gt;=#{param2} and year &lt;= #{param3} and month &gt;=#{param4} 
+	<select id="selectListByYmDate" parameterType="string" resultType="bmMonthView">
+		select * from bmMonthView where ymDate &gt;= #{param1} and ymDate &lt;=#{param2} 
 	</select>
 </mapper>

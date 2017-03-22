@@ -35,7 +35,10 @@ public class BmDateHandler implements CommandHandler {
 			int em = Integer.parseInt(edArr[1]);
 			int sd = Integer.parseInt(sdArr[2]);
 			int ed = Integer.parseInt(sdArr[2]);
-			
+			String sym = sdArr[0]+sdArr[1];
+			String eym = edArr[0]+edArr[1];
+			String symd = sdArr[0]+sdArr[1]+sdArr[2];
+			String eymd = edArr[0]+edArr[1]+edArr[2];
 			SqlSession session = null;
 			try {
 				session = MySqlSessionFactory.openSession();
@@ -44,11 +47,11 @@ public class BmDateHandler implements CommandHandler {
 				req.setAttribute("bmYear", bmYearViews);
 
 				BmMonthViewDao monthViewDao = session.getMapper(BmMonthViewDao.class);
-				List<BmMonthView> bmMonthViews = monthViewDao.selectListByYear(sy, sm, ey, ed);
+				List<BmMonthView> bmMonthViews = monthViewDao.selectListByYmDate(sym, eym);
 				req.setAttribute("bmMonth", bmMonthViews);
 
 				BmDayViewDao dayViewDao = session.getMapper(BmDayViewDao.class);
-				List<BmDayView> bmDayViews = dayViewDao.selectListByYear(sy, sm, sd, ey, em, ed);
+				List<BmDayView> bmDayViews = dayViewDao.selectListByYmdDate(symd, eymd);
 				req.setAttribute("bmDay", bmDayViews);
 			} finally {
 				session.close();
@@ -57,13 +60,13 @@ public class BmDateHandler implements CommandHandler {
 			// return을 switch로 할것
 			switch (bm) {
 			case "year":
-				return "/WEB-INF/view/bmDate.html";
+				return "/WEB-INF/view/bmYear.html";
 					
 			case "month":
-				return "/WEB-INF/view/bmDate.html";
+				return "/WEB-INF/view/bmMonth.html";
 
 			case "day":
-				return "/WEB-INF/view/bmDate.html";
+				return "/WEB-INF/view/bmDay.html";
 
 			}
 

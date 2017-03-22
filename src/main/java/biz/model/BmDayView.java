@@ -1,6 +1,7 @@
 package biz.model;
 
 public class BmDayView {
+	private String ymdDate;
 	private int year;
 	private int month;
 	private int nowday;
@@ -14,9 +15,10 @@ public class BmDayView {
 		super();
 	}
 
-	public BmDayView(int year, int month, int nowday, int ticketCount, int sumGradePrice, String grade, int totalPrice,
-			int totalCount) {
+	public BmDayView(String ymdDate, int year, int month, int nowday, int ticketCount, int sumGradePrice, String grade,
+			int totalPrice, int totalCount) {
 		super();
+		this.ymdDate = ymdDate;
 		this.year = year;
 		this.month = month;
 		this.nowday = nowday;
@@ -25,6 +27,14 @@ public class BmDayView {
 		this.grade = grade;
 		this.totalPrice = totalPrice;
 		this.totalCount = totalCount;
+	}
+
+	public String getYmdDate() {
+		return ymdDate;
+	}
+
+	public void setYmdDate(String ymdDate) {
+		this.ymdDate = ymdDate;
 	}
 
 	public int getYear() {
@@ -90,4 +100,5 @@ public class BmDayView {
 	public void setTotalCount(int totalCount) {
 		this.totalCount = totalCount;
 	}
+
 }
