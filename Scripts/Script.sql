@@ -171,3 +171,9 @@ VALUES
 (6, 2, 'test15', 'test3 그럼 20000', '공지사항', '2017-03-17 12:38:52.000', 0, 0, NULL, NULL, 0),
 (6, 3, 'test16', 'test3 그럼 20000', '공지사항', '2017-03-17 12:38:52.000', 0, 0, NULL, NULL, 0);
 
+select * from article_list_view ORDER by article_no desc limit 2, 2;
+
+select * 
+from article_list_view 
+where category = ''
+ORDER by article_no desc limit 0, 10;

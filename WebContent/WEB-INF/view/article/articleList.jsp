@@ -5,10 +5,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- <script src="WEB-INF/lib/webjars/jquery/1.12.4/dist/jquery.min.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$(function(){
+		$("select[name='rowNum']").change(function() {
+			var rowNum = $(this).val();
+			var boardNo = ${boardNo};
+			var page = ${page};
+			location.replace("articleList.do?boardNo="+boardNo+"&rowNum="+rowNum+"&page="+page);								
+		})
+	});
+</script>
 <title>Insert title here</title>
 </head>
 <body>
-	
 	<p>
 		<select name="category">
 			<option>전체</option>
@@ -16,7 +27,14 @@
 			<option>잡담</option>
 			<option>질문</option>
 		</select>
-		<h2>${articleCount}개의 게시물이 있습니다.</h2>
+		
+		<select name="rowNum">
+			<option value="5">5개씩 보기</option>
+			<option value="10" selected="selected">10개씩 보기</option>
+			<option value="15">15개씩 보기</option>
+			<option value="20">20개씩 보기</option>
+			<option value="30">30개씩 보기</option>
+		</select>
 	</p>
 	
 	<table>
@@ -57,9 +75,21 @@
 		
 	</table>
 	<p>
-		<c:forEach begin="1" end="${totalPage}" var="page">
-			<a href="">${page}</a>
+		<c:if test="${articleList.size() == 0}">
+			<h4>게시물이 없습니다.</h4>
+		</c:if>
+		
+		<c:if test="${startPage >= 10}">
+			<a href="articleList.do?boardNo=${boardNo}&page=${page-10}&rowNum=${rowNum}">[이전]</a>
+		</c:if>
+		
+		<c:forEach begin="${startPage}" end="${endPage}" var="page">
+			<a href="articleList.do?boardNo=${boardNo}&page=${page}&rowNum=${rowNum}">[${page}]</a>
 		</c:forEach>
+			
+		<c:if test="${endPage < totalPage}">
+			<a href="articleList.do?boardNo=${boardNo}&page=${startPage+10}&rowNum=${rowNum}">[다음]</a>
+		</c:if>
 	</p>
 	
 	

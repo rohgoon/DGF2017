@@ -6,12 +6,14 @@
     "outline": {
       
     },
-    "angular": {
+    "angular1": {
       
     }
   },
   "libs": [
     "ecma5",
-    "browser"
-  ]
+    "browser",
+    "jquery"
+  ],
+  "ecmaVersion": 5
 }
