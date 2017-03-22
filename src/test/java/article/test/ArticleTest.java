@@ -136,6 +136,28 @@ public class ArticleTest {
 //		}
 //	}
 	
+//	@Test
+//	public void testSelect() {
+//		SqlSession session = null;
+//	
+//		try {
+//			session = MySqlSessionFactory.openSession();
+//			ArticleListViewDao dao = session.getMapper(ArticleListViewDao.class);
+//			int boardNo = 6;
+//			int articleCount = dao.selectCountArticleListByBoardNo(boardNo);
+//			
+//			System.out.println(articleCount);
+//					
+//				
+//			
+//		} catch (Exception e) {
+//			session.rollback();
+//			e.printStackTrace();
+//		} finally {
+//			session.close();
+//		}
+//	}
+	
 	@Test
 	public void testSelect() {
 		SqlSession session = null;
@@ -144,9 +166,10 @@ public class ArticleTest {
 			session = MySqlSessionFactory.openSession();
 			ArticleListViewDao dao = session.getMapper(ArticleListViewDao.class);
 			int boardNo = 6;
-			int articleCount = dao.selectCountArticleListByBoarNo(boardNo);
+			String category = "공지사항";
+			List<ArticleListView> article = dao.selectArticleListByCategory(boardNo, category, 1, 10);
 			
-			System.out.println(articleCount);
+			System.out.println(article.toString());
 					
 				
 			
