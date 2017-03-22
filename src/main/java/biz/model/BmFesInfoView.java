@@ -1,8 +1,13 @@
 package biz.model;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class BmFesInfoView {
 	private String ymdDate;
 	private int fno;
+	private Date sday;
+	private Date eday;
 	private String grade;
 	private int price;
 	private int ticketCount;
@@ -12,11 +17,13 @@ public class BmFesInfoView {
 	public BmFesInfoView() {
 		super();
 	}
-	public BmFesInfoView(String ymdDate, int fno, String grade, int price, int ticketCount, int sumGradePrice,
-			int totalPrice, int totalCount) {
+	public BmFesInfoView(String ymdDate, int fno, Date sday, Date eday, String grade, int price, int ticketCount,
+			int sumGradePrice, int totalPrice, int totalCount) {
 		super();
 		this.ymdDate = ymdDate;
 		this.fno = fno;
+		this.sday = sday;
+		this.eday = eday;
 		this.grade = grade;
 		this.price = price;
 		this.ticketCount = ticketCount;
@@ -35,6 +42,28 @@ public class BmFesInfoView {
 	}
 	public void setFno(int fno) {
 		this.fno = fno;
+	}
+	public Date getSday() {
+		return sday;
+	}
+	public String getSdayString() {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String res = sdf.format(sday);
+		return res;
+	}
+	public void setSday(Date sday) {
+		this.sday = sday;
+	}
+	public Date getEday() {
+		return eday;
+	}
+	public String getEdayString() {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String res = sdf.format(eday);
+		return res;
+	}
+	public void setEday(Date eday) {
+		this.eday = eday;
 	}
 	public String getGrade() {
 		return grade;
@@ -72,7 +101,4 @@ public class BmFesInfoView {
 	public void setTotalCount(int totalCount) {
 		this.totalCount = totalCount;
 	}
-	
-	
-	
 }

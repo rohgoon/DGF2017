@@ -166,7 +166,8 @@ select * from seatDetailView where day >= '2015-04' and day <= '2015-05';
 -- test용
 drop view testView;
 
-SELECT DATE_FORMAT(day, '%Y-%m-%d') as ymdDate, fno, grade,price,count(*) as ticketcount, sum(price) as sumgradeprice ,
+SELECT DATE_FORMAT(day, '%Y-%m-%d') as ymdDate, fno, sday, eday,
+grade,price,count(*) as ticketcount, sum(price) as sumgradeprice ,
 (SELECT sum(s2.price)
 from seatDetailView s2
 where s1.fno = s2.fno
@@ -224,8 +225,10 @@ from reservationView s1
 GROUP by DATE_FORMAT(rtime, '%Y%m%d'),grade;
 
 -- 회차별 영업현황
+DROP VIEW bmFesInfoView;
 CREATE VIEW bmFesInfoView AS
-SELECT DATE_FORMAT(day, '%Y-%m-%d') as ymdDate, fno, grade,price,count(*) as ticketcount, sum(price) as sumgradeprice ,
+SELECT DATE_FORMAT(day, '%Y-%m-%d') as ymdDate, fno, sday, eday,
+grade,price,count(*) as ticketcount, sum(price) as sumgradeprice ,
 (SELECT sum(s2.price)
 from seatDetailView s2
 where s1.fno = s2.fno

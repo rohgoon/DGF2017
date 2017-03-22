@@ -15,16 +15,9 @@
 <title>Insert title here</title>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
-	$('.bmContent').css('display', 'none');
-	$('.bmContent').eq(0).css('display', 'block');
-	$(document).ready(function() {
-		$('.bmNav').each(function(i, element) {
-			$(element).click(function() {
-				$('.bmContent').css('display', 'none');
-				$('.bmContent').eq(i).css('display', 'block');			
-			}); 
-		});
-		$("#bmYear").on("submit", function() {
+	
+	$(document).ready(function() {		
+		/* $("#bmYear").on("submit", function() {
 			var d = $(this).serialize();		
 			$.ajax({
 				url: "bmDate.do?bm=year",
@@ -35,7 +28,7 @@
 					$("#divForYear").html(bm);
 				}
 	
-			});//ajax
+			});//ajax */
 		});
 		
 		
@@ -57,7 +50,6 @@
 			<table border="1">
 				<tr>
 					<th>회차</th>
-					<th>기간</th>
 					<th>등급별 판매수</th>
 					<th>등급별 매출</th>
 					<th>총 판매수</th>
@@ -67,9 +59,6 @@
 					<tr>
 						<td>
 						  	${item.fno }회차
-						</td>
-						<td>
-							${item.sdayString }~${item.edayString }
 						</td>
 						<td>
 							<c:forEach var="spg" items="${item.seatPerGrade }">
@@ -89,7 +78,7 @@
 				</c:forEach>
 			</table>
 		</div>
-		<div class="bmContent">
+		<%-- <div class="bmContent">
 			<form action="bmYear.do" method="post" id="bmYear">
 				<input type="date" name="sdate" value="${newDate }" id="sdate">-<input type="date" name="edate" value="${newDate }" id="edate"> 
 				<input type="submit" value="검색">
@@ -97,7 +86,7 @@
 			<!-- ajax 활용 -->
 			<div id="divForYear">				
 			</div>
-		</div>		
+		</div> --%>		
 	</div> 
 	
 </body>
