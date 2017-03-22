@@ -22,7 +22,6 @@ public class BmDateHandler implements CommandHandler {
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		if (req.getMethod().equalsIgnoreCase("get")) {
-
 			return FORM_VIEW;
 		} else if (req.getMethod().equalsIgnoreCase("post")) {
 			String bm = req.getParameter("bm");
@@ -36,8 +35,8 @@ public class BmDateHandler implements CommandHandler {
 			int em = Integer.parseInt(edArr[1]);
 			int sd = Integer.parseInt(sdArr[2]);
 			int ed = Integer.parseInt(sdArr[2]);
+			
 			SqlSession session = null;
-
 			try {
 				session = MySqlSessionFactory.openSession();
 				BmYearViewDao yearViewDao = session.getMapper(BmYearViewDao.class);
