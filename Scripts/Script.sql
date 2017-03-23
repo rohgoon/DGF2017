@@ -108,8 +108,11 @@ insert into reservation(uno,sno,rtime) values
 
 update seat set sold=1 where sno=7;
 update seat set sold=1 where sno>7;
+
 insert into reservation(uno,sno,rtime) values
-(1,8,'2015-03-21 16:15:10');
+(1,8,'2015-03-21 16:15:10'); -- 7 ,8
+update seat set sold=2 where sno=7;
+update seat set sold=1 where sno=8;
 
 
 select * from `user`;

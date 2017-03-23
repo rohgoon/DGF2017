@@ -8,14 +8,17 @@
 <title>Insert title here</title>
 <style type="text/css">
 	table{
-		border:2px solid black;
+		border: 2px solid black;
 		border-collapse: collapse;
 	}
-	table th, td{
+	th, td{
 		border:1px solid black;
 		padding: 5px;
 		text-align: center;
 	}
+	tr:LAST-CHILD td{
+		border-bottom: 2px solid black;
+		}
 </style>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
