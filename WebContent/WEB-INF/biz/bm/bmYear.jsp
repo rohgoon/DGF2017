@@ -46,10 +46,10 @@
 				<c:forEach var="item" items="${bmYear}"> <!-- 회차별 -->
 					<tr>						
 						<c:if test="${item.firstLine == true }">							
-							<td rowspan="3">
+							<td rowspan="${item.rowCount }">
 								${item.year }
 							</td>
-							<td rowspan="3">
+							<td rowspan="${item.rowCount }">
 						  		${item.fno }회차
 							</td>							
 						</c:if>
@@ -63,10 +63,10 @@
 							${item.grade } : ${item.sumGradePrice }원							
 						</td>
 						<c:if test="${item.firstLine == true }">
-							<td rowspan="3">
+							<td rowspan="${item.rowCount }">
 								${item.totalCount }매
 							</td>
-							<td rowspan="3">
+							<td rowspan="${item.rowCount }">
 								${item.totalPrice }원
 							</td>
 						</c:if>

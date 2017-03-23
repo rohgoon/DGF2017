@@ -45,17 +45,21 @@ table th, td {
 					<th>해당일 총 매출</th>
 				</tr>
 				<c:forEach var="item" items="${bmDay}">
-					<tr>						
-						<td>${item.year }년 ${item.month }월 ${item.nowday }일</td>
-						<td>${item.fno }회차</td>
+					<tr>
+						<c:if test="${item.firstLine == true }">
+							<td rowspan="${item.rowCount }">
+								${item.year }년 ${item.month }월 ${item.nowday }일
+							</td>
+							<td rowspan="${item.rowCount }">${item.fno }회차</td>
+						</c:if>
+						<td>${item.grade }:${item.price }원</td>
+						<td>${item.grade }:${item.ticketCount }매</td>
+						<td>${item.grade }:${item.sumGradePrice }원</td>
 
-						<td>${item.grade } : ${item.price }원</td>
-						<td>${item.grade } : ${item.ticketCount }매</td>
-						<td>${item.grade } : ${item.sumGradePrice }원</td>
-
-						<td>${item.totalCount }매</td>
-						<td>${item.totalPrice }원</td>
-
+						<c:if test="${item.firstLine == true }">
+							<td rowspan="${item.rowCount }">${item.totalCount }매</td>
+							<td rowspan="${item.rowCount }">${item.totalPrice }원</td>
+						</c:if>
 					</tr>
 				</c:forEach>
 			</table>

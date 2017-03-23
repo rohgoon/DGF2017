@@ -105,9 +105,11 @@ insert into reservation(uno,sno,rtime) values
 (1,16,'2016-03-21 00:00:00'),
 (1,17,'2016-03-22 00:00:00'),
 (1,18,'2016-03-23 00:00:00');
+
 update seat set sold=1 where sno=7;
 update seat set sold=1 where sno>7;
-
+insert into reservation(uno,sno,rtime) values
+(1,8,'2015-03-21 16:15:10');
 
 
 select * from `user`;
@@ -166,25 +168,34 @@ select * from seatDetailView where day >= '2015-04' and day <= '2015-05';
 -- test용
 drop view testView;
 
-SELECT DATE_FORMAT(day, '%Y-%m-%d') as ymdDate, fno, sday, eday,
-grade,price,count(*) as ticketcount, sum(price) as sumgradeprice ,
+SELECT (SELECT COUNT(*)
+from reservationView s2
+where DATE_FORMAT(s1.rtime, '%Y%m%d') = DATE_FORMAT(s2.rtime, '%Y%m%d') and s1.grade = s2.grade
+GROUP by DATE_FORMAT(s2.rtime, '%Y%m%d'),grade) as rowCount,
+DATE_FORMAT(rtime, '%Y%m%d') as ymdDate, YEAR(rtime) as year, MONTH(rtime) as month, DAY(rtime) as nowday,
+fno,count(*) as ticketcount, sum(price) as sumgradeprice ,grade, price,
 (SELECT sum(s2.price)
-from seatDetailView s2
-where s1.fno = s2.fno
-GROUP by s2.fno) as totalPrice,
+from reservationView s2
+where DATE_FORMAT(s1.rtime, '%Y%m%d') = DATE_FORMAT(s2.rtime, '%Y%m%d')
+GROUP by DATE_FORMAT(s2.rtime, '%Y%m%d')) as totalPrice,
 (SELECT count(*)
-from seatDetailView s2
-where s1.fno = s2.fno
-GROUP by s2.fno) as totalcount
-from seatDetailView s1
-GROUP by fno,grade;
+from reservationView s2
+where DATE_FORMAT(s1.rtime, '%Y%m%d') = DATE_FORMAT(s2.rtime, '%Y%m%d')
+GROUP by DATE_FORMAT(s2.rtime, '%Y%m%d')) as totalcount
+from reservationView s1
+GROUP by DATE_FORMAT(rtime, '%Y%m%d'),grade
+ORDER BY ymdDate desc, grade asc;
 
 drop view bmYearView;
 drop view bmMonthView;
 drop view bmDayView;
 -- 연도별 영업현황
 CREATE VIEW bmYearView AS
-SELECT YEAR(rtime) as year, fno,
+SELECT (SELECT COUNT(*)
+from reservationView s2
+where YEAR(s1.rtime) = YEAR(s2.rtime) and s1.grade = s2.grade
+GROUP by YEAR(s2.rtime),grade) as rowCount,
+YEAR(rtime) as year, fno,
 count(*) as ticketcount, sum(price) as sumgradeprice ,grade, price,
 (SELECT sum(s2.price)
 from reservationView s2
@@ -195,12 +206,16 @@ from reservationView s2
 where YEAR(s1.rtime) = YEAR(s2.rtime)
 GROUP by YEAR(s2.rtime)) as totalcount
 from reservationView s1
-GROUP by YEAR(day),grade
+GROUP by YEAR(rtime),grade
 ORDER BY year desc, grade asc;
 
 -- 월별 영업현황
 CREATE VIEW bmMonthView AS
-SELECT DATE_FORMAT(rtime, '%Y%m') as ymDate, YEAR(rtime) as year, MONTH(rtime) as month, fno, 
+SELECT (SELECT COUNT(*)
+from reservationView s2
+where DATE_FORMAT(s1.rtime, '%Y%m') = DATE_FORMAT(s2.rtime, '%Y%m') and s1.grade = s2.grade
+GROUP by DATE_FORMAT(s2.rtime, '%Y%m'),grade) as rowCount,
+DATE_FORMAT(rtime, '%Y%m') as ymDate, YEAR(rtime) as year, MONTH(rtime) as month, fno, 
 count(*) as ticketcount, sum(price) as sumgradeprice ,grade, price,
 (SELECT sum(s2.price)
 from reservationView s2
@@ -214,9 +229,13 @@ from reservationView s1
 GROUP by DATE_FORMAT(rtime, '%Y%m'),grade
 ORDER BY ymDate desc, grade asc;
 
--- 일별 영업현황
+-- 일별 영업현황 (안씀)
 CREATE VIEW bmDayView AS
-SELECT DATE_FORMAT(rtime, '%Y%m%d') as ymdDate, YEAR(rtime) as year, MONTH(rtime) as month, DAY(rtime) as nowday,
+SELECT (SELECT COUNT(*)
+from reservationView s2
+where DATE_FORMAT(s1.rtime, '%Y%m%d') = DATE_FORMAT(s2.rtime, '%Y%m%d') and s1.grade = s2.grade
+GROUP by DATE_FORMAT(s2.rtime, '%Y%m%d'),grade) as rowCount,
+DATE_FORMAT(rtime, '%Y%m%d') as ymdDate, YEAR(rtime) as year, MONTH(rtime) as month, DAY(rtime) as nowday,
 fno,count(*) as ticketcount, sum(price) as sumgradeprice ,grade, price,
 (SELECT sum(s2.price)
 from reservationView s2
@@ -246,5 +265,24 @@ GROUP by s2.fno) as totalcount
 from seatDetailView s1
 GROUP by fno,grade;
 
+-- 일별 영업현황ver2
+CREATE VIEW bmDayView AS
+SELECT (SELECT COUNT(*)
+from reservationView s2
+where DATE_FORMAT(s1.rtime, '%Y%m%d') = DATE_FORMAT(s2.rtime, '%Y%m%d') and not(s1.grade = s2.grade)
+GROUP by DATE_FORMAT(s2.rtime, '%Y%m%d'), grade) as rowCount,
+DATE_FORMAT(rtime, '%Y%m%d') as ymdDate, YEAR(rtime) as year, MONTH(rtime) as month, DAY(rtime) as nowday,
+fno,count(*) as ticketcount, sum(price) as sumgradeprice ,grade, price,
+(SELECT sum(s2.price)
+from reservationView s2
+where DATE_FORMAT(s1.rtime, '%Y%m%d') = DATE_FORMAT(s2.rtime, '%Y%m%d')
+GROUP by DATE_FORMAT(s2.rtime, '%Y%m%d')) as totalPrice,
+(SELECT count(*)
+from reservationView s2
+where DATE_FORMAT(s1.rtime, '%Y%m%d') = DATE_FORMAT(s2.rtime, '%Y%m%d')
+GROUP by DATE_FORMAT(s2.rtime, '%Y%m%d')) as totalcount
+from reservationView s1
+GROUP by DATE_FORMAT(rtime, '%Y%m%d'),grade
+ORDER BY ymdDate desc, grade asc;
 
 

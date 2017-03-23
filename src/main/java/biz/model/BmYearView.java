@@ -10,6 +10,7 @@ public class BmYearView {
 	private int totalCount;
 	private boolean firstLine;
 	private int price;
+	private int rowCount;
 	public BmYearView() {
 		super();
 	}
@@ -82,6 +83,14 @@ public class BmYearView {
 
 	public void setPrice(int price) {
 		this.price = price;
+	}
+
+	public int getRowCount() {
+		return rowCount;
+	}
+
+	public void setRowCount(int rowCount) {
+		this.rowCount = rowCount;
 	}
 	
 	
