@@ -185,3 +185,6 @@ select a.*, u.id, u.uname from article a, user u where a.uno = u.uno && a.del = 
 select a.article_no, u.id, a.title, a.category, a.write_time, a.hits, a.recommend, a.attached_file, a.content from article as a, `user` as u where a.uno=u.uno && a.del = 0 && a.article_no = 1 && a.board_no = 6
 
 select * from reply;
+
+
+select r.*, u.uname, u.id from reply r, user u where r.uno = u.uno && r.board_no = 6 && r.article_no = 1;

@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.session.SqlSession;
 
+import member.model.User;
 import mvc.controller.CommandHandler;
 import mvc.util.MySqlSessionFactory;
 import reply.model.Reply;
@@ -25,7 +26,9 @@ public class CreateReplyHandler implements CommandHandler {
 			reply.setArticleNo(Integer.parseInt(req.getParameter("articleNo")));
 			reply.setBoardNo(Integer.parseInt(req.getParameter("boardNo")));
 			reply.setContent(req.getParameter("content"));
-			reply.setUno(Integer.parseInt(req.getParameter("uno")));
+			User user = (User)req.getSession().getAttribute("auth");
+			System.out.println(user.getUno());
+			reply.setUno(user.getUno());
 			reply.setParent(Integer.parseInt(req.getParameter("parent")));
 			reply.setIndent(Integer.parseInt(req.getParameter("indent")));
 			reply.setWriteTime(new Date());
@@ -35,7 +38,7 @@ public class CreateReplyHandler implements CommandHandler {
 			session.close();
 		}
 		
-		return "article.do";
+		return null;
 	}
 
 }

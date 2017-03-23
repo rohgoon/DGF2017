@@ -23,7 +23,6 @@
 				"content" : $("#content").val(),
 				"articleNo" : ${article.articleNo},
 				"boardNo" : ${article.boardNo},
-				"uno" : ${sessionScope.uno},
 				"parent" : parent,
 				"indent" : indent
 			},
@@ -49,9 +48,23 @@
 	</div>
 	
 	<div id="reply">
-		<p><textarea rows="1" cols="60" id="content"></textarea><input type="button" value="댓글쓰기" onclick="createReply(0)">
+		<p><textarea rows="1" cols="60" id="content"></textarea><input type="button" value="댓글쓰기" onclick="createReply(0);">
+		<c:if test="${replys.size() == 0}">
+			<h2>댓글이 없습니다. 첫 댓글을 달아보세요!</h2>
+		</c:if>
 		<ul>
-			<li>댓글1<input type="button" value="댓글달기"><input type="button" value="수정"><input type="button" value="삭제"></li>
+			<c:if test="${replys.size() > 0}">
+				<c:forEach var="reply" items="${replys}">
+					<li>
+						<span class="replyNo">${reply.replyNo}</span>
+						<span class="replyContent">${reply.content}</span>
+						<span class="replyWriter">${reply.uname}(${reply.id})</span>
+						<input type="button" value="작성">
+						<input type="button" value="수정">
+						<input type="button" value="삭제">
+					</li>
+				</c:forEach>
+			</c:if>
 		</ul>
 	</div>
 </body>
