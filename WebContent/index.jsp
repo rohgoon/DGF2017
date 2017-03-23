@@ -22,7 +22,7 @@
 		<a href="list.do">회원리스트 보기</a>
 		<a href="join.do">회원가입</a>
 		<!-- <a href="reservation.do?fesno=2">예약(test)</a> 임시로 fesno 지정 -->
-		<a href="bizManage.do">bmManage</a>
+		<a href="biz.do">영업관리</a>
 	</c:if>
 </body>
 </html>
