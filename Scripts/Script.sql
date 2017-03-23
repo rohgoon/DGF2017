@@ -40,7 +40,7 @@ insert into days(fno,day,stime,etime) values
 
 /*등급*/
 /*1회차*/
-insert into seat(dno,class,price,max,sold) values
+insert into seat(dno,grade,price,max,sold) values
 (1,'S','100000','50','0'),
 (1,'A','70000','100','0'),
 (1,'B','50000','50','0'),
@@ -51,7 +51,7 @@ insert into seat(dno,class,price,max,sold) values
 (3,'A','70000','100','0'),
 (3,'B','50000','50','0');
 /*2회차*/
-insert into seat(dno,class,price,max,sold) values
+insert into seat(dno,grade,price,max,sold) values
 (4,'S','110000','50','0'),
 (4,'A','90000','100','0'),
 (4,'B','70000','100','0'),
@@ -288,4 +288,27 @@ from reservationView s1
 GROUP by DATE_FORMAT(rtime, '%Y%m%d'),grade
 ORDER BY ymdDate desc, grade asc;
 
+-- 3회차 추가
+/*페스티벌정보*/
+insert into fesinfo(place,sday,eday) values
+('대구광역시 남구 대명동 1797-6, 대구교육대학교', '2017-04-07','2017-04-09');
+
+/*세부일정*/
+insert into days(fno,day,stime,etime) values
+(4,'2017-04-07','18:00','21:00'),
+(4,'2017-04-08','19:00','22:00'),
+(4,'2017-04-09','18:00','21:00');
+
+/*등급*/
+/*2회차*/
+insert into seat(dno,grade,price,max,sold) values
+(13,'S','110000','50','0'),
+(13,'A','90000','100','0'),
+(13,'B','70000','100','0'),
+(14,'S','110000','50','0'),
+(14,'A','90000','100','0'),
+(14,'B','70000','100','0'),
+(15,'S','110000','50','0'),
+(15,'A','90000','100','0'),
+(15,'B','70000','100','0');
 

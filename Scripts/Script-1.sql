@@ -1,6 +1,6 @@
 create database dgf;
 
-
+DROP TABLE fesinfo;
 -- 페스티벌정보ok
 CREATE TABLE dgf.fesinfo (
 	fno   INT         NOT NULL COMMENT '회차', -- 회차

@@ -23,6 +23,7 @@
 		<a href="join.do">회원가입</a>
 		<!-- <a href="reservation.do?fesno=2">예약(test)</a> 임시로 fesno 지정 -->
 		<a href="biz.do">영업관리</a>
+		<a href="adminFestival.do">페스티발 관리</a>
 	</c:if>
 </body>
 </html>
