@@ -12,8 +12,8 @@
 		var grade = new Array();
 		var gradePrice = new Array();
 		var gradeTicket = new Array();
-		$("#btnAdd").on("click", function() {
-			$("#gt").append('<tr><th>'+
+		$(document).on("click", "#btnAdd",function() {
+			$("#gt").append('<tr class="addTr"><th>'+
 					'<label>등급 : </label>'+				
 					'<input type="text" placeholder="s" class="grade">'+
 					'</th><th>'+
@@ -24,9 +24,9 @@
 					'<input type="number" placeholder="50" class="ticket">매</th></tr>'
 					);			
 		});
-		$("#btnDel").on("click", function() {
-			if($("#gt").find("th").length <= 1){
-				$("#gt").find("th").last().remove();
+		$(document).on("click","#btnDel", function() {
+			if($(".addTr").length > 1){
+				$(".addTr").eq($(".addTr").length-1).remove();			
 			}			
 		});
 		
@@ -49,7 +49,7 @@
 			<input type="button" value="등급삭제" id="btnDel">
 		</h3>
 		<table border="1" id="gt">
-			<tr>
+			<tr class="addTr">
 				<th>
 					<label>등급 : </label>				
 					<input type="text" placeholder="s" class="grade">
