@@ -187,4 +187,4 @@ select a.article_no, u.id, a.title, a.category, a.write_time, a.hits, a.recommen
 select * from reply;
 
 
-select r.*, u.uname, u.id from reply r, user u where r.uno = u.uno && r.board_no = 6 && r.article_no = 1;
+select r.*, u.uname, u.id from reply r, user u where r.uno = u.uno && r.board_no = 6 && r.article_no = 73;

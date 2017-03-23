@@ -14,7 +14,7 @@ import reply.model.ReplyDao;
 
 public class ReadReplyHandler implements CommandHandler {
 
-	@Override
+	
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		SqlSession session = null;
 		
@@ -26,13 +26,12 @@ public class ReadReplyHandler implements CommandHandler {
 			ReplyDao dao = session.getMapper(ReplyDao.class);
 			List<Reply> replys = dao.selectReplyByBoardNoAndArticleNo(boardNo, articleNo);
 			req.setAttribute("replys", replys);
-			
 		}finally {
 			session.close();
 		}
 		
 		// TODO Auto-generated method stub
-		return null;
+		return "/WEB-INF/view/reply/replyList.jsp";
 	}
 
 }

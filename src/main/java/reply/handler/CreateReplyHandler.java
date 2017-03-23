@@ -18,16 +18,16 @@ public class CreateReplyHandler implements CommandHandler {
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		SqlSession session = null;
-		
+		int boardNo = Integer.parseInt(req.getParameter("boardNo"));
+		int articleNo = Integer.parseInt(req.getParameter("articleNo"));
 		try{
 			session = MySqlSessionFactory.openSession();
 			ReplyDao dao = session.getMapper(ReplyDao.class);
 			Reply reply = new Reply();
-			reply.setArticleNo(Integer.parseInt(req.getParameter("articleNo")));
-			reply.setBoardNo(Integer.parseInt(req.getParameter("boardNo")));
+			reply.setArticleNo(articleNo);
+			reply.setBoardNo(boardNo);
 			reply.setContent(req.getParameter("content"));
 			User user = (User)req.getSession().getAttribute("auth");
-			System.out.println(user.getUno());
 			reply.setUno(user.getUno());
 			reply.setParent(Integer.parseInt(req.getParameter("parent")));
 			reply.setIndent(Integer.parseInt(req.getParameter("indent")));
@@ -38,7 +38,7 @@ public class CreateReplyHandler implements CommandHandler {
 			session.close();
 		}
 		
-		return null;
+		return "readReply.do?boardNo="+ boardNo +"&articleNo=" + articleNo;
 	}
 
 }
