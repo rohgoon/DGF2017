@@ -34,7 +34,7 @@
 </script>
 </head>
 <body>
-	<form action="afNew.do" method="post">
+	<form action="afNew.do?no=2" method="post" id="afnForm1">
 		<label for="sdate">시작일</label>
 		<input type="date" name="sdate" id="sdate">
 		~
@@ -52,15 +52,15 @@
 			<tr class="addTr">
 				<th>
 					<label>등급 : </label>				
-					<input type="text" placeholder="s" class="grade">
+					<input type="text" placeholder="s" class="grade" name="grade">
 				</th>		
 				<th>
 					<label>가격 : </label>				
-					<input type="number" placeholder="100000" class="price">원
+					<input type="number" placeholder="100000" class="price" name="price">원
 				</th>			
 				<th>
 					<label>발행매수 : </label>				
-					<input type="number" placeholder="50" class="ticket">매
+					<input type="number" placeholder="50" class="ticket" name="ticket">매
 				</th>
 			</tr>			
 		</table>
