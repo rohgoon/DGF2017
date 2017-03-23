@@ -53,6 +53,11 @@
 		}
 	}
 	
+	
+	function createArticle(){
+		location.href = "createArticle.do?boardNo=" + ${boardNo};
+	}
+	
 </script>
 <title>Insert title here</title>
 </head>
@@ -100,7 +105,7 @@
 				<tr>
 					<td>${article.articleNo}</td>
 					<td>${article.category}</td>
-					<td><a href="article.do?boardNo=${boardNo}&articleNo=${articleNo}">${article.title}</a></td>
+					<td><a href="article.do?boardNo=${boardNo}&articleNo=${article.articleNo}">${article.title}</a></td>
 					<td><a href="">${article.name}(${article.id})</a></td>
 					<td>${article.writeTime}</td>
 					<td>${article.hits}</td>
@@ -145,7 +150,7 @@
 		</select>
 		<input type="search" name="search">
 		<input type="button" value="검색">
-		<input type="button" value="글쓰기">
+		<input type="button" value="글쓰기" onclick="createArticle();">
 	</p>
 </body>
 </html>

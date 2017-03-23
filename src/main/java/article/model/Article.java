@@ -19,9 +19,25 @@ public class Article {
 	private String attachedFile;
 	private String fileLocation;
 	private int del;
-	
-	
-	
+	private String uname;
+	private String id;
+		
+
+	public String getUname() {
+		return uname;
+	}
+
+	public void setUname(String uname) {
+		this.uname = uname;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 	public int getArticleNo() {
 		return articleNo;
 	}

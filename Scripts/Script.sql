@@ -177,3 +177,11 @@ select *
 from article_list_view 
 where category = ''
 ORDER by article_no desc limit 0, 10;
+
+select * from article_list_view ORDER by article_no desc;
+select * from article;
+select a.*, u.id, u.uname from article a, user u where a.uno = u.uno && a.del = 0 && a.article_no = 1 && a.board_no = 6;
+
+select a.article_no, u.id, a.title, a.category, a.write_time, a.hits, a.recommend, a.attached_file, a.content from article as a, `user` as u where a.uno=u.uno && a.del = 0 && a.article_no = 1 && a.board_no = 6
+
+select * from reply;

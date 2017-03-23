@@ -158,6 +158,29 @@ public class ArticleTest {
 //		}
 //	}
 	
+//	@Test
+//	public void testSelect() {
+//		SqlSession session = null;
+//	
+//		try {
+//			session = MySqlSessionFactory.openSession();
+//			ArticleListViewDao dao = session.getMapper(ArticleListViewDao.class);
+//			int boardNo = 6;
+//			String category = "공지사항";
+//			List<ArticleListView> article = dao.selectArticleListByCategory(boardNo, category, 1, 10);
+//			
+//			System.out.println(article.toString());
+//					
+//				
+//			
+//		} catch (Exception e) {
+//			session.rollback();
+//			e.printStackTrace();
+//		} finally {
+//			session.close();
+//		}
+//	}
+	
 	@Test
 	public void testSelect() {
 		SqlSession session = null;
@@ -180,6 +203,4 @@ public class ArticleTest {
 			session.close();
 		}
 	}
-	
-	
 }

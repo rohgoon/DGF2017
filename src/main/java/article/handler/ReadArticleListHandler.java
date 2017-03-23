@@ -34,13 +34,23 @@ public class ReadArticleListHandler implements CommandHandler {
 		List<ArticleListView> articleList;
 
 		// 페이지당 출력할 게시물 갯수를 받아온다. 없으면 10으로 지정한다.
-		int rowNum = Integer.parseInt(req.getParameter("rowNum"));	
+		Integer rowNum;
+		try {
+			rowNum = Integer.parseInt(req.getParameter("rowNum"));
+		} catch (Exception e1) {
+			rowNum = 10;
+		}	
 		if(rowNum == 0){
 			rowNum = 10;
 		}
 		
 		// 현재 페이지를 가져온다. 잘못된 접근으로 페이지값이 없으면 1페이지로, 총 페이지보다 많으면 최종 페이지로 넘긴다.
-		int page = Integer.parseInt(req.getParameter("page"));
+		int page;
+		try {
+			page = Integer.parseInt(req.getParameter("page"));
+		} catch (Exception e1) {
+			page = 1;
+		}
 		if(page == 0){
 			page = 1;
 		}
