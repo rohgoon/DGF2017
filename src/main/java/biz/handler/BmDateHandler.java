@@ -19,7 +19,7 @@ import mvc.util.MySqlSessionFactory;
 public class BmDateHandler implements CommandHandler {
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
-		
+		System.out.println("BmDateHandler>>>>>>>>>>>>>>>>>>>>");
 			String bm = req.getParameter("bm");
 			SqlSession session = null;
 			try {
@@ -76,6 +76,8 @@ public class BmDateHandler implements CommandHandler {
 
 			case "day":
 				return "/WEB-INF/biz/bm/bmDay.jsp";
+			/*case "search":
+				return "/WEB-INF/biz/bm/bmSearch.jsp";*/
 			default:
 				return null;
 			}

@@ -61,7 +61,7 @@ public class ControllerUsingURI extends HttpServlet {
 		if (command.indexOf(req.getContextPath()) == 0) {
 			command = command.substring(req.getContextPath().length());
 		}
-		
+		System.out.println(command);
 		CommandHandler handler = commandHandlerMap.get(command);
 		
 		if (handler == null) {

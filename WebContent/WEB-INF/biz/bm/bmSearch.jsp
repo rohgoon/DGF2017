@@ -28,36 +28,40 @@ table th, td {
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
-	$(document).ready(function() {
-		$("#bmSearch").on("submit", function() {
-			var searchDate = $(this).serialize();
-			$.ajax({
-					url: "bmSearch.do",
-					type: "post",
-					data: searchDate,
-					dataType:"jsp",
-					success:function(res){
-						$(".bmContent").html(res);
-						}				
-				});
-		});			
+$(document).ready(function() {
+	$("#bmSearch").on("submit", function() {
+		var searchDate = $(this).serialize();//{"sdate":$("#sdate").val(),"edate":$("#edate").val()};		
+		$.ajax({
+				url: "bmSearch.do",
+				type: "post",
+				data: searchDate,
+				dataType:"html",
+				success:function(res){
+					$(".bmContent").html(res);
+				}				
+			});
+
+		return false;
 	});
+});
+				
 </script>
 </head>
 <body>
-	<a href="bizManage.do">회차별 매출액</a>
+<a href="bizManage.do">회차별 매출액</a>
 	<a href="bmDate.do?bm=year">연도별 매출액</a>
 	<a href="bmDate.do?bm=month">월별 매출액</a>
 	<a href="bmDate.do?bm=day">일별 매출액</a>
-	<a href="bmDate.do?bm=search">기간별 매출액</a>
+	<a href="bmSearch.do">기간별 매출액</a> 
 	<div id="wrapContent">
-	<form action="bmSearch.do" id="bmSearch">
-		<input type="date" name="sdate" id="sdate" value="${newDate }" >~<input type="date" name="edate" id="edate" value="${newDate }" >
-		<input type="submit" value="검색">
-		<hr>
-	</form>
-		<div class="bmContent">		
-		</div>
+		<form id="bmSearch">
+			<input type="date" name="sdate" id="sdate" value="${newDate }" >~<input type="date" name="edate" id="edate" value="${newDate }" >
+			<input type="submit" value="검색" id="test">
+			<hr>
+		</form>
+		
+			<div class="bmContent">		
+			</div>
 	</div>
 
 </body>

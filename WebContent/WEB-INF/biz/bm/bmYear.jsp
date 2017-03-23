@@ -30,7 +30,7 @@
 			<a href="bmDate.do?bm=year">연도별 매출액</a>
 			<a href="bmDate.do?bm=month">월별 매출액</a>
 			<a href="bmDate.do?bm=day">일별 매출액</a>
-			<a href="bmDate.do?bm=search">기간별 매출액</a>
+			<a href="bmSearch.do">기간별 매출액</a>
 	<div id="wrapContent">
 		<div class="bmContent">
 			<table>
