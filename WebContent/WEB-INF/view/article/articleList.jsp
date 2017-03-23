@@ -106,7 +106,7 @@
 					<td>${article.articleNo}</td>
 					<td>${article.category}</td>
 					<td><a href="article.do?boardNo=${boardNo}&articleNo=${article.articleNo}">${article.title}</a></td>
-					<td><a href="">${article.name}(${article.id})</a></td>
+					<td>${article.name}(${article.id})</td>
 					<td>${article.writeTime}</td>
 					<td>${article.hits}</td>
 					<td>${article.recommend}</td>					
