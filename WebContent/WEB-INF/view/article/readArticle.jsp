@@ -50,6 +50,27 @@
 			}
 		});	
 	}
+	
+	function deleteArticle(){
+		if(confirm("정말 삭제하시겠습니까?") == true){
+			$.ajax({
+				url : "deleteArticle.do",
+				type : "post",
+				data : {
+					"articleNo" : ${article.articleNo},
+					"boardNo" : ${article.boardNo}
+						},
+				dateType: "html",
+				success:function(result){
+					alert("게시물 삭제에 성공했습니다.");
+					location.replace("articleList.do?boardNo="+${article.boardNo}+"&rowNum=10&page=1");
+				}
+			});
+		}else{
+			return;
+		}
+	}//deleteArticle
+	
 </script>
 <title>Insert title here</title>
 </head>
@@ -77,7 +98,7 @@
 			<input type="button" value="목록">
 			<c:if test="${article.uno == sessionScope.auth.uno}">
 				<input type="button" value="수정" onclick="">
-				<input type="button" value="삭제" onclick="">
+				<input type="button" value="삭제" onclick="deleteArticle();">
 			</c:if>
 			<input type="button" value="글쓰기">
 		</p>

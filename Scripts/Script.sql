@@ -198,3 +198,6 @@ select * from board;
 insert into reply(board_no, article_no, reply_no, uno, content, write_time) 
 values
 (6, 73, 17, 1, "test", "2017-03-20 09:00:00");
+
+select * from article;
+SELECT * from article_list_view;
