@@ -20,6 +20,7 @@ public class afInfoHandler implements CommandHandler {
 		SqlSession session = null;			
 		try{
 			session = MySqlSessionFactory.openSession();
+			//티켓 정보 변경시
 			SeatDetailViewDao seatDetailViewDao = session.getMapper(SeatDetailViewDao.class);
 			List<SeatDetailView> seatDetailView = seatDetailViewDao.selectAllByFno(fno);
 			req.setAttribute("fesInfo", seatDetailView);
