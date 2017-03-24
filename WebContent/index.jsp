@@ -98,6 +98,16 @@ a{
 #btnLogin:HOVER {
 	background-color: rgba(255,50,50,0.9);
 }
+#a0{
+	text-align: right;
+}
+#a1, #a2{
+	display: inline-block;
+	margin-right: 20px;
+}
+#a1:HOVER, #a2:HOVER{
+	color: rgba(255,50,50,0.9);
+} 
 </style>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -123,7 +133,7 @@ a{
  					<td colspan="2"><input type="submit" value="Login" id="btnLogin"></td>
  				</tr>
  				<tr>
- 					<td colspan="2"><a href="#" id="a1">가입</a> <a href="#" id="a2">비회원</a></td>
+ 					<td colspan="2" id="a0"><a href="#" id="a1">가입</a> <a href="#" id="a2">비회원</a></td>
  				</tr> 			
  			</table> 			
  		</form>
