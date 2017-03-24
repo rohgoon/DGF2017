@@ -71,37 +71,62 @@
 		}
 	}//deleteArticle
 	
+	function updateArticle(obj){
+		var btn = $(obj);
+		var title = $("input[name='title']");
+		var category = $("select[name='category']");
+		var content = $("textarea[name='content']");
+		
+		
+		if(btn.val() == "수정"){
+			btn.val("완료");
+			
+		}
+		
+	}
 </script>
 <title>Insert title here</title>
 </head>
 <body>
 	<div id="article">
+		<p><label>글쓴이</label><input type="text" value="${article.uname}(${article.id})" readonly="readonly"></p>
+		
+		<p><label>제 목</label><input type="text" value="${article.title}" name="title" readonly="readonly"></p>
+		
+		<p><label>날 짜</label>${article.writeTime}</p>
+		
 		<p>
-			<label>글쓴이</label>${article.uname}(${article.id})</p>
-		<p>
-			<label>제 목</label>${article.title}</p>
-		<p>
-			<label>날 짜</label>${article.writeTime}</p>
-		<p>
-			<label>카테고리</label>${article.category}</p>
-		<p>
-			<label>조회수</label>${article.hits}</p>
-		<p>
-			<label>추천수</label>${article.recommend}</p>
-		<p>
-			<label>내 용</label>
+			<label>카테고리</label>
+				<select name="category" disabled="disabled">
+					<option value="공지사항" 
+						<c:if test="${article.category == '공지사항'}"> selected="selected"</c:if>
+					>공지사항</option>
+					<option value="잡담"
+						<c:if test="${article.category == '잡담'}"> selected="selected"</c:if>
+					>잡담</option>
+					<option value="질문"
+						<c:if test="${article.category == '질문'}"> selected="selected"</c:if>
+					>질문</option>
+				</select>	
 		</p>
-		<p>
-			<textarea rows="20" cols="60">${article.content}</textarea>
-		</p>
+		
+		<p><label>조회수</label>${article.hits}</p>
+		
+		<p><label>추천수</label>${article.recommend}</p>
+		
+		<p><label>내 용</label></p>
+		
+		<p><textarea rows="20" cols="60" readonly="readonly" name="content">${article.content}</textarea></p>
+		
 		<p>
 			<input type="button" value="목록">
-			<c:if test="${article.uno == sessionScope.auth.uno}">
-				<input type="button" value="수정" onclick="">
-				<input type="button" value="삭제" onclick="deleteArticle();">
-			</c:if>
+				<c:if test="${article.uno == sessionScope.auth.uno}">
+					<input type="button" value="수정" onclick="updateArticle(this);">
+					<input type="button" value="삭제" onclick="deleteArticle();">
+				</c:if>
 			<input type="button" value="글쓰기">
 		</p>
+		
 	</div>
 
 	<div id="reply">
