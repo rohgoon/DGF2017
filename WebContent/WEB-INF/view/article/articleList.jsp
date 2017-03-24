@@ -28,7 +28,7 @@
 		$("select[name='rowNum']").change(function() {
 			var rowNum = $(this).val();
 			var boardNo = ${boardNo};
-			var page = ${page};
+			var page = ${page} + 0;
 			location.replace("articleList.do?boardNo="+boardNo+"&rowNum="+rowNum+"&page="+page);	
 		});
 		
@@ -36,8 +36,8 @@
 		$("select[name='category']").change(function(){
 			var category = $(this).val();			
 			var boardNo = ${boardNo};
-			var page = ${page};
-			var rowNum = ${rowNum};
+			var page = ${page} + 0;
+			var rowNum = ${rowNum} + 0;
 			location.replace("articleList.do?boardNo="+boardNo+"&rowNum="+rowNum+"&page="+page+"&category="+category);
 		});
 	});
@@ -54,8 +54,8 @@
 	}
 	
 	
-	function createArticle(){
-		location.href = "createArticle.do?boardNo=" + ${boardNo};
+	function createArticle(boardNo){
+		location.href = "createArticle.do?boardNo=" + boardNo;
 	}
 	
 </script>
@@ -150,7 +150,7 @@
 		</select>
 		<input type="search" name="search">
 		<input type="button" value="검색">
-		<input type="button" value="글쓰기" onclick="createArticle();">
+		<input type="button" value="글쓰기" onclick="createArticle(${boardNo});">
 	</p>
 </body>
 </html>

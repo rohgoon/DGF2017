@@ -16,6 +16,7 @@ import article.model.ArticleListViewDao;
 import board.model.Board;
 import board.model.BoardDao;
 import mvc.util.MySqlSessionFactory;
+import reply.model.ReplyDao;
 
 public class ArticleTest {
 
@@ -181,21 +182,41 @@ public class ArticleTest {
 //		}
 //	}
 	
+//	@Test
+//	public void testSelect() {
+//		SqlSession session = null;
+//	
+//		try {
+//			session = MySqlSessionFactory.openSession();
+//			ArticleListViewDao dao = session.getMapper(ArticleListViewDao.class);
+//			int boardNo = 6;
+//			String category = "공지사항";
+//			List<ArticleListView> article = dao.selectArticleListByCategory(boardNo, category, 1, 10);
+//			
+//			System.out.println(article.toString());
+//					
+//				
+//			
+//		} catch (Exception e) {
+//			session.rollback();
+//			e.printStackTrace();
+//		} finally {
+//			session.close();
+//		}
+//	}
+	
 	@Test
 	public void testSelect() {
 		SqlSession session = null;
 	
 		try {
 			session = MySqlSessionFactory.openSession();
-			ArticleListViewDao dao = session.getMapper(ArticleListViewDao.class);
+			ReplyDao dao = session.getMapper(ReplyDao.class);
 			int boardNo = 6;
-			String category = "공지사항";
-			List<ArticleListView> article = dao.selectArticleListByCategory(boardNo, category, 1, 10);
-			
-			System.out.println(article.toString());
-					
-				
-			
+			int articleNo = 73;
+			int replyNo = 12;
+			dao.updateDelReplyByBoardNoAndArticleNoAndReplyNo(boardNo, articleNo, replyNo);
+			session.commit();
 		} catch (Exception e) {
 			session.rollback();
 			e.printStackTrace();
@@ -203,4 +224,5 @@ public class ArticleTest {
 			session.close();
 		}
 	}
+	
 }

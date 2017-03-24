@@ -12,10 +12,10 @@ public interface BoardDao {
 	public void createBoard(String boardName) throws SQLException;
 	public List<Board> selectAllBoardList() throws SQLException;
 	
-	@Delete("delete from board where board_no = #{boardNo}")
+	@Update("update board set del=1 where board_no = #{boardNo}")
 	public void deleteBoardByNo(int no) throws SQLException;
 	
-	@Select("select * from board where board_no = #{boardNo}")
+	@Select("select * from board where board_no = #{boardNo} && del = 0")
 	public Board selectBoardByNo(int no) throws SQLException;
 	
 	@Update("update board set board_name=#{boardName} where board_no=#{boardNo}")

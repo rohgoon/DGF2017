@@ -8,7 +8,7 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>
-	$.ajax({
+ 	$.ajax({
 		url:"readReply.do",
 		type:"get", 
 		data: {
@@ -19,7 +19,9 @@
 		success:function(result){
 			$("#replyList").html(result);
 		}
-	});	
+	});	 
+	
+
 	
 	function createReply(parent){
 		var parent;
@@ -72,9 +74,12 @@
 			<textarea rows="20" cols="60">${article.content}</textarea>
 		</p>
 		<p>
-			<input type="button" value="목록"><input type="button"
-				value="수정"><input type="button" value="삭제"><input
-				type="button" value="글쓰기">
+			<input type="button" value="목록">
+			<c:if test="${article.uno == sessionScope.auth.uno}">
+				<input type="button" value="수정" onclick="">
+				<input type="button" value="삭제" onclick="">
+			</c:if>
+			<input type="button" value="글쓰기">
 		</p>
 	</div>
 

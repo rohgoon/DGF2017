@@ -12,8 +12,9 @@
 	<insert id="createBoard" parameterType="string">
       INSERT INTO dgf.board(board_name) VALUES(#{board_name})
 	</insert>
+	
 	<select id="selectAllBoardList" resultType="Board">
-	    select board_no, board_name from board order by board_no 
+	    select board_no, board_name from board where del = 0 order by board_no 
 	</select>
 
 </mapper>

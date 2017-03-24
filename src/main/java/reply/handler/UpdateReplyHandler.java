@@ -1,0 +1,43 @@
+package reply.handler;
+
+import java.util.Date;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.ibatis.session.SqlSession;
+
+import mvc.controller.CommandHandler;
+import mvc.util.MySqlSessionFactory;
+import reply.model.Reply;
+import reply.model.ReplyDao;
+
+public class UpdateReplyHandler implements CommandHandler {
+
+	@Override
+	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
+		SqlSession session = null;
+		
+		int boardNo = Integer.parseInt(req.getParameter("boardNo"));
+		int articleNo = Integer.parseInt(req.getParameter("articleNo"));
+		int replyNo = Integer.parseInt(req.getParameter("replyNo"));
+		String content = req.getParameter("content");
+		
+		try{
+			session = MySqlSessionFactory.openSession();
+			ReplyDao dao = session.getMapper(ReplyDao.class);
+			Reply reply = new Reply();
+			reply.setArticleNo(articleNo);
+			reply.setBoardNo(boardNo);
+			reply.setContent(content);
+			reply.setReplyNo(replyNo);
+			reply.setWriteTime(new Date());
+			dao.updateReply(reply);
+			session.commit();
+		}finally{
+			session.close();
+		}
+		return "readReply.do?boardNo="+ boardNo +"&articleNo=" + articleNo;
+	}
+
+}

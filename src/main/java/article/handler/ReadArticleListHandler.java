@@ -31,7 +31,7 @@ public class ReadArticleListHandler implements CommandHandler {
 		if(category == null){
 			category = "전체";
 		}
-		List<ArticleListView> articleList;
+		List<ArticleListView> articleList = null;
 
 		// 페이지당 출력할 게시물 갯수를 받아온다. 없으면 10으로 지정한다.
 		Integer rowNum;
@@ -63,11 +63,19 @@ public class ReadArticleListHandler implements CommandHandler {
 			if(category == null || category.equals("전체") || category.equals("카테고리")){
 				totalArticle = dao.selectCountArticleListByBoardNo(boardNo); // 게시물 갯수
 				alp = new ArticleListPaging(totalArticle, rowNum, page);
-				articleList = dao.selectArticleListByPage(boardNo, alp.getStartRow(), rowNum);
+				try {
+					articleList = dao.selectArticleListByPage(boardNo, alp.getStartRow(), rowNum);
+				} catch (Exception e) {
+					req.setAttribute("boardNo", boardNo);
+				}
 			}else{
 				totalArticle = dao.selectCountArticleListByBoardNoAndCategory(boardNo, category);
 				alp = new ArticleListPaging(totalArticle, rowNum, page);
-				articleList = dao.selectArticleListByCategory(boardNo, category, alp.getStartRow(), rowNum);
+				try {
+					articleList = dao.selectArticleListByCategory(boardNo, category, alp.getStartRow(), rowNum);
+				} catch (Exception e) {
+					req.setAttribute("boardNo", boardNo);
+				}
 			}
 						
 			

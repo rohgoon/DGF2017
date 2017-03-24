@@ -188,3 +188,13 @@ select * from reply;
 
 
 select r.*, u.uname, u.id from reply r, user u where r.uno = u.uno && r.board_no = 6 && r.article_no = 73;
+
+
+select * from reply;
+
+
+select * from board;
+
+insert into reply(board_no, article_no, reply_no, uno, content, write_time) 
+values
+(6, 73, 17, 1, "test", "2017-03-20 09:00:00");
