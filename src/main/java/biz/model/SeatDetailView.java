@@ -1,6 +1,7 @@
 package biz.model;
 
 import java.sql.Time;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class SeatDetailView {
@@ -75,6 +76,10 @@ public class SeatDetailView {
 	}
 	public Date getDay() {
 		return day;
+	}
+	public String getDayString() {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		return sdf.format(day);
 	}
 	public void setDay(Date day) {
 		this.day = day;

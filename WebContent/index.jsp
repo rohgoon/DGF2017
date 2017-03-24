@@ -26,7 +26,7 @@
      min-height: 100%;
      width: auto;
      height: 100%;
-     /* background: rgba(255,167,167,0.2); /* 연한핑크 */ 
+     /* background: rgba(255,167,167,0.2); */ /* 연한핑크 */ 
   	 text-align: center;
 }
 h1{
@@ -49,10 +49,9 @@ h1{
     margin: 0 auto;
 	width: 400px;
 	height: 300px;
-	background: rgba(255,255,255,0.3);
+	background: rgba(155,155,155,0.3);
 	border-radius: 10px;
 	padding: 20px;
-	
 }
 #f1{
 	width: inherit;

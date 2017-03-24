@@ -129,12 +129,13 @@ public class afNewHandler implements CommandHandler {
 					for (Days days : daysList) {
 						daysDao.insert(days);
 					}
-					session.commit();					
+					session.commit();	
+					req.setAttribute("fno", fno);
 				}finally {
 					session.close();
 				}
 				
-				return "/WEB-INF/admin/afNewSuccess.jsp";
+				return "afInfo.do";
 
 			default:
 				
