@@ -76,6 +76,7 @@ td{
 	color: white;
 	font-size: 1.1em;
 }
+
 a{
 	text-decoration: none;
 	color: white;
@@ -89,6 +90,13 @@ a{
 	color: white;
 	font-size: 1.2em;
 	font-family: 'Arca Majora 3 Heavy';
+}
+#btnLogin:FOCUS{
+	background-color: rgba(255,50,50,0.9);
+	outline: none;
+}
+#btnLogin:HOVER {
+	background-color: rgba(255,50,50,0.9);
 }
 </style>
 <meta charset="UTF-8">
