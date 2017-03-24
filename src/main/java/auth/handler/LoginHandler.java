@@ -35,7 +35,7 @@ public class LoginHandler implements CommandHandler {
 				}
 				LoginUser loginUser =new LoginUser(id, user.getUname());
 				req.getSession().setAttribute("auth", user);
-				return "index.jsp";
+				return "index2.jsp";
 			
 			}finally {
 				session.close();

@@ -146,21 +146,21 @@ a{
  <div id="wrapContent">
  	<h1>Daegu<br><span id="t2">Girl-group</span><br><span id="t3">Festival</span></h1>
  	<div id="innerWrap">
- 		<form action="login.do" id="f1">
+ 		<form action="login.do" method="post" id="f1">
  			<table>
  				<tr>
  					<td class="tdTitle" width="100px" nowrap><span id="titleId">ID</span></td>
- 					<td class="tdContent"><input type="text" class="inTxt"></td>
+ 					<td class="tdContent"><input type="text" class="inTxt" name="id"></td>
  				</tr>
  				<tr>
  					<td class="tdTitle" width="100px" nowrap>PW</td>
- 					<td class="tdContent"><input type="password" class="inTxt"></td>
+ 					<td class="tdContent"><input type="password" class="inTxt" name="password"></td>
  				</tr>
  				<tr>
  					<td colspan="2"><input type="submit" value="Login" id="btnLogin"></td>
  				</tr>
  				<tr>
- 					<td colspan="2" id="a0"><a href="#" id="a1">가입</a> <a href="#" id="a2">비회원</a></td>
+ 					<td colspan="2" id="a0"><a href="join.do" id="a1">가입</a> <a href="#" id="a2">비회원</a></td>
  				</tr> 			
  			</table> 			
  		</form>
