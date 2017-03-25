@@ -10,24 +10,23 @@
 </head>
 <body>
 	<div>
-		<div id="list">
-			<c:forEach var="item" items="${fesInfo }">				
-					<div class="divItems">
-						페스티벌 회차 : ${item.fno }회<br>
-						공연일 : ${item.dayString }<br> 
-						티켓 등급 : ${item.grade }<br>												
-						가격 : ${item.price }<br>
-						시작시간: ${item.stime}<br>
-						마감시간: ${item.etime}<br>
-						티켓 발행매수 : ${item.maxSeat}<br> 
-						예매수 : ${item.soldSeat }<br>
-						장소 : ${item.place }<br>
-						<a href="afEdit.do?sno=${item.sno }" id="edit">수정</a>
-						<a href="afDel.do?sno=${item.sno }" id="del">삭제</a>
-						<br>
+		<div id="list">						
+					<div class="fesWrap">
+						페스티벌 회차 : ${fCount }회<br>
+						시작일: ${fesInfo.sdayString}<br>
+						마감일: ${fesInfo.edayString}<br>
+						장소 : ${fesInfo.place }<br>
+						<a href="afEdit.dofno=${fesInfo.fno }" id="edit">수정</a>
+						<a href="afDel.do?fno=${fesInfo.fno }" id="del">삭제</a>
+						<hr>						
 					</div>
-				
-			</c:forEach>			
+					<div class="daysWrap">
+						<c:forEach var="item" items="${fesDetailList }">
+							
+							
+						</c:forEach>
+					
+					</div>								
 		</div>
 	</div>
 	<a href="#">행사 정보 확인</a>

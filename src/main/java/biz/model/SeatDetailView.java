@@ -18,6 +18,7 @@ public class SeatDetailView {
 	private String place;
 	private Date sday;
 	private Date eday;
+	private boolean lineChecker;
 	public SeatDetailView() {
 		super();
 	}
@@ -119,6 +120,12 @@ public class SeatDetailView {
 	}
 	public void setEday(Date eday) {
 		this.eday = eday;
+	}
+	public boolean isLineChecker() {
+		return lineChecker;
+	}
+	public void setLineChecker(boolean lineChecker) {
+		this.lineChecker = lineChecker;
 	}
 	
 	

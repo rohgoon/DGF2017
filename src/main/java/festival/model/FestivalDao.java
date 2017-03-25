@@ -8,7 +8,7 @@ import member.model.User;
 public interface FestivalDao {
 	public void insert(Festival festival) throws SQLException;
 	public List<Festival> selectList() throws SQLException;
-	public Festival selectListById(int fno) throws SQLException;
+	public Festival selectListByFno(int fno) throws SQLException;
 	public int deleteFestival(int fno) throws SQLException;
 	public void updateFestival(Festival festival) throws SQLException;
 	public int selectFnoByLast(Festival festival) throws SQLException;

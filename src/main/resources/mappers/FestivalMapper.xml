@@ -12,7 +12,7 @@
 		select * from fesinfo order by fno desc
 	</select>
 	
-	<select id="selectListById" parameterType="int" resultType="festival">
+	<select id="selectListByFno" parameterType="int" resultType="festival">
 		select fno, place, sday, eday from fesinfo where fno = #{fno}
 	</select>
 	
