@@ -2,14 +2,19 @@ package admin.handler;
 
 import java.sql.Time;
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.session.SqlSession;
 
+import biz.model.SeatDetailView;
+import biz.model.SeatDetailViewDao;
 import festival.model.Days;
 import festival.model.DaysDao;
+import festival.model.Festival;
+import festival.model.FestivalDao;
 import mvc.controller.CommandHandler;
 import mvc.util.MySqlSessionFactory;
 
@@ -41,7 +46,7 @@ public class DaysEditHandler implements CommandHandler {
 			String[] sArr= stimeString.split(":");
 			String[] eArr= etimeString.split(":");
 			Time stime =new Time(Integer.parseInt(sArr[0]), Integer.parseInt(sArr[1]), 0);
-			Time etime =new Time(Integer.parseInt(eArr[0]), Integer.parseInt(sArr[1]), 0);	
+			Time etime =new Time(Integer.parseInt(eArr[0]), Integer.parseInt(sArr[1]), 0);				
 			SqlSession session = null;
 			try {
 				session = MySqlSessionFactory.openSession();
@@ -53,7 +58,6 @@ public class DaysEditHandler implements CommandHandler {
 				days.setEtime(etime);
 				daysDao.insert(days);
 				session.commit();
-
 			} finally {
 				session.close();
 			}
