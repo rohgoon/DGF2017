@@ -53,10 +53,11 @@ public class DaysEditHandler implements CommandHandler {
 				DaysDao daysDao = session.getMapper(DaysDao.class);
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 				Days days = new Days();
+				days.setDno(dno);
 				days.setDay(sdf.parse(day));			
 				days.setStime(stime);
 				days.setEtime(etime);
-				daysDao.insert(days);
+				daysDao.updateByDno(days);
 				session.commit();
 			} finally {
 				session.close();

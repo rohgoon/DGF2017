@@ -16,7 +16,7 @@
 				<input type="text" id="grade" name="grade" value="${seat.grade }"><br>
 				<label for="price">가격</label>
 				<input type="number" name="price" id="price"><br>
-				<label for="manx">티켓 발행 매수</label>
+				<label for="max">티켓 발행 매수</label>
 				<input type="number" name="max" id="max"><br>
 				<input type="submit" value="수정">
 			</form>
