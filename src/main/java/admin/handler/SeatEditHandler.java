@@ -9,7 +9,7 @@ import member.model.MemberDao;
 import mvc.controller.CommandHandler;
 import mvc.util.MySqlSessionFactory;
 
-public class afEditHandler implements CommandHandler {
+public class SeatEditHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {

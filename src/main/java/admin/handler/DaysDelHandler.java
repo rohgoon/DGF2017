@@ -9,7 +9,7 @@ import member.model.MemberDao;
 import mvc.controller.CommandHandler;
 import mvc.util.MySqlSessionFactory;
 
-public class adminFestivalHandler implements CommandHandler {
+public class DaysDelHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {

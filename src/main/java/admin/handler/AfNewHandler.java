@@ -18,7 +18,7 @@ import festival.model.FestivalDao;
 import mvc.controller.CommandHandler;
 import mvc.util.MySqlSessionFactory;
 
-public class afNewHandler implements CommandHandler {
+public class AfNewHandler implements CommandHandler {
 	String place =null;
 	List<String> gradeList;
 	List<String> priceList;

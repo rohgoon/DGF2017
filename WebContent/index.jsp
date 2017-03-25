@@ -6,6 +6,9 @@
 <head>
 <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Julius+Sans+One|Monoton" rel="stylesheet">
 <style type="text/css">
+body{
+	background-color: rgb(255,167,167);
+}
 #videobcg { 
      position: absolute;
      top: 0px;
@@ -16,6 +19,7 @@
      height: auto;
      z-index: -1000;
      overflow: hidden;
+     filter: opacity(70%); 
 }
 #wrapContent{
 	position: absolute;

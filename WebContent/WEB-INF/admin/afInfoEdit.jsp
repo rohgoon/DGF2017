@@ -10,17 +10,15 @@
 </head>
 <body>
 	<div>
-		<div id="list">						
-					<div class="fesWrap">
-						페스티벌 회차 : ${fCount }회<br>
-						시작일: ${fesInfo.sdayString}<br>
-						마감일: ${fesInfo.edayString}<br>
-						장소 : ${fesInfo.place }<a href="afEdit.dofno=${fesInfo.fno }&fCount=${fCount}" id="edit">장소 수정</a><br>
-						<a href="afEdit.dofno=${fesInfo.fno }&fCount=${fCount}" id="edit">수정</a>
-						<a href="afDel.do?fno=${fesInfo.fno }&fCount=${fCount}" id="del">삭제</a>
-						<hr>						
-					</div>
-					<div class="daysWrap">
+		<div id="list">
+			${fCount }회차 행사 장소 수정<br>
+			<form action="afEdit.do?fno=${fesInfo.fno }" method="post">				
+				<label for="place">장소</label>
+				<input type="text" name="place" value="${fesInfo.place }">
+				<br><input type="submit" value="수정">			
+			</form>
+			<hr>
+			<div class="daysWrap">
 						${fCount }회차 상세 정보
 						<table>
 							<tr>
@@ -32,8 +30,7 @@
 								<th>티켓 발행수</th>
 								<th>해당 티켓 정보 수정</th>
 								<th>해당 일자 정보 수정</th>
-							</tr>
-							
+							</tr>							
 							<c:forEach var="item" items="${fesDetailList }">
 								<tr>
 									<c:if test="${item.lineChecker == true }">
@@ -54,12 +51,12 @@
 											<a href="daysDel.do?dno=${item.dno}">삭제</a>
 										</td>
 									</c:if>																	
-								</tr>
-								
+								</tr>								
 							</c:forEach>
 							
 						</table>
-					</div>								
+					</div>					
+				
 		</div>
 	</div>
 	<a href="#">행사 정보 확인</a>

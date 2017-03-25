@@ -14,15 +14,15 @@ import festival.model.FestivalDao;
 import mvc.controller.CommandHandler;
 import mvc.util.MySqlSessionFactory;
 
-public class afInfoHandler implements CommandHandler {
+public class AfInfoHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		int fno = Integer.parseInt(req.getParameter("fno"));
-		SqlSession session = null;			
-		try{
+		SqlSession session = null;
+		try {
 			session = MySqlSessionFactory.openSession();
-			//티켓 정보 변경시
+			// 티켓 정보 변경시
 			FestivalDao festivalDao = session.getMapper(FestivalDao.class);
 			Festival festival = festivalDao.selectListByFno(fno);
 			List<Festival> fList = festivalDao.selectList();
@@ -30,9 +30,18 @@ public class afInfoHandler implements CommandHandler {
 			req.setAttribute("fCount", fList.size());
 			SeatDetailViewDao seatDetailViewDao = session.getMapper(SeatDetailViewDao.class);
 			List<SeatDetailView> seatDetailViews = seatDetailViewDao.selectAllByFno(fno);
+			int lc = 0;
+			for (int i = 0; i < seatDetailViews.size(); i++) {
+				if (seatDetailViews.get(i).getDno() != lc) {
+					seatDetailViews.get(i).setLineChecker(true);
+					lc = seatDetailViews.get(i).getDno();
+				} else {
+					seatDetailViews.get(i).setLineChecker(false);
+				}
+			}
 			req.setAttribute("fesDetailList", seatDetailViews);
-			
-		}finally {
+
+		} finally {
 			session.close();
 		}
 		return "/WEB-INF/admin/afInfo.jsp";
