@@ -11,23 +11,15 @@
 <body>
 	<div>
 		<div id="list">
-			<c:forEach var="item" items="${fesInfo }">				
-					<div class="divItems">
-						페스티벌 회차 : ${item.fno }회<br>
-						공연일 : ${item.dayString }<br> 
-						티켓 등급 : ${item.grade }<br>												
-						가격 : ${item.price }<br>
-						시작시간: ${item.stime}<br>
-						마감시간: ${item.etime}<br>
-						티켓 발행매수 : ${item.maxSeat}<br> 
-						예매수 : ${item.soldSeat }<br>
-						장소 : ${item.place }<br>
-						<a href="afEdit.do?sno=${item.sno }" id="edit">수정</a>
-						<a href="afDel.do?sno=${item.sno }" id="del">삭제</a>
-						<br>
-					</div>
-				
-			</c:forEach>			
+			<form action="daysEdit.do?fno=${days.fno }?dno=${days.dno }" method="post">
+				<label>날짜</label>
+				<input type="date" name="day" value="${days.dayString }">
+				<label>시작시간</label>
+				<input type="time" name="stime" value="${days.stime }">
+				<label>마감시간</label>
+				<input type="time" name="etime" value="${days.etime }">
+				<input type="submit" value="수정">
+			</form>	
 		</div>
 	</div>
 	<a href="#">행사 정보 확인</a>

@@ -1,5 +1,7 @@
 package admin.handler;
 
+import java.text.SimpleDateFormat;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -30,7 +32,27 @@ public class DaysEditHandler implements CommandHandler {
 			
 			return "/WEB-INF/admin/afInfoDays.jsp";
 		}else if (req.getMethod().equalsIgnoreCase("post")) {
-			
+			int dno = Integer.parseInt(req.getParameter("dno"));
+			//Days days = new Days(fno, day, stime, etime)
+			String day = req.getParameter("day");
+			String stime = req.getParameter("stime");
+			String etime = req.getParameter("etime");
+			SqlSession session = null;
+			try {
+				session = MySqlSessionFactory.openSession();
+				DaysDao daysDao = session.getMapper(DaysDao.class);
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+				Days days = new Days();
+				days.setDay(sdf.parse(day));
+				/*
+				days.setStime(stime);
+				days.setEtime(etime);*/
+				daysDao.insert(days);
+				
+
+			} finally {
+				session.close();
+			}
 			
 			//fno 바로 넘겨주는지 확인
 			return "afInfo.do";
