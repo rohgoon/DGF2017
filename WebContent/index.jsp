@@ -6,6 +6,10 @@
 <head>
 <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Julius+Sans+One|Monoton" rel="stylesheet">
 <style type="text/css">
+@font-face{ 
+	font-family: 'Arca Majora 3 Heavy';
+	 src:url(font/ArcaMajora3-Heavy.otf); 
+	}
 body{
 	background-color: rgb(255,167,167);
 }
