@@ -1,5 +1,6 @@
 package admin.handler;
 
+import java.sql.Time;
 import java.text.SimpleDateFormat;
 
 import javax.servlet.http.HttpServletRequest;
@@ -35,20 +36,23 @@ public class DaysEditHandler implements CommandHandler {
 			int dno = Integer.parseInt(req.getParameter("dno"));
 			//Days days = new Days(fno, day, stime, etime)
 			String day = req.getParameter("day");
-			String stime = req.getParameter("stime");
-			String etime = req.getParameter("etime");
+			String stimeString = req.getParameter("stime");
+			String etimeString = req.getParameter("etime");
+			String[] sArr= stimeString.split(":");
+			String[] eArr= etimeString.split(":");
+			Time stime =new Time(Integer.parseInt(sArr[0]), Integer.parseInt(sArr[1]), 0);
+			Time etime =new Time(Integer.parseInt(eArr[0]), Integer.parseInt(sArr[1]), 0);	
 			SqlSession session = null;
 			try {
 				session = MySqlSessionFactory.openSession();
 				DaysDao daysDao = session.getMapper(DaysDao.class);
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 				Days days = new Days();
-				days.setDay(sdf.parse(day));
-				/*
+				days.setDay(sdf.parse(day));			
 				days.setStime(stime);
-				days.setEtime(etime);*/
+				days.setEtime(etime);
 				daysDao.insert(days);
-				
+				session.commit();
 
 			} finally {
 				session.close();
