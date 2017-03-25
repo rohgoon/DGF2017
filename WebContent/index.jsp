@@ -23,7 +23,7 @@ body{
      height: auto;
      z-index: -1000;
      overflow: hidden;
-     filter: opacity(70%); 
+     filter: opacity(78%); 
 }
 #wrapContent{
 	position: absolute;
@@ -46,6 +46,7 @@ h1{
 	/* background: rgba(0,0,0,0.2); */
 	/* text-shadow: 3px 3px 0px rgba(255,100,100,1); */
 	letter-spacing: 15px;
+	-webkit-text-stroke: 1px rgb(255,167,167);
 }
 #t2{
 	color: rgba(255,200,200,0.8);
@@ -60,6 +61,7 @@ h1{
 	background: rgba(155,155,155,0.3);
 	border-radius: 10px;
 	padding: 20px;
+	border: 1px solid rgba(255,255,255,0.2);
 }
 #f1{
 	width: inherit;
