@@ -5,7 +5,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.session.SqlSession;
 
-import member.model.MemberDao;
+import festival.model.Seat;
+import festival.model.SeatDao;
 import mvc.controller.CommandHandler;
 import mvc.util.MySqlSessionFactory;
 
@@ -13,11 +14,23 @@ public class SeatEditHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
-		if (req.getMethod().equalsIgnoreCase("get")) {			
-			return "/WEB-INF/admin/adminFestivalForm.jsp";
+		if (req.getMethod().equalsIgnoreCase("get")) {	
+			int sno = Integer.parseInt(req.getParameter("sno"));
+			SqlSession session = null;
+			try {
+				session = MySqlSessionFactory.openSession();
+				SeatDao seatDao = session.getMapper(SeatDao.class);
+				Seat seat = seatDao.selectBySno(sno);
+				req.setAttribute("seat", seat);
+			} finally {
+				session.close();
+			}
+			
+			
+			return "/WEB-INF/admin/afInfoSeat.jsp";
 		}else if (req.getMethod().equalsIgnoreCase("post")) {
 			
-			return "/WEB-INF/admin/adminFestivalSuccess.jsp";
+			return "afInfo.do";
 		}
 		return null;
 	}
