@@ -18,6 +18,7 @@
 		<a href="reservationConfirm.do?uno=${auth.uno }">예매 확인</a>
 		<a href="biz.do">영업관리</a>
 		<a href="adminFestival.do">행사 관리</a>
+		<a href="urMng.do">회원 예매 관리</a>
 	</c:if>
 	<c:if test="${empty auth}">
 		<a href="login.do">로그인</a>
