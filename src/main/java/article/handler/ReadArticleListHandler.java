@@ -32,6 +32,7 @@ public class ReadArticleListHandler implements CommandHandler {
 			category = "전체";
 		}
 		List<ArticleListView> articleList = null;
+		
 
 		// 페이지당 출력할 게시물 갯수를 받아온다. 없으면 10으로 지정한다.
 		Integer rowNum;
@@ -101,6 +102,7 @@ public class ReadArticleListHandler implements CommandHandler {
 		} finally {
 			session.close();
 		}
+		
 
 		return "WEB-INF/view/article/articleList.jsp?rowNum=" + rowNum +"&page=" + page + "&category="+ category;
 	}
