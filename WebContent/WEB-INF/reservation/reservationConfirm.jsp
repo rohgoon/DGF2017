@@ -44,6 +44,10 @@
 		color: rgba(255,167,167,1);
 		text-decoration: none;
 	}
+	#titleP{
+		font-size: 1.6em;
+		font-weight: bold;
+	}
 </style>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
@@ -81,10 +85,10 @@
 		}
 	});
 	$(document).ready(function() {
-		//$(".divItems").css("display", "none");
+		$(".divItems").css("display", "none");
 		for(var i =0; i < displayIndex.length; i++){
 			$(".divItems").eq(displayIndex[i]).css("display", "block");
-			$(".divItems").eq(displayIndex[i]).append("구매수 : "+sumDivsNum[i]+"매<br>");		
+			$(".divItems").eq(displayIndex[i]).append("<label>구매수</label> "+sumDivsNum[i]+"매<br>");		
 		};
 	});
 </script>
@@ -111,7 +115,7 @@
 			<a href="reservationConfirm.do?uno=${user.uno }">예매 확인</a>
 		</div>
 		<div id="innerContent">
-		<p>${userInfo.uname } 고객님의 예매 내역입니다.</p>
+		<p id="titleP">${userInfo.uname } 고객님의 예매 내역입니다.</p>
 		<hr>
 		<div id="list">
 				<c:forEach var="item" items="${reservationList }">
@@ -124,11 +128,11 @@
 								<label>가격 </label> ${item.price }<br>
 								<label>결제 시간</label> ${item.rtimeString }<br>
 								<input type="hidden" class="checkRtime" value="${item.rtimeString }">								
-								<br>
+								
 							</div>
 							<br>
 							<div class="aBtn">
-								<a href="reservationCancel.do?uno=${item.uno }&rtime=${item.rtimeString}" id="cancel">예매취소</a>
+								<a href="reservationCancel.do?uno=${item.uno }&rtime=${item.rtimeString}" id="cancel">[예매취소]</a>
 							</div>
 							<hr>
 						</div>
