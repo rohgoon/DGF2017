@@ -29,7 +29,6 @@ public class DaysDelHandler implements CommandHandler {
 				session.rollback();
 				e.getStackTrace();
 			} finally {
-
 				session.close();
 			}
 			return "/WEB-INF/admin/adminFestivalSuccess.jsp";
