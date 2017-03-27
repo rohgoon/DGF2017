@@ -6,8 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="css/reset.css?ver=1">
-<link rel="stylesheet" type="text/css" href="css/common.css">
+<link rel="stylesheet" type="text/css" href="css/reset.css?ver=2">
+<link rel="stylesheet" type="text/css" href="css/common.css?ver=2">
 <style type="text/css">
 	/*-------------------------- div type list css --------------------------*/
 	.outter{
