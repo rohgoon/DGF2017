@@ -8,16 +8,16 @@
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
-	var password = "#{user.upassword}";
+	var password = "${user.upassword}";
 
 	$(document).ready(function() {
 		$("#password").focusout(function() {
 			if($(this).val() != password){
 				alert("비밀번호가 다릅니다.");
 				$(this).val() = "";
-				$("#btnEdit").attr("disabled", disabled);	
+				$("#btnDel").attr("disabled", disabled);	
 			}else{
-				$("#btnEdit").removeAttr("disabled");
+				$("#btnDel").removeAttr("disabled");
 
 			}
 			
@@ -30,7 +30,7 @@
 	<form action="userDel.do?uno=${user.uno }" method="post">
 		<p>${user.uname }님의 회원탈퇴 진행</p>
 		<label for="password">비밀번호 입력</label><input type="password" id="password" name="password">
-		<input type="submit" value="탈퇴" disabled="disabled">
+		<input type="submit" value="탈퇴" disabled="disabled" id="btnDel">
 	</form>
 </body>
 </html>

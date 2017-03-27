@@ -41,7 +41,7 @@ public class UserEditHandler implements CommandHandler {
 				User user = new User();
 				user.setUno(uno);
 				if (req.getParameter("repassword").equals("") || req.getParameter("repassword").isEmpty()) {
-					
+					user.setUpassword(req.getParameter("password"));
 				}else{
 					user.setUpassword(req.getParameter("repassword"));
 				}
