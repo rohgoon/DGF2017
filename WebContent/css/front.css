@@ -1,4 +1,5 @@
 @CHARSET "UTF-8";
+/*--------------------------------- day1 ---------------------------------*/
 #day1{
 	width: 30%;
 	height: auto;
@@ -23,25 +24,94 @@
 .day1{
 	width: 90%;
 	height: 300px;
-	border: 1px solid #000000;
 	margin: 10px;
 }
 
 .day1:NTH-CHILD(1){
-	background-image: url("../img/redvelvet02.jpg");
+	background-image: url("../img/redvelvet/redvelvet02.jpg");
 	background-size: cover;
 }
 
+.day1:NTH-CHILD(2){
+	background-image: url("../img/apink/apink04.jpg");
+	background-size: cover;
+}
+
+.day1:NTH-CHILD(3){
+	background-image: url("../img/mamamoo/mamamoo05.jpg");
+	background-size: cover;
+}
+
+.day1:NTH-CHILD(4){
+	background-image: url("../img/gugudan/gugudan05.jpg");
+	background-size: cover;
+}
+
+.day1:NTH-CHILD(5){
+	background-image: url("../img/ohmygirl/ohmygirl02.jpg");
+	background-size: cover;
+}
+
+/*--------------------------------- day2 ---------------------------------*/
 .day2{
 	width: 90%;
 	height: 300px;
-	border: 1px solid #000000;
 	margin: 10px;
 }
 
+.day2:NTH-CHILD(1){
+	background-image: url("../img/twice/twice08.png");
+	background-size: cover;
+}
+
+.day2:NTH-CHILD(2){
+	background-image: url("../img/lovelyz/lovelyz05.png");
+	background-size: cover;
+}
+
+.day2:NTH-CHILD(3){
+	background-image: url("../img/dia/dia07.jpg");
+	background-size: cover;
+}
+
+.day2:NTH-CHILD(4){
+	background-image: url("../img/clc/clc08.jpg");
+	background-size: cover;
+}
+
+.day2:NTH-CHILD(5){
+	background-image: url("../img/april/april09.jpg");
+	background-size: cover;
+}
+
+/*--------------------------------- day3 ---------------------------------*/
 .day3{
 	width: 90%;
 	height: 300px;
-	border: 1px solid #000000;
 	margin: 10px;
+}
+
+.day3:NTH-CHILD(1){
+	background-image: url("../img/aoa/aoa03.jpg");
+	background-size: cover;
+}
+
+.day3:NTH-CHILD(2){
+	background-image: url("../img/girlfriends/girlfriends05.jpg");
+	background-size: cover;
+}
+
+.day3:NTH-CHILD(3){
+	background-image: url("../img/blackpink/blackpink06.jpg");
+	background-size: cover;
+}
+
+.day3:NTH-CHILD(4){
+	background-image: url("../img/cosmicgirls/cosmicgirls05.jpg");
+	background-size: cover;
+}
+
+.day3:NTH-CHILD(5){
+	background-image: url("../img/sonamoo/sonamoo08.jpg");
+	background-size: cover;
 }

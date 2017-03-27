@@ -9,12 +9,12 @@
 	</select>
 	
 	<insert id="insert" parameterType="lineup">
-		insert into lineup(lno, dno, aname)
-		values(#{lno},#{dno},#{aname})
+		insert into lineup(lno, dno, aname, contents, song1, song2, song3, file)
+		values(#{lno}, #{dno}, #{aname}, #{contents}, #{song1}, #{song2}, #{song3}, #{file})
 	</insert>
 	
 	<select id="selectListById" parameterType="int" resultType="lineup">
-		select lno, dno, aname from lineup where lno = #{lno}
+		select lno, dno, aname, contents, song1, song2, song3 from lineup where lno = #{lno}
 	</select>
 	
 	<delete id="deleteLineup" parameterType="int">
@@ -25,7 +25,11 @@
 		update lineup set
 	    lno = #{lno},
 	    dno = #{dno},
-	    aname = #{aname}
+	    aname = #{aname},
+	    contents = #{contents},
+	    song1 = #{song1},
+	    song2 = #{song2},
+	    song3 = #{song3}
   		where lno = #{lno}
 	</update>
 	

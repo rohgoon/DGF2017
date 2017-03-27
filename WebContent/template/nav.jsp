@@ -14,7 +14,7 @@
 	</li>
 	
 	<li>
-		<a href="#">INFO</a>
+		<a href="festivalList.do">INFO</a>
 	</li>
 	
 	<li>

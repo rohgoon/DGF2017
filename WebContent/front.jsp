@@ -5,9 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="css/common.css?ver=2">
-<link rel="stylesheet" type="text/css" href="css/reset.css?ver=2">
-<link rel="stylesheet" type="text/css" href="css/front.css?ver=2">
+<link rel="stylesheet" type="text/css" href="css/common.css?ver=1">
+<link rel="stylesheet" type="text/css" href="css/reset.css?ver=1">
+<link rel="stylesheet" type="text/css" href="css/front.css?ver=1">
 <style type="text/css">
 	body{
 		font-family: 'Arca Majora 3 Heavy', '12롯데마트행복Medium';
@@ -15,14 +15,7 @@
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
-	$(function(){
-		
-		$('#day1 div').hover(function() {
-			$(this).css('background-color', '#F48FB1');
-		}, function() {
-			$(this).css('background-color', '#ffffff');
-		});
-	});
+	
 </script>
 </head>
 <body>
@@ -49,7 +42,6 @@
 			<div class="day1"></div>
 			<div class="day1"></div>
 			<div class="day1"></div>
-			<div class="day1"></div>
 		</div>
 		
 		<div id="day2">
@@ -58,11 +50,9 @@
 			<div class="day2"></div>
 			<div class="day2"></div>
 			<div class="day2"></div>
-			<div class="day2"></div>
 		</div>
 		
 		<div id="day3">
-			<div class="day3"></div>
 			<div class="day3"></div>
 			<div class="day3"></div>
 			<div class="day3"></div>

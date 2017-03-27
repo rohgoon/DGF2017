@@ -6,8 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="../../css/reset.css?ver=2">
-<link rel="stylesheet" type="text/css" href="../../css/common.css?ver=2">
+<link rel="stylesheet" type="text/css" href="css/reset.css">
+<link rel="stylesheet" type="text/css" href="css/common.css">
 <style type="text/css">
 	table {
 		border-collapse: collapse;
@@ -21,18 +21,19 @@
 <body>
 <div id="container">
 
-	<div id="title">
-		<div id="header">
-			<jsp:include page="../../template/title.jsp"></jsp:include>
+	<div id="header">
+		<div id="nav">
+			<jsp:include page="../../template/nav.jsp"></jsp:include>
 		</div>
 		
-		<div id="aside">
-			<jsp:include page="../../template/aside.jsp"></jsp:include>
+		<div id="login">
+			<jsp:include page="../../template/login.jsp"></jsp:include>
 		</div>
 	</div>
 	
-	<div id="nav">
-		<jsp:include page="../../template/nav.jsp"></jsp:include>
+
+	<div id="title">
+		<jsp:include page="../../template/title.jsp"></jsp:include>
 	</div>
 	
 	<div id="content">
