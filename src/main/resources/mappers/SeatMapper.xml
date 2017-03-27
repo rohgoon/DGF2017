@@ -34,4 +34,7 @@
   <delete id="deleteByDno" parameterType="int">
       delete from seat where dno = #{param1}
   </delete>
+  <delete id="deleteBySno" parameterType="int">
+      delete from seat where sno = #{param1}
+  </delete>
 </mapper>
