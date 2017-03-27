@@ -14,7 +14,7 @@
 		<a href="list.do">회원리스트 보기</a>
 		<a href="changePwd.do">비밀번호 변경</a> 
 		<br>
-		<a href="reservation.do?fesno=2&id=${auth.id}">예매</a> <!-- 임시로 fesno 지정 -->
+		<a href="reservation.do?fesno=4&id=${auth.id}">예매</a> <!-- 임시로 fesno 지정 -->
 		<a href="reservationConfirm.do?uno=${auth.uno }">예매 확인</a>
 		<a href="biz.do">영업관리</a>
 		<a href="adminFestival.do">행사 관리</a>
