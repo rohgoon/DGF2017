@@ -22,7 +22,6 @@
 			</form>	
 		</div>
 	</div>
-	<a href="#">행사 정보 확인</a>
-	<a href="#">행사 정보 수정</a>
+	<a href="afEdit.do??fno=${fesInfo.fno }&fCount=${fCount}">행사 정보 수정</a>
 </body>
 </html>

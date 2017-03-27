@@ -15,14 +15,13 @@
 				<label for="grade">등급명</label>
 				<input type="text" id="grade" name="grade" value="${seat.grade }"><br>
 				<label for="price">가격</label>
-				<input type="number" name="price" id="price"><br>
+				<input type="number" name="price" id="price" value="${seat.price }"><br>
 				<label for="max">티켓 발행 매수</label>
-				<input type="number" name="max" id="max"><br>
+				<input type="number" name="max" id="max"  value="${seat.max }"><br>
 				<input type="submit" value="수정">
 			</form>
 		</div>
 	</div>
-	<a href="#">행사 정보 확인</a>
-	<a href="#">행사 정보 수정</a>
+	<a href="afEdit.do??fno=${fesInfo.fno }&fCount=${fCount}">행사 정보 수정</a>
 </body>
 </html>

@@ -12,7 +12,7 @@
 	<p><a href="readBoardList.do">게시판 목록 조회</a></p>
 	<a href="adminFestival.do">행사관리</a>
 	<a href="urMng.do">회원관리</a>
-	<a href="bizManage.do">영업현황</a>
+	<a href="bizManage.do?fno=4&fCount=3">영업현황</a>
 	<a href="lineupManager.do">라인업 관리</a>
 </body>
 </html>
