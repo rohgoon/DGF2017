@@ -16,7 +16,7 @@ body{
 #videobcg { 
      position: absolute;
      top: 0px;
-     left: 0px;
+     left: 0px;  
      min-width: 100%;
      min-height: 100%;
      width: auto;
