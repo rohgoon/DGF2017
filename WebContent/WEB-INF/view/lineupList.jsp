@@ -89,16 +89,6 @@
 		background-size: cover;
 	}
 	
-	
-	/*-------------------------- table css --------------------------*/
-	/* table {
-		border: 1px solid #000000;
-		border-collapse: collapse;
-	}
-	
-	tr,td,th{
-		border: 1px solid #000000;
-	} */
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
@@ -120,33 +110,6 @@
 	</div>
 
 	<div id="content">
-		
-		<%-- <h1>DGF 라인업 정보</h1>
-			<a href="lineupRegister.do">새 라인업 등록</a>
-			<table>
-				<tr>
-					<th>출연진 번호</th>
-					<th>일정 번호</th>
-					<th>아티스트 이름</th>
-					<th>아티스트 설명</th>
-					<th>대표곡1</th>
-					<th>대표곡2</th>
-					<th>대표곡3</th>
-				</tr>
-				
-			<c:forEach var="item" items="${viewList }">
-				<tr>
-					<td><a href="lineupSelected.do?lno=${item.lno }">${item.lno }</a></td>
-					<td>${item.dno }</td>
-					<td>${item.aname }</td>
-					<td>${item.contents }</td>
-					<td>${item.song1 }</td>
-					<td>${item.song2 }</td>
-					<td>${item.song3 }</td>
-				</tr>
-			</c:forEach>	
-				
-			</table> --%>
 			
 	<!------------------------------- div type list ------------------------------->
 	<c:forEach var="item" items="${viewList }">

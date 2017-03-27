@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="lineupUpdate.do?lno=${updateLineup.lno }" method="post">
+	<form action="lineupUpdate.do?lno=${updateLineup.lno }" method="post" enctype="multipart/form-data">
 		<fieldset>
 			<legend>라인업 수정</legend>
 			출연진 번호 : <input type="text" name="lno" value="${updateLineup.lno }" readonly="readonly"><br>
@@ -17,6 +17,7 @@
 			대표곡1 : <input type="text" name="song1" value="${updateLineup.song1 }"><br>
 			대표곡2 : <input type="text" name="song2" value="${updateLineup.song2 }"><br>
 			대표곡3 : <input type="text" name="song3" value="${updateLineup.song3 }"><br>
+			라인업 이미지 : <input type="file" name="file"><br>
 			<input type="reset" value="취소">
 			<input type="submit" value="등록">
 		</fieldset>

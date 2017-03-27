@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
+	<a href="lineupManager.do">라인업 관리</a>
 </body>
 </html>
