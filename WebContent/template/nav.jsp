@@ -10,7 +10,7 @@
 	</li>
 	
 	<li>
-		<a href="#">TICKETS</a>
+		<a href="reservation.do?fesno=4&id=${auth.id}">TICKETS</a> <!-- 임시로 fesno 지정 -->
 	</li>
 	
 	<li>
