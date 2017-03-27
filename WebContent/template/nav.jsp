@@ -18,6 +18,6 @@
 	</li>
 	
 	<li>
-		<a href="#">COMMUNITY</a>
+		<a href="community.do">COMMUNITY</a>
 	</li>
 </ul>

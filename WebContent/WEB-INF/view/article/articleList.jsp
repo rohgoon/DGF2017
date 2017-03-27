@@ -5,21 +5,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<style>
-	a, a:VISITED{
-		color:blue;
-		text-decoration: none;
-	}
-	
-	table{
-		margin:0 auto;
-	}
-
-	p, table{
-		text-align: center;
-	}
-	
-</style>
 <!-- <script src="WEB-INF/lib/webjars/jquery/1.12.4/dist/jquery.min.js"></script> -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>
@@ -152,5 +137,7 @@
 		<input type="button" value="검색">
 		<input type="button" value="글쓰기" onclick="createArticle(${boardNo});">
 	</p>
+	
+
 </body>
 </html>

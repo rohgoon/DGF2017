@@ -1,180 +1,212 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
-<link href="https://fonts.googleapis.com/css?family=Fredoka+One|Julius+Sans+One|Monoton" rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css?family=Fredoka+One|Julius+Sans+One|Monoton"
+	rel="stylesheet">
 <style type="text/css">
-@font-face{ 
+@font-face {
 	font-family: 'Arca Majora 3 Heavy';
-	 src:url(font/ArcaMajora3-Heavy.otf); 
-	} 
-body{
-	background-color: rgb(255,167,167);
+	src: url(font/ArcaMajora3-Heavy.otf);
 }
-#videobcg { 
-     position: absolute;
-     top: 0px;
-     left: 0px;  
-     min-width: 100%;
-     min-height: 100%;
-     width: auto;
-     height: auto;
-     z-index: -1000;
-     overflow: hidden;
-     filter: opacity(78%); 
+
+body {
+	background-color: rgb(255, 167, 167);
 }
-#wrapContent{
+
+#videobcg {
 	position: absolute;
-     top: 0px;
-     left: 0px;
-     bottom:0px;
-     min-width: 100%;
-     min-height: 100%;
-     width: auto;
-     height: 100%;
-     /* background: rgba(255,167,167,0.2); */ /* 연한핑크 */ 
-  	 text-align: center;
+	top: 0px;
+	left: 0px;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: -1000;
+	overflow: hidden;
+	filter: opacity(78%) ;
 }
-h1{
+
+#wrapContent {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	bottom: 0px;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: 100%; /* background: rgba(255,167,167,0.2); */ /* 연한핑크 */
+	text-align: center;
+}
+
+h1 {
 	margin: 90px 90px 40px 90px;
-	font-size: 5em;
-	color: rgba(255,255,255,0.8);
+	font-size: 6em;
+	color: rgba(255, 255, 255, 0.7);
 	font-family: 'Arca Majora 3 Heavy';
+	font-variant:small-caps;
 	font-weight: lighter;
+	line-height:105px;
 	/* background: rgba(0,0,0,0.2); */
 	/* text-shadow: 3px 3px 0px rgba(255,100,100,1); */
-	letter-spacing: 15px;
-	-webkit-text-stroke: 1px rgb(255,167,167);
+	letter-spacing: 5px;
+	-webkit-text-stroke: 2px rgba(100, 67, 67, 0.5);
 }
-#t2{
-	color: rgba(255,200,200,0.8);
+
+#t2 {
+	color: rgba(255, 210, 210, 0.7);
 }
-#t3{
-	color: rgba(255,160,160,0.8);
+
+#t3 {
+	color: rgba(255, 160, 160, 0.7);
 }
-#innerWrap{
-    margin: 0 auto;
+
+#innerWrap {
+	margin: 0 auto;
 	width: 400px;
 	height: 300px;
-	background: rgba(155,155,155,0.3);
-	border-radius: 10px;
+	background: rgba(205, 155, 255, 0.25);
+	border-radius: 5px;
 	padding: 20px;
-	border: 1px solid rgba(255,255,255,0.2);
+	/* border : 3px rgba(25, 25, 25, 0.8); */
+	border: 3px solid rgba(255, 255, 255, 0.6);
 }
-#f1{
+
+#f1 {
 	width: inherit;
 	height: inherit;
 	font-size: 1.5em;
-	color: rgba(255,255,255,0.8);
+	color: rgba(255, 255, 255, 0.8);
 }
-#f1 table{
+
+#f1 table {
 	width: inherit;
 	height: inherit;
 	table-layout: fixed;
-	
 }
-td{
+
+td {
 	text-align: center;
 }
-.inTxt{	
+
+.inTxt {
 	width: 210px;
 	border: 0px;
 	border-bottom: 1px solid black;
 	padding-right: 10px;
-	background-color:transparent;
+	background-color: transparent;
 	color: white;
 	font-size: 1.1em;
 }
-.inTxt:FOCUS{
-	outline-color: rgba(255,255,255,0.4);
+
+.inTxt:FOCUS {
+	outline-color: rgba(255, 255, 255, 0.4);
 	outline-style: dotted;
 }
-a{
+
+a {
 	text-decoration: none;
 	color: white;
 }
-#btnLogin{
+
+#btnLogin {
 	width: 90%;
 	height: 80%;
-	background-color: rgba(255,167,167,0.9);
+	background-color: rgba(255, 167, 167, 0.9);
 	border: 0px;
 	border-radius: 10px;
 	color: white;
 	font-size: 1.2em;
 	font-family: 'Arca Majora 3 Heavy';
 }
-#btnLogin:FOCUS{
-	background-color: rgba(255,50,50,0.9);
+
+#btnLogin:FOCUS {
+	background-color: rgba(255, 50, 50, 0.9);
 	outline: none;
 }
+
 #btnLogin:HOVER {
-	background-color: rgba(255,50,50,0.9);
+	background-color: rgba(255, 50, 50, 0.9);
 }
-#a0{
+
+#a0 {
 	text-align: right;
-	
 }
-#a1, #a2{
+
+#a1, #a2 {
 	display: inline-block;
 	margin-right: 20px;
-	color: rgba(0,0,0,0.5);
+	color: rgba(0, 0, 0, 0.5);
 }
-#a1:HOVER, #a2:HOVER{
-	color: rgba(255,50,50,0.8);
-} 
-.tdTitle{
+
+#a1:HOVER, #a2:HOVER {
+	color: rgba(255, 50, 50, 0.8);
+}
+
+.tdTitle {
 	text-align: right;
 	font-weight: bold;
-	
 	font-family: 'Arca Majora 3 Heavy';
 }
-#titleId{
+
+#titleId {
 	display: inline-block;
 	padding-right: 11px;
 }
-.tdContent{
+
+.tdContent {
 	text-align: left;
 	padding-left: 5px;
 }
 </style>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
-</script> 
+	
+</script>
 </head>
 <body>
-<%
-	int vNum= (int)(Math.round(Math.random()*3+1));
-%>
-	<video id="videobcg" preload="auto" autoplay="true" loop="loop" muted="muted" volume="0">
-     <source src="video/<%=vNum %>.ogv" type="video/ogg">    
+	<%
+		int vNum = (int) (Math.round(Math.random() * 3 + 1));
+	%>
+	<video id="videobcg" preload="auto" autoplay="true" loop="loop"
+		muted="muted" volume="0">
+		<source src="video/<%=vNum%>.ogv" type="video/ogg">
 	</video>
- <div id="wrapContent">
- 	<h1>Daegu<br><span id="t2">Girl-group</span><br><span id="t3">Festival</span></h1>
- 	<div id="innerWrap">
- 		<form action="login.do" method="post" id="f1">
- 			<table>
- 				<tr>
- 					<td class="tdTitle" width="100px" nowrap><span id="titleId">ID</span></td>
- 					<td class="tdContent"><input type="text" class="inTxt" name="id"></td>
- 				</tr>
- 				<tr>
- 					<td class="tdTitle" width="100px" nowrap>PW</td>
- 					<td class="tdContent"><input type="password" class="inTxt" name="password"></td>
- 				</tr>
- 				<tr>
- 					<td colspan="2"><input type="submit" value="Login" id="btnLogin"></td>
- 				</tr>
- 				<tr>
- 					<td colspan="2" id="a0"><a href="join.do" id="a1">가입</a> <a href="front.do" id="a2">비회원</a></td>
- 				</tr> 			
- 			</table> 			
- 		</form>
- 	</div>
- 	
- </div>
+	<div id="wrapContent">
+		<h1>
+			Daegu<br>
+			<span id="t2">Girl-group</span><br>
+			<span id="t3">Festival</span>
+		</h1>
+		<div id="innerWrap">
+			<form action="login.do" method="post" id="f1">
+				<table>
+					<tr>
+						<td class="tdTitle" width="100px" nowrap><span id="titleId">ID</span></td>
+						<td class="tdContent"><input type="text" class="inTxt" name="id"></td>
+					</tr>
+					<tr>
+						<td class="tdTitle" width="100px" nowrap>PW</td>
+						<td class="tdContent"><input type="password" class="inTxt"
+							name="password"></td>
+					</tr>
+					<tr>
+						<td colspan="2"><input type="submit" value="Login"
+							id="btnLogin"></td>
+					</tr>
+					<tr>
+						<td colspan="2" id="a0"><a href="join.do" id="a1">가입</a><a href="front.do" id="a2">비회원</a></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+
+	</div>
 </body>
 </html>
