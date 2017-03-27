@@ -1,0 +1,88 @@
+@CHARSET "UTF-8";
+
+@font-face {
+	font-family: 'Arca Majora 3 Heavy';
+	src:url(/../font/ArcaMajora3-Heavy.otf); 
+	} 
+
+.loginBox{
+	padding:20px;
+	margin:0 auto;
+	width:400px;
+	height:340px;
+	border: 3px solid rgba(255, 255, 255, 0.6);
+	border-radius:5px;
+	background: rgba(50, 50, 50, 0.35);
+	text-align: center;
+	
+}
+
+.loginBox input{
+	width:90%;	
+	height:40px;
+	padding:10px;
+	margin:0;
+	font-size: 20px;
+	color:white;
+	background: rgba(0, 0, 0, 0.55);
+	font-family: 'Arca Majora 3 Heavy';
+	border-radius:5px;
+	border:none;
+}
+
+.loginBox input[type='text']:FOCUS, input[type='password']:FOCUS{
+	outline-color: rgba(255, 255, 255, 0.4);
+	outline-style: dotted;
+}
+
+.loginBox input[type='button']{
+	height:50px;
+	background: rgba(255, 167, 167, 0.9);
+	font-size: 1.5em;
+}
+
+.loginBox input[type='button']:FOCUS, #loginBox input[type='button']:HOVER{
+	height:50px;
+	background-color: rgba(255, 50, 50, 0.9);
+	font-size: 1.5em;
+	outline: none;
+}
+
+.loginBox p a {
+	text-decoration: underline;
+	color: white;
+	font-style: italic;
+	font-weight: bold;
+}
+
+.loginBox p a:HOVER{
+	color: rgba(255, 100, 100, 0.9);
+}
+
+.loginBox p{
+	color:white;
+}
+
+.loginBox > .inpJoin{
+	display:inline-block;
+	width:40%;
+	height:40px;
+	font-size: 16px;
+	margin:5px;
+}
+
+.loginBox > #email{
+	width:89%;
+}
+
+.loginBox >.inpPhone{
+	width:23%;
+	text-align: center;
+}
+
+.loginBox > input[type='button']{
+	background: rgba(255, 167, 167, 0.9);
+	font-size: 1.5em;
+	height:50px;
+	font-family: 'Arca Majora 3 Heavy';
+}
