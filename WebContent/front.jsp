@@ -53,13 +53,24 @@
 		visibility: hidden;
 	}
 	
-	#loginBox{
+	.loginBox{
 		margin-top:300px;
+		background-color: rgba(0,0,0,0.6);
 	}
 	
-	#loginBox p{
+	.loginBox p{
+		margin:20px;
+	}
+	
+	.loginBox p input{
+		height:50px;
+		background-color: rgba(0,0,0,0.9);
+	}
+	
+	.loginBox .inpJoin{
+		background-color: rgba(0,0,0,0.9);
 		margin:10px;
-}
+	}
 
 </style>
 </head>

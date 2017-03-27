@@ -69,7 +69,7 @@ function backToLogin(){
 		type : "get",
 		dateType : "html",
 		success : function(result) {
-			$("#innerWrap").html(result);
+			$("#loginDialog").html(result);
 		}
 	});
 }
@@ -81,6 +81,7 @@ function logOut(){
 		type : "get",
 		dateType : "html",
 		success : function(result) {
+			alert("로그아웃 되었습니다.");
 			location.reload();
 		}
 	});
@@ -90,29 +91,59 @@ function join(){
 	var id = $("#id").val();
 	var name = $("#name").val();
 	var password = $("#password").val();
+	var repassword = $("#repassword").val();
 	var email = $("#email").val();
 	var phone1 = $("#phone1").val();
 	var phone2 = $("#phone2").val();
 	var phone3 = $("#phone3").val();
+	if(password == repassword){
+		$.ajax({
+			url : "join.do",
+			type : "post",
+			data : {
+				"id" : id,
+				"name" : name,
+				"email" : email,
+				"password" : password,
+				"phone1" : phone1,
+				"phone2" : phone2,
+				"phone3" : phone3
+			},
+			dateType : "html",
+			success : function(result) {
+				$("#loginDialog").html(result);
+			}
+		}); // ajax
+	}else{
+		alert("비밀번호가 일치하지 않습니다.");
+		$("#password").val("");
+		$("#repassword").val("");
+	}
 	
+}
+
+function checkJoinId(obj){
+	var id = $(obj).val();
 	$.ajax({
-		url : "join.do",
-		type : "post",
+		url : "checkId.do",
+		type : "get",
 		data : {
-			"id" : id,
-			"name" : name,
-			"email" : email,
-			"password" : password,
-			"phone1" : phone1,
-			"phone2" : phone2,
-			"phone3" : phone3
+			"id" : id
 		},
 		dateType : "html",
 		success : function(result) {
-			location.reload();
+			if (result.trim() == id) {
+				alert("이미 존재하는 아이디거나 잘못 입력하셨습니다.")
+				$(obj).val("");
+			} else {
+				alert("사용해도 좋은 아이디 입니다.")
+				return;
+			}
 		}
-		
 	});
 }
 
+function showJoinDialog(){
+	
+}
 /** </script> * */
