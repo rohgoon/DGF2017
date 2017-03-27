@@ -17,6 +17,11 @@
 	body{
 		font-family: 'Arca Majora 3 Heavy', '12롯데마트행복Medium';
 	}
+	#innerContent{
+		width: 800px;
+		margin: 0 auto;
+		padding: 20px;
+	}
 </style>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">	
@@ -120,6 +125,7 @@
 			<a href="reservation.do?fesno=${param.fesno }&id=${auth.id}">예매</a> <!-- 임시로 fesno 지정 -->
 			<a href="reservationConfirm.do?uno=${user.uno }">예매 확인</a>
 		</div>
+		<div id="innerContent">
 		<form action="reservation.do" method="post">
 			<input type="hidden" name="uno" value="${user.uno }">
 			환영합니다 ${user.uname } 고객님<br>
@@ -144,6 +150,7 @@
 			<input type="submit" value="결제 완료" id="btnOk" disabled="disabled">
 			<input type="reset" value="취소" id="btnBack">
 		</form>
+		</div>
 		</div>
 	</div>
 </body>

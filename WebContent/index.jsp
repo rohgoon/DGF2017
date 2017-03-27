@@ -11,7 +11,7 @@
 	 src:url(font/ArcaMajora3-Heavy.otf); 
 	} 
 body{
-	background-color: rgb(255,167,167);
+	aBtn;
 }
 #videobcg { 
      position: absolute;

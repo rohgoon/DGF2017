@@ -17,6 +17,33 @@
 	body{
 		font-family: 'Arca Majora 3 Heavy', '12롯데마트행복Medium';
 	}
+	#innerContent{
+		width: 1000px;
+		margin: 0 auto;
+		padding: 20px;
+	}
+	.divItems label{
+		display:inline-block;
+		width: 120px;
+		border-right: 1px solid black;
+	}
+	.itemList{
+		position: relative;
+	}
+	.itemList .aBtn{
+		position: absolute;
+		top: 0;
+		right: 10px;
+	
+	}
+	.aBtn a{
+		color: blue;
+		text-decoration: none;
+	}
+	.aBtn a:HOVER{
+		color: rgba(255,167,167,1);
+		text-decoration: none;
+	}
 </style>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
@@ -54,10 +81,10 @@
 		}
 	});
 	$(document).ready(function() {
-		$(".divItems").css("display", "none");
+		//$(".divItems").css("display", "none");
 		for(var i =0; i < displayIndex.length; i++){
 			$(".divItems").eq(displayIndex[i]).css("display", "block");
-			$(".divItems").eq(displayIndex[i]).append("구매수 : "+sumDivsNum[i]+"매<hr>");		
+			$(".divItems").eq(displayIndex[i]).append("구매수 : "+sumDivsNum[i]+"매<br>");		
 		};
 	});
 </script>
@@ -79,30 +106,37 @@
 		<jsp:include page="../../template/title.jsp"></jsp:include>
 	</div>
 	<div id="content">
-	<div id="innerNav">
+		<div id="innerNav">
 			<a href="reservation.do?fesno=${param.fesno }&id=${auth.id}">예매</a> <!-- 임시로 fesno 지정 -->
 			<a href="reservationConfirm.do?uno=${user.uno }">예매 확인</a>
 		</div>
+		<div id="innerContent">
 		<p>${userInfo.uname } 고객님의 예매 내역입니다.</p>
 		<hr>
 		<div id="list">
-			<c:forEach var="item" items="${reservationList }">
-				<c:if test="${item.uno == userInfo.uno }">
-						<div class="divItems">
-						페스티벌 회차 : ${item.fno }회<br> 
-						공연일 : ${item.dayString }<br>
-						티켓 등급 : ${item.grade }<br>
-						가격 : ${item.price }<br>
-						결제 시간: ${item.rtimeString }<br>
-						<input type="hidden" class="checkRtime" value="${item.rtimeString }">
-						<a href="reservationCancel.do?uno=${item.uno }&rtime=${item.rtimeString}" id="cancel">예매 취소</a>
-						<br>
-					</div>
-				</c:if>
-			</c:forEach>			
+				<c:forEach var="item" items="${reservationList }">
+					<c:if test="${item.uno == userInfo.uno }">
+						<div class="itemList">
+							<div class="divItems">
+								<label>페스티벌 회차 </label> ${item.fno }회<br> 
+								<label>공연일 </label> ${item.dayString }<br>
+								<label>티켓 등급 </label> ${item.grade }<br>
+								<label>가격 </label> ${item.price }<br>
+								<label>결제 시간</label> ${item.rtimeString }<br>
+								<input type="hidden" class="checkRtime" value="${item.rtimeString }">								
+								<br>
+							</div>
+							<br>
+							<div class="aBtn">
+								<a href="reservationCancel.do?uno=${item.uno }&rtime=${item.rtimeString}" id="cancel">예매취소</a>
+							</div>
+							<hr>
+						</div>
+					</c:if>
+				</c:forEach>			
+			</div>
 		</div>
 	</div>
 </div>
-	
 </body>
 </html>

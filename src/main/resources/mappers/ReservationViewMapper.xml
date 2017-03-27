@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="reservation.model.ReservationViewDao">    
   <select id="selectDetailListbyUno" parameterType="int" resultType="ReservationView">
-      select * from reservationView where uno =#{uno}
+      select * from reservationView where uno =#{uno} order by rtime desc
   </select>
   <select id="selectDetailByRno" parameterType="int" resultType="ReservationView">
       select * from reservationView where rno =#{rno}
