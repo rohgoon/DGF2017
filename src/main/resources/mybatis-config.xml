@@ -4,7 +4,10 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<properties resource="db.properties" />
-
+	
+	<settings>
+        <setting name="mapUnderscoreToCamelCase" value="true" />
+     </settings>
 	<typeAliases>
 		<typeAlias type="member.model.User" alias="User" />
 		<typeAlias type="festival.model.Festival" alias="Festival" />
@@ -18,6 +21,10 @@
 		<typeAlias type="biz.model.BmDayView" alias="BmDayView" />
 		<typeAlias type="biz.model.BmFesInfoView" alias="BmFesInfoView" />
 		<typeAlias type="lineup.model.Lineup" alias="Lineup" />
+		<typeAlias type="article.model.Article" alias="Article"/>
+    <typeAlias type="article.model.ArticleListView" alias="ArticleList"/>
+    <typeAlias type="board.model.Board" alias="Board"/>
+    <typeAlias type="reply.model.Reply" alias="Reply"/>
 	</typeAliases>
 
 	<environments default="development">
@@ -57,5 +64,9 @@
 		<mapper resource="mappers/bmDayViewMapper.xml" />
 		<mapper resource="mappers/bmFesInfoViewMapper.xml" />
 		<mapper resource="mappers/LineupMapper.xml" />
+		<mapper resource="mappers/ArticleMapper.xml"/>
+    <mapper resource="mappers/ArticleListViewMapper.xml"/>
+    <mapper resource="mappers/BoardMapper.xml"/>
+    <mapper resource="mappers/ReplyMapper.xml"/>
 	</mappers>
 </configuration>

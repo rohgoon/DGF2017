@@ -8,12 +8,15 @@
       
     },
     "angular1": {
+<<<<<<< HEAD
       
     },
     "browser-extension": {
       
     },
     "jquery-extension": {
+=======
+>>>>>>> refs/remotes/origin/jch
       
     }
   },
@@ -22,9 +25,14 @@
     "browser",
     "jquery"
 <<<<<<< HEAD
+<<<<<<< HEAD
   ]
 =======
   ],
   "ecmaVersion": 5
 >>>>>>> refs/remotes/origin/hak3
+=======
+  ],
+  "ecmaVersion": 5
+>>>>>>> refs/remotes/origin/jch
 }

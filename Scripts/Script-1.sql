@@ -234,4 +234,117 @@ ALTER TABLE dgf.biz
 			fno -- 회차
 		);
 		
+<<<<<<< HEAD
 SET FOREIGN_KEY_CHECKS=0;
+=======
+		
+		
+-- 게시판
+CREATE TABLE `dgf`.`board` (
+	`board_no`   INT         NOT NULL AUTO_INCREMENT COMMENT '게시판넘버', -- 게시판넘버
+	`board_name` VARCHAR(40) NOT NULL COMMENT '게시판이름', -- 게시판이름
+	PRIMARY KEY (`board_no`)
+)
+COMMENT '게시판';
+
+ALTER TABLE `dgf`.`board`
+	AUTO_INCREMENT = 1;		
+		
+-- 게시물
+CREATE TABLE `dgf`.`article` (
+	`article_no`    INT(11)      NOT NULL AUTO_INCREMENT COMMENT '게시물번호', -- 게시물번호
+	`board_no`      INT          NOT NULL COMMENT '게시판넘버', -- 게시판넘버
+	`uno`           INT(11)      NOT NULL COMMENT '회원번호', -- 회원번호
+	`title`         VARCHAR(120) NOT NULL COMMENT '게시물제목', -- 제목
+	`content`       TEXT         NOT NULL COMMENT '게시물내용', -- 내용
+	`category`      VARCHAR(30)  NOT NULL COMMENT '카테고리', -- 카테고리
+	`wrtie_time`    DATETIME     NOT NULL COMMENT '게시물작성시간', -- 작성시간
+	`hits`          INT(11)      NOT NULL DEFAULT 0 COMMENT '게시물조회수', -- 조회수
+	`recommend`     INT(11)      NOT NULL DEFAULT 0 COMMENT '게시물추천수', -- 추천수
+	`attached_file` VARCHAR(200) NULL     COMMENT '게시물첨부파일', -- 첨부파일
+	`file_location` VARCHAR(200) NULL     COMMENT '첨부파일주소', -- 첨부파일주소
+	`delete`        TINYINT(1)   NOT NULL DEFAULT 0 COMMENT '삭제여부', -- 삭제여부
+	PRIMARY KEY (`article_no`, `board_no`),
+	FOREIGN KEY (`board_no`) REFERENCES `dgf`.`board` (`board_no`),
+	FOREIGN KEY (`uno`)	REFERENCES `dgf`.`user` ( `uno`)
+)
+COMMENT '게시물';
+
+ALTER TABLE `dgf`.`article`
+	AUTO_INCREMENT = 1;
+
+	
+	
+-- 게시물추천목록
+CREATE TABLE `dgf`.`articleRecList` (
+	`board_no`   INT     NOT NULL COMMENT '게시판넘버', -- 게시판넘버
+	`article_no` INT(11) NOT NULL COMMENT '게시물번호', -- 게시물번호
+	`uno`        INT(11) NOT NULL COMMENT '회원번호', -- 회원번호
+	PRIMARY KEY (`board_no`, `article_no`, `uno`),
+	FOREIGN KEY (`article_no`, `board_no`) REFERENCES `dgf`.`article` (`article_no`, `board_no`),
+	FOREIGN KEY (`uno`)	REFERENCES `dgf`.`user` ( `uno` )
+)
+COMMENT '게시물추천목록';
+
+-- 댓글
+CREATE TABLE `dgf`.`reply` (
+	`board_no`   INT        NOT NULL COMMENT '게시판넘버', -- 게시판넘버
+	`article_no` INT(11)    NOT NULL COMMENT '게시물번호', -- 게시물번호
+	`reply_no`   INT(11)    NOT NULL AUTO_INCREMENT COMMENT '댓글번호', -- 댓글번호
+	`uno`        INT(11)    NOT NULL COMMENT '회원번호', -- 회원번호
+	`content`    TEXT       NOT NULL COMMENT '댓글내용', -- 댓글내용
+	`parent`     INT(11)    NOT NULL DEFAULT 0 COMMENT '부모댓글', -- 부모댓글
+	`indent`     TINYINT(1) NOT NULL DEFAULT 0 COMMENT '댓글들여쓰기', -- 댓글들여쓰기
+	`write_time` DATETIME   NOT NULL COMMENT '댓글작성시간', -- 댓글작성시간
+	`delete`     TINYINT(1) NOT NULL DEFAULT 0 COMMENT '삭제여부', -- 삭제여부
+	PRIMARY KEY (`reply_no`, `board_no`, `article_no`),
+	FOREIGN KEY (`article_no`, `board_no`)
+	REFERENCES `dgf`.`article` (`article_no`, `board_no`),
+	FOREIGN KEY (`uno`)	REFERENCES `dgf`.`user` (`uno`)
+)
+COMMENT '댓글';
+
+ALTER TABLE `dgf`.`reply`
+	AUTO_INCREMENT = 1;
+
+	
+	
+-- 댓글추천목록
+CREATE TABLE `dgf`.`replyRecList` (
+	`board_no`   INT     NOT NULL COMMENT '게시판넘버', -- 게시판넘버
+	`article_no` INT(11) NOT NULL COMMENT '게시물번호', -- 게시물번호
+	`reply_no`   INT(11) NOT NULL COMMENT '댓글번호', -- 댓글번호
+	`uno`        INT(11) NOT NULL COMMENT '회원번호', -- 회원번호
+	PRIMARY KEY (`uno`, `reply_no`,  `article_no`, `board_no`),
+	FOREIGN KEY (`reply_no`, `board_no`, `article_no`) REFERENCES `dgf`.`reply`(`reply_no`, `board_no`, `article_no`),
+	FOREIGN KEY (`uno`) REFERENCES `dgf`.`user`(`uno`)
+)
+COMMENT '댓글추천목록';
+
+
+
+
+
+
+
+SELECT * FROM article;
+
+
+-- 게시판용 VIEW테이블
+
+CREATE VIEW article_list_view(board_no, board_name, article_no, category, title, write_time, hits, recommend, attached_file, uno, id, name)
+AS SELECT b.board_no, b.board_name, a.article_no, a.category, a.title, a.write_time, a.hits, a.recommend, a.attached_file, u.uno, u.id, u.uname
+FROM `article` as a, `user` as u, `board` as b
+where a.uno = u.uno && a.del = 0 && a.board_no = b.board_no;
+
+select * from article_list_view;
+
+select * from article_list_view where category = '공지사항';
+
+select * from article_list_view where board_no = 6 ORDER by article_no desc;
+
+drop view article_list_view;
+
+
+select * from article_list_view where board_no = 6 ORDER by article_no desc limit 0, 10;
+>>>>>>> refs/remotes/origin/jch

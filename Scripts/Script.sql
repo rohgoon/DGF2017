@@ -75,6 +75,9 @@ insert into user(id,uname,upassword,email,phone, regdate,outmember) values
 ('t9999','정구수','t9999','t9999@dgit.or.kr','010-9999-1111','2015-11-07',0),
 ('t0000','임십수','t0000','t0000@dgit.or.kr','010-1010-1111','2015-11-08',0);
 
+insert into user(id,uname,upassword,email,phone, regdate,outmember) values
+('admin', 'admin', 'admin', 'admin@admin.co.kr', '010-0000-0000', '2015-01-01', 0);
+
 /*예매*/
 	/*<예매시 수행*/
 insert into reservation(uno,sno,rtime) values
@@ -131,6 +134,7 @@ insert into lineup(dno,aname) values
 select * from lineup;
 
 select uno,id,uname,upassword,email,phone, regDate from user where id = 't1111';
+<<<<<<< HEAD
 select * from seat where dno =2 order by sno desc;
 
 update seat set dno = 2, grade='A', price='70000', max='100', sold='0' where dno = '2' and grade='A';
@@ -312,3 +316,97 @@ insert into seat(dno,grade,price,max,sold) values
 (15,'A','90000','100','0'),
 (15,'B','70000','100','0');
 
+=======
+
+
+
+
+
+select * from board;
+select * from board order by board_no;
+select * from board order by board_no ;
+
+insert into board(board_name) VALUES "board1";
+
+INSERT INTO dgf.board (board_name) VALUES('board');
+
+UPDATE board SET board_name='board' WHERE board_no = 4    
+
+delete from board where board_no = 9;
+
+SELECT * from `user`;
+
+SELECT * FROM article;
+
+select a.article_no, u.id, a.title, a.category, a.write_time, a.hits, a.recommend, a.attached_file
+from article as a, `user` as u
+where a.uno=u.uno && a.del = 0
+ORDER by article_no DESC;
+
+
+INSERT INTO dgf.article
+(board_no, uno, title, content, category, write_time, hits, recommend, attached_file, file_location, del)
+VALUES(6, 10, 'test3', 'test3 그럼 20000', '공지사항', '2017-03-17 12:38:52.000', 0, 0, NULL, NULL, 0);
+
+
+INSERT INTO dgf.article
+(board_no, uno, title, content, category, write_time, hits, recommend, attached_file, file_location, del)
+VALUES
+(6, 10, 'test4', 'test3 그럼 20000', '공지사항', '2017-03-17 12:38:52.000', 0, 0, NULL, NULL, 0),
+(6, 1, 'test5', 'test3 그럼 20000', '공지사항', '2017-03-17 12:38:52.000', 0, 0, NULL, NULL, 0),
+(6, 2, 'test6', 'test3 그럼 20000', '공지사항', '2017-03-17 12:38:52.000', 0, 0, NULL, NULL, 0),
+(6, 3, 'test7', 'test3 그럼 20000', '공지사항', '2017-03-17 12:38:52.000', 0, 0, NULL, NULL, 0),
+(6, 1, 'test8', 'test3 그럼 20000', '공지사항', '2017-03-17 12:38:52.000', 0, 0, NULL, NULL, 0),
+(6, 2, 'test9', 'test3 그럼 20000', '공지사항', '2017-03-17 12:38:52.000', 0, 0, NULL, NULL, 0),
+(6, 3, 'test10', 'test3 그럼 20000', '공지사항', '2017-03-17 12:38:52.000', 0, 0, NULL, NULL, 0),
+(6, 1, 'test11', 'test3 그럼 20000', '공지사항', '2017-03-17 12:38:52.000', 0, 0, NULL, NULL, 0),
+(6, 2, 'test12', 'test3 그럼 20000', '공지사항', '2017-03-17 12:38:52.000', 0, 0, NULL, NULL, 0),
+(6, 3, 'test13', 'test3 그럼 20000', '공지사항', '2017-03-17 12:38:52.000', 0, 0, NULL, NULL, 0),
+(6, 1, 'test14', 'test3 그럼 20000', '공지사항', '2017-03-17 12:38:52.000', 0, 0, NULL, NULL, 0),
+(6, 2, 'test15', 'test3 그럼 20000', '공지사항', '2017-03-17 12:38:52.000', 0, 0, NULL, NULL, 0),
+(6, 3, 'test16', 'test3 그럼 20000', '공지사항', '2017-03-17 12:38:52.000', 0, 0, NULL, NULL, 0),
+(6, 10, 'test4', 'test3 그럼 20000', '공지사항', '2017-03-17 12:38:52.000', 0, 0, NULL, NULL, 0),
+(6, 1, 'test5', 'test3 그럼 20000', '공지사항', '2017-03-17 12:38:52.000', 0, 0, NULL, NULL, 0),
+(6, 2, 'test6', 'test3 그럼 20000', '공지사항', '2017-03-17 12:38:52.000', 0, 0, NULL, NULL, 0),
+(6, 3, 'test7', 'test3 그럼 20000', '공지사항', '2017-03-17 12:38:52.000', 0, 0, NULL, NULL, 0),
+(6, 1, 'test8', 'test3 그럼 20000', '공지사항', '2017-03-17 12:38:52.000', 0, 0, NULL, NULL, 0),
+(6, 2, 'test9', 'test3 그럼 20000', '공지사항', '2017-03-17 12:38:52.000', 0, 0, NULL, NULL, 0),
+(6, 3, 'test10', 'test3 그럼 20000', '공지사항', '2017-03-17 12:38:52.000', 0, 0, NULL, NULL, 0),
+(6, 1, 'test11', 'test3 그럼 20000', '공지사항', '2017-03-17 12:38:52.000', 0, 0, NULL, NULL, 0),
+(6, 2, 'test12', 'test3 그럼 20000', '공지사항', '2017-03-17 12:38:52.000', 0, 0, NULL, NULL, 0),
+(6, 3, 'test13', 'test3 그럼 20000', '공지사항', '2017-03-17 12:38:52.000', 0, 0, NULL, NULL, 0),
+(6, 1, 'test14', 'test3 그럼 20000', '공지사항', '2017-03-17 12:38:52.000', 0, 0, NULL, NULL, 0),
+(6, 2, 'test15', 'test3 그럼 20000', '공지사항', '2017-03-17 12:38:52.000', 0, 0, NULL, NULL, 0),
+(6, 3, 'test16', 'test3 그럼 20000', '공지사항', '2017-03-17 12:38:52.000', 0, 0, NULL, NULL, 0);
+
+select * from article_list_view ORDER by article_no desc limit 2, 2;
+
+select * 
+from article_list_view 
+where category = ''
+ORDER by article_no desc limit 0, 10;
+
+select * from article_list_view ORDER by article_no desc;
+select * from article;
+select a.*, u.id, u.uname from article a, user u where a.uno = u.uno && a.del = 0 && a.article_no = 1 && a.board_no = 6;
+
+select a.article_no, u.id, a.title, a.category, a.write_time, a.hits, a.recommend, a.attached_file, a.content from article as a, `user` as u where a.uno=u.uno && a.del = 0 && a.article_no = 1 && a.board_no = 6
+
+select * from reply;
+
+
+select r.*, u.uname, u.id from reply r, user u where r.uno = u.uno && r.board_no = 6 && r.article_no = 73;
+
+
+select * from reply;
+
+
+select * from board;
+
+insert into reply(board_no, article_no, reply_no, uno, content, write_time) 
+values
+(6, 73, 17, 1, "test", "2017-03-20 09:00:00");
+
+select * from article;
+SELECT * from article_list_view;
+>>>>>>> refs/remotes/origin/jch
