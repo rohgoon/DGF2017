@@ -19,27 +19,10 @@
 </style>
 </head>
 <body>
-<div id="container">
-
-	<div id="header">
-		<div id="nav">
-			<jsp:include page="../../template/nav.jsp"></jsp:include>
-		</div>
-		
-		<div id="login">
-			<jsp:include page="../../template/login.jsp"></jsp:include>
-		</div>
-	</div>
-	
-
-	<div id="title">
-		<jsp:include page="../../template/title.jsp"></jsp:include>
-	</div>
-	
-	<div id="content">
-			<p>content 영역</p>
-			<h1>DGF 페스티벌 정보</h1>
+		<p>content 영역</p>
+		<h1>DGF 페스티벌 정보</h1>
 		<a href="register.do">새 페스티벌 등록</a>
+		
 		<table border="1">
 			<tr>
 				<th>회차</th>
@@ -52,19 +35,11 @@
 			<tr>
 				<td><a href="festivalSelected.do?fno=${item.fno }">${item.fno }</a></td>
 				<td>${item.place }</td>
-				<td>${item.sday }</td>
-				<td>${item.eday }</td>
+				<td>${item.sdayString }</td>
+				<td>${item.edayString }</td>
 			</tr>
 		</c:forEach>	
 			
 		</table>
-	</div>
-	
-	<div id="footer">
-		<jsp:include page="../../template/footer.jsp"></jsp:include>
-	</div>
-</div>
-	
-
 </body>
 </html>

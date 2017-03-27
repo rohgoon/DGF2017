@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="css/reset.css?ver=1">
-<link rel="stylesheet" type="text/css" href="css/common.css?ver=1">
+<link rel="stylesheet" type="text/css" href="css/common.css">
 <style type="text/css">
 	/*-------------------------- div type list css --------------------------*/
 	.outter{
@@ -94,23 +94,8 @@
 </head>
 <body>
 <div id="container">
-	<div id="header">
-		<div id="nav">
-			<jsp:include page="../../template/nav.jsp"></jsp:include>
-		</div>
-		
-		<div id="login">
-			<jsp:include page="../../template/login.jsp"></jsp:include>
-		</div>
-	</div>
-	
-
-	<div id="title">
-		<jsp:include page="../../template/title.jsp"></jsp:include>
-	</div>
 
 	<div id="content">
-			
 	<!------------------------------- div type list ------------------------------->
 	<c:forEach var="item" items="${viewList }">
 		<div class="outter">
@@ -146,8 +131,6 @@
 		
 	</c:forEach>
 	
-	
-	
 	</div>
 
 	
@@ -158,9 +141,7 @@
 		<a id="dayNav3">DAY3</a>
 	</div>
 	
-	<%-- <div id="footer">
-		<jsp:include page="../../template/footer.jsp"></jsp:include>
-	</div> --%>
 </div>
+
 </body>
 </html>

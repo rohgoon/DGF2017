@@ -5,8 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>
  	$.ajax({
 		url:"readReply.do",
@@ -32,7 +31,7 @@
 		}else{
 			indent = 1;
 		}
-	
+		
 		$.ajax({
 			url:"createReply.do",
 			type:"post", 
