@@ -21,6 +21,6 @@
 		<a href="community.do">COMMUNITY</a>
 	</li>
 	<li>
-		<a href="#">MANAGER</a>
+		<a href="/DGF2017/manager.jsp">MANAGER</a>
 	</li>
 </ul>
