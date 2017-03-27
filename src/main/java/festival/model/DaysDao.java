@@ -9,5 +9,9 @@ public interface DaysDao {
 	public List<Days> selectListAll() throws SQLException;
 	public List<Days> selectListByFno(int fno) throws SQLException;
 	public void updateByDno(Days days) throws SQLException;
+	public List<Days> selectList() throws SQLException;
+	public Days selectListByDno(int dno) throws SQLException;
+	public int deleteDays(int dno) throws SQLException;
+	public void updateDays(Days days) throws SQLException;
 	
 }

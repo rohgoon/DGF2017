@@ -21,5 +21,10 @@
     "ecma5",
     "browser",
     "jquery"
+<<<<<<< HEAD
   ]
+=======
+  ],
+  "ecmaVersion": 5
+>>>>>>> refs/remotes/origin/hak3
 }

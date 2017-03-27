@@ -233,3 +233,5 @@ ALTER TABLE dgf.biz
 		REFERENCES dgf.fesinfo ( -- 페스티벌정보
 			fno -- 회차
 		);
+		
+SET FOREIGN_KEY_CHECKS=0;

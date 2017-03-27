@@ -18,4 +18,24 @@
   <update id="updateByDno" parameterType="days">
       update days set fno = #{fno}, day=#{day}, stime=#{stime}, etime=#{etime} where dno = #{dno}
   </update>
+	<select id="selectList" resultType="days">
+		select * from days order by dno asc;
+	</select>
+	<select id="selectListByDno" parameterType="int" resultType="days">
+		select dno, fno, day, stime, etime from days where dno = #{dno}
+	</select>
+	<delete id="deleteDays" parameterType="int">
+		delete from days where dno = #{dno}
+	</delete>
+	
+	<update id="updateDays" parameterType="days">
+		update days set
+	    dno = #{dno},
+	    fno = #{fno},
+	    day = #{day},
+	    stime = #{stime},
+	    etime = #{etime}
+  		where dno = #{dno}
+	</update>
+
 </mapper>

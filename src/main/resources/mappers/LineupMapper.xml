@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="lineup.model.LineupDao">
+	<select id="selectList" resultType="lineup">
+		select * from lineup order by lno asc
+	</select>
+	
+	<insert id="insert" parameterType="lineup">
+		insert into lineup(lno, dno, aname, contents, song1, song2, song3, file)
+		values(#{lno}, #{dno}, #{aname}, #{contents}, #{song1}, #{song2}, #{song3}, #{file})
+	</insert>
+	
+	<select id="selectListById" parameterType="int" resultType="lineup">
+		select lno, dno, aname, contents, song1, song2, song3 from lineup where lno = #{lno}
+	</select>
+	
+	<delete id="deleteLineup" parameterType="int">
+		delete from lineup where lno = #{lno}
+	</delete>
+	
+	<update id="updateLineup" parameterType="lineup">
+		update lineup set
+	    lno = #{lno},
+	    dno = #{dno},
+	    aname = #{aname},
+	    contents = #{contents},
+	    song1 = #{song1},
+	    song2 = #{song2},
+	    song3 = #{song3}
+  		where lno = #{lno}
+	</update>
+	
+</mapper>
