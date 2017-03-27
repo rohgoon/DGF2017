@@ -13,4 +13,5 @@ public interface SeatDao {
 	public void updateBySno(Seat seat) throws SQLException;
 	public Seat selectMaxAndSoldBySno(int sno) throws SQLException;
 	public void updateSoldBySno(Seat seat) throws SQLException;
+	public void deleteByDno(int dno) throws SQLException;
 }

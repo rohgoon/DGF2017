@@ -31,4 +31,7 @@
   <update id="updateSoldBySno" parameterType="seat">
       update seat set sold=#{sold} where sno=#{sno} 
   </update>
+  <delete id="deleteByDno" parameterType="int">
+      delete from seat where dno = #{param1}
+  </delete>
 </mapper>

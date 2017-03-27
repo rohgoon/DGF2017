@@ -11,5 +11,6 @@
 <body>
 	<a href="afNew.do?fno=${fno }&fCount=${fCount}">새로운 행사 입력</a>
 	<a href="afEdit.do?fno=${fno }&fCount=${fCount}">행사 정보 수정</a>
+	<a href="afInfo.do?fno=${fno }&fCount=${fCount}">행사 정보 확인</a>
 </body>
 </html>

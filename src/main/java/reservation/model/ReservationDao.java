@@ -12,4 +12,5 @@ public interface ReservationDao {
 	public List<Reservation> selectAllByUnoAndRtime(Reservation reservation) throws SQLException;
 	public void delectByUnoAndRtime(Reservation reservation) throws SQLException;
 	public int selectCountTicketByUnoAndRtime(Reservation reservation) throws SQLException;
+
 }

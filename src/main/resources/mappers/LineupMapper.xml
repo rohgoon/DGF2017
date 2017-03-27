@@ -33,4 +33,8 @@
   		where lno = #{lno}
 	</update>
 	
+	<delete id="deleteLineupByDno" parameterType="int">
+		delete from lineup where dno = #{dno}
+	</delete>
+	
 </mapper>

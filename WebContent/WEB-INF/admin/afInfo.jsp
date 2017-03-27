@@ -15,14 +15,14 @@
 						페스티벌 회차 : ${fCount }회<br>
 						시작일: ${fesInfo.sdayString}<br>
 						마감일: ${fesInfo.edayString}<br>
-						장소 : ${fesInfo.place }<a href="afEdit.dofno=${fesInfo.fno }&fCount=${fCount}" id="edit">장소 수정</a><br>
-						<a href="afEdit.dofno=${fesInfo.fno }&fCount=${fCount}" id="edit">수정</a>
+						장소 : ${fesInfo.place }<a href="afEdit.do?fno=${fesInfo.fno }&fCount=${fCount}" id="edit">장소 수정</a><br>
+						<a href="afEdit.do?fno=${fesInfo.fno }&fCount=${fCount}" id="edit">수정</a>
 						<a href="afDel.do?fno=${fesInfo.fno }&fCount=${fCount}" id="del">삭제</a>
 						<hr>						
 					</div>
 					<div class="daysWrap">
 						${fCount }회차 상세 정보
-						<table>
+						<table border="1">
 							<tr>
 								<th>세부 일자</th>
 								<th>시작 시간</th>
@@ -45,8 +45,8 @@
 										<td>${item.price }원</td>
 										<td>${item.maxSeat }</td>
 										<td>
-											<a href="seatEdit.do?sno=${item.sno}">수정</a><br>
-											<a href="seatDel.do?sno=${item.sno}">삭제</a>
+											<a href="seatEdit.do?sno=${item.no}">수정</a><br>
+											<a href="seatDel.do?sno=${item.no}">삭제</a>
 										</td>
 									<c:if test="${item.lineChecker == true }">
 										<td rowspan="3">
@@ -62,7 +62,5 @@
 					</div>								
 		</div>
 	</div>
-	<a href="#">행사 정보 확인</a>
-	<a href="#">행사 정보 수정</a>
 </body>
 </html>
