@@ -1,4 +1,4 @@
-package intro.handler;
+package lineup.handler;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ import lineup.model.LineupDao;
 import mvc.controller.CommandHandler;
 import mvc.util.MySqlSessionFactory;
 
-public class IntroHandler implements CommandHandler {
+public class LineupManagerHandler implements CommandHandler{
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
@@ -26,7 +26,7 @@ public class IntroHandler implements CommandHandler {
 			// TODO: handle finally clause
 		}
 		
-		return "front.jsp";
+		return "/WEB-INF/view/lineupManager.jsp";
 	}
 
 }

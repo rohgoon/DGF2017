@@ -5,9 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="css/common.css?ver=1">
-<link rel="stylesheet" type="text/css" href="css/reset.css?ver=1">
-<link rel="stylesheet" type="text/css" href="css/front.css?ver=1">
+<link rel="stylesheet" type="text/css" href="css/common.css?ver=2">
+<link rel="stylesheet" type="text/css" href="css/reset.css?ver=2">
+<link rel="stylesheet" type="text/css" href="css/front.css?ver=2">
 <style type="text/css">
 @font-face{ 
 	font-family: 'Arca Majora 3 Heavy';
@@ -42,14 +42,20 @@
 
 	<div id="content">
 		<div id="day1">
-			<div class="day1"></div>
-			<div class="day1"></div>
-			<div class="day1"></div>
-			<div class="day1"></div>
-			<div class="day1"></div>
+			<script type="text/javascript">
+				$(function(){
+					var i = 0;
+					<c:forEach var="item" items="${viewList }">
+						$(".day1").eq(i).css("background-image", "url(upload/${item.file})");
+						$(".day1").eq(i).css("background-size", "cover");
+						i++;
+					</c:forEach>	
+				});
+			</script>
+			
 		</div>
 		
-		<div id="day2">
+		<!-- <div id="day2">
 			<div class="day2"></div>
 			<div class="day2"></div>
 			<div class="day2"></div>
@@ -63,7 +69,7 @@
 			<div class="day3"></div>
 			<div class="day3"></div>
 			<div class="day3"></div>
-		</div>
+		</div> -->
 		
 	</div>
 	

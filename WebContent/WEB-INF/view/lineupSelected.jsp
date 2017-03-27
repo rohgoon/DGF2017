@@ -49,9 +49,14 @@
 			<td>${selectedLineup.song3 }</td>
 		</tr>
 		
+		<tr>
+			<th>라인업 이미지</th>
+			<td>${selectedLineup.file }</td>
+		</tr>
+		
 	</table>
 	
-	<a href="lineupList.do">돌아가기</a>
+	<a href="lineupManager.do">돌아가기</a>
 	<a href="lineupUpdate.do?lno=${selectedLineup.lno }">수정</a>
 	<a href="lineupDelete.do?lno=${selectedLineup.lno }">삭제</a>
 

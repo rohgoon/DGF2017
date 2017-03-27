@@ -24,10 +24,6 @@
 			대표곡3 : <input type="text" name="song3"><br>
 			아티스트 이미지 : <input type="file" name="file1"><br>
 			
-			<!-- <form action="upload.do" method="post" enctype="multipart/form-data">
-					아티스트 이미지 : <input type="file" name="file">
-			</form><br> -->
-			
 			<input type="reset" value="취소">
 			<input type="submit" value="등록">
 		</fieldset>
