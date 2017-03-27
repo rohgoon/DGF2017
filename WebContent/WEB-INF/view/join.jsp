@@ -7,5 +7,5 @@
 	<input type="password" id="repassword" name="repassword" placeholder="Password repeat"  class="inpJoin" required="required"><br>
 	<input type="text" id="email" name="email" placeholder="E-mail"  class="inpJoin" required="required"><br>
 	<input type="text" id="phone1" name="phone1" placeholder="010" class="inpPhone inpJoin">-<input type="text" id="phone2" name="phone2" placeholder="0000"  class="inpPhone inpJoin">-<input type="text" id="phone3" name="phone3" placeholder="0000"  class="inpPhone inpJoin" required="required"><br>
-	<input type="button" value="가입" onclick="join()" class="inpJoin">
-	<input type="button" value="취소" onclick="backToLogin()" class="inpJoin">
+	<input type="button" value="Join" onclick="join()" class="inpJoin">
+	<input type="button" value="Back" onclick="backToLogin()" class="inpJoin">
