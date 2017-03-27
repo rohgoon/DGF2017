@@ -18,6 +18,9 @@
 	</li>
 	
 	<li>
-		<a href="#">COMMUNITY</a>
+		<a href="community.do">COMMUNITY</a>
+	</li>
+	<li>
+		<a href="#">MANAGER</a>
 	</li>
 </ul>

@@ -111,7 +111,7 @@
 	</div>
 	<div id="content">
 		<div id="innerNav">
-			<a href="reservation.do?fesno=${param.fesno }&id=${auth.id}">예매</a> <!-- 임시로 fesno 지정 -->
+			<a href="reservation.do?fesno=4&id=${auth.id}">예매</a> <!-- 임시로 fesno 지정 -->
 			<a href="reservationConfirm.do?uno=${user.uno }">예매 확인</a>
 		</div>
 		<div id="innerContent">
