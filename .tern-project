@@ -1,38 +1,15 @@
 {
-  "ecmaVersion": 5,
+  "ecmaVersion": 6,
+  "libs": [
+    "browser",
+    "jquery"
+  ],
   "plugins": {
-    "guess-types": {
-      
-    },
-    "outline": {
-      
-    },
-    "angular1": {
-<<<<<<< HEAD
-      
-    },
     "browser-extension": {
       
     },
     "jquery-extension": {
-=======
->>>>>>> refs/remotes/origin/jch
       
     }
-  },
-  "libs": [
-    "ecma5",
-    "browser",
-    "jquery"
-<<<<<<< HEAD
-<<<<<<< HEAD
-  ]
-=======
-  ],
-  "ecmaVersion": 5
->>>>>>> refs/remotes/origin/hak3
-=======
-  ],
-  "ecmaVersion": 5
->>>>>>> refs/remotes/origin/jch
+  }
 }

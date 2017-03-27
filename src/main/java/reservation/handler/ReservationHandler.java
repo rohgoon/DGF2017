@@ -52,7 +52,7 @@ public class ReservationHandler implements CommandHandler {
 			
 			return "/WEB-INF/reservation/reservationForm.jsp";
 		}else if (req.getMethod().equalsIgnoreCase("post")) {
-			int sno =Integer.parseInt(req.getParameter("seatNoResult"));
+			int sno = Integer.parseInt(req.getParameter("seatNoResult"));
 			int soldOut = Integer.parseInt(req.getParameter("seatSoldOut"));
 			//soldOut에 구매 티켓 수를 빼야함
 			int howMany = Integer.parseInt(req.getParameter("howMany"));//
