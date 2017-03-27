@@ -10,7 +10,7 @@
 	</li>
 	
 	<li>
-		<a href="#">TICKETS</a>
+		<a href="reservation.do?fesno=4&id=${auth.id}">TICKETS</a> <!-- 임시로 fesno 지정 -->
 	</li>
 	
 	<li>
@@ -18,6 +18,9 @@
 	</li>
 	
 	<li>
-		<a href="#">COMMUNITY</a>
+		<a href="community.do">COMMUNITY</a>
+	</li>
+	<li>
+		<a href="/DGF2017/manager.jsp">MANAGER</a>
 	</li>
 </ul>

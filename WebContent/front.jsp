@@ -9,8 +9,13 @@
 <link rel="stylesheet" type="text/css" href="css/reset.css?ver=2">
 <link rel="stylesheet" type="text/css" href="css/front.css?ver=2">
 <style type="text/css">
+@font-face{ 
+	font-family: 'Arca Majora 3 Heavy';
+	 src:url(font/ArcaMajora3-Heavy.otf); 
+	} 
 	body{
-		font-family: 'Arca Majora 3 Heavy', '12롯데마트행복Medium';
+		font-family: 'Arca Majora 3 Heavy';
+		src: url(font/ArcaMajora3-Heavy.otf);
 	}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
