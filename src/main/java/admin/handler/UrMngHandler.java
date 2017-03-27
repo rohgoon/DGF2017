@@ -28,8 +28,9 @@ public class UrMngHandler implements CommandHandler {
 			try {
 				session = MySqlSessionFactory.openSession();
 				ReservationViewDao reservationViewDao = session.getMapper(ReservationViewDao.class);
-				List<ReservationView> rvDate = reservationViewDao.selectListByDate(sdate, edate);
-				List<ReservationView> rvUno = reservationViewDao.selectDetailListbyUno(uno);
+				//List<ReservationView> rvDate = reservationViewDao.selectListByDate(sdate, edate);
+				//List<ReservationView> rvUno = reservationViewDao.selectDetailListbyUno(uno);
+				
 
 			} finally {
 				session.close();
