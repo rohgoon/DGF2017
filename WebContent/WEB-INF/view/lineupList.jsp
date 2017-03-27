@@ -16,34 +16,10 @@
 		padding-top: 50px;
 	}
 	
-	.outter:NTH-CHILD(1){
-		background: url("img/redvelvet/redvelvet02.jpg") no-repeat;
-		background-size: cover;
-	}
-	
-	.outter:NTH-CHILD(2){
-		background: url("img/apink/apink04.jpg") no-repeat;
-		background-size: cover;
-	}
-	
-	.outter:NTH-CHILD(3){
-		background: url("img/blackpink/blackpink06.jpg") no-repeat;
-		background-size: cover;
-	}
-	
-	.outter:NTH-CHILD(4){
-		background: url("img/mamamoo/mamamoo05.jpg") no-repeat;
-		background-size: cover;
-	}
-	
-	.outter:NTH-CHILD(5){
-		background: url("img/aoa/aoa03.jpg") no-repeat;
-		background-size: cover;
-	}
-	
-	.outter:NTH-CHILD(6){
-		background: url("img/twice/twice06.jpg") no-repeat;
-		background-size: cover;
+	.test{
+		width: 100%;
+		height: 800px;
+		padding-top: 50px;
 	}
 	
 	.inner{
@@ -110,6 +86,7 @@
 	
 	.dayNav a:HOVER {
 		color: #FF4081;
+		background-size: cover;
 	}
 	
 	
@@ -123,6 +100,7 @@
 		border: 1px solid #000000;
 	} */
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
 <body>
 <div id="container">
@@ -186,13 +164,26 @@
 					<a>1. ${item.song1 }</a>
 					<a>2. ${item.song2 }</a>
 					<a>3. ${item.song3 }</a>
-					<c:forEach var="item" items="${file }">
-						<img src="upload/${item }">
-					</c:forEach>
 				</div>
+				
+				
 			</div>
 		</div>
+		
+		<script type="text/javascript">
+			$(function(){
+				var i = 0;
+				<c:forEach var="item" items="${viewList }">
+					$(".outter").eq(i).css("background-image", "url(upload/${item.file})");
+					$(".outter").eq(i).css("background-size", "cover");
+					i++;
+				</c:forEach>	
+			});
+		</script>
+		
 	</c:forEach>
+	
+	
 	
 	</div>
 
@@ -207,12 +198,6 @@
 	<%-- <div id="footer">
 		<jsp:include page="../../template/footer.jsp"></jsp:include>
 	</div> --%>
-	
-	
-	<!--------------------------- test div ----------------------------------->
-	<c:forEach var="item" items="${file }">
-		<img src="upload/${item}"></a><br>
-	</c:forEach>
 </div>
 </body>
 </html>
