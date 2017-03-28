@@ -70,9 +70,11 @@ public class RegisterUploadHandler implements CommandHandler {
 				String song1 = multi.getParameter("song1");
 				String song2 = multi.getParameter("song2");
 				String song3 = multi.getParameter("song3");
+				/*String file = "upload&#92" + filename1;*/
 				String file = filename1;
 				
 				Lineup lineup = new Lineup(dno, aname, contents, song1, song2, song3, file);
+
 				
 				SqlSession session = null;
 				
@@ -87,6 +89,8 @@ public class RegisterUploadHandler implements CommandHandler {
 				} finally {
 					session.close();
 				}			
+				req.setAttribute("uploadPath", uploadPath);
+				System.out.println(uploadPath);
 				/*req.setAttribute("file", arrfile);*/	
 			}catch(Exception e){
 				e.printStackTrace();

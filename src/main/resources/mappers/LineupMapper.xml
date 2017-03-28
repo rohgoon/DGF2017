@@ -14,7 +14,7 @@
 	</insert>
 	
 	<select id="selectListById" parameterType="int" resultType="lineup">
-		select lno, dno, aname, contents, song1, song2, song3 from lineup where lno = #{lno}
+		select lno, dno, aname, contents, song1, song2, song3, file from lineup where lno = #{lno}
 	</select>
 	
 	<delete id="deleteLineup" parameterType="int">
@@ -22,15 +22,19 @@
 	</delete>
 	
 	<update id="updateLineup" parameterType="lineup">
-		update lineup set
-	    lno = #{lno},
+		update lineup set	  
 	    dno = #{dno},
 	    aname = #{aname},
 	    contents = #{contents},
 	    song1 = #{song1},
 	    song2 = #{song2},
-	    song3 = #{song3}
+	    song3 = #{song3},
+	    file = #{file}
   		where lno = #{lno}
 	</update>
+	
+	<delete id="deleteLineupByDno" parameterType="int">
+		delete from lineup where dno = #{dno}
+	</delete>
 	
 </mapper>

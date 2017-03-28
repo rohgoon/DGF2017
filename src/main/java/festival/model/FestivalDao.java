@@ -12,4 +12,6 @@ public interface FestivalDao {
 	public int deleteFestival(int fno) throws SQLException;
 	public void updateFestival(Festival festival) throws SQLException;
 	public int selectFnoByLast(Festival festival) throws SQLException;
+	public int selectMaxFno() throws SQLException;
+	public int selectCountAll() throws SQLException;
 }

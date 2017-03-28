@@ -9,4 +9,5 @@ public interface LineupDao {
 	public Lineup selectListById(int lno) throws SQLException;
 	public int deleteLineup(int lno) throws SQLException;
 	public void updateLineup(Lineup lineup) throws SQLException;
+	public int deleteLineupByDno(int dno) throws SQLException;
 }

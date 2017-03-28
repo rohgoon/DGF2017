@@ -64,7 +64,7 @@ body {
 	margin: 10px;
 }
 
-.day1:NTH-CHILD(1) {
+/* .day1:NTH-CHILD(1){
 	background-image: url("../img/redvelvet/redvelvet02.jpg");
 	background-size: cover;
 }
@@ -87,7 +87,7 @@ body {
 .day1:NTH-CHILD(5) {
 	background-image: url("../img/ohmygirl/ohmygirl02.jpg");
 	background-size: cover;
-}
+} */
 
 /*--------------------------------- day2 ---------------------------------*/
 .day2 {

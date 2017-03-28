@@ -29,6 +29,9 @@
 				$(".addTr").eq($(".addTr").length-1).remove();			
 			}			
 		});
+		$("#btnBack").click(function() {
+			location.href = "adminFestival.do";
+		});
 		
 	});
 </script>
@@ -65,7 +68,9 @@
 			</tr>			
 		</table>
 		<hr>
-		<input type="submit" value="다음">	
+		<input type="reset" value="이전" id="btnBack">	
+		<input type="submit" value="다음">
+		
 	</form>
 </body>
 </html>

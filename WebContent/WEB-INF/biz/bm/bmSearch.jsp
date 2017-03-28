@@ -48,11 +48,6 @@ $(document).ready(function() {
 </script>
 </head>
 <body>
-<a href="bizManage.do">회차별 매출액</a>
-	<a href="bmDate.do?bm=year">연도별 매출액</a>
-	<a href="bmDate.do?bm=month">월별 매출액</a>
-	<a href="bmDate.do?bm=day">일별 매출액</a>
-	<a href="bmSearch.do">기간별 매출액</a> 
 	<div id="wrapContent">
 		<form id="bmSearch">
 			<input type="date" name="sdate" id="sdate" value="${newDate }" >~<input type="date" name="edate" id="edate" value="${newDate }" >

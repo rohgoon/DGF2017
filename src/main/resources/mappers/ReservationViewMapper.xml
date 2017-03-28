@@ -12,4 +12,7 @@
    <select id="selectListByDate" parameterType="string" resultType="ReservationView">
       select * from reservationView where rtime &gt;= #{param1} and rtime &lt;= #{param2}
   </select>
+  <select id="selectListByFno" parameterType="int" resultType="ReservationView">
+      select * from reservationView where fno =#{fno}
+  </select>
 </mapper>

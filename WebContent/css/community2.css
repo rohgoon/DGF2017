@@ -1,0 +1,169 @@
+@CHARSET "UTF-8";
+	
+	@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
+	
+	
+	/* class */
+	
+	.button {
+		display: inline;
+	}
+	
+	.button {
+		text-decoration: none;
+		padding: 10px;
+		font-size: 20px;
+		color: #000000;
+		border: 1px solid #000000;
+		text-align: center;
+	}
+	
+	.button:HOVER {
+		color: #ffffff;
+		background-color: #F48FB1;
+	}
+	
+	.articleBtn{
+		color:teal;
+	}
+	
+	.articleBtn:HOVER{
+		color:blue;
+	}
+	
+	/* content 영역 */
+	
+	#content{
+		font-family: 'Hanna', serif;
+	}
+	
+	
+	/* innerNav */
+	
+	#innerNav {
+		padding-left:20px;
+		width: 100%;
+		height:30px;
+		border-bottom:2px solid black;
+	}
+	
+	#innerNav a{
+		display: inline;
+		margin-right: 15px;
+	}
+	
+	/* commnunity */
+	
+	#community {
+		display:inline-block;
+		width: 100%;
+		text-align: center;
+	}
+	
+	
+	
+	/* community > article */
+	
+	
+	#article{
+		width:70%;
+		margin:0 auto;
+		padding-top:40px;
+	}
+	
+	#article p{
+		line-height: 50px;
+	}
+	
+	#article p:FIRST-CHILD{
+		text-align: left;
+	}
+	
+	#article p:FIRST-CHILD select{
+	}
+	
+	#article p:FIRST-CHILD select, #article p:LAST-CHILD select{
+		padding-left:10px;
+		padding-right:10px;
+		text-align: center;	
+	}
+	
+	#article p:FIRST-CHILD select, #article p:LAST-CHILD select, #article p:LAST-CHILD input{
+		height:30px;
+		font-family: 'Hanna', serif;
+		font-size: 16px;
+	}
+	
+	#article p:LAST-CHILD{
+		text-align: right;
+	}
+	
+	#article table {
+		border-collapse: collapse;
+		margin:0 auto;
+		width: 100%;
+		font-size: 20px;
+		text-align: center;
+	}
+	
+	#article th {
+		background-color: #FFD9FA;
+		padding:5px;
+		height:30px;
+	}
+	
+	#article td{
+		padding: 5px;
+	}
+	
+	#articleTitle{
+		width:40%;
+	}
+	
+	
+	/* articleContent */
+	#articleContent{
+		margin:0 auto;
+		width:70%;
+	}
+	
+	#articleContent p{
+		text-align: left;
+		font-size: 18px;
+		padding-left: 320px;
+		line-height: 35px;
+	}
+	
+	#articleContent p label{
+		display:inline-block;
+		width:80px;
+		margin-right:10px;
+	}
+	
+	#articleContent p input{
+		height:30px;
+		width:500px;
+	}
+	
+	#articleContent p input, #articleContent p select, #articleContent p textarea{
+		font-family: 'Hanna', serif;
+		font-size:18px;
+	}
+	
+	#articleContent p textarea{
+		padding:10px;
+	}
+	
+	#articleContent p .raBtn{
+		width:80px;
+	}
+	
+	#articleContent p:LAST-CHILD{
+		display:inline;
+		text-align:right;
+		width:80px;
+		padding-right:34px;
+		margin-bottom: 20px;
+	}
+	
+}
