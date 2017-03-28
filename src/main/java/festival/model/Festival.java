@@ -9,7 +9,6 @@ public class Festival {
 	private Date sday;
 	private Date eday;
 	
-	
 	public Festival() {}
 
 	public Festival(int fno, String place, Date sday, Date eday) {

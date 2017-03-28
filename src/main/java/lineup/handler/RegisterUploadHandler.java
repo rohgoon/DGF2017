@@ -95,7 +95,7 @@ public class RegisterUploadHandler implements CommandHandler {
 			}catch(Exception e){
 				e.printStackTrace();
 			}
-			return "lineupList.do";
+			return "front.do";
 		}
 		return null;
 	}

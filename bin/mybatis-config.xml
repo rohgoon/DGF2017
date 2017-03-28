@@ -21,6 +21,7 @@
 		<typeAlias type="biz.model.BmDayView" alias="BmDayView" />
 		<typeAlias type="biz.model.BmFesInfoView" alias="BmFesInfoView" />
 		<typeAlias type="lineup.model.Lineup" alias="Lineup" />
+		<typeAlias type="lineup.model.LineupDetail" alias="LineupDetail"/>
 		<typeAlias type="article.model.Article" alias="Article"/>
     <typeAlias type="article.model.ArticleListView" alias="ArticleList"/>
     <typeAlias type="board.model.Board" alias="Board"/>
@@ -64,6 +65,7 @@
 		<mapper resource="mappers/bmDayViewMapper.xml" />
 		<mapper resource="mappers/bmFesInfoViewMapper.xml" />
 		<mapper resource="mappers/LineupMapper.xml" />
+		<mapper resource="mappers/LineupDetailMapper.xml"/>
 		<mapper resource="mappers/ArticleMapper.xml"/>
     <mapper resource="mappers/ArticleListViewMapper.xml"/>
     <mapper resource="mappers/BoardMapper.xml"/>

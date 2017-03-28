@@ -3,6 +3,7 @@
   "libs": [
     "browser",
     "jquery"
+<<<<<<< HEAD
   ],
   "plugins": {
     "browser-extension": {
@@ -12,4 +13,7 @@
       
     }
   }
+=======
+  ]
+>>>>>>> refs/remotes/origin/hak6
 }

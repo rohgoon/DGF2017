@@ -12,8 +12,6 @@ public class Lineup {
 	
 	public Lineup() {}
 
-	
-
 	public Lineup(int lno, int dno, String aname, String contents, String song1, String song2, String song3,
 			String file) {
 		super();
