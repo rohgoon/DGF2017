@@ -11,9 +11,7 @@
 			<option value="공지사항">공지사항</option>
 			<option value="잡담">잡담</option>
 			<option value="질문">질문</option>
-		</select> 
-		
-		<select name="rowNum">
+		</select> <select name="rowNum">
 			<option>출력개수</option>
 			<option value="5">5개씩 보기</option>
 			<option value="10">10개씩 보기</option>
@@ -22,7 +20,7 @@
 			<option value="30">30개씩 보기</option>
 		</select>
 	</p>
-	
+
 	<table>
 		<tr>
 			<th>번호</th>
@@ -33,22 +31,21 @@
 			<th>조회수</th>
 			<th>추천수</th>
 		</tr>
-	
-	
-	
+
+
+
 		<c:if test="${articleList.size() == 0}">
 			<tr>
 				<td colspan="6">게시물이 없습니다.</td>
 			</tr>
 		</c:if>
-	
-	
+
+
 		<c:forEach var="article" items="${articleList}">
 			<tr>
 				<td>${article.articleNo}</td>
 				<td>${article.category}</td>
-				<td><a
-					href="article.do?boardNo=${boardNo}&articleNo=${article.articleNo}">${article.title}</a></td>
+				<td><a class="articleBtn" onclick="showArticle(${boardNo}, ${article.articleNo});">${article.title}</a></td>
 				<td>${article.name}(${article.id})</td>
 				<td>${article.writeTime}</td>
 				<td>${article.hits}</td>
@@ -56,22 +53,22 @@
 			</tr>
 		</c:forEach>
 	</table>
-	
+
 	<p>
 		<c:if test="${articleList.size() == 0}">
 			<h4>게시물이 없습니다.</h4>
 		</c:if>
-	
+
 		<c:if test="${startPage >= 10}">
 			<a href="javascript:void(0);"
 				onclick="pageMove(${boardNo}, ${page-10}, ${rowNum});">[이전]</a>
 		</c:if>
-	
+
 		<c:forEach begin="${startPage}" end="${endPage}" var="page">
 			<a href="javascript:void(0);"
 				onclick="pageMove(${boardNo}, ${page}, ${rowNum});">[${page}]</a>
 		</c:forEach>
-	
+
 		<c:if test="${endPage < totalPage}">
 			<a href="javascript:void(0);"
 				onclick="pageMove(${boardNo}, ${startPage+10}, ${rowNum});">[다음]</a>
@@ -79,10 +76,10 @@
 				href="articleList.do?boardNo=${boardNo}&page=${startPage+10}&rowNum=${rowNum}">[다음]</a>
 		</c:if>
 	</p>
-	
-	
-	
-	
+
+
+
+
 	<p>
 		<select name="searchby">
 			<option val="all">전체</option>
@@ -208,4 +205,23 @@ function createArticle(boardNo){
 		}
 	}); // ajax
 }
+
+function showArticle(boardNo, articleNo){
+	$.ajax({
+		url : "article.do",
+		type : "get",
+		data : {
+			"boardNo" : boardNo,
+			"articleNo" : articleNo
+		},
+		dateType : "html",
+		success : function(result) {
+			$("#community").html(result);
+		},
+		error : function(){
+			alert("에러");
+		}
+	}); // ajax			
+}
+
 </script>

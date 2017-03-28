@@ -23,6 +23,13 @@
 		background-color: #F48FB1;
 	}
 	
+	.articleBtn{
+		color:teal;
+	}
+	
+	.articleBtn:HOVER{
+		color:blue;
+	}
 	
 	/* content 영역 */
 	
@@ -59,18 +66,41 @@
 	
 	
 	#article{
+		width:70%;
 		margin:0 auto;
-		border:1px solid black;
 	}
 	
-	#article first:p{
+	#article p{
+		line-height: 50px;
+	}
+	
+	#article p:FIRST-CHILD{
 		text-align: left;
+	}
+	
+	#article p:FIRST-CHILD select{
+	}
+	
+	#article p:FIRST-CHILD select, #article p:LAST-CHILD select{
+		padding-left:10px;
+		padding-right:10px;
+		text-align: center;	
+	}
+	
+	#article p:FIRST-CHILD select, #article p:LAST-CHILD select, #article p:LAST-CHILD input{
+		height:30px;
+		font-family: 'Hanna', serif;
+		font-size: 16px;
+	}
+	
+	#article p:LAST-CHILD{
+		text-align: right;
 	}
 	
 	#article table {
 		border-collapse: collapse;
 		margin:0 auto;
-		width: 60%;
+		width: 100%;
 		font-size: 20px;
 		text-align: center;
 	}
