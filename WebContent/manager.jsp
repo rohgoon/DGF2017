@@ -5,7 +5,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
 <style type="text/css">
 	@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
 	#innerNav{
@@ -52,11 +51,24 @@
 	}
 	#innerContent{
 		/* border: 1px solid blue; */
-		margin-left: 350px;
+		margin-left: 360px;
 		width: 1350px;
 	}
 	#imgPoster{
 		 width: 99%;
+	}
+	.subNavInner{
+		margin-left: 385px;
+	}
+	#contentWrapper table{
+		border: 1px solid black;
+		border-collapse: collapse;
+	}
+	#contentWrapper table th,td{
+		border: 1px solid black;
+	}
+	#wrapContent{
+		margin-left: 25px;
 	}
 </style>
 <title>Insert title here</title>
@@ -71,8 +83,9 @@
 				url: lnk,
 				dataType:"html",
 				success:function(e){
-					$("#subNav").html(e);	
-					$("#subNav").animate({opacity: "1.0"},500);	
+					$("#subNav").html(e);
+					$("#subNav").delay(100);						
+					$("#subNav").animate({opacity: "1.0"},400);	
 					}					
 				});
 			return false;	
@@ -80,10 +93,12 @@
 		
 		$(document).on("click", "#subNav a.subNav", function() {
 			var lnk = $(this).attr("href");
+			
 			$.ajax({
 				url: lnk,
 				dataType:"html",
 				success:function(e){
+					$("#innerContent").delay(100);
 					$("#innerContent").html(e);
 					}					
 				});
@@ -95,18 +110,18 @@
 
 </head>
 <body>
-
-	<div id="innerNav">
-		<a href="adminFestival.do">행사관리</a>
-		<a href="lineupManager.do">라인업 관리</a>
-		<a href="readBoardList.do" >게시판 관리</a>		
-		<a href="urMng.do">회원관리</a>
-		<a href="biz.do">영업현황</a>		
-	</div>
-	<div id="subNav">		
-	</div>
-	<div id="innerContent">
-		<img alt="" src="img/office.jpeg" id="imgPoster">
+	<div id="contentWrapper">
+		<div id="innerNav">
+			<a href="adminFestival.do">행사관리</a>
+			<a href="lineupManager.do">라인업 관리</a>
+			<a href="readBoardList.do" >게시판 관리</a>		
+			<a href="urMng.do">회원관리</a>
+			<a href="biz.do">영업현황</a>		
+		</div>
+		<div id="subNav">		
+		</div>
+		<div id="innerContent">
+		</div>
 	</div>
 	
 </body>
