@@ -1,0 +1,122 @@
+@CHARSET "UTF-8";
+
+@font-face {
+	font-family: 'Arca Majora 3 Heavy';
+	 src:url(../font/ArcaMajora3-Heavy.otf); 
+	} 
+	
+body{
+	font-family: 'Arca Majora 3 Heavy','12롯데마트행복Medium';
+}
+
+#container{
+	width: auto;
+	margin: 0 auto;
+}
+
+#header{
+	width: 100%;
+	height: 100px;
+	float: left;
+	position: fixed;
+	top: 0;
+}
+
+/* -------------------------------NAV------------------------------- */
+#nav{
+	height: 100%;
+	width: 75%;
+	display: inline;
+}
+
+#nav ul li{
+	list-style: none;
+	display: inline;
+	float: left;
+	margin: 20px;
+}
+
+#nav ul li a{
+	text-decoration: none;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 30px;
+	color: #000000;
+}
+
+#nav ul li a:HOVER{
+	color: #F48FB1;
+	border-bottom: 4px solid #F48FB1;
+}
+
+/* -------------------------------login------------------------------- */
+#login{
+	height: 100%;
+	width: 10%;
+	display: inline;
+	float: right;
+}
+
+#login a{
+	text-decoration: none;
+	margin: 10px;
+	padding: 10px;
+	display: block;
+	font-size: 20px;
+	color: #000000;
+	border: 1px solid #000000;
+	text-align: center;
+}
+
+#login a:HOVER{
+	color: #ffffff;
+	background-color: #F48FB1;
+}
+
+
+/* -------------------------------title------------------------------- */
+
+@media screen and (min-width:1024px){
+	
+}
+@media screen and (min-width:480px) and (max-width:1024px){
+	
+	
+}
+@media screen and (max-width:480px){
+	
+}
+
+
+#title{
+	width: 100%;
+	height: 500px;
+	clear: both;
+	margin-top: 80px;
+	text-overflow: clip;
+	white-space:nowrap; 
+	overflow:hidden;
+}
+
+#title .capital{
+	color: #F48FB1;
+}
+
+#title a{
+	font-style: normal;
+	font-weight: bold;
+	font-size: 1300%;/*  211px; */
+	color: #000000;
+}
+
+/* -------------------------------CONTENT------------------------------- */
+#content{
+	width: 100%;
+}
+
+/* -------------------------------FOOTER------------------------------- */
+#footer{
+	height: 160px;
+	border: 1px solid #000000;
+	clear: both;
+}

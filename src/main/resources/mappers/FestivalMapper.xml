@@ -31,4 +31,10 @@
 	    select fno from fesinfo 
 	    where place = #{place} and sday = #{sday} and eday = #{eday}
 	</select>
+	<select id="selectMaxFno" resultType="int">
+	    select max(fno) from fesinfo 
+	</select>
+	<select id="selectCountAll" resultType="int">
+	    select count(*) from fesinfo 
+	</select>
 </mapper>

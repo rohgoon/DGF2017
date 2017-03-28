@@ -37,5 +37,8 @@
 	    etime = #{etime}
   		where dno = #{dno}
 	</update>
+	<delete id="deleteDaysByFno" parameterType="int">
+		delete from days where fno = #{fno}
+	</delete>
 
 </mapper>

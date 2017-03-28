@@ -9,7 +9,7 @@
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
 <body>
-	<div>
+	<div id="wrapContent">
 		<div id="list">
 			<form action="daysEdit.do?fno=${days.fno }?dno=${days.dno }" method="post">
 				<label>날짜</label>
@@ -21,8 +21,8 @@
 				<input type="submit" value="수정">
 			</form>	
 		</div>
+	
+	<a href="afEdit.do??fno=${fesInfo.fno }&fCount=${fCount}">행사 정보 수정</a>
 	</div>
-	<a href="#">행사 정보 확인</a>
-	<a href="#">행사 정보 수정</a>
 </body>
 </html>

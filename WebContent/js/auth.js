@@ -58,7 +58,10 @@ function goJoin(){
 		type : "get",
 		dateType : "html",
 		success : function(result) {
+			$(".loginBox").css({opacity: "0"});
 			$(".loginBox").html(result);
+			$(".loginBox").delay(500);
+			$(".loginBox").animate({opacity: "1.0"},500);
 		}
 	});
 }
@@ -69,7 +72,10 @@ function backToLogin(){
 		type : "get",
 		dateType : "html",
 		success : function(result) {
+			$("#loginDialog").css({opacity: "0"});
 			$("#loginDialog").html(result);
+			$("#loginDialog").delay(500);
+			$("#loginDialog").animate({opacity: "1.0"},500);
 		}
 	});
 }
@@ -112,6 +118,8 @@ function join(){
 			dateType : "html",
 			success : function(result) {
 				$("#loginDialog").html(result);
+				$("#loginDialog").delay(500);
+				$("#loginDialog").animate({opacity: "1.0"},500);
 			}
 		}); // ajax
 	}else{

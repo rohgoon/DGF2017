@@ -5,7 +5,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.session.SqlSession;
 
-import member.model.MemberDao;
+import festival.model.Seat;
+import festival.model.SeatDao;
 import mvc.controller.CommandHandler;
 import mvc.util.MySqlSessionFactory;
 
@@ -16,7 +17,19 @@ public class SeatDelHandler implements CommandHandler {
 		if (req.getMethod().equalsIgnoreCase("get")) {			
 			return "/WEB-INF/admin/adminFestivalForm.jsp";
 		}else if (req.getMethod().equalsIgnoreCase("post")) {
-			
+			int sno = Integer.parseInt(req.getParameter("sno"));
+			SqlSession session = null;
+			try {
+				session = MySqlSessionFactory.openSession();
+				SeatDao seatDao = session.getMapper(SeatDao.class); 
+				seatDao.deleteBySno(sno);
+				session.commit();
+			} catch (Exception e) {
+				session.rollback();
+				e.getStackTrace();
+			} finally {
+				session.close();
+			}
 			return "/WEB-INF/admin/adminFestivalSuccess.jsp";
 		}
 		return null;

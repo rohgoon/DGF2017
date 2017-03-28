@@ -6,10 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="css/reset.css?ver=3">
-<link rel="stylesheet" type="text/css" href="css/common.css?ver=3">
+<link rel="stylesheet" type="text/css" href="css/reset.css?ver=1">
+<link rel="stylesheet" type="text/css" href="css/common.css">
 <style type="text/css">
-
 	/*-------------------------- div type list css --------------------------*/
 	.outter{
 		width: 100%;
@@ -133,7 +132,6 @@
 	</c:forEach>
 	
 	</div>
-
 	
 	<!------------------------------- day nav bar ------------------------------->
 	<div class="dayNav">
@@ -143,6 +141,5 @@
 	</div>
 	
 </div>
-
 </body>
 </html>

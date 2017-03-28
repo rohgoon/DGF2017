@@ -3,6 +3,7 @@ package admin.handler;
 import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -19,29 +20,34 @@ import mvc.controller.CommandHandler;
 import mvc.util.MySqlSessionFactory;
 
 public class AfNewHandler implements CommandHandler {
-	String place =null;
-	List<String> gradeList;
-	List<String> priceList;
-	List<String> ticketList;
-	String sdate;
-	String edate;
+	static String place =null;
+	static List<String> gradeList;
+	static List<String> priceList;
+	static List<String> ticketList;
+	static String sdate;
+	static String edate;
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-	List<Date> fesTypeDate;
+	static List<Date> fesTypeDate;
+	
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		if (req.getMethod().equalsIgnoreCase("get")) {
+			
 			return "/WEB-INF/admin/afNewForm.jsp";
 		} else if (req.getMethod().equalsIgnoreCase("post")) {
 			int no = Integer.parseInt(req.getParameter("no"));			
 			switch (no) {
-			case 1:				
-				return "/WEB-INF/admin/afNewForm.jsp";
+			case 1:		
+				nullPoint();
+				return null;
 			case 2:
-				place = req.getParameter("place");				
-								
+				nullPoint();
+				
+				place = req.getParameter("place");									
 				String[] grade = req.getParameterValues("grade");
 				String[] price = req.getParameterValues("price");
 				String[] ticket = req.getParameterValues("ticket");
+				System.out.println("체크>>>>>>>"+grade[0]);
 				gradeList =new ArrayList<>();
 				priceList =new ArrayList<>();
 				ticketList =new ArrayList<>();
@@ -70,43 +76,55 @@ public class AfNewHandler implements CommandHandler {
 				for (int i = 0; i < edArr.length; i++) {
 					edIntArr[i] = Integer.parseInt(edArr[i]);
 				}
-							
-				//Date 클래스로 변환
-				Date sd = new Date(sdIntArr[0], (sdIntArr[1]-1), sdIntArr[2]);
-				Date ed = new Date(edIntArr[0], (edIntArr[1]-1), edIntArr[2]);
+				//Date 클래스로 변환 System.out.println(sd.toLocaleString());
+				Calendar calendar = Calendar.getInstance();
+				calendar.set(sdIntArr[0], (sdIntArr[1]-1), sdIntArr[2]);
+				Date sd = new Date(calendar.getTimeInMillis());
+				calendar.set(edIntArr[0], (edIntArr[1]-1), edIntArr[2]);				
+				Date ed = new Date(calendar.getTimeInMillis());
 				long diff= ed.getTime() - sd.getTime();
 				int gapDate = (int)(diff/ (1000 * 60 * 60 * 24));
 				//Date 타입 List에 삽입
+				
 				fesTypeDate = new ArrayList<>();
 				fesTypeDate.add(sd);
+				System.out.println(sd.toLocaleString());
 				if (gapDate >1) {
 					for (int i = 1; i < gapDate; i++) {
-						sd.setDate(sd.getDate()+i);
-						fesTypeDate.add(sd); //sd가 변화하니 주의
-					}//
+						
+						Date newDate = new Date(sd.getTime()+((1000 * 60 * 60 * 24)*i));
+						fesTypeDate.add(newDate); 
+						
+					}
 				}
 				fesTypeDate.add(ed);
 				String[] fesDate = new String[fesTypeDate.size()];
 				
 				int i =0;
 				for (Date date : fesTypeDate) {
-					fesDate[i] = sdf.format(date);
+					fesDate[i] = sdf.format(date);					
 					i++;
 				}
 				req.setAttribute("fesDate", fesDate);
+				
+				
 				return "/WEB-INF/admin/afNewForm2.jsp";
 			case 3://최종 정보 한꺼번에 삽입				
-				SqlSession session = null;			
+				SqlSession session = null;	
+				//System.out.println("테스트 "+sdate);
 				try{
 					session = MySqlSessionFactory.openSession();
 					FestivalDao festivalDao = session.getMapper(FestivalDao.class);
 					Festival festival = new Festival();
+					
 					festival.setSday(sdf.parse(sdate));
 					festival.setEday(sdf.parse(edate));
 					festival.setPlace(place);					
 					festivalDao.insert(festival);
 					session.commit();
 					int fno = festivalDao.selectFnoByLast(festival);
+					
+					
 					//개별 일자 정보 입력
 					String[] stimeArr = req.getParameterValues("stime");
 					String[] etimeArr = req.getParameterValues("etime");
@@ -133,10 +151,10 @@ public class AfNewHandler implements CommandHandler {
 					req.setAttribute("fno", fno);
 				}finally {
 					session.close();
-				}
 				
+				}	
 				return "afInfo.do";
-
+				
 			default:
 				
 				return "/WEB-INF/admin/afNewForm.jsp";
@@ -145,6 +163,16 @@ public class AfNewHandler implements CommandHandler {
 			
 		}
 		return null;
+	
+	}
+	private void nullPoint(){
+		place =null;
+		gradeList = null;
+		priceList =null;
+		ticketList =null;
+		sdate = null;
+		edate = null;
+		fesTypeDate = null;
 	}
 
 }

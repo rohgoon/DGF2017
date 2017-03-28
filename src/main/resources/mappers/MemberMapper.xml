@@ -18,4 +18,10 @@
   <update id="updatePwdById" parameterType="string">
       update user set upassword = #{param1} where upassword = #{param2}     
   </update>
+  <update id="updateInfoById" parameterType="user">
+      update user set upassword = #{upassword},email =#{email}, phone=#{phone} where uno = #{uno}     
+  </update>
+  <update id="deleteUserbyUno" parameterType="int">
+      update user set outmember=1 where uno = #{uno}     
+  </update>
 </mapper>

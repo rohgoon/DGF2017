@@ -1,11 +1,6 @@
 <%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
 <body>
 	<form action="createArticle.do" method="post">
 		<p>
@@ -24,4 +19,3 @@
 		<p><input type="submit" value="등록"><input type="button" value="취소"></p>
 	</form>
 </body>
-</html>
