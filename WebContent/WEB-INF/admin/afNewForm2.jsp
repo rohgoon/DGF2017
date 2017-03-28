@@ -20,6 +20,7 @@
 <%
 	int num = 1;
 %>
+<div id="wrapContent">
 	<form action="afNew.do?no=3" method="post" id="afnForm2">
 		<c:forEach var="item" items="${fesDate }">
 		<%=num++ %>일차,
@@ -30,5 +31,6 @@
 		<input type="submit" value="다음">
 		
 	</form>
+</div>
 </body>
 </html>

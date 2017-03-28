@@ -26,12 +26,12 @@
 				<tr>
 					<th>출연진 번호</th>
 					<th>일정 번호</th>
-					<th>아티스트 이름</th>
-					<th>아티스트 설명</th>
-					<th>대표곡1</th>
-					<th>대표곡2</th>
-					<th>대표곡3</th>
-					<th>라인업 이미지</th>
+					<th>아티스트<br>이름</th>
+					<th>아티스트<br>설명</th>
+					<th>대표곡<br>1</th>
+					<th>대표곡<br>2</th>
+					<th>대표곡<br>3</th>
+					<th>라인업<br>이미지</th>
 				</tr>
 				
 			<c:forEach var="item" items="${viewList }">

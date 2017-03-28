@@ -37,6 +37,7 @@
 </script>
 </head>
 <body>
+<div id="wrapContent">
 	<form action="afNew.do?no=2" method="post" id="afnForm1">
 		<label for="sdate">시작일</label>
 		<input type="date" name="sdate" id="sdate">
@@ -68,9 +69,9 @@
 			</tr>			
 		</table>
 		<hr>
-		<input type="reset" value="이전" id="btnBack">	
 		<input type="submit" value="다음">
 		
 	</form>
+</div>
 </body>
 </html>

@@ -9,7 +9,7 @@
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
 <body>
-	<div>
+	<div id="wrapContent">
 		<div id="list">						
 					<div class="fesWrap">
 						페스티벌 회차 : ${fCount }회<br>

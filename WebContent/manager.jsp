@@ -9,7 +9,7 @@
 	@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
 	#innerNav{
 		width: 350px;
-		height: auto;	
+		height: 100%;	
 		text-align: center;
 		font-size: 3.5em;		
 		font-family: 'Hanna', serif;
@@ -60,12 +60,29 @@
 	.subNavInner{
 		margin-left: 385px;
 	}
-	#contentWrapper table{
+/* 	#contentWrapper table{
 		border: 1px solid black;
 		border-collapse: collapse;
 	}
 	#contentWrapper table th,td{
 		border: 1px solid black;
+	} */
+	#contentWrapper table {
+		border-collapse: collapse;
+		margin:0 auto;
+		width: 100%;
+		font-size: 20px;
+		text-align: center;
+	}
+	
+	#contentWrapper th {
+		background-color: #FFD9FA;
+		padding:5px;
+		height:30px;
+	}
+	
+	#contentWrapper td{
+		padding: 5px;
 	}
 	#wrapContent{
 		margin-left: 25px;

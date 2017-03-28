@@ -9,7 +9,9 @@
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
 <body>
+<div id="wrapContent">
 	<a href="afNew.do">새로운 행사 입력</a>
 	<a href="afEdit.do">행사 정보 수정</a>
+</div>
 </body>
 </html>

@@ -9,7 +9,7 @@
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
 <body>
-	<div>
+	<div id="wrapContent">
 		<div id="list">
 			<form action="seatEdit.do?sno=${seat.sno }" method="post">
 				<label for="grade">등급명</label>
@@ -21,7 +21,7 @@
 				<input type="submit" value="수정">
 			</form>
 		</div>
-	</div>
 	<a href="afEdit.do??fno=${fesInfo.fno }&fCount=${fCount}">행사 정보 수정</a>
+	</div>
 </body>
 </html>
