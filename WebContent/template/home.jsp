@@ -13,14 +13,15 @@
 	File dir = new File(uploadPath);
 	
 	try{
-		//attr = Files.readAttributes(path, BasicFileAttributes.class);
-		File[] fileList = dir.listFiles(); 
-		/* Arrays.sort(fileList, new Comparator<File>() {
-		    public int compare(File f1, File f2) {
-		        return Long.compare(f1.lastModified(), f2.lastModified());
-		    }
-		});	 */	
-		request.setAttribute("frontImgList", fileList);		
+		
+		File[] files = dir.listFiles();
+
+		Arrays.sort(files, new Comparator<File>(){
+		    public int compare(File f1, File f2)
+		    {
+		        return Long.valueOf(f2.lastModified()).compareTo(f1.lastModified());
+		    } });
+		request.setAttribute("frontImgList", files);		
 		
 	}catch(Exception e){			
 

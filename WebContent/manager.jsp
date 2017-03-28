@@ -144,6 +144,24 @@
 				});
 			return false;	
 		});
+		$(document).on("submit", "#innerContent form#lineUP", function() {
+			$("#innerContent").empty();	
+			var lnk = $(this).attr("action");
+			var res = $(this).serialize();
+			$.ajax({
+				url: lnk,
+				type:"post",
+				data:res,
+				enctype: "multipart/form-data",
+				dataType:"html",
+				success:function(e){
+					$("#innerContent").delay(100);
+					$("#innerContent").html(e);	
+					}					
+				});
+			return false;		
+			
+		}); 
 		$(document).on("submit", "#innerContent form", function() {
 			$("#innerContent").empty();	
 			var lnk = $(this).attr("action");
