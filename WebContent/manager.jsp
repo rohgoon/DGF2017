@@ -1,16 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-=======
->>>>>>> refs/remotes/origin/jch4
 <style type="text/css">
 	@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
-<<<<<<< HEAD
 	#innerNav{
 		width: 350px;
 		height: 100%;	
@@ -30,9 +26,6 @@
 		padding-top: 40px;
 		letter-spacing: 10px;
 	}
-=======
-	
->>>>>>> refs/remotes/origin/jch4
 	#subNav{
 		/* border: blue solid 1px; */
 		height: auto;
@@ -89,8 +82,8 @@
 		overflow:auto;
 		height: 1500px; 
 	}
-
 </style>
+<title>Insert title here</title>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -137,7 +130,6 @@
 				});
 			return false;			
 		});
-
 		$(document).on("click", "#innerContent a", function() {
 			$("#innerContent").empty();	
 			var lnk = $(this).attr("href");	
@@ -152,7 +144,6 @@
 				});
 			return false;	
 		});
-
 		$(document).on("submit", "#innerContent form", function() {
 			$("#innerContent").empty();	
 			var lnk = $(this).attr("action");
@@ -172,9 +163,9 @@
 		}); 
 		
 	});
-
 	
 </script>
+
 </head>
 <body>
 	<div id="contentWrapper">
@@ -193,3 +184,4 @@
 	</div>
 	
 </body>
+</html>
