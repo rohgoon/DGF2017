@@ -55,22 +55,6 @@
 			
 		</div>
 		
-		<!-- <div id="day2">
-			<div class="day2"></div>
-			<div class="day2"></div>
-			<div class="day2"></div>
-			<div class="day2"></div>
-			<div class="day2"></div>
-		</div>
-		
-		<div id="day3">
-			<div class="day3"></div>
-			<div class="day3"></div>
-			<div class="day3"></div>
-			<div class="day3"></div>
-			<div class="day3"></div>
-		</div> -->
-		
 	</div>
 	
 	<div id="footer">
