@@ -54,7 +54,7 @@
 		</c:forEach>
 	
 
-	<p class="tRow">
+	<p class="tRow cRow">
 		<c:if test="${startPage >= 10}">
 			<a href="javascript:void(0);"
 				onclick="pageMove(${boardNo}, ${page-10}, ${rowNum});">[이전]</a>
@@ -76,7 +76,7 @@
 
 
 
-	<p class="tRow">
+	<p class="tRow cRow">
 		<select name="searchby">
 			<option val="all">전체</option>
 			<option val="title">제목</option>
