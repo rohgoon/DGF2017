@@ -13,8 +13,7 @@ public class PageHandler implements CommandHandler  {
 		
 		String page = req.getParameter("page");
 		User auth = (User)req.getSession().getAttribute("auth");
-		
-		System.out.println(page);
+
 		if(page.equalsIgnoreCase("home")){
 			return "template/home.jsp";
 		}else if(page.equalsIgnoreCase("line-up")){
