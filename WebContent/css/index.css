@@ -68,7 +68,7 @@ h1 {
 
 
 
-#innerWrap {
+#loginDialog {
 	margin: 0 auto;
 	width: 500px;
 /* 	height: 330px;
@@ -139,7 +139,7 @@ a {
 	background-color: rgba(255, 50, 50, 0.9);
 }
  */
-#a0 {
+/* #a0 {
 	text-align: right;
 }
 
@@ -167,4 +167,4 @@ a {
 .tdContent {
 	text-align: left;
 	padding-left: 5px;
-}
+} */

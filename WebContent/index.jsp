@@ -29,7 +29,7 @@
 			<span id="t2">Girl-group</span><br>
 			<span id="t3">Festival</span>
 		</h1>
-		<div id="innerWrap">
+		<div id="loginDialog">
 			<jsp:include page="WEB-INF/view/login.jsp"></jsp:include>
 		</div>
 
