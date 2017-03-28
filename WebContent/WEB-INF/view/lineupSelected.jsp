@@ -9,6 +9,11 @@
 <style type="text/css">
 	table {
 		border-collapse: collapse;
+		table-layout: fixed !important;
+		width:1000px !important;
+	}
+	th{	  
+		width:200px !important;
 	}
 </style>
 </head>
@@ -53,12 +58,13 @@
 			<th>라인업 이미지</th>
 			<td>${selectedLineup.file }</td>
 		</tr>
+		<tr>
+			<th colspan="2"><a href="lineupUpdate.do?lno=${selectedLineup.lno }">수정</a> / <a href="lineupDelete.do?lno=${selectedLineup.lno }">삭제</a></th>
+		</tr>
 		
 	</table>
 	
-	<a href="lineupManager.do">돌아가기</a>
-	<a href="lineupUpdate.do?lno=${selectedLineup.lno }">수정</a>
-	<a href="lineupDelete.do?lno=${selectedLineup.lno }">삭제</a>
+	
 
 </body>
 </html>

@@ -45,6 +45,7 @@
 			
 		});
 		
+		
 	});
 </script>
 </head>
@@ -64,6 +65,7 @@
 			<input type="button" value="등급추가" id="btnAdd">
 			<input type="button" value="등급삭제" id="btnDel">
 		</h3>
+		<br>
 		<table border="1" id="gt">
 			<tr class="addTr">
 				<th>

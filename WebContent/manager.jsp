@@ -52,6 +52,7 @@
 	#innerContent{		
 		margin-left: 370px;
 		width: 1350px;
+		font-family: 'Hanna', serif;
 	}
 	#imgPoster{
 		 width: 90%;
@@ -59,13 +60,6 @@
 	.subNavInner{
 		margin-left: 385px;
 	}
-/* 	#contentWrapper table{
-		border: 1px solid black;
-		border-collapse: collapse;
-	}
-	#contentWrapper table th,td{
-		border: 1px solid black;
-	} */
 	#contentWrapper table {
 		border-collapse: collapse;
 		margin:0 auto;
@@ -85,12 +79,16 @@
 	}
 	#wrapContent{
 		margin-left: 25px;
+		overflow:auto;
+		height: 1500px; 
 	}
+
 </style>
 <title>Insert title here</title>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
+		
 		$(document).on("click", "#innerNav a", function() {
 			$("#innerContent").empty();
 			$("#subNav").css("opacity", 0);	
@@ -100,7 +98,7 @@
 				dataType:"html",
 				success:function(e){
 					$("#subNav").html(e);
-					$("#subNav").delay(100);						
+					$("#subNav").delay(50);						
 					$("#subNav").animate({opacity: "1.0"},400);	
 					}					
 				});
@@ -109,12 +107,25 @@
 		
 		$(document).on("click", "#subNav a.subNav", function() {
 			var lnk = $(this).attr("href");
-			
+			$(".subNavInner").empty();
 			$.ajax({
 				url: lnk,
 				dataType:"html",
 				success:function(e){
-					$("#innerContent").delay(100);
+					$("#innerContent").delay(50);
+					$("#innerContent").html(e);
+					}					
+				});
+			return false;			
+		});
+		$(document).on("click", ".subNavInner a", function() {
+			var lnk = $(this).attr("href");
+			$(".subNavInner").empty();
+			$.ajax({
+				url: lnk,
+				dataType:"html",
+				success:function(e){
+					$("#innerContent").delay(50);
 					$("#innerContent").html(e);
 					}					
 				});
@@ -123,19 +134,40 @@
 
 		$(document).on("click", "#innerContent a", function() {
 			$("#innerContent").empty();	
-			var lnk = $(this).attr("href");			
+			var lnk = $(this).attr("href");	
+					
 			$.ajax({
 				url: lnk,
 				dataType:"html",
 				success:function(e){
-					$("#innerContent").delay(100);
+					$("#innerContent").delay(50);
 					$("#innerContent").html(e);		
 					}					
 				});
 			return false;	
 		});
+
+		$(document).on("submit", "#innerContent form", function() {
+			$("#innerContent").empty();	
+			var lnk = $(this).attr("action");
+			var res = $(this).serialize();
+			$.ajax({
+				url: lnk,
+				type:"post",
+				data:res,
+				dataType:"html",
+				success:function(e){
+					$("#innerContent").delay(100);
+					$("#innerContent").html(e);	
+					}					
+				});
+			return false;		
+			
+		}); 
+		
 	});
 
+	
 </script>
 
 </head>
