@@ -5,9 +5,28 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="css/common.css?ver=2">
-<link rel="stylesheet" type="text/css" href="css/reset.css?ver=2">
-<link rel="stylesheet" type="text/css" href="css/front.css?ver=2">
+<link rel="stylesheet" type="text/css" href="css/common.css">
+<link rel="stylesheet" type="text/css" href="css/reset.css">
+<link rel="stylesheet" type="text/css" href="css/loginBox.css">
+<link rel="stylesheet" type="text/css" href="css/front.css?ver=1">
+<link rel="stylesheet" type="text/css" href="css/community.css">
+
+<style type="text/css">
+@font-face {
+	font-family: 'Arca Majora 3 Heavy';
+	src: url(font/ArcaMajora3-Heavy.otf);
+}
+
+body {
+	font-family: 'Arca Majora 3 Heavy';
+	src: url(font/ArcaMajora3-Heavy.otf);
+}
+
+body{
+		font-family: font-family: 'Arca Majora 3 Heavy','12롯데마트행복Medium' !important;
+	}
+</style>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>
 	function movepage(obj) {
@@ -25,19 +44,16 @@
 		});
 	}
 </script>
-<style type="text/css">
-@font-face {
-	font-family: 'Arca Majora 3 Heavy';
-	src: url(font/ArcaMajora3-Heavy.otf);
-}
 
-body {
-	font-family: 'Arca Majora 3 Heavy';
-	src: url(font/ArcaMajora3-Heavy.otf);
-}
-</style>
+<title>DGF::Main</title>
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/front.js"></script>
 </head>
 <body>
+	<div id="loginDialog">
+		<jsp:include page="WEB-INF/view/login.jsp"></jsp:include>
+	</div>
 	<div id="container">
 		<div id="header">
 			<div id="nav">

@@ -409,4 +409,27 @@ values
 
 select * from article;
 SELECT * from article_list_view;
->>>>>>> refs/remotes/origin/jch
+
+
+CREATE VIEW linupDetailView
+AS select
+l.lno as lno,
+l.aname as aname,
+l.contents as contents,
+l.song1 as song1,
+l.song2 as song2,
+l.song3 as song3,
+l.file as file,
+d.dno as dno,
+d.day as day,
+d.stime as stime,
+d.etime as etime,
+f.fno as fno,
+f.place as place,
+f.sday as sday,
+f.eday as eday
+from lineup l
+left join days d on l.dno = d.dno
+left join fesinfo f on d.fno = f.fno;
+
+select * from linupDetailView;

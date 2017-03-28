@@ -13,33 +13,39 @@ import mvc.util.MySqlSessionFactory;
 
 public class LoginHandler implements CommandHandler {
 	
-	private final String FORM_VIEW = "/WEB-INF/view/login.jsp";
+	
 	
 	
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
+		
 		if (req.getMethod().equalsIgnoreCase("get")) {
-			
-			return FORM_VIEW;
+			return "/WEB-INF/view/login.jsp";
 			
 		}else if (req.getMethod().equalsIgnoreCase("post")) {
 			String id = req.getParameter("id");
 			String password = req.getParameter("password");
 			SqlSession session = null;			
+			
+			
 			try{
 				session = MySqlSessionFactory.openSession();
 				MemberDao dao = session.getMapper(MemberDao.class);
 				User user = dao.selectAllById(id);
+				
 				if (user == null) {
 					req.setAttribute("notJoin", true);
-					return FORM_VIEW;
+					return null;
 				}
+				
 				if (!user.matchPassword(password)) {
 					req.setAttribute("idOrPwdNotMatch", true);
-					return FORM_VIEW;
+					return null;
 				}
-				LoginUser loginUser =new LoginUser(id, user.getUname());
+				
+				LoginUser loginUser = new LoginUser(id, user.getUname());
 				req.getSession().setAttribute("auth", user);
+				
 				return "front.jsp";
 			
 			}finally {

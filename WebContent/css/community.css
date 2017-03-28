@@ -1,0 +1,92 @@
+@CHARSET "UTF-8";
+	
+	@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
+	
+	
+	/* class */
+	
+	.button {
+		display: inline;
+	}
+	
+	.button {
+		text-decoration: none;
+		padding: 10px;
+		font-size: 20px;
+		color: #000000;
+		border: 1px solid #000000;
+		text-align: center;
+	}
+	
+	.button:HOVER {
+		color: #ffffff;
+		background-color: #F48FB1;
+	}
+	
+	
+	/* content 영역 */
+	
+	#content{
+		font-family: 'Hanna', serif;
+	}
+	
+	
+	/* innerNav */
+	
+	#innerNav {
+		padding-left:20px;
+		width: 100%;
+		height:30px;
+	}
+	
+	#innerNav a{
+		display: inline;
+		margin-right: 15px;
+	}
+	
+	/* commnunity */
+	
+	#community {
+		display:inline-block;
+		width: 100%;
+		border-top:2px solid black;
+		text-align: center;
+	}
+	
+	
+	
+	/* community > article */
+	
+	
+	#article{
+		margin:0 auto;
+		border:1px solid black;
+	}
+	
+	#article first:p{
+		text-align: left;
+	}
+	
+	#article table {
+		border-collapse: collapse;
+		margin:0 auto;
+		width: 60%;
+		font-size: 20px;
+		text-align: center;
+	}
+	
+	#article th {
+		background-color: #FFD9FA;
+		padding:5px;
+		height:30px;
+	}
+	
+	#article td{
+		padding: 5px;
+	}
+	
+	#articleTitle{
+		width:40%;
+	}
+	
+}

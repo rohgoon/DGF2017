@@ -1,21 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-	<form action="join.do" method="post">
-		<label for="id">아이디 : </label><input type="text" id="id" name="id"><br>
-		<label for="password">비밀번호 : </label><input type="password" id="password" name="password"><br>
-		<label for="repassword">비밀번호 확인 : </label><input type="password" id="repassword" name="repassword"><br>
-		<label for="name">이름 : </label><input type="text" id="name" name="name"><br>
-		<label for="email">이메일 : </label><input type="text" id="email" name="email"><br>
-		<label for="phone1">전화번호 : </label><input type="text" id="phone1" name="phone1">-<input type="text" id="phone2" name="phone2">-<input type="text" id="phone3" name="phone3"><br>
-		<input type="submit" value="가입">
-		<input type="reset" value="취소">
-	</form>
-</body>
-</html>
+
+	<input type="text" id="id" name="id" placeholder="ID"  class="inpJoin" onblur="checkJoinId(this)" required="required">
+	<input type="text" id="name" name="name" placeholder="name"  class="inpJoin" required="required"><br>
+	<input type="password" id="password" name="password" placeholder="Password" class="inpJoin" required="required">
+	<input type="password" id="repassword" name="repassword" placeholder="Password repeat"  class="inpJoin" required="required"><br>
+	<input type="text" id="email" name="email" placeholder="E-mail"  class="inpJoin" required="required"><br>
+	<input type="text" id="phone1" name="phone1" placeholder="010" class="inpPhone inpJoin">-<input type="text" id="phone2" name="phone2" placeholder="0000"  class="inpPhone inpJoin">-<input type="text" id="phone3" name="phone3" placeholder="0000"  class="inpPhone inpJoin" required="required"><br>
+	<input type="button" value="Join" onclick="join()" class="inpJoin">
+	<input type="button" value="Back" onclick="backToLogin()" class="inpJoin">

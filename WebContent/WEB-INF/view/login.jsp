@@ -1,17 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-	<form action="login.do" method="post">
-		<label for="id">아이디 : </label><input type="text" id="id" name="id"><br>
-		<label for="password">비밀번호 : </label><input type="password" id="password" name="password"><br>
-		<input type="submit" value="로그인">
-		<input type="reset" value="취소">
-	</form>
-</body>
-</html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<div class="loginBox">
+	
+	<c:if test="${empty auth}">
+		<p><input type="text" id="login_id" placeholder="ID"></p>
+	</c:if>
+		<p><input type="password" id="login_pw" placeholder="PASSWORD"></p>
+		<p><input type="button" onclick="login()" value="Login"></p>	
+		<p>아직 회원이 아니세요? <a href="#" onclick="goJoin()">가입하기</a></p>	
+		<p><a href="#" onclick="notLogin()">비회원으로 계속보기</a></p>
+</div>

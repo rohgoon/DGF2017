@@ -37,7 +37,7 @@ public class JoinHandler implements CommandHandler {
 			}finally {
 				session.close();
 			}
-			return "/WEB-INF/view/joinSuccess.jsp";
+			return "/WEB-INF/view/login.jsp";
 		}
 		return null;
 	}
