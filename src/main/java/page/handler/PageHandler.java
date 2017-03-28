@@ -17,7 +17,7 @@ public class PageHandler implements CommandHandler  {
 		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 		System.out.println(page);
 		if(page.equalsIgnoreCase("home")){
-			return "frontList.do";
+			return "front.do";
 		}else if(page.equalsIgnoreCase("line-up")){
 			return "lineupList.do";
 		}else if(page.equalsIgnoreCase("tickets")){

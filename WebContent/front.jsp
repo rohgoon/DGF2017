@@ -25,9 +25,6 @@
 		});
 	}
 </script>
-<link rel="stylesheet" type="text/css" href="css/common.css?ver=1">
-<link rel="stylesheet" type="text/css" href="css/reset.css?ver=1">
-<link rel="stylesheet" type="text/css" href="css/front.css?ver=1">
 <style type="text/css">
 @font-face {
 	font-family: 'Arca Majora 3 Heavy';
@@ -57,10 +54,7 @@ body {
 		</div>
 
 		<div id="content">
-			<c:forEach	var="item" items="frontList">
-				<a>${file.aname }</a>
-			
-			</c:forEach>
+			<jsp:include page="template/home.jsp"></jsp:include>
 		</div>
 
 		<div id="footer">

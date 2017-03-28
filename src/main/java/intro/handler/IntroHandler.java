@@ -9,7 +9,6 @@ public class IntroHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
-		
 		return "front.jsp";
 	}
 
