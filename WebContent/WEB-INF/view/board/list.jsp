@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-		<a href="createBoard.do">게시판 만들기<a>
+		<a href="createBoard.do" class="subNav">게시판 만들기<a>
 		<c:if test="${boardList.size() == 0}">
 			<h1>등록된 게시판이 없습니다. 게시판을 만들어주세요.</h1>
 		</c:if>	

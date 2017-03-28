@@ -31,6 +31,7 @@
 		/* border: blue solid 1px; */
 		height: auto;
 		opacity: 0;
+		width: 1800px;
 	}
 	#subNav a.subNav{
 		display: inline-block;
@@ -63,6 +64,7 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$(document).on("click", "#innerNav a", function() {
+			$("#subNav").css("opacity", 0);	
 			var lnk = $(this).attr("href");
 			$("#innerContent").empty();
 			$.ajax({
@@ -99,7 +101,7 @@
 		<a href="lineupManager.do">라인업 관리</a>
 		<a href="readBoardList.do" >게시판 관리</a>		
 		<a href="urMng.do">회원관리</a>
-		<a href="bizManage.do?fno=4&fCount=3">영업현황</a>		
+		<a href="biz.do">영업현황</a>		
 	</div>
 	<div id="subNav">		
 	</div>

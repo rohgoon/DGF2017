@@ -7,6 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="bizManage.do">총 영업 현황</a> <!-- 회차별 매출액, 연도별 매출액, 월별 매출액, 주별 매출액, 일별 매출액 -->
+			<a href="bizManage.do" class="subNav">회차별 매출액</a>
+			<a href="bmDate.do?bm=year" class="subNav">연도별 매출액</a>
+			<a href="bmDate.do?bm=month" class="subNav">월별 매출액</a>
+			<a href="bmDate.do?bm=day" class="subNav">일별 매출액</a>
+			<a href="bmSearch.do" class="subNav">기간별 매출액</a>
 </body>
 </html>
