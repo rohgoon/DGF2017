@@ -1,8 +1,6 @@
 package lineup.handler;
 
 import java.io.File;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Enumeration;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +15,6 @@ import lineup.model.Lineup;
 import lineup.model.LineupDao;
 import mvc.controller.CommandHandler;
 import mvc.util.MySqlSessionFactory;
-
 public class UpdateHandler implements CommandHandler{
 
 	@Override
