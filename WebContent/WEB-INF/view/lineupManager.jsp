@@ -20,8 +20,7 @@
 </style>
 </head>
 <body>
-	<h1>DGF 라인업 관리</h1>
-			<a href="registerUpload.do">새 라인업 등록</a>
+			<a href="registerUpload.do" class="subNav">새 라인업 등록</a>
 			<table>
 				<tr>
 					<th>출연진 번호</th>
