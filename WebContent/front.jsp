@@ -70,7 +70,7 @@ body{
 		</div>
 
 		<div id="content">
-			<jsp:include page="template/home.jsp"></jsp:include>
+			<jsp:include page="template/home.jsp" ></jsp:include>
 		</div>
 
 		<div id="footer">
