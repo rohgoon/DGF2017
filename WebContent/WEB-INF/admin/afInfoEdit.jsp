@@ -19,7 +19,6 @@
 			</form>
 			<hr>
 			<div class="daysWrap">
-						${fCount }회차 상세 정보
 						<table border="1">
 							<tr>
 								<th>세부 일자</th>

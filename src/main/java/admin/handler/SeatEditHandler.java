@@ -17,7 +17,7 @@ public class SeatEditHandler implements CommandHandler {
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		if (req.getMethod().equalsIgnoreCase("get")) {
-			int sno = Integer.parseInt(req.getParameter("no"));
+			int sno = Integer.parseInt(req.getParameter("sno"));
 			SqlSession session = null;
 			try {
 				session = MySqlSessionFactory.openSession();
@@ -48,7 +48,7 @@ public class SeatEditHandler implements CommandHandler {
 
 			return "/WEB-INF/admin/afInfoSeat.jsp";
 		} else if (req.getMethod().equalsIgnoreCase("post")) {
-			int sno = Integer.parseInt(req.getParameter("no"));
+			int sno = Integer.parseInt(req.getParameter("sno"));
 
 			SqlSession session = null;
 			try {

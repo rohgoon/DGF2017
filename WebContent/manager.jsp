@@ -49,13 +49,12 @@
 	#subNav a.subNav:HOVER{
 		opacity: 0.5;
 	}
-	#innerContent{
-		/* border: 1px solid blue; */
-		margin-left: 360px;
+	#innerContent{		
+		margin-left: 370px;
 		width: 1350px;
 	}
 	#imgPoster{
-		 width: 99%;
+		 width: 90%;
 	}
 	.subNavInner{
 		margin-left: 385px;
@@ -93,9 +92,9 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$(document).on("click", "#innerNav a", function() {
-			$("#subNav").css("opacity", 0);	
-			var lnk = $(this).attr("href");
 			$("#innerContent").empty();
+			$("#subNav").css("opacity", 0);	
+			var lnk = $(this).attr("href");			
 			$.ajax({
 				url: lnk,
 				dataType:"html",
@@ -121,6 +120,20 @@
 				});
 			return false;			
 		});
+
+		$(document).on("click", "#innerContent a", function() {
+			$("#innerContent").empty();	
+			var lnk = $(this).attr("href");			
+			$.ajax({
+				url: lnk,
+				dataType:"html",
+				success:function(e){
+					$("#innerContent").delay(100);
+					$("#innerContent").html(e);		
+					}					
+				});
+			return false;	
+		});
 	});
 
 </script>
@@ -138,6 +151,7 @@
 		<div id="subNav">		
 		</div>
 		<div id="innerContent">
+			<img alt="" src="img/poster_V1.png" id="imgPoster">
 		</div>
 	</div>
 	
