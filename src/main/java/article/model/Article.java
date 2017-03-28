@@ -1,5 +1,6 @@
 package article.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import board.model.Board;
@@ -21,7 +22,8 @@ public class Article {
 	private int del;
 	private String uname;
 	private String id;
-		
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
 
 	public String getUname() {
 		return uname;
@@ -74,8 +76,9 @@ public class Article {
 	public void setCategory(String category) {
 		this.category = category;
 	}
-	public Date getWriteTime() {
-		return writeTime;
+	public String getWriteTime() {
+		String wTime = sdf.format(writeTime);
+		return wTime;
 	}
 	public void setWriteTime(Date writeTime) {
 		this.writeTime = writeTime;

@@ -64,30 +64,26 @@ body {
 	margin: 10px;
 }
 
-.day1:NTH-CHILD(1) {
+/* .day1:NTH-CHILD(1){
 	background-image: url("../img/redvelvet/redvelvet02.jpg");
 	background-size: cover;
 }
-
 .day1:NTH-CHILD(2) {
 	background-image: url("../img/apink/apink04.jpg");
 	background-size: cover;
 }
-
 .day1:NTH-CHILD(3) {
 	background-image: url("../img/mamamoo/mamamoo05.jpg");
 	background-size: cover;
 }
-
 .day1:NTH-CHILD(4) {
 	background-image: url("../img/gugudan/gugudan05.jpg");
 	background-size: cover;
 }
-
 .day1:NTH-CHILD(5) {
 	background-image: url("../img/ohmygirl/ohmygirl02.jpg");
 	background-size: cover;
-}
+} */
 
 /*--------------------------------- day2 ---------------------------------*/
 .day2 {

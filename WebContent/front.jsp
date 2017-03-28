@@ -11,7 +11,6 @@
 <link rel="stylesheet" type="text/css" href="css/loginBox.css">
 <link rel="stylesheet" type="text/css" href="css/front.css">
 <link rel="stylesheet" type="text/css" href="css/community.css">
-
 </head>
 <body>
 	<div id="loginDialog">
@@ -36,7 +35,7 @@
 		<div id="content">
 			<jsp:include page="template/home.jsp"></jsp:include>
 		</div>
-
+		
 		<div id="footer">
 			<jsp:include page="template/footer.jsp"></jsp:include>
 		</div>

@@ -4,61 +4,57 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <div id="article">
-	<p>
-		<select name="category" id="category">
-			<option>카테고리</option>
-			<option>전체</option>
-			<option value="공지사항">공지사항</option>
-			<option value="잡담">잡담</option>
-			<option value="질문">질문</option>
-		</select> <select name="rowNum">
-			<option>출력개수</option>
-			<option value="5">5개씩 보기</option>
-			<option value="10">10개씩 보기</option>
-			<option value="15">15개씩 보기</option>
-			<option value="20">20개씩 보기</option>
-			<option value="30">30개씩 보기</option>
-		</select>
-	</p>
+		<p class="tRow">
+			<select name="category" id="category">
+				<option>카테고리</option>
+				<option>전체</option>
+				<option value="공지사항">공지사항</option>
+				<option value="잡담">잡담</option>
+				<option value="질문">질문</option>
+			</select> <select name="rowNum">
+				<option>출력개수</option>
+				<option value="5">5개씩 보기</option>
+				<option value="10">10개씩 보기</option>
+				<option value="15">15개씩 보기</option>
+				<option value="20">20개씩 보기</option>
+				<option value="30">30개씩 보기</option>
+			</select>
+		</p>
 
-	<table>
-		<tr>
-			<th>번호</th>
-			<th>카테고리</th>
-			<th id="articleTitle">제목</th>
-			<th>작성자</th>
-			<th>작성시간</th>
-			<th>조회수</th>
-			<th>추천수</th>
-		</tr>
+	
+		<p class="tRow">
+			<span class="tHeader tNo">번호</span>
+			<span class="tHeader tCategory">카테고리</span>
+			<span class="tHeader tTitle" id="articleTitle">제목</span>
+			<span class="tHeader tWriter">작성자</span>
+			<span class="tHeader tTime">작성시간</span>
+			<span class="tHeader tHit">조회수</span>
+			<span class="tHeader tRec">추천수</span>
+		</p>
 
 
 
 		<c:if test="${articleList.size() == 0}">
-			<tr>
-				<td colspan="6">게시물이 없습니다.</td>
-			</tr>
+			<p>
+				<h2 colspan="6">게시물이 없습니다.</h2>
+			</p>
 		</c:if>
 
 
 		<c:forEach var="article" items="${articleList}">
-			<tr>
-				<td>${article.articleNo}</td>
-				<td>${article.category}</td>
-				<td><a class="articleBtn" onclick="showArticle(${boardNo}, ${article.articleNo});">${article.title}</a></td>
-				<td>${article.name}(${article.id})</td>
-				<td>${article.writeTime}</td>
-				<td>${article.hits}</td>
-				<td>${article.recommend}</td>
-			</tr>
+			<p class="tRow">
+				<span class="tData tNo">${article.articleNo}</span>
+				<span class="tData tCategory">${article.category}</span>
+				<span class="tData tTitle"><a class="articleBtn" onclick="showArticle(${boardNo}, ${article.articleNo});">${article.title}</a></span>
+				<span class="tData tWriter">${article.name}(${article.id})</span>
+				<span class="tData tTime">${article.writeTime}</span>
+				<span class="tData tHit">${article.hits}</span>
+				<span class="tData tRec">${article.recommend}</span>
+			</p>
 		</c:forEach>
-	</table>
+	
 
-	<p>
-		<c:if test="${articleList.size() == 0}">
-			<h4>게시물이 없습니다.</h4>
-		</c:if>
-
+	<p class="tRow">
 		<c:if test="${startPage >= 10}">
 			<a href="javascript:void(0);"
 				onclick="pageMove(${boardNo}, ${page-10}, ${rowNum});">[이전]</a>
@@ -80,7 +76,7 @@
 
 
 
-	<p>
+	<p class="tRow">
 		<select name="searchby">
 			<option val="all">전체</option>
 			<option val="title">제목</option>

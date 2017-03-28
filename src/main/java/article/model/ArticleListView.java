@@ -80,7 +80,7 @@ public class ArticleListView {
 		return title;
 	}
 	public String getWriteTime() {
-			String wTime = sdf.format(writeTime);
+		String wTime = sdf.format(writeTime);
 		return wTime;
 	}
 	public int getHits() {
