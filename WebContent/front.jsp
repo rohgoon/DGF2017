@@ -25,6 +25,9 @@ body {
 body{
 		font-family: font-family: 'Arca Majora 3 Heavy','12롯데마트행복Medium' !important;
 	}
+#nAndl{
+		display: none;
+}
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -56,11 +59,17 @@ body{
 	</div>
 	<div id="container">
 		<div id="header">
-			<div id="nav">
-				<jsp:include page="template/nav.jsp"></jsp:include>
+			<div id="hWrap">
+				<div id="nav">
+					<jsp:include page="template/nav.jsp"></jsp:include>
+				</div>
+	
+				<div id="login">
+					<jsp:include page="template/login.jsp"></jsp:include>
+				</div>
 			</div>
-
-			<div id="login">
+			<div id="nAndl">
+				<jsp:include page="template/nav.jsp"></jsp:include>			
 				<jsp:include page="template/login.jsp"></jsp:include>
 			</div>
 		</div>
