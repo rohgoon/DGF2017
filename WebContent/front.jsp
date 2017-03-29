@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="css/common.css">
 <link rel="stylesheet" type="text/css" href="css/reset.css">
 <link rel="stylesheet" type="text/css" href="css/loginBox.css">
-<link rel="stylesheet" type="text/css" href="css/front.css?ver=1">
+<link rel="stylesheet" type="text/css" href="css/front.css">
 <link rel="stylesheet" type="text/css" href="css/community.css">
 
 <style type="text/css">
