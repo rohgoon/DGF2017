@@ -4,28 +4,28 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <div id="articleContent">
-	<p><label>글쓴이</label><input type="text" value="${article.uname}(${article.id})" readonly="readonly"></p>
 
-	<p><label>제 목</label><input type="text" value="${article.title}" name="title" readonly="readonly"></p>
+	<div id="aInfo">
+		<p> 
+			<input type="text" value="${article.title}" name="title" readonly="readonly">
+			<span><label class="lblRow">카테고리</label> 
+				<select name="category" disabled="disabled">
+					<option value="공지사항" <c:if test="${article.category == '공지사항'}"> selected="selected"</c:if>>공지사항</option>
+					<option value="잡담"  <c:if test="${article.category == '잡담'}"> selected="selected"</c:if>>잡담</option>
+			 		<option value="질문" <c:if test="${article.category == '질문'}"> selected="selected"</c:if>>질문</option>
+				</select>
+			</span>
+		</p>
+		
+		<p>
+			<span>글쓴이 : ${article.uname}(${article.id})</span>
+			<span>날짜 : ${article.writeTime}</span>
+			<span>조회수 : ${article.hits}</span>
+			<span>추천수 : ${article.recommend}</span>
+		</p>
+	</div>
 
-	<p><label>날 짜</label>${article.writeTime}</p>
-	
-	<p>
-		<label>카테고리</label> 
-		<select name="category" disabled="disabled">
-			<option value="공지사항" <c:if test="${article.category == '공지사항'}"> selected="selected"</c:if>>공지사항</option>
-			<option value="잡담"  <c:if test="${article.category == '잡담'}"> selected="selected"</c:if>>잡담</option>
-	 		<option value="질문" <c:if test="${article.category == '질문'}"> selected="selected"</c:if>>질문</option>
-		</select>
-	</p>
-
-	<p><label>조회수</label>${article.hits}</p>
-	
-	<p><label>추천수</label>${article.recommend}</p>
-
-	<p><label>내 용</label></p>
-
-	<p><textarea rows="20" cols="60" readonly="readonly" name="content">${article.content}</textarea></p>
+	<p><textarea rows="30" cols="100" readonly="readonly" name="content">${article.content}</textarea></p>
 
 	<p>
 		<input type="button" value="목록" class="raBtn">
@@ -38,11 +38,12 @@
 	</p>
 
 </div>
-
+<br><br>
+<h2 style="text-align:left;">Reply</h2>
 <div id="replyArea">
 	<p>
-		<textarea rows="1" cols="60" id="content"></textarea>
-		<input type="button" value="댓글쓰기" onclick="createReply(0);">
+		<textarea rows="5" cols="60" id="replyContent"></textarea>
+		<input type="button" value="댓글쓰기" onclick="createReply(0);" id="replyCreate">
 	</p>
 	<div id="replyList"></div>
 </div>
@@ -83,7 +84,7 @@
 			url:"createReply.do",
 			type:"post", 
 			data: {
-				"content" : $("#content").val(),
+				"content" : $("#replyContent").val(),
 				"articleNo" : ${article.articleNo},
 				"boardNo" : ${article.boardNo},
 				"parent" : parent,

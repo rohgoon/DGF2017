@@ -23,4 +23,5 @@ public interface ArticleListViewDao {
 	@Select("select count(article_no) from article_list_view where board_no = #{param1} && category = #{param2} order by article_no desc")
 	public int selectCountArticleListByBoardNoAndCategory(int boardNo, String category) throws SQLException;
 	
+	
 }
