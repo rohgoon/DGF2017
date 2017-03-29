@@ -23,6 +23,17 @@ body {
 	top: 0;
 }
 
+.header-up{
+	background: none;
+	color:black;
+}
+
+.header-down{
+	background: white;
+	border-bottom : 5px dotted #EDAEC4;
+	
+}
+
 /* -------------------------------NAV------------------------------- */
 #nav {
 	height: 100%;

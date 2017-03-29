@@ -21,9 +21,10 @@ public class CreateArticleHandler implements CommandHandler {
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		int boardNo = Integer.parseInt(req.getParameter("boardNo"));
 		SqlSession session = null;
+		User user = (User)req.getSession().getAttribute("auth");
+
 
 		if(req.getMethod().equalsIgnoreCase("get")){
-			User user = (User)req.getSession().getAttribute("auth");
 			req.setAttribute("uno", user.getUno());
 			req.setAttribute("boardNo", Integer.parseInt(req.getParameter("boardNo")));
 			return "/WEB-INF/view/article/createArticle.jsp";
@@ -34,7 +35,7 @@ public class CreateArticleHandler implements CommandHandler {
 				ArticleDao dao = session.getMapper(ArticleDao.class);
 				Article article = new Article();
 				article.setBoardNo(boardNo);
-				article.setUno(Integer.parseInt(req.getParameter("uno")));
+				article.setUno(user.getUno());
 				article.setTitle(req.getParameter("title"));
 				article.setContent(req.getParameter("content"));
 				article.setCategory(req.getParameter("category"));
