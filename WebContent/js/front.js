@@ -21,12 +21,6 @@
 		});
 	}
 
-	function showLoginDialog() {
-		$("#loginDialog").css({opacity: "0"});
-		$("#loginDialog").css("visibility", "visible");
-		$("#loginDialog").delay(200);
-		$("#loginDialog").animate({opacity: "1.0"},500);
-	}
 
 	function notLogin() {
 		$("#loginDialog").delay(200);

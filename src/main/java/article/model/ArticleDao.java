@@ -23,4 +23,13 @@ public interface ArticleDao {
 	
 	@Insert("insert into article(board_no, uno, title, content, category, write_time, attached_file) values(#{boardNo}, #{uno}, #{title}, #{content}, #{category}, #{writeTime}, #{attachedFile})")
 	public void insertArticle(Article article) throws SQLException;
+	
+	@Update("update article set hits = hits + 1  where board_no = #{param1} && article_no = #{param2}")
+	public void updateArticleHits(int boardNo, int articleNo) throws SQLException;
+	
+	@Insert("INSERT INTO dgf.articleRecList(board_no, article_no, uno) VALUES(#{param1}, #{param2}, #{param3})")
+	public void insertArticleRec(int boardNo, int articleNo, int uno) throws SQLException; 
+	
+	@Select("select count(uno) from articleRecList where board_no = #{param1} && article_no =#{param2}")
+	public int selectReplyRecCount(int boardNo, int articleNo) throws SQLException;
 }

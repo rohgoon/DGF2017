@@ -15,27 +15,20 @@ public class UserEditHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
+		
+		
 		if (req.getMethod().equalsIgnoreCase("get")) {
-			SqlSession session = null;
-			try {
-				int uno = Integer.parseInt(req.getParameter("uno"));
-				session = MySqlSessionFactory.openSession();
-				MemberDao memberDao = session.getMapper(MemberDao.class);
-				User user =memberDao.selectAllByUno(uno);
-				req.setAttribute("user", user);
-				String[] phoneArr = user.getPhone().split("-");
-				req.setAttribute("phone", phoneArr);
-			} finally {
-				session.close();
-			}
+			User sessionUser = (User)req.getSession().getAttribute("auth");
+			req.setAttribute("user", sessionUser);
+			String[] phoneArr = sessionUser.getPhone().split("-");
+			req.setAttribute("phone", phoneArr);
+			return "/WEB-INF/view/myinfo.jsp";
 			
 			
-			return "/WEB-INF/view/userEdit.jsp";
 		}else if (req.getMethod().equalsIgnoreCase("post")) {
 			int uno = Integer.parseInt(req.getParameter("uno"));
 			SqlSession session = null;
 			try {
-				session = MySqlSessionFactory.openSession();
 				session = MySqlSessionFactory.openSession();
 				MemberDao memberDao = session.getMapper(MemberDao.class);				
 				User user = new User();
@@ -53,6 +46,7 @@ public class UserEditHandler implements CommandHandler {
 						);
 				memberDao.updateInfoById(user);
 				session.commit();
+				req.getSession().invalidate();
 			} finally {
 				session.rollback();
 				session.close();

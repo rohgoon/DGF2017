@@ -201,6 +201,11 @@ textarea{
 	margin-right:10px;
 }
 
+#replyList ul li .replyContent{
+	border: none;
+}
+
+
 /*          1199 ~ 1025        */
 @media screen and (min-width:1025px) and (max-width:1199px) {
 	#innerNav {width: 240px;font-size: 2.5em;}

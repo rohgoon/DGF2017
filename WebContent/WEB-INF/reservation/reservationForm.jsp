@@ -56,6 +56,12 @@ td{
 		overflow:auto;
 		height: 1500px; 
 	}
+.result{
+	font-size: 3em !important;
+	font-family: 'Hanna', serif;
+	text-align: center;
+	line-height: 2em!important;
+}
 </style>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -194,7 +200,18 @@ td{
 			return false;		
 			
 		}); 
-		
+		$(document).on("click", ".result a", function() {
+			$("#innerContent").empty();
+			var lnk = $(this).attr("href");			
+			$.ajax({
+				url: lnk,
+				dataType:"html",
+				success:function(e){
+					$("#innerContent").html(e);						
+					}					
+				});
+			return false;	
+		});
 	});
 </script>
 </head>
