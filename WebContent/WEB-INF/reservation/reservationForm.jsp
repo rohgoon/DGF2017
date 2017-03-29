@@ -164,6 +164,19 @@ td{
 				});
 			return false;	
 		});
+		$(document).on("click", "#innerContent a#cancel", function() {
+			$("#innerContent").empty();
+			var lnk = $(this).attr("href");			
+			$.ajax({
+				url: lnk,
+				dataType:"html",
+				success:function(e){
+					$("#innerContent").html(e);						
+					}					
+				});
+			return false;	
+		});
+		
 		$(document).on("submit", "#innerContent form", function() {
 			$("#innerContent").empty();	
 			var lnk = $(this).attr("action");
