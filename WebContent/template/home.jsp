@@ -78,7 +78,7 @@
 	
 	<c:forEach var="item" items="${frontImgList }">
 		<div class="lineupList">
-			<a>${item.name }</a>
+			<%-- <a>${item.name }</a> --%>
 		</div>
 		
 		<script type="text/javascript">

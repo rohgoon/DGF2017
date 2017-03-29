@@ -31,7 +31,7 @@
 </head>
 <body>
 	<div id="wrapContent">
-		<form action="registerUpload.do" method="post" enctype="multipart/form-data">
+		<form action="registerUpload.do" method="post" enctype="multipart/form-data" class="lineUP">
 		<fieldset>			
 			<table>
 				<tr>
