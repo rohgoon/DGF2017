@@ -1,7 +1,5 @@
 package reservation.handler;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +11,8 @@ import festival.model.Seat;
 import festival.model.SeatDao;
 import mvc.controller.CommandHandler;
 import mvc.util.MySqlSessionFactory;
+import reservation.model.RCountView;
+import reservation.model.RCountViewDao;
 import reservation.model.Reservation;
 import reservation.model.ReservationDao;
 
@@ -21,22 +21,27 @@ public class ReservationCancelHandler implements CommandHandler {
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
 			int uno = Integer.parseInt(req.getParameter("uno"));
-			String rtimeString = req.getParameter("rtime");
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-			Date rtime = sdf.parse(rtimeString);
-			int seatNo = 0;
+			int rno = Integer.parseInt(req.getParameter("rno"));
+			
+			
+			int seatNo = Integer.parseInt(req.getParameter("sno"));
 			SqlSession session = null;
 			try {
 				session = MySqlSessionFactory.openSession();
+				RCountViewDao rCountViewDao = session.getMapper(RCountViewDao.class);
+				RCountView rCountView = rCountViewDao.selectListByRno(rno);
+				//System.out.println("출력테스트>>>>"+rno);
 				
-				Reservation reservationForDel = new Reservation();
+				Reservation reservationForDel = new Reservation();				
 				reservationForDel.setUno(uno);
-				reservationForDel.setRtime(rtime);
-				ReservationDao reservationDao = session.getMapper(ReservationDao.class);
+				reservationForDel.setRtime(rCountView.getRtime());
+				ReservationDao reservationDao = session.getMapper(ReservationDao.class);				
 				List<Reservation> reservationForDelList = reservationDao.selectAllByUnoAndRtime(reservationForDel);
+				
 				for (Reservation reservation : reservationForDelList) {
 					seatNo = reservation.getSno();
 					reservationDao.delectByRno(reservation.getRno());
+					
 				}
 				session.commit();// delete reservation
 				SeatDao seatDao = session.getMapper(SeatDao.class);// update seat.sold
@@ -56,7 +61,7 @@ public class ReservationCancelHandler implements CommandHandler {
 				session.close();
 			}
 			
-			return "reservationConfirm.do?uno="+uno;
+			return "reservationConfirm.do?uno="+uno+"";
 		
 	}
 

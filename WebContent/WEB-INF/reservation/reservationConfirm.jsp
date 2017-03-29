@@ -58,11 +58,11 @@
 								<label>가격 </label> ${item.price }<br>
 								<label>결제 시간</label> ${item.rtimeString }<br>
 								<label>티켓 수</label> ${item.howMany }매<br>
-								<input type="hidden" class="checkRtime" value="${item.rtimeString }">
+								<input type="hidden" name="checkRtime" value="${item.rtimeString }">
 							</div>
 							<br>
 							<div class="aBtn">
-								<a href="reservationCancel.do?uno=${item.uno }&rtime=${item.rtimeString}" id="cancel">[예매취소]</a>
+								<a href="reservationCancel.do?uno=${item.uno }&rno=${item.rno}&sno=${item.sno }" id="cancel">[예매취소]</a>
 							</div>
 							<hr>
 				</c:forEach>			

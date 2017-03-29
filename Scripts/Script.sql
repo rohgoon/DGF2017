@@ -438,6 +438,7 @@ DELETE from reservation;
 CREATE VIEW rCountView AS
 SELECT rno, fno, day, uno, sno, grade, price, rtime, COUNT(*) as howMany
 from reservationView
-GROUP by rtime;
+GROUP by rtime
+ORDER by rtime desc;
 
 drop VIEW rCountView;

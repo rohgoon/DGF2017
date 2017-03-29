@@ -5,5 +5,5 @@ import java.util.List;
 
 public interface RCountViewDao {
 	public List<RCountView> selectListByUno(int uno) throws SQLException;
-	
+	public RCountView selectListByRno(int rno) throws SQLException;
 }

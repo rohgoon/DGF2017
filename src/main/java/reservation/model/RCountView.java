@@ -73,7 +73,8 @@ public class RCountView {
 	}
 	public String getRtimeString(){
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-		return sdf.format(rtime);
+		String daySdf = sdf.format(rtime);
+		return daySdf;
 	}
 	public void setRtime(Date rtime) {
 		this.rtime = rtime;
