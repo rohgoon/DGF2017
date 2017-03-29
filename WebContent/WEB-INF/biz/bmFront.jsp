@@ -45,11 +45,12 @@
 					<th>총 티켓판매</th>
 					<th>총 매출</th>								
 				</tr>
+				<% int fNum =1; %>
 				<c:forEach var="item" items="${bmFestivals}"> <!-- 회차별 -->
 					<tr>						
 						<c:if test="${item.firstLine == true }">
 							<td rowspan="3">
-						  	${item.fno }회차
+						  	<%=fNum++ %>회차
 							</td>
 							<td rowspan="3">
 								${item.sdayString }~${item.edayString }

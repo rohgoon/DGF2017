@@ -47,19 +47,7 @@ body{
 			}
 		});
 	}
-	$(document).ready(function() {
-		$(window).scroll(function(){ 
-			console.log($(window).scrollTop);
-			/* if($(document).scrollTop == 30){
-				/* $("#hWrap").css("display", "none");
-				$("#nAndl").css("display", "block");
-			}else{
-				$("#nAndl").css("display", "none");
-				$("#hWrap").css("display", "block");
-				} */
-				
-			});  
-	});
+	
 </script>
 
 <title>DGF::Main</title>
