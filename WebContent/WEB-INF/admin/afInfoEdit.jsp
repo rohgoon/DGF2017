@@ -17,6 +17,7 @@
 				<input type="text" name="place" value="${fesInfo.place }">
 				<br><input type="submit" value="수정">			
 			</form>
+			<a href="afDel.do?fno=${fesInfo.fno }&fCount=${fCount}">삭제</a>
 			<hr>
 			<div class="daysWrap">
 						<table border="1">

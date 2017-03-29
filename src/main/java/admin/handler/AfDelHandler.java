@@ -10,6 +10,7 @@ import org.apache.ibatis.session.SqlSession;
 import biz.model.SeatDetailView;
 import biz.model.SeatDetailViewDao;
 import festival.model.DaysDao;
+import festival.model.FestivalDao;
 import festival.model.SeatDao;
 import lineup.model.LineupDao;
 import mvc.controller.CommandHandler;
@@ -48,6 +49,9 @@ public class AfDelHandler implements CommandHandler {
 				session.commit();
 				DaysDao daysDao = session.getMapper(DaysDao.class);				
 				daysDao.deleteDaysByFno(fno);
+				session.commit();
+				FestivalDao festivalDao = session.getMapper(FestivalDao.class);
+				festivalDao.deleteFestival(fno);
 				session.commit();
 			}
 			

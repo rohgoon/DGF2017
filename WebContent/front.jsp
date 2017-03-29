@@ -26,7 +26,8 @@ body{
 		font-family: font-family: 'Arca Majora 3 Heavy','12롯데마트행복Medium' !important;
 	}
 #nAndl{
-		display: none;
+	width:100%;
+	display: none;
 }
 </style>
 
@@ -46,6 +47,19 @@ body{
 			}
 		});
 	}
+	$(document).ready(function() {
+		$(window).scroll(function(){ 
+			console.log($(window).scrollTop);
+			/* if($(document).scrollTop == 30){
+				/* $("#hWrap").css("display", "none");
+				$("#nAndl").css("display", "block");
+			}else{
+				$("#nAndl").css("display", "none");
+				$("#hWrap").css("display", "block");
+				} */
+				
+			});  
+	});
 </script>
 
 <title>DGF::Main</title>

@@ -23,9 +23,10 @@
 		<typeAlias type="lineup.model.Lineup" alias="Lineup" />
 		<typeAlias type="lineup.model.LineupDetail" alias="LineupDetail"/>
 		<typeAlias type="article.model.Article" alias="Article"/>
-    <typeAlias type="article.model.ArticleListView" alias="ArticleList"/>
-    <typeAlias type="board.model.Board" alias="Board"/>
-    <typeAlias type="reply.model.Reply" alias="Reply"/>
+	    <typeAlias type="article.model.ArticleListView" alias="ArticleList"/>
+	    <typeAlias type="board.model.Board" alias="Board"/>
+	    <typeAlias type="reply.model.Reply" alias="Reply"/>
+	    <typeAlias type="reservation.model.RCountView" alias="RCountView" />
 	</typeAliases>
 
 	<environments default="development">
@@ -67,8 +68,9 @@
 		<mapper resource="mappers/LineupMapper.xml" />
 		<mapper resource="mappers/LineupDetailMapper.xml"/>
 		<mapper resource="mappers/ArticleMapper.xml"/>
-    <mapper resource="mappers/ArticleListViewMapper.xml"/>
-    <mapper resource="mappers/BoardMapper.xml"/>
-    <mapper resource="mappers/ReplyMapper.xml"/>
+	    <mapper resource="mappers/ArticleListViewMapper.xml"/>
+	    <mapper resource="mappers/BoardMapper.xml"/>
+	    <mapper resource="mappers/ReplyMapper.xml"/>
+	    <mapper resource="mappers/rCountViewMapper.xml"/>
 	</mappers>
 </configuration>
