@@ -18,7 +18,8 @@
 		}); // ajax
 	}
 	
-function writeArticle(){
+	// 게시물 작성
+	function writeArticle(){
 		
 		var uno = $("input[name='uno']").val();
 		var boardNo = $("input[name='boardNo']").val();
@@ -91,16 +92,35 @@ function writeArticle(){
 	}
 
 	// 게시물 수정
-	function updateArticle(obj){
+	function updateArticle(obj, articleNo, boardNo){
 		var btn = $(obj);
 		var title = $("input[name='title']");
 		var category = $("select[name='category']");
 		var content = $("textarea[name='content']");
 		
-		
 		if(btn.val() == "수정"){
 			btn.val("완료");
-			
+			title.removeAttr("readonly");
+			category.removeAttr("disabled");
+			content.removeAttr("readonly");
+			alert("게시물을 수정해주세요");
+		}else if(btn.val() == "완료"){
+			$.ajax({
+				url : "updateArticle.do",
+				type : "post",
+				data : {
+					"articleNo" : articleNo,
+					"boardNo" : boardNo,
+					"content" : content.val(),
+					"category" : category.val(),
+					"title" : title.val()
+						},
+				dateType: "html",
+				success:function(result){
+					alert("게시물 수정에 성공했습니다.");
+					loadBoard(boardNo);
+				}
+			});
 		}
 	}
 	
@@ -117,7 +137,7 @@ function writeArticle(){
 				dateType: "html",
 				success:function(result){
 					alert("게시물 삭제에 성공했습니다.");
-					location.replace("articleList.do?boardNo="+boardNo+"&rowNum=10&page=1");
+					loadBoard(boardNo);
 				}
 			});
 		}else{
