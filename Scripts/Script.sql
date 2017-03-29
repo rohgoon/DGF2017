@@ -272,13 +272,41 @@ GROUP by s2.fno) as totalcount
 from seatDetailView s1
 GROUP by fno,grade;
 
-
--- 일별 영업현황ver2
+-- 일별 영업현황ver3
+SELECT * from bmDayView;
+drop view bmDayView;
 CREATE VIEW bmDayView AS
 SELECT (SELECT COUNT(*)
+from s3View s3
+where DATE_FORMAT(s1.rtime, '%Y%m%d') = DATE_FORMAT(s3.rtime, '%Y%m%d')) as rowCount,
+DATE_FORMAT(rtime, '%Y%m%d') as ymdDate, YEAR(rtime) as year, MONTH(rtime) as month, DAY(rtime) as nowday,
+fno,count(*) as ticketcount, sum(price) as sumgradeprice ,grade, price,
+(SELECT sum(s2.price)
 from reservationView s2
-where DATE_FORMAT(s1.rtime, '%Y%m%d') = DATE_FORMAT(s2.rtime, '%Y%m%d') and not(s1.grade = s2.grade)
-GROUP by DATE_FORMAT(s2.rtime, '%Y%m%d'), grade) as rowCount,
+where DATE_FORMAT(s1.rtime, '%Y%m%d') = DATE_FORMAT(s2.rtime, '%Y%m%d')
+GROUP by DATE_FORMAT(s2.rtime, '%Y%m%d')) as totalPrice,
+(SELECT count(*)
+from reservationView s2
+where DATE_FORMAT(s1.rtime, '%Y%m%d') = DATE_FORMAT(s2.rtime, '%Y%m%d')
+GROUP by DATE_FORMAT(s2.rtime, '%Y%m%d')) as totalcount
+from reservationView s1
+GROUP by DATE_FORMAT(rtime, '%Y%m%d'),grade
+ORDER BY ymdDate desc, grade asc;
+
+-- 
+
+CREATE view s3View as
+SELECT *
+from reservationView s3
+GROUP by DATE_FORMAT(s3.rtime, '%Y%m%d'), s3.grade;
+
+SELECT *
+from s3View;
+
+
+SELECT (SELECT COUNT(*)
+from s3View s3
+where DATE_FORMAT(s1.rtime, '%Y%m%d') = DATE_FORMAT(s3.rtime, '%Y%m%d')) as rowCount,
 DATE_FORMAT(rtime, '%Y%m%d') as ymdDate, YEAR(rtime) as year, MONTH(rtime) as month, DAY(rtime) as nowday,
 fno,count(*) as ticketcount, sum(price) as sumgradeprice ,grade, price,
 (SELECT sum(s2.price)
