@@ -19,10 +19,8 @@
 	}
 	
 	// 게시물 작성
-	function writeArticle(){
-		
+	function writeArticle(boardNo){
 		var uno = $("input[name='uno']").val();
-		var boardNo = $("input[name='boardNo']").val();
 		var category = $("select[name='category']").val();
 		var title = $("input[name='title']").val();
 		var content = $("textarea[name='content']").val();

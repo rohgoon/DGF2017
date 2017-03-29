@@ -1,5 +1,14 @@
 /** <script> **/
 
+	$(window).scroll(function(){
+		if($(document).scrollTop() > 50){
+			$("#header").removeClass('header-up').addClass('header-down');
+		}else{
+			$("#header").removeClass('header-down').addClass('header-up'); 
+		}
+	});
+
+
 	function movepage(obj) {
 		var page = $(obj).html();
 		$.ajax({

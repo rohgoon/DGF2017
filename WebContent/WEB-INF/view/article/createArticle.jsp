@@ -26,8 +26,8 @@
 	<p><input type="file" name="attachedFile" style="text-align: left;"></p>
 
 	<p>
-		<input type="button" value="목록" class="raBtn" onclick="loadBoard(${article.boardNo})">
-		<input type="button" value="글쓰기" class="raBtn" onclick="writeArticle()">
+		<input type="button" value="목록" class="raBtn" onclick="loadBoard(${boardNo})">
+		<input type="button" value="글쓰기" class="raBtn" onclick="writeArticle(${boardNo})">
 	</p>
 
 </div>
