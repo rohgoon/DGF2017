@@ -1,19 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="css/common.css?ver=1">
-<link rel="stylesheet" type="text/css" href="css/reset.css?ver=1">
-<link rel="stylesheet" type="text/css" href="css/front.css?ver=1">
 <style type="text/css">
 @import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
 #innerContent {
 	width: 1000px;
-	height: 1600px; 
 	margin: 0 auto;
 	padding: 20px;
 	font-family: 'Hanna', serif;
@@ -63,15 +54,14 @@ td{
 	line-height: 2em!important;
 }
 </style>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">	
 	var seatDno = new Array();
 	var seatSno = new Array();	
-	var seatGrade =new Array(); 
-	var seatPrice =new Array(); 
-	var seatMax =new Array(); 
-	var seatSold =new Array();
+	var seatGrade = new Array(); 
+	var seatPrice = new Array(); 
+	var seatMax = new Array(); 
+	var seatSold = new Array();
 	var seatLast;
 	var uname = '${user.uname }';
 	var id = '${user.id }';
@@ -273,12 +263,9 @@ td{
 				</tr>
 				<tr>
 					<th colspan="2">
-						<input type="submit" value="결제 완료" id="btnOk"
-				disabled="disabled"> / <input type="reset" value="취소"
-				id="btnBack">
+						<input type="submit" value="결제 완료" id="btnOk" disabled="disabled"> / <input type="reset" value="취소" id="btnBack">
 					</th>
-				</tr>
-			
+				</tr>	
 			</table>
 		</form>
 		</div>
