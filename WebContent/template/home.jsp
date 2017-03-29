@@ -33,8 +33,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="css/reset.css?ver=4">
-<link rel="stylesheet" type="text/css" href="css/common.css?ver=4">
 <style type="text/css">
 	body{
 		font-family: 'Arca Majora 3 Heavy','12롯데마트행복Medium' !important;
