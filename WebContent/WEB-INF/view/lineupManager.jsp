@@ -11,12 +11,26 @@
 	table {
 		border: 1px solid #000000;
 		border-collapse: collapse;
+		
 	}
 	
-	tr,td,th{
+	td,th{
 		border: 1px solid #000000;
+		vertical-align: middle !important;
 	}
-	
+	#tdContent{
+		text-align: center;
+		width: 240px;
+		height: 100px;
+		overflow: auto;
+		font-size: 0.8em;
+	}
+	.tdContent{
+		width: 250px;
+	}
+	.tdSimple{
+		width: 50px !important;
+	}
 </style>
 </head>
 <body>
@@ -24,8 +38,8 @@
 		<div class="subNavInner">
 			<table>
 				<tr>
-					<th>출연진 번호</th>
-					<th>일정 번호</th>
+					<th>출연진<br>번호</th>
+					<th>일정<br>번호</th>
 					<th>아티스트<br>이름</th>
 					<th>아티스트<br>설명</th>
 					<th>대표곡<br>1</th>
@@ -36,10 +50,14 @@
 				
 			<c:forEach var="item" items="${viewList }">
 				<tr>
-					<td><a href="lineupSelected.do?lno=${item.lno }">${item.lno }</a></td>
-					<td>${item.dno }</td>
-					<td>${item.aname }</td>
-					<td>${item.contents }</td>
+					<td class="tdSimple"><a href="lineupSelected.do?lno=${item.lno }">${item.lno }</a></td>
+					<td class="tdSimple">${item.dno }</td>
+					<td class="tdSimple">${item.aname }</td>
+					<td class="tdContent">
+						<div id="tdContent">
+						${item.contents }
+						</div>
+					</td>
 					<td>${item.song1 }</td>
 					<td>${item.song2 }</td>
 					<td>${item.song3 }</td>

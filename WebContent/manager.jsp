@@ -180,7 +180,7 @@
 		<div id="subNav">		
 		</div>
 		<div id="innerContent">
-			<img alt="" src="img/poster_V1.png" id="imgPoster">
+			<img alt="" src="img/office.jpeg" id="imgPoster">
 		</div>
 	</div>
 	
