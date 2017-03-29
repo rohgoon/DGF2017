@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="css/reset.css?ver=1">
-<link rel="stylesheet" type="text/css" href="css/common.css">
+<link rel="stylesheet" type="text/css" href="css/common.css?ver=1">
 <style type="text/css">
 	/*-------------------------- div type list css --------------------------*/
 	.outter{
@@ -95,9 +95,9 @@
 		width: 100%;
 		height: 90px;
 		text-align: center;
-		background-color: #CA6AE6;
+		background-color: #E91E63;
 		color: #ffffff;
-		border-bottom: 20px solid #EE99FD;
+		border-bottom: 20px solid #FDEFF4;
 		font-size: 30px;
 		line-height: 100px;
 	}
@@ -106,9 +106,9 @@
 		width: 100%;
 		height: 90px;
 		text-align: center;
-		background-color: #CA6AE6;
+		background-color: #E91E63;
 		color: #ffffff;
-		border-bottom: 20px solid #EE99FD;
+		border-bottom: 20px solid #FDEFF4;
 		font-size: 30px;
 		line-height: 100px;
 	}
@@ -117,9 +117,9 @@
 		width: 100%;
 		height: 90px;
 		text-align: center;
-		background-color: #CA6AE6;
+		background-color: #E91E63;
 		color: #ffffff;
-		border-bottom: 20px solid #EE99FD;
+		border-bottom: 20px solid #FDEFF4;
 		font-size: 30px;
 		line-height: 100px;
 	}

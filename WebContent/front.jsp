@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="css/common.css">
 <link rel="stylesheet" type="text/css" href="css/reset.css">
 <link rel="stylesheet" type="text/css" href="css/loginBox.css">
-<link rel="stylesheet" type="text/css" href="css/front.css?ver=1">
+<link rel="stylesheet" type="text/css" href="css/front.css?">
 <link rel="stylesheet" type="text/css" href="css/community.css">
 
 <style type="text/css">
@@ -25,6 +25,10 @@ body {
 body{
 		font-family: font-family: 'Arca Majora 3 Heavy','12롯데마트행복Medium' !important;
 	}
+	
+#footer{
+	
+}
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -73,9 +77,9 @@ body{
 			<jsp:include page="template/home.jsp" ></jsp:include>
 		</div>
 
-		<%-- <div id="footer">
+		<div id="footer">
 			<jsp:include page="template/footer.jsp"></jsp:include>
-		</div> --%>
+		</div>
 	</div>
 </body>
 </html>
