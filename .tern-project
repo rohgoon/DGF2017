@@ -1,9 +1,7 @@
 {
-  "ecmaVersion": 6,
   "libs": [
     "browser",
     "jquery"
-<<<<<<< HEAD
   ],
   "plugins": {
     "browser-extension": {
@@ -12,8 +10,6 @@
     "jquery-extension": {
       
     }
-  }
-=======
-  ]
->>>>>>> refs/remotes/origin/hak6
+  },
+  "ecmaVersion": 6
 }

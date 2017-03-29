@@ -11,7 +11,7 @@
 <%
 	String uploadPath = request.getRealPath("upload");
 	File dir = new File(uploadPath);
-	
+	System.out.print(uploadPath);
 	try{
 		
 		File[] files = dir.listFiles();

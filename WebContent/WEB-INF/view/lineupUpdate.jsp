@@ -25,7 +25,7 @@
 </head>
 <body>
 <div id="wrapContent">
-	<form action="lineupUpdate.do?lno=${updateLineup.lno }" method="post" enctype="multipart/form-data" id="lineUP">
+	<form action="lineupUpdate.do?lno=${updateLineup.lno }" method="post" enctype="multipart/form-data" class="lineUP">
 		<fieldset>
 			<table>
 				<tr>
