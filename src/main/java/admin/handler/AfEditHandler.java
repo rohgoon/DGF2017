@@ -25,12 +25,14 @@ public class AfEditHandler implements CommandHandler {
 		
 		if (req.getMethod().equalsIgnoreCase("get")) {
 			//form으로 던질 것 준비
-			int fno = Integer.parseInt(req.getParameter("fno"));
-			int fCount =Integer.parseInt(req.getParameter("fCount"));
+			//int fno = Integer.parseInt(req.getParameter("fno"));
+			//int fCount =Integer.parseInt(req.getParameter("fCount"));
 			SqlSession session = null;
 			try {
 				session = MySqlSessionFactory.openSession();
 				FestivalDao festivalDao = session.getMapper(FestivalDao.class);
+				int fno= festivalDao.selectMaxFno();
+				int fCount = festivalDao.selectCountAll();
 				Festival festival = festivalDao.selectListByFno(fno);
 				req.setAttribute("fesInfo", festival);
 				req.setAttribute("fCount", fCount);
@@ -65,6 +67,7 @@ public class AfEditHandler implements CommandHandler {
 			try {
 				session = MySqlSessionFactory.openSession();
 				FestivalDao festivalDao = session.getMapper(FestivalDao.class);
+				
 				Festival festival = festivalDao.selectListByFno(fno);
 				festival.setPlace(place);
 				festivalDao.updateFestival(festival);

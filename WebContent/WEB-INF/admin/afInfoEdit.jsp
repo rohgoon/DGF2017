@@ -7,6 +7,14 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#afDelBtn").click(function() {
+			location.href = "afDel.do?fno=${fesInfo.fno }&fCount=${fCount}";
+		});
+	});
+
+</script>
 </head>
 <body>
 	<div id="wrapContent">
@@ -15,9 +23,9 @@
 			<form action="afEdit.do?fno=${fesInfo.fno }" method="post">				
 				<label for="place">장소</label>
 				<input type="text" name="place" value="${fesInfo.place }">
-				<br><input type="submit" value="수정">			
+				<br><input type="submit" value="행사 수정"> / <input type="reset" value="행사 삭제" id="afDelBtn"> 	
 			</form>
-			<a href="afDel.do?fno=${fesInfo.fno }&fCount=${fCount}">삭제</a>
+			
 			<hr>
 			<div class="daysWrap">
 						<table border="1">
