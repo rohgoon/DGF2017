@@ -29,7 +29,7 @@
 	<p>
 		<input type="button" value="목록" class="raBtn" onclick="loadBoard(${article.boardNo})">
 		<c:if test="${article.uno == sessionScope.auth.uno}">
-			<input type="button" value="수정" onclick="updateArticle(this);" class="raBtn">
+			<input type="button" value="수정" onclick="updateArticle(this, ${article.articleNo}, ${article.boardNo});" class="raBtn">
 			<input type="button" value="삭제" onclick="deleteArticle(${article.articleNo}, ${article.boardNo});" class="raBtn">
 		</c:if>
 		<input type="button" value="추천하기" class="raBtn" onclick="recommendArticle(${article.boardNo}, ${article.articleNo}, ${auth.uno})">
