@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="css/community.css">
 <style type="text/css">
 @font-face {
-	font-family: 'Arca Majora 3 Heavy';
+	font-family: 'Arca Majora 3 Heavy'; 
 	src: url(font/ArcaMajora3-Heavy.otf);
 }
 
