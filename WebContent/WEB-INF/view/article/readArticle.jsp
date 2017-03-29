@@ -4,7 +4,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <div id="articleContent">
-
 	<div id="aInfo">
 		<p> 
 			<input type="text" value="${article.title}" name="title" readonly="readonly">
@@ -28,32 +27,32 @@
 	<p><textarea rows="30" cols="100" readonly="readonly" name="content">${article.content}</textarea></p>
 
 	<p>
-		<input type="button" value="목록" class="raBtn">
+		<input type="button" value="목록" class="raBtn" onclick="loadBoard(${article.boardNo})">
 		<c:if test="${article.uno == sessionScope.auth.uno}">
 			<input type="button" value="수정" onclick="updateArticle(this);" class="raBtn">
-			<input type="button" value="삭제" onclick="deleteArticle();" class="raBtn">
+			<input type="button" value="삭제" onclick="deleteArticle(${article.articleNo}, ${article.boardNo});" class="raBtn">
 		</c:if>
-		<input type="button" value="추천하기" class="raBtn">
-		<input type="button" value="글쓰기" class="raBtn">
+		<input type="button" value="추천하기" class="raBtn" onclick="recommendArticle(${article.boardNo}, ${article.articleNo}, ${auth.uno})">
+		<input type="button" value="글쓰기" class="raBtn" onclick="createArticle(${article.boardNo})">
 	</p>
 
 </div>
 <br><br>
 <h2 style="text-align:left;">Reply</h2>
 <div id="replyArea">
+
 	<p>
 		<textarea rows="5" cols="60" id="replyContent"></textarea>
-		<input type="button" value="댓글쓰기" onclick="createReply(0);" id="replyCreate">
+		<input type="button" value="댓글쓰기" onclick="createReply(0, ${article.articleNo}, ${article.boardNo});" id="replyCreate">
 	</p>
-	<div id="replyList"></div>
+	
+	<div id="replyList">
+	
+	</div>
 </div>
 
 
 
-
-
-
-<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>
  	$.ajax({
 		url:"readReply.do",
@@ -67,68 +66,4 @@
 			$("#replyList").html(result);
 		}
 	});	 
-	
-
-	
-	function createReply(parent){
-		var parent;
-		var indent;
-		
-		if(parent = 0){
-			indent = 0;
-		}else{
-			indent = 1;
-		}
-		
-		$.ajax({
-			url:"createReply.do",
-			type:"post", 
-			data: {
-				"content" : $("#replyContent").val(),
-				"articleNo" : ${article.articleNo},
-				"boardNo" : ${article.boardNo},
-				"parent" : parent,
-				"indent" : indent
-			},
-			dateType: "html",
-			success:function(result){
-				alert("댓글작성에 성공했습니다.");
-				$("#replyList").html(result);
-			}
-		});	
-	}
-	
-	function deleteArticle(){
-		if(confirm("정말 삭제하시겠습니까?") == true){
-			$.ajax({
-				url : "deleteArticle.do",
-				type : "post",
-				data : {
-					"articleNo" : ${article.articleNo},
-					"boardNo" : ${article.boardNo}
-						},
-				dateType: "html",
-				success:function(result){
-					alert("게시물 삭제에 성공했습니다.");
-					location.replace("articleList.do?boardNo="+${article.boardNo}+"&rowNum=10&page=1");
-				}
-			});
-		}else{
-			return;
-		}
-	}//deleteArticle
-	
-	function updateArticle(obj){
-		var btn = $(obj);
-		var title = $("input[name='title']");
-		var category = $("select[name='category']");
-		var content = $("textarea[name='content']");
-		
-		
-		if(btn.val() == "수정"){
-			btn.val("완료");
-			
-		}
-		
-	}
 </script>

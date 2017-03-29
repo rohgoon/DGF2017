@@ -56,20 +56,15 @@
 
 	<p class="tRow cRow">
 		<c:if test="${startPage >= 10}">
-			<a href="javascript:void(0);"
-				onclick="pageMove(${boardNo}, ${page-10}, ${rowNum});">[이전]</a>
+			<a href="javascript:void(0);" onclick="pageMove('${category}', ${boardNo}, ${page-10}, ${rowNum});">[이전]</a>
 		</c:if>
 
 		<c:forEach begin="${startPage}" end="${endPage}" var="page">
-			<a href="javascript:void(0);"
-				onclick="pageMove(${boardNo}, ${page}, ${rowNum});">[${page}]</a>
+			<a href="javascript:void(0);" onclick="pageMove('${category}', ${boardNo}, ${page}, ${rowNum});">[${page}]</a>
 		</c:forEach>
 
 		<c:if test="${endPage < totalPage}">
-			<a href="javascript:void(0);"
-				onclick="pageMove(${boardNo}, ${startPage+10}, ${rowNum});">[다음]</a>
-			<a
-				href="articleList.do?boardNo=${boardNo}&page=${startPage+10}&rowNum=${rowNum}">[다음]</a>
+			<a href="javascript:void(0);" onclick="pageMove('${category}', ${boardNo}, ${startPage+10}, ${rowNum});">[다음]</a>
 		</c:if>
 	</p>
 
@@ -83,11 +78,20 @@
 			<option val="titlecontent">제목+내용</option>
 			<option val="content">내용</option>
 			<option val="name">작성자</option>
-		</select> <input type="search" name="search"> <input type="button"
-			value="검색"> <input type="button" value="글쓰기"
-			onclick="createArticle(${boardNo});">
+		</select> 
+		<input type="search" name="search"> 
+		<input type="button" value="검색" onclick="searchArticle(${boardNo})"> 
+		<input type="button" value="글쓰기" onclick="createArticle(${boardNo});">
 	</p>
 </div>
+
+
+
+
+
+
+
+
 <script>
 $(function(){
 	
@@ -141,83 +145,4 @@ $(function(){
 	
 	});
 });
-
-
-function pageMove(boardNo, page, rowNum){
-	var category = "${category}";
-	
-	if(category == null || category == "카테고리" || category == "전체"){
-		$.ajax({
-			url : "articleList.do",
-			type : "get",
-			data : {
-				"boardNo" : boardNo,
-				"rowNum" : rowNum,
-				"page" : page
-			},
-			dateType : "html",
-			success : function(result) {
-				$("#community").html(result);
-			},
-			error : function(){
-				alert("에러 발생 다시 시도해주세요");
-			}
-		}); // ajax
-	}else{
-		$.ajax({
-			url : "articleList.do",
-			type : "get",
-			data : {
-				"boardNo" : boardNo,
-				"rowNum" : rowNum,
-				"page" : page,
-				"category" : category
-			},
-			dateType : "html",
-			success : function(result) {
-				$("#community").html(result);
-			},
-			error : function(){
-				alert("에러 발생 다시 시도해주세요");
-			}
-		}); // ajax
-	}
-}
-
-
-function createArticle(boardNo){
-	$.ajax({
-		url : "createArticle.do",
-		type : "get",
-		data : {
-			"boardNo" : boardNo
-		},
-		dateType : "html",
-		success : function(result) {
-			$("#community").html(result);
-		},
-		error : function(){
-			alert("회원만 게시물을 작성할 수 있습니다. 로그인해주세요.");
-		}
-	}); // ajax
-}
-
-function showArticle(boardNo, articleNo){
-	$.ajax({
-		url : "article.do",
-		type : "get",
-		data : {
-			"boardNo" : boardNo,
-			"articleNo" : articleNo
-		},
-		dateType : "html",
-		success : function(result) {
-			$("#community").html(result);
-		},
-		error : function(){
-			alert("에러");
-		}
-	}); // ajax			
-}
-
 </script>

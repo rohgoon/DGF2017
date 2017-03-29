@@ -18,6 +18,10 @@ public class ArticleListView {
 	private int uno;
 	private String id;
 	private String name;
+	private String content;
+	
+	
+
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	
 	public ArticleListView(){}
@@ -51,18 +55,6 @@ public class ArticleListView {
 		this.id = id;
 		this.name = name;
 	}
-	
-	
-	
-	
-	@Override
-	public String toString() {
-		return "ArticleListView [boardNo=" + boardNo + ", boardName=" + boardName + ", articleNo=" + articleNo
-				+ ", category=" + category + ", title=" + title + ", writeTime=" + writeTime + ", hits=" + hits
-				+ ", recommend=" + recommend + ", attechedFile=" + attechedFile + ", uno=" + uno + ", id=" + id
-				+ ", name=" + name + "]";
-	}
-
 
 	public int getBoardNo() {
 		return boardNo;
@@ -136,5 +128,12 @@ public class ArticleListView {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
 	}
 }

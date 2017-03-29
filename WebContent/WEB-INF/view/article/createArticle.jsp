@@ -1,51 +1,34 @@
-<%@page import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@ page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<body>
-		<p>
-			<input type="text" name="uno" placeholder="userID" readonly="readonly" value="${uno}" style="display: none;">
-			<input type="text" name="boardNo" placeholder="boardNo" readonly="readonly" value="${boardNo}" style="display: none;">
-			<select name="category">
-				<option value="전체">카테고리</option>
-				<option value="공지사항">공지사항</option>
-				<option value="잡담">잡담</option>
-				<option value="질문">질문</option>
-			</select>
-			<input type="text" name="title" placeholder="제목을 입력해주세요">
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<div id="articleContent">
+	<div id="aInfo">
+		<p> 
+			<input type="text" name="title" placeholder="제목을 입력하세요">
+			<span>
+				<label class="lblRow">카테고리</label> 
+				<select name="category">
+					<option value="공지사항">공지사항</option>
+					<option value="잡담">잡담</option>
+			 		<option value="질문">질문</option>
+				</select>
+			</span>
 		</p>
-		<p><textarea rows="15" cols="40" name="content" placeholder="내용을 입력해주세요"></textarea>
-		<p><input type="file" name="attachedFile"></p>
-		<p><input type="submit" value="등록" onclick=createArticle();><input type="button" value="취소" onclick="loadBoard(${boardNo});"></p>
-</body>
-<script>
-	function createArticle(){
 		
-		var uno = $("input[name='uno']").val();
-		var boardNo = $("input[name='boardNo']").val();
-		var category = $("select[name='category']").val();
-		var title = $("input[name='title']").val();
-		var content = $("textarea[name='content']").val();
-		var attachedFile = $("input[name='attachedFile']").val();
-		
-		$.ajax({
-			url:"createArticle.do",
-			type:"post", 
-			data: {
-				"uno" : uno,
-				"boardNo" : boardNo,
-				"category" : category,
-				"title" : title,
-				"content" : content,
-				"attachedFile" : attachedFile
-			},
-			dateType: "html",
-			success:function(result){
-				alert("게시물을 작성했습니다.");
-				$("#community").html(result);
-			},
-			error:function(){
-				alert("회원만 작성할 수 있습니다.");
-			}
-		});	
-	} // createArticle
-</script>
+		<p>
+			<span>글쓴이 : ${auth.uname}(${auth.id})</span>
+		</p>
+	</div>
+
+	<p><textarea rows="30" cols="100" name="content"></textarea></p>
+	<p><input type="file" name="attachedFile" style="text-align: left;"></p>
+
+	<p>
+		<input type="button" value="목록" class="raBtn" onclick="loadBoard(${article.boardNo})">
+		<input type="button" value="글쓰기" class="raBtn" onclick="writeArticle()">
+	</p>
+
+</div>
+

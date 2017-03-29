@@ -9,4 +9,10 @@
 	<a onclick="logOut();">LOG-OUT</a>
 </c:if>
 
-<a onclick="showJoinDialog();">JOIN-US</a>
+<c:if test="${empty auth}">
+	<a onclick="showJoinDialog();">JOIN-US</a>
+</c:if>
+<c:if test="${!empty auth}">
+	<a onclick="showMyInfoDialog();">MY-INFO</a>
+</c:if>
+

@@ -52,19 +52,7 @@ function notLogin(){
 	location.href = "front.jsp";
 }
 
-function goJoin(){
-	$.ajax({
-		url : "join.do",
-		type : "get",
-		dateType : "html",
-		success : function(result) {
-			$(".loginBox").css({opacity: "0"});
-			$(".loginBox").html(result);
-			$(".loginBox").delay(500);
-			$(".loginBox").animate({opacity: "1.0"},500);
-		}
-	});
-}
+
 
 function backToLogin(){
 	$.ajax({
@@ -151,7 +139,55 @@ function checkJoinId(obj){
 	});
 }
 
-function showJoinDialog(){
-	
+function showLoginDialog() {
+	$("#loginDialog").css({opacity: "0"});
+	$("#loginDialog").css("visibility", "visible");
+	$("#loginDialog").delay(200);
+	$("#loginDialog").animate({opacity: "1.0"},500);
 }
+
+function showJoinDialog(){
+	$("#loginDialog").css({opacity: "0"});
+	$("#loginDialog").css("visibility", "visible");
+	$("#loginDialog").delay(200);
+	$("#loginDialog").animate({opacity: "1.0"},500);
+	goJoin();
+}
+
+function showMyInfoDialog(){
+	$("#loginDialog").css({opacity: "0"});
+	$("#loginDialog").css("visibility", "visible");
+	$("#loginDialog").delay(200);
+	$("#loginDialog").animate({opacity: "1.0"},500);
+	goMyInfo();
+}
+
+function goMyInfo(){
+	$.ajax({
+		url : "userEdit.do",
+		type : "get",
+		dateType : "html",
+		success : function(result) {
+			$(".loginBox").css({opacity: "0"});
+			$(".loginBox").html(result);
+			$(".loginBox").delay(500);
+			$(".loginBox").animate({opacity: "1.0"},500);
+		}
+	});
+}
+
+function goJoin(){
+	$.ajax({
+		url : "join.do",
+		type : "get",
+		dateType : "html",
+		success : function(result) {
+			$(".loginBox").css({opacity: "0"});
+			$(".loginBox").html(result);
+			$(".loginBox").delay(500);
+			$(".loginBox").animate({opacity: "1.0"},500);
+		}
+	});
+}
+
 /** </script> * */

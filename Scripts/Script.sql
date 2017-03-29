@@ -433,3 +433,12 @@ left join days d on l.dno = d.dno
 left join fesinfo f on d.fno = f.fno;
 
 select * from linupDetailView;
+
+
+select * from article;
+
+update article 
+set hits = hits + 1 
+where board_no = 6 && article_no = 1;
+
+select hits from article where board_no = 6 && article_no = 1;
