@@ -260,17 +260,18 @@ ORDER BY ymdDate desc, grade asc;
 DROP VIEW bmFesInfoView;
 CREATE VIEW bmFesInfoView AS
 SELECT DATE_FORMAT(day, '%Y-%m-%d') as ymdDate, fno, sday, eday,
-grade,price,count(*) as ticketcount, sum(price) as sumgradeprice ,
-(SELECT sum(s2.price)
+grade,price, sum(soldseat) as ticketcount, (price*sum(soldseat)) as sumgradeprice ,
+(SELECT sum(price*soldseat)
 from seatDetailView s2
 where s1.fno = s2.fno
 GROUP by s2.fno) as totalPrice,
-(SELECT count(*)
+(SELECT sum(soldseat)
 from seatDetailView s2
 where s1.fno = s2.fno
 GROUP by s2.fno) as totalcount
 from seatDetailView s1
 GROUP by fno,grade;
+
 
 -- 일별 영업현황ver2
 CREATE VIEW bmDayView AS
