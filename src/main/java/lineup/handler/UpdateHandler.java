@@ -1,8 +1,6 @@
 package lineup.handler;
 
 import java.io.File;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Enumeration;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +15,6 @@ import lineup.model.Lineup;
 import lineup.model.LineupDao;
 import mvc.controller.CommandHandler;
 import mvc.util.MySqlSessionFactory;
-
 public class UpdateHandler implements CommandHandler{
 
 	@Override
@@ -50,6 +47,7 @@ public class UpdateHandler implements CommandHandler{
 			String origfilename2 = "";
 			String keyfile1 = "";
 			String keyfile2 = "";
+			
 			
 			try{
 				int size = 1024*1024*10;

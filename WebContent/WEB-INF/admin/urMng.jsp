@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div class="subNavInner">
   <table border="1">
   	<tr>
   		<th>유저번호</th>
@@ -32,5 +33,6 @@
   	<tr>
   	</c:forEach>  
   </table>
+ </div>
 </body>
 </html>

@@ -42,10 +42,12 @@ public class AfNewHandler implements CommandHandler {
 				return null;
 			case 2:
 				nullPoint();
+				
 				place = req.getParameter("place");									
 				String[] grade = req.getParameterValues("grade");
 				String[] price = req.getParameterValues("price");
 				String[] ticket = req.getParameterValues("ticket");
+				System.out.println("체크>>>>>>>"+grade[0]);
 				gradeList =new ArrayList<>();
 				priceList =new ArrayList<>();
 				ticketList =new ArrayList<>();

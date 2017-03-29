@@ -13,15 +13,19 @@ public class PageHandler implements CommandHandler  {
 		
 		String page = req.getParameter("page");
 		User auth = (User)req.getSession().getAttribute("auth");
+		
+		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+		System.out.println(page);
 
 		if(page.equalsIgnoreCase("home")){
-			return "template/home.jsp";
+			return "frontList.do";
 		}else if(page.equalsIgnoreCase("line-up")){
 			return "lineupList.do";
 		}else if(page.equalsIgnoreCase("tickets")){
 			return "reservation.do?fesno=4&id=" + auth.getId();
 		}else if(page.equalsIgnoreCase("info")){
-			return "festivalList.do";
+			/*return "festivalList.do";*/
+			return "lineupDetail.do";
 		}else if(page.equalsIgnoreCase("community")){
 			return "community.do";
 		}else if(page.equalsIgnoreCase("manager")){

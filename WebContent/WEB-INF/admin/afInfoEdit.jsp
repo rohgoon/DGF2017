@@ -9,7 +9,7 @@
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
 <body>
-	<div>
+	<div id="wrapContent">
 		<div id="list">
 			${fCount }회차 행사 장소 수정<br>
 			<form action="afEdit.do?fno=${fesInfo.fno }" method="post">				
@@ -19,7 +19,6 @@
 			</form>
 			<hr>
 			<div class="daysWrap">
-						${fCount }회차 상세 정보
 						<table border="1">
 							<tr>
 								<th>세부 일자</th>

@@ -29,7 +29,8 @@ tr:LAST-CHILD td{
 	});
 </script>
 </head>
-<body>	<div id="wrapContent">
+<body>	
+<div id="wrapContent">
 		<div class="bmContent">
 			<table>
 				<tr>

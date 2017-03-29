@@ -17,7 +17,7 @@ public class SeatDelHandler implements CommandHandler {
 		if (req.getMethod().equalsIgnoreCase("get")) {			
 			return "/WEB-INF/admin/adminFestivalForm.jsp";
 		}else if (req.getMethod().equalsIgnoreCase("post")) {
-			int sno = Integer.parseInt(req.getParameter("no"));
+			int sno = Integer.parseInt(req.getParameter("sno"));
 			SqlSession session = null;
 			try {
 				session = MySqlSessionFactory.openSession();

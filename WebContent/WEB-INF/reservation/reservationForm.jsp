@@ -10,19 +10,13 @@
 <link rel="stylesheet" type="text/css" href="css/reset.css?ver=1">
 <link rel="stylesheet" type="text/css" href="css/front.css?ver=1">
 <style type="text/css">
-@font-face {
-	font-family: 'Arca Majora 3 Heavy';
-	src: url(font/ArcaMajora3-Heavy.otf);
-}
-
-body {
-	font-family: 'Arca Majora 3 Heavy', '12롯데마트행복Medium';
-}
-
+@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
 #innerContent {
 	width: 1000px;
+	height: 1600px; 
 	margin: 0 auto;
 	padding: 20px;
+	font-family: 'Hanna', serif;
 }
 
 #titleP {
@@ -35,6 +29,33 @@ body {
 	width: 120px;
 	border-right: 1px solid black;
 }
+table {
+		border-collapse: collapse;
+		margin:0 auto;
+		table-layout: fixed !important;
+		width:600px !important;
+		margin-left: 0 !important;
+	}
+table th, td{
+		border: 1px solid black;
+	}
+	
+th {
+		background-color: #FFD9FA;
+		padding:5px;
+		height:30px;
+		table-layout: fixed;
+		width: 120px !important;
+	}
+	
+td{
+		padding: 5px;
+	}
+
+#wrapContent{
+		overflow:auto;
+		height: 1500px; 
+	}
 </style>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -116,41 +137,121 @@ body {
 			return false;
 		} 
 	});
+	$(document).ready(function() {
+		$(document).on("click", "#innerNav a#rdo", function() {//
+			$("#innerContent").empty();	
+			var lnk = $(this).attr("href");			
+			$.ajax({
+				url: lnk,
+				dataType:"html",
+				success:function(data){
+					var resHtml =$(data).find("#wrapContent").html();
+					$("#innerContent").delay(50);	
+					$("#innerContent").html(resHtml);
+					}					
+				});
+			return false;	
+		});
+		$(document).on("click", "#innerNav a#rcfdo", function() {
+			$("#innerContent").empty();
+			var lnk = $(this).attr("href");			
+			$.ajax({
+				url: lnk,
+				dataType:"html",
+				success:function(e){
+					$("#innerContent").html(e);						
+					}					
+				});
+			return false;	
+		});
+		$(document).on("submit", "#innerContent form", function() {
+			$("#innerContent").empty();	
+			var lnk = $(this).attr("action");
+			var res = $(this).serialize();
+			$.ajax({
+				url: lnk,
+				type:"post",
+				data:res,
+				dataType:"html",
+				success:function(e){
+					$("#innerContent").delay(100);
+					$("#innerContent").html(e);	
+					}					
+				});
+			return false;		
+			
+		}); 
+		
+	});
 </script>
 </head>
 <body>
 	<div id="innerNav">
-		<a href="reservation.do?fesno=4&id=${auth.id}">예매</a>
-		<!-- 임시로 fesno 지정 -->
-		<a href="reservationConfirm.do?uno=${user.uno }">예매 확인</a>
+		<a href="reservation.do?fesno=4&id=${auth.id}" id="rdo">예매</a>		
+		<a href="reservationConfirm.do?uno=${user.uno }" id="rcfdo">예매 확인</a>
 	</div>
 	
 	<div id="innerContent">
+		<div id="wrapContent">
 		<form action="reservation.do" method="post">
+		
 			<input type="hidden" name="uno" value="${user.uno }">
 			<p id="titleP">
 				환영합니다 ${user.uname } 고객님<br> 제 ${param.fesno }회 대구 걸그룹 페스티벌 예매
 			</p>
-			<label>일정 선택 </label> <select name="fesSelect" id="fesSelect">
-				<c:forEach var="daysItem" items="${daysInfo }">
-					<option value="${daysItem.dno }">${daysItem.dayString }=>
-						${daysItem.stime } ~ ${daysItem.etime }</option>
-				</c:forEach>
-			</select> <br> <label>티켓 등급 </label> <select name="seatSelect"
-				id="seatSelect">
-				<option>일정을 먼저 선택해 주세요.</option>
-			</select> <br>
-			<div id="money">원하는 티켓 등급을 선택해 주세요.</div>
-			<label>매수</label><input type="number" name="howMany" id="howMany"
-				min="1" disabled="disabled"> <br> <label>결제 수단
-				선택</label> <select name="pay" id="pay">
-				<option value="card">신용카드</option>
-				<option value="bank">계좌이체</option>
-				<option value="cacaoPay">카카오페이</option>
-			</select><br> <input type="submit" value="결제 완료" id="btnOk"
-				disabled="disabled"> <input type="reset" value="취소"
+			<br>
+			<table>
+				<tr>
+					<th>일정 선택</th>
+					<td>
+						<select name="fesSelect" id="fesSelect">
+							<c:forEach var="daysItem" items="${daysInfo }">
+								<option value="${daysItem.dno }">${daysItem.dayString }=>
+								${daysItem.stime } ~ ${daysItem.etime }</option>
+							</c:forEach>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th>티켓 등급</th>
+					<td>
+						<select name="seatSelect" id="seatSelect">
+							<option>일정을 먼저 선택해 주세요.</option>
+						</select>					
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<div id="money">원하는 티켓 등급을 선택해 주세요.</div>
+					</td>
+				</tr>
+				<tr>
+					<th>매수</th>
+					<td>
+						<input type="number" name="howMany" id="howMany" min="1" disabled="disabled">
+					</td>
+				</tr>
+				<tr>
+					<th>결제 수단 선택</th>
+					<td>
+						<select name="pay" id="pay">
+							<option value="card">신용카드</option>
+							<option value="bank">계좌이체</option>
+							<option value="cacaoPay">카카오페이</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th colspan="2">
+						<input type="submit" value="결제 완료" id="btnOk"
+				disabled="disabled"> / <input type="reset" value="취소"
 				id="btnBack">
+					</th>
+				</tr>
+			
+			</table>
 		</form>
+		</div>
 	</div>
 </body>
 </html>

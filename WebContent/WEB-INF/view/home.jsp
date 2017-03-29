@@ -1,33 +1,6 @@
-<%@page import="java.util.List"%>
-<%@page import="java.util.Comparator"%>
-<%@page import="java.util.Arrays"%>
-<%@page import="java.nio.file.attribute.BasicFileAttributes"%>
-<%@page import="java.util.Random"%>
-<%@page import="java.io.IOException"%>
-<%@page import="java.io.File"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-	String uploadPath = request.getRealPath("upload");
-	File dir = new File(uploadPath);
-	
-	try{
-		
-		File[] files = dir.listFiles();
-
-		Arrays.sort(files, new Comparator<File>(){
-		    public int compare(File f1, File f2)
-		    {
-		        return Long.valueOf(f2.lastModified()).compareTo(f1.lastModified());
-		    } });
-		request.setAttribute("frontImgList", files);		
-		
-	}catch(Exception e){			
-
-	}
-
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -76,16 +49,16 @@
 </head>
 <body>
 	
-	<c:forEach var="item" items="${frontImgList }">
+	<c:forEach var="item" items="${viewList }">
 		<div class="lineupList">
-			<a>${item.name }</a>
+			<a>${item.aname }</a>
 		</div>
 		
 		<script type="text/javascript">
 			$(function(){
 				var i = 0;
-				<c:forEach var="item" items="${frontImgList }">
-					$(".lineupList").eq(i).css("background-image", "url(upload/${item.name})");
+				<c:forEach var="item" items="${viewList }">
+					$(".lineupList").eq(i).css("background-image", "url(upload/${item.file})");
 					$(".lineupList").eq(i).css("background-size", "cover");
 					i++;
 				</c:forEach>	

@@ -19,7 +19,7 @@
 </style>
 </head>
 <body>
-		<p>content 영역</p>
+		<%-- <p>content 영역</p>
 		<h1>DGF 페스티벌 정보</h1>
 		<a href="register.do">새 페스티벌 등록</a>
 		
@@ -35,11 +35,17 @@
 			<tr>
 				<td><a href="festivalSelected.do?fno=${item.fno }">${item.fno }</a></td>
 				<td>${item.place }</td>
-				<td>${item.sday }</td>
-				<td>${item.eday }</td>
+				<td>${item.sdayString }</td>
+				<td>${item.edayString }</td>
 			</tr>
 		</c:forEach>	
 			
-		</table>
+		</table> --%>
+		
+		<h1>페스티벌 정보</h1>
+		<c:forEach var="item" items="${viewList }">
+			<p>${item.fno }</p>
+			<p>${item.place }</p>
+		</c:forEach>
 </body>
 </html>

@@ -1,5 +1,9 @@
 @CHARSET "UTF-8";
 
+#content{
+
+}
+
 body {
 	font-family: 'Arca Majora 3 Heavy';
 	src: url(font/ArcaMajora3-Heavy.otf);
@@ -44,6 +48,10 @@ body {
 	margin-left: 80px;
 }
 
+.lineupList{
+	width: 400px;
+}
+
 #day2 {
 	width: 30%;
 	height: auto;
@@ -64,7 +72,7 @@ body {
 	margin: 10px;
 }
 
-/* .day1:NTH-CHILD(1){
+.day1:NTH-CHILD(1) {
 	background-image: url("../img/redvelvet/redvelvet02.jpg");
 	background-size: cover;
 }
@@ -87,7 +95,7 @@ body {
 .day1:NTH-CHILD(5) {
 	background-image: url("../img/ohmygirl/ohmygirl02.jpg");
 	background-size: cover;
-} */
+}
 
 /*--------------------------------- day2 ---------------------------------*/
 .day2 {
