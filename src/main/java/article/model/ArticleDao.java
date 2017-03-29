@@ -15,7 +15,7 @@ public interface ArticleDao {
 	@Select("select a.*, u.id, u.uname from article a, user u where a.uno = u.uno && a.del = 0 && a.article_no = #{param1} && a.board_no = #{param2}")
 	public Article selectArticleByNo(int articleNo, int boardNo) throws SQLException;
 	
-	@Update("update aritlce set content = #{content}, write_time = #{writeTime}, category = #{category}, title = #{title} where board_no = #{boardNo} && article_no = #{articleNo}")	
+	@Update("update article set content = #{content}, write_time = #{writeTime}, category = #{category}, title = #{title} where board_no = #{boardNo} && article_no = #{articleNo}")	
 	public void updateArticleByNo(Article article) throws SQLException;
 	
 	@Update("update article set del = 1 where board_no = #{param1} && article_no = #{param2}")
