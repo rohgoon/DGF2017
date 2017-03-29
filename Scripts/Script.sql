@@ -432,4 +432,4 @@ from lineup l
 left join days d on l.dno = d.dno
 left join fesinfo f on d.fno = f.fno;
 
-select * from linupDetailView;
+select * from linupDetailView; 

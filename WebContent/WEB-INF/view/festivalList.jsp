@@ -9,12 +9,25 @@
 <link rel="stylesheet" type="text/css" href="css/reset.css">
 <link rel="stylesheet" type="text/css" href="css/common.css">
 <style type="text/css">
-	table {
+	/* table {
 		border-collapse: collapse;
 	}
 	
 	th{
 		background-color: #FFD9FA;
+	} */
+/*------------------------------------- NEW -------------------------------------*/
+
+	#intro{
+		width: 100%;
+		height: 300px;
+		background-color: #000000;
+		text-align: center;
+	}
+	
+	#intro a{
+		color: #F48FB1;
+		font-size: 50px;
 	}
 </style>
 </head>
@@ -42,10 +55,13 @@
 			
 		</table> --%>
 		
-		<h1>페스티벌 정보</h1>
-		<c:forEach var="item" items="${viewList }">
-			<p>${item.fno }</p>
-			<p>${item.place }</p>
-		</c:forEach>
+<!-------------------------------- [new] -------------------------------->	
+
+<div id="intro">
+	<a>dgf 2017 INFORMATION</a>
+</div>
+<c:forEach var="item" items="${viewList }">
+	<a>${item.place }</a>
+</c:forEach>
 </body>
 </html>
