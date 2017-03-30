@@ -2,43 +2,42 @@
 
 @font-face {
 	font-family: 'Arca Majora 3 Heavy';
-	src: url(../font/ArcaMajora3-Heavy.otf);
+	 src:url(../font/ArcaMajora3-Heavy.otf); 
+}
+	
+body{
+	font-family: 'Arca Majora 3 Heavy','12롯데마트행복Medium';
 }
 
-
-body {
-	font-family: 'Arca Majora 3 Heavy', '12롯데마트행복Medium';
-}
-
-#container {
-	width: auto;
+#container{
+	width: 1900px;
+	height: auto;
 	margin: 0 auto;
 }
 
-#header {
+#header{
 	width: 100%;
+	height: 100px;
 	float: left;
 	position: fixed;
 	top: 0;
 }
 
-
-
 /* -------------------------------NAV------------------------------- */
-#nav {
+#nav{
 	height: 100%;
 	width: 75%;
 	display: inline;
 }
 
-#nav ul li {
+#nav ul li{
 	list-style: none;
 	display: inline;
 	float: left;
 	margin: 20px;
 }
 
-#nav ul li a {
+#nav ul li a{
 	text-decoration: none;
 	font-style: normal;
 	font-weight: bold;
@@ -46,24 +45,20 @@ body {
 	color: #000000;
 }
 
-#nav ul li a:HOVER {
+#nav ul li a:HOVER{
 	color: #F48FB1;
 	border-bottom: 4px solid #F48FB1;
 }
 
 /* -------------------------------login------------------------------- */
-#login {
+#login{
 	height: 100%;
 	width: 10%;
-	display: inline-block;
-	position:absolute;
-	top:5px;
-	right:5px;
+	display: inline;
 	float: right;
-	white-space: nowrap;
 }
 
-#login a {
+#login a{
 	text-decoration: none;
 	margin: 10px;
 	padding: 10px;
@@ -74,43 +69,105 @@ body {
 	text-align: center;
 }
 
+#login a:HOVER{
+	color: #ffffff;
+	background-color: #F48FB1;
+}
+
+
 /* -------------------------------title------------------------------- */
-#title {
+#title{
 	width: 100%;
 	height: 500px;
 	clear: both;
 	margin-top: 80px;
-	margin-left: 20px;
-	text-overflow: clip;
-	white-space: nowrap;
-	overflow: hidden;
-	user-select: none;
 }
 
-#title .capital {
+#title .capital{
 	color: #F48FB1;
 }
 
-#title a {
+#title a{
 	font-style: normal;
 	font-weight: bold;
-	font-size: 1300%; /*  211px; */
+	font-size: 211px;
 	color: #000000;
 }
 
 /* -------------------------------CONTENT------------------------------- */
-#content {
+#content{
 	width: 100%;
+	height: auto;
 }
 
 /* -------------------------------FOOTER------------------------------- */
-#footer {
-	height: 160px;
-	border: 1px solid #000000;
+#footer{
+	width: 100%;
+	height: 600px;
 	clear: both;
+	border-top: 5px solid #E91E63;
+	background-color: #FDEFF4;
+	text-align: center;
+	padding-top: 30px;
 }
 
+#ourpartner{
+	margin-bottom: 20px;
+}
 
+#ourpartner a{
+	font-size: 20px;
+	color: #E91E63;
+	margin-bottom: 20px;
+}
+
+#partner{
+	width: 1000px;
+	height: auto;
+	border-bottom: 2px solid #E91E63;
+	margin: 0 auto;
+}
+
+#partner img{
+	width: 70px;
+	margin: 20px;
+}
+
+#sns{
+	margin-top: 20px;
+}
+
+#sns img{
+	width: 50px;
+	height: auto;
+	margin: 20px;
+}
+
+#footerNav{
+	margin-top: 20px;
+}
+
+#footerNav a{
+	text-decoration: none;
+	font-size: 15px;
+	margin-left: 20px;
+	color: #E91E63;
+}
+
+#footerNav a:HOVER {
+	color: #880E4F;
+}
+
+#copyright{
+	margin-top: 80px;
+}
+
+#copyright a{
+	color: #E91E63;
+	font-size: 12px;
+}
+
+/* ----------------------------------------- 반응형 추가 시킨것 ----------------------------------------- */
 .header-up{
 	background: none;
 	color:black;
