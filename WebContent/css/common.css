@@ -47,8 +47,8 @@ body{
 }
 
 .headerItem:hover{
-	color: #000000;
-	border-bottom: 4px solid #000000;
+	color: #00c2ff;
+	border-bottom: 4px solid #00c2ff;
 }
 
 #login .headerItem{
@@ -178,16 +178,16 @@ body{
 
 
 
-/* 1199 ~ 1025 */
-@media screen and (min-width:1025px) and (max-width:1199px) {
-
+/* 1151 ~ 1025 */
+@media screen and (min-width:1025px) and (max-width:1151px) {	
+	.headerItem{font-size: 24px;}
 }
 
 
 
 /*          1024 ~ 481        */
 @media screen and (min-width:480px) and (max-width:1024px) {
-
+	.headerItem{font-size: 22px;}
 }
 
 /*          ~ 480        */

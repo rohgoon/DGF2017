@@ -18,7 +18,7 @@
 	padding:10px;
 	margin:0;
 	font-size: 20px;
-	color:black;
+	color:white;
 	background: rgba(255, 255, 255, 0.55);
 	font-family: 'Arca Majora 3 Heavy';
 	border-radius:5px;
@@ -45,7 +45,8 @@
 
 .loginBox p a {
 	text-decoration: underline;
-	color: white;
+	color: #0000ff;
+	font-size:18px;
 	font-style: italic;
 	font-weight: bold;
 }
