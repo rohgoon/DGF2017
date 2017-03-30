@@ -95,9 +95,9 @@
 		width: 100%;
 		height: 90px;
 		text-align: center;
-		background-color: #E91E63;
+		background-color: #4A148C;
 		color: #ffffff;
-		border-bottom: 20px solid #FDEFF4;
+		border-bottom: 20px solid #EEFF41;
 		font-size: 30px;
 		line-height: 100px;
 	}
@@ -106,9 +106,9 @@
 		width: 100%;
 		height: 90px;
 		text-align: center;
-		background-color: #E91E63;
+		background-color: #4A148C;
 		color: #ffffff;
-		border-bottom: 20px solid #FDEFF4;
+		border-bottom: 20px solid #EEFF41;
 		font-size: 30px;
 		line-height: 100px;
 	}
@@ -117,9 +117,9 @@
 		width: 100%;
 		height: 90px;
 		text-align: center;
-		background-color: #E91E63;
+		background-color: #4A148C;
 		color: #ffffff;
-		border-bottom: 20px solid #FDEFF4;
+		border-bottom: 20px solid #EEFF41;
 		font-size: 30px;
 		line-height: 100px;
 	}
@@ -130,17 +130,17 @@
 	$(function(){
 		
 		$("#dayNav1").click(function() {
-			var position = $("#dayBar1").offset().top;
+			var position = $("#dayBar1").offset().top - 90;
 			$('body').animate({scrollTop: position}, 500);
 		});
 		
 		$("#dayNav2").click(function() {
-			var position = $("#dayBar2").offset().top;
+			var position = $("#dayBar2").offset().top - 90;
 			$('body').animate({scrollTop: position}, 500);
 		});
 		
 		$("#dayNav3").click(function() {
-			var position = $("#dayBar3").offset().top;
+			var position = $("#dayBar3").offset().top - 90;
 			$('body').animate({scrollTop: position}, 500);
 		});
 		
