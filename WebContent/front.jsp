@@ -57,9 +57,9 @@ body{
 			<jsp:include page="template/home.jsp" ></jsp:include>
 		</div>
 
-		<%-- <div id="footer">
+		<div id="footer">
 			<jsp:include page="template/footer.jsp"></jsp:include>
-		</div> --%>
+		</div>
 	</div>
 </body>
 </html>
