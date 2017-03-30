@@ -9,7 +9,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
 	var password = "${user.upassword}";
-
 	$(document).ready(function() {
 		$("#password").focusout(function() {
 			if($(this).val() != password){
@@ -18,12 +17,10 @@
 				$("#btnDel").attr("disabled", disabled);	
 			}else{
 				$("#btnDel").removeAttr("disabled");
-
 			}
 			
 		});
 	});
-
 </script>
 </head>
 <body>
