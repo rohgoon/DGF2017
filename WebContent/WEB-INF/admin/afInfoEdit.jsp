@@ -64,7 +64,7 @@
 				});
 			return false;
 		});
-		$("#selectFno").on("change focusout", function() {
+		$("#selectFno").on("change focusout click", function() {
 			var fnoAndSfNum = $(this).val();
 			var fsArr = fnoAndSfNum.split(",");
 			$.ajax({
