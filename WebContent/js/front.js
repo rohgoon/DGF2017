@@ -3,8 +3,12 @@
 	$(window).scroll(function(){
 		if($(document).scrollTop() > 50){
 			$("#header").removeClass('header-up').addClass('header-down');
+			$("#nav div").removeClass('headerItem-up').addClass('headerItem-down');
+			$("#login div").removeClass('headerItem-up').addClass('headerItem-down');
 		}else{
-			$("#header").removeClass('header-down').addClass('header-up'); 
+			$("#header").removeClass('header-down').addClass('header-up');
+			$("#nav div").removeClass('headerItem-down').addClass('headerItem-up');
+			$("#login div").removeClass('headerItem-down').addClass('headerItem-up');
 		}
 	});
 
