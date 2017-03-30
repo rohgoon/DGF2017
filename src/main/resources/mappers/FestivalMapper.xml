@@ -37,4 +37,8 @@
 	<select id="selectCountAll" resultType="int">
 	    select count(*) from fesinfo 
 	</select>
+	<select id="selectListBiggerThanNow" parameterType="date" resultType="festival">
+	    select * from fesinfo where eday >= #{param1}
+	</select>
+	
 </mapper>

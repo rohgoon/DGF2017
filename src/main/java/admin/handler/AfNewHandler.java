@@ -16,6 +16,8 @@ import festival.model.Days;
 import festival.model.DaysDao;
 import festival.model.Festival;
 import festival.model.FestivalDao;
+import festival.model.Seat;
+import festival.model.SeatDao;
 import mvc.controller.CommandHandler;
 import mvc.util.MySqlSessionFactory;
 
@@ -147,8 +149,24 @@ public class AfNewHandler implements CommandHandler {
 					for (Days days : daysList) {
 						daysDao.insert(days);
 					}
+					List<Days> dListForSeats = daysDao.selectListByFno(fno);//
 					session.commit();	
 					req.setAttribute("fno", fno);
+					//seat에도 삽입
+					SeatDao seatDao = session.getMapper(SeatDao.class);
+					List<Seat> seatsList = new ArrayList<>();
+					for (Days d : dListForSeats) {
+						for (int j = 0; j < gradeList.size(); j++) {
+							seatDao.insert(new Seat(
+									d.getDno(), gradeList.get(j),
+									Integer.parseInt(priceList.get(j)),
+									Integer.parseInt(ticketList.get(j)),
+									0));
+						};
+					};
+					session.commit();	
+					
+					
 				}finally {
 					session.close();
 				

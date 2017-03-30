@@ -1,5 +1,6 @@
 package admin.handler;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,12 +12,8 @@ import biz.model.SeatDetailView;
 import biz.model.SeatDetailViewDao;
 import festival.model.Festival;
 import festival.model.FestivalDao;
-import member.model.MemberDao;
-import member.model.User;
 import mvc.controller.CommandHandler;
 import mvc.util.MySqlSessionFactory;
-import reservation.model.ReservationView;
-import reservation.model.ReservationViewDao;
 
 public class AfEditHandler implements CommandHandler {
 	
@@ -25,17 +22,26 @@ public class AfEditHandler implements CommandHandler {
 		
 		if (req.getMethod().equalsIgnoreCase("get")) {
 			//form으로 던질 것 준비
-			//int fno = Integer.parseInt(req.getParameter("fno"));
-			//int fCount =Integer.parseInt(req.getParameter("fCount"));
+			int fno = Integer.parseInt(req.getParameter("fno"));
+			int fCountSelected =Integer.parseInt(req.getParameter("fCount"));
 			SqlSession session = null;
 			try {
 				session = MySqlSessionFactory.openSession();
 				FestivalDao festivalDao = session.getMapper(FestivalDao.class);
-				int fno= festivalDao.selectMaxFno();
 				int fCount = festivalDao.selectCountAll();
 				Festival festival = festivalDao.selectListByFno(fno);
 				req.setAttribute("fesInfo", festival);
-				req.setAttribute("fCount", fCount);
+				
+				Date now = new Date();
+				now.setHours(0);
+				now.setMinutes(0);
+				now.setSeconds(0);
+				List<Festival> fesNowList = festivalDao.selectListBiggerThanNow(now);
+				req.setAttribute("fesNowList", fesNowList);				
+				int startFCount = fCount-fesNowList.size();
+				req.setAttribute("startFCount", startFCount+1);
+				req.setAttribute("fCountSelected", fCountSelected);
+				
 				//세부일정 받아오기
 				SeatDetailViewDao seatDetailViewDao = session.getMapper(SeatDetailViewDao.class);
 				List<SeatDetailView> seatDetailViews = seatDetailViewDao.selectAllByFno(fno);

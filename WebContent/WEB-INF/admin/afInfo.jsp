@@ -7,10 +7,36 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {	
+	$("#selectFno").on("change focusout", function() {
+		var fnoAndSfNum = $(this).val();
+		var fsArr = fnoAndSfNum.split(",");
+		$.ajax({
+			url:"afInfo.do?fno="+fsArr[0]+"&fCount="+fsArr[1]+"",
+			dataType:"html",
+			success:function(e){
+				$("#list").html($(e).find("#list").html());
+				}
+			});
+	});
+});	
+</script>
 </head>
 <body>
 	<div id="wrapContent">
-		<div id="list">						
+		<div class="selectFes">
+				<label>회차 선택</label>
+				<select name="fno" id="selectFno">									
+					<c:set var="sfnum" value="${startFCount }"></c:set>
+					<c:forEach var="item" items="${fesNowList }">
+						<option value="${item.fno },${sfnum}">${sfnum}</option>
+						<c:set var="sfnum" value="${sfnum+1}"></c:set>
+					</c:forEach>
+				</select>
+				<hr>
+			</div>
+		<div id="list">		
 					<div class="fesWrap">
 						페스티벌 회차 : ${fCount }회<br>
 						시작일: ${fesInfo.sdayString}<br>

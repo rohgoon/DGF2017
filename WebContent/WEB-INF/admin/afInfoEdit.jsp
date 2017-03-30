@@ -6,26 +6,66 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+	#inTitle{
+		font-size: 2em;
+	}
+	#inTitle input#place{
+		font-size: 1.1em;
+		width: 800px;
+		font-family: 'Hanna', serif;
+	}
+	#inTitle input.fesEditBtns{
+		font-family: 'Hanna', serif;
+		padding: 10px;
+		font-size: 0.9em;
+		margin-top: 10px;
+	}
+</style>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("#afDelBtn").click(function() {
 			location.href = "afDel.do?fno=${fesInfo.fno }&fCount=${fCount}";
 		});
-	});
-
+		$("#selectFno").on("change focusout", function() {
+			var fnoAndSfNum = $(this).val();
+			var fsArr = fnoAndSfNum.split(",");
+			$.ajax({
+				url:"afEdit.do?fno="+fsArr[0]+"&fCount="+fsArr[1]+"",
+				dataType:"html",
+				success:function(e){
+					
+					$("#list").html($(e).find("#list").html());
+					}
+				});
+		});
+	});	
 </script>
 </head>
 <body>
 	<div id="wrapContent">
+		
+			<div class="selectFes">
+				<label>회차 선택</label>
+				<select name="fno" id="selectFno">									
+					<c:set var="sfnum" value="${startFCount }"></c:set>
+					<c:forEach var="item" items="${fesNowList }">
+						<option value="${item.fno },${sfnum}">${sfnum}</option>
+						<c:set var="sfnum" value="${sfnum+1}"></c:set>
+					</c:forEach>
+				</select>
+				<hr>
+			</div>
 		<div id="list">
-			${fCount }회차 행사 장소 수정<br>
-			<form action="afEdit.do?fno=${fesInfo.fno }" method="post">				
-				<label for="place">장소</label>
-				<input type="text" name="place" value="${fesInfo.place }">
-				<br><input type="submit" value="행사 수정"> / <input type="reset" value="행사 삭제" id="afDelBtn"> 	
+			<div id="inTitle">
+				<form action="afEdit.do?fno=${fesInfo.fno }" method="post">				
+					<h1 id="h1Title">페스티벌 회차 : ${fCountSelected }회</h1>
+					<label for="place">장소 : </label>
+					<input type="text" name="place" value="${fesInfo.place }" id="place">
+					<br><input type="submit" value="행사 수정" class="fesEditBtns">  <input type="reset" value="행사 삭제" id="afDelBtn" class="fesEditBtns"> 	
 			</form>
-			
+			</div>
 			<hr>
 			<div class="daysWrap">
 						<table border="1">

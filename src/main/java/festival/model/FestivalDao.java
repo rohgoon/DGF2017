@@ -1,9 +1,8 @@
 package festival.model;
 
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
-
-import member.model.User;
 
 public interface FestivalDao {
 	public void insert(Festival festival) throws SQLException;
@@ -14,4 +13,5 @@ public interface FestivalDao {
 	public int selectFnoByLast(Festival festival) throws SQLException;
 	public int selectMaxFno() throws SQLException;
 	public int selectCountAll() throws SQLException;
+	public List<Festival> selectListBiggerThanNow(Date now) throws SQLException;
 }
