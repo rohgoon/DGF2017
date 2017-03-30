@@ -15,8 +15,8 @@
 
 	function movepage(obj) {
 		var page = $(obj).html();
-		
 		if(page == 'MAP'){
+			
 			window.open("http://map.naver.com/?pinId=11556053&pinType=site&dlevel=12&y=ddda0d9b40f896e92281feedb52d61e5&x=b93d45d0ea3bf35a4fe3f902140e0e0c&enc=b64","_blank");
 			return;
 		}
