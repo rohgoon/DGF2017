@@ -14,11 +14,6 @@
 				<a onclick="movepage(this);">TICKETS</a>
 
 			</li>
-			
-			<li>
-				<a onclick="movepage(this);">INFO</a>
-			</li>
-			
 			<li>
 				<a onclick="movepage(this);">COMMUNITY</a>
 			</li>
