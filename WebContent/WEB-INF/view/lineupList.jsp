@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="css/reset.css?ver=1">
-<link rel="stylesheet" type="text/css" href="css/common.css">
+<link rel="stylesheet" type="text/css" href="css/common.css?ver=1">
 <style type="text/css">
 	/*-------------------------- div type list css --------------------------*/
 	.outter{
@@ -89,13 +89,82 @@
 		background-size: cover;
 	}
 	
+/* ------------------------------- day bar css -------------------------------*/
+
+	#dayBar1{
+		width: 100%;
+		height: 90px;
+		text-align: center;
+		background-color: #E91E63;
+		color: #ffffff;
+		border-bottom: 20px solid #FDEFF4;
+		font-size: 30px;
+		line-height: 100px;
+	}
+	
+	#dayBar2{
+		width: 100%;
+		height: 90px;
+		text-align: center;
+		background-color: #E91E63;
+		color: #ffffff;
+		border-bottom: 20px solid #FDEFF4;
+		font-size: 30px;
+		line-height: 100px;
+	}
+	
+	#dayBar3{
+		width: 100%;
+		height: 90px;
+		text-align: center;
+		background-color: #E91E63;
+		color: #ffffff;
+		border-bottom: 20px solid #FDEFF4;
+		font-size: 30px;
+		line-height: 100px;
+	}
+	
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		
+		$("#dayNav1").click(function() {
+			var position = $("#dayBar1").offset().top;
+			$('body').animate({scrollTop: position}, 500);
+		});
+		
+		$("#dayNav2").click(function() {
+			var position = $("#dayBar2").offset().top;
+			$('body').animate({scrollTop: position}, 500);
+		});
+		
+		$("#dayNav3").click(function() {
+			var position = $("#dayBar3").offset().top;
+			$('body').animate({scrollTop: position}, 500);
+		});
+		
+		
+		
+	});
+</script>
+
+<script type="text/javascript">
+	$(function(){
+		$('.outter:eq(4)').after('<div id="dayBar2">/ DGF 2017 DAY TWO /</div>');
+		$('.outter:eq(9)').after('<div id="dayBar3">/ DGF 2017 DAY THREE /</div>');
+	});
+</script>
 </head>
 <body>
 <div id="container">
 
 	<div id="content">
+	
+	<div id="dayBar1">
+		/ DGF 2017 DAY ONE /
+	</div>
+	
 	<!------------------------------- div type list ------------------------------->
 	<c:forEach var="item" items="${viewList }">
 		<div class="outter">
