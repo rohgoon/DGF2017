@@ -41,7 +41,6 @@ body{
 			<div id="nav">
 				<jsp:include page="template/nav.jsp"></jsp:include>
 			</div>
-	
 			<div id="login">
 				<jsp:include page="template/login.jsp"></jsp:include>
 			</div>

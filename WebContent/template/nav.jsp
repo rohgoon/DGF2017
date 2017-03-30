@@ -7,6 +7,9 @@
 <div class="headerItem" onclick="movepage(this);">LINE-UP</div>
 <div class="headerItem" onclick="movepage(this);">TICKETS</div>
 <div class="headerItem" onclick="movepage(this);">COMMUNITY</div>
+<div class="headerItem" onclick="movepage(this);">MAP</div>
 <c:if test="${auth.id == 'admin'}">
 	<div class="headerItem" onclick="movepage(this);">MANAGER</div>
 </c:if>
+
+
