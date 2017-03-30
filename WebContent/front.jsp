@@ -81,10 +81,6 @@ body{
 					<jsp:include page="template/login.jsp"></jsp:include>
 				</div>
 			</div>
-			<div id="nAndl">
-				<jsp:include page="template/nav.jsp"></jsp:include>			
-				<jsp:include page="template/login.jsp"></jsp:include>
-			</div>
 		</div>
 
 		<div id="title">

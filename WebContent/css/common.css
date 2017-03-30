@@ -17,22 +17,12 @@ body {
 
 #header {
 	width: 100%;
-	height: 100px;
 	float: left;
 	position: fixed;
 	top: 0;
 }
 
-.header-up{
-	background: none;
-	color:black;
-}
 
-.header-down{
-	background: white;
-	border-bottom : 5px dotted #EDAEC4;
-	
-}
 
 /* -------------------------------NAV------------------------------- */
 #nav {
@@ -65,7 +55,10 @@ body {
 #login {
 	height: 100%;
 	width: 10%;
-	display: inline;
+	display: inline-block;
+	position:absolute;
+	top:5px;
+	right:5px;
 	float: right;
 	white-space: nowrap;
 }
@@ -111,23 +104,30 @@ body {
 }
 
 /* -------------------------------FOOTER------------------------------- */
-<<<<<<< HEAD
 #footer {
 	height: 160px;
 	border: 1px solid #000000;
-=======
-#footer{
-	width: 100%;
-	height: 600px;
->>>>>>> refs/remotes/origin/hak8
 	clear: both;
-<<<<<<< HEAD
 }
 
 
+.header-up{
+	background: none;
+	color:black;
+}
+
+.header-down{
+	background: white;
+	border-bottom : 5px dotted #EDAEC4;
+	height:120px;
+}
+
+
+
+/* 1199 ~ 1025 */
 @media screen and (min-width:1025px) and (max-width:1199px) {
 
-
+	
 	/* -------------------------------NAV------------------------------- */
 	#nav ul li {margin: 16px;}
 	#nav ul li a {font-size: 26px;}
@@ -143,6 +143,11 @@ body {
 
 	/* -------------------------------FOOTER------------------------------- */
 	#footer {height: 120px;}
+	
+	/* class */
+	.header-up{}
+
+	.header-down{}
 }
 
 
@@ -150,9 +155,8 @@ body {
 /*          1024 ~ 481        */
 @media screen and (min-width:480px) and (max-width:1024px) {
 	/* -------------------------------NAV------------------------------- */
-	#nav ul li {margin: 14px;}
+	#nav ul li {margin: 7px;}
 	#nav ul li a {font-size: 22px;}
-	#nav ul li a:HOVER {border-bottom: 3px solid #F48FB1;}
 
 	/* -------------------------------login------------------------------- */
 	#login {width: 20%;}
@@ -160,93 +164,38 @@ body {
 	
 
 	/* -------------------------------title------------------------------- */
-	#title {height: 240px;margin-top: 170px;}
+	#title {height: 90px;margin-top: 100px;}
 
 	#title a {font-size: 300%;}
 
 	/* -------------------------------FOOTER------------------------------- */
 	#footer {height: 80px;}
+	
+	/* class */
+	.header-up{}
+
+	.header-down{height:105px;}
 }
 
 /*          ~ 480        */
 @media screen and (max-width:480px) {
-		/* -------------------------------NAV------------------------------- */
-	#nav ul li {margin: 12px;}
-	#nav ul li a {font-size: 16px;}
-	#nav ul li a:HOVER {border-bottom: 3px solid #F48FB1;}
+	/* -------------------------------NAV------------------------------- */
+	#nav {}
+	#nav ul li {margin: 4px;}
+	#nav ul li a {font-size: 14px; }
 
 	/* -------------------------------login------------------------------- */
-	#login {width: 30%;}
-	#login a{font-size: 12px;}
+	#login {width:100%; top: 30px;}
+	#login a{font-size: 10px;}
 
 	/* -------------------------------title------------------------------- */
-	#title {height: 240px;margin-top: 170px;}
-
-	#title a {font-size: 230%;}
+	#title {height: 100px;margin-top: 120px;}
+	#title a {font-size: 200%; line-height: 40px;}
 
 	/* -------------------------------FOOTER------------------------------- */
 	#footer {height: 80px;}
 	
-=======
-	border-top: 5px solid #E91E63;
-	background-color: #FDEFF4;
-	text-align: center;
-	padding-top: 30px;
-}
-
-#ourpartner{
-	margin-bottom: 20px;
-}
-
-#ourpartner a{
-	font-size: 20px;
-	color: #E91E63;
-	margin-bottom: 20px;
-}
-
-#partner{
-	width: 1000px;
-	height: auto;
-	border-bottom: 2px solid #E91E63;
-	margin: 0 auto;
-}
-
-#partner img{
-	width: 70px;
-	margin: 20px;
-}
-
-#sns{
-	margin-top: 20px;
-}
-
-#sns img{
-	width: 50px;
-	height: auto;
-	margin: 20px;
-}
-
-#footerNav{
-	margin-top: 20px;
-}
-
-#footerNav a{
-	text-decoration: none;
-	font-size: 15px;
-	margin-left: 20px;
-	color: #E91E63;
-}
-
-#footerNav a:HOVER {
-	color: #880E4F;
-}
-
-#copyright{
-	margin-top: 80px;
-}
-
-#copyright a{
-	color: #E91E63;
-	font-size: 12px;
->>>>>>> refs/remotes/origin/hak8
+	.header-down{height:135px;}
+	
+	
 }

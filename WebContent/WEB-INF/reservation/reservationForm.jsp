@@ -31,7 +31,6 @@
 	font-weight: bold;
 	color: black;
 }
-
 #innerContent label {
 	display: inline-block;
 	width: 150px;
@@ -59,7 +58,6 @@ th {
 td{
 		padding: 5px;
 	}
-
 #wrapContent{
 		overflow:auto;
 		height: 1500px; 
