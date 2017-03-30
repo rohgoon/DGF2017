@@ -11,5 +11,3 @@
 <c:if test="${auth.id == 'admin'}">
 	<div class="headerItem" onclick="movepage(this);">MANAGER</div>
 </c:if>
-
-

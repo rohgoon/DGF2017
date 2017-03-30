@@ -30,11 +30,11 @@
 	<img src="img/email.png">
 </div>
 <div id="footerNav">
-	<a href="#">HOME</a>
-	<a href="#">LINE-UP</a>
-	<a href="#">TICKET</a>
-	<a href="#">INFO</a>
-	<a href="#">COMMUNITY</a>
+	<a onclick="movepage(this);">HOME</a>
+	<a onclick="movepage(this);">LINE-UP</a>
+	<a onclick="movepage(this);">TICKETS</a>
+	<a onclick="movepage(this);">INFO</a>
+	<a onclick="movepage(this);">COMMUNITY</a>
 </div>
 
 <div id="copyright">
