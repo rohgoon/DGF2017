@@ -6,6 +6,32 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+	.selectFes{
+		font-size: 2em;
+	}
+	.selectFes #selectFno{
+		font-size: 1.1em;
+		width: 50px;
+		font-family: 'Hanna', serif;
+	}
+	#list .fesWrap{
+		font-size: 2em;
+	}
+	table {
+		border: 1px solid #000000;
+		border-collapse: collapse;
+		
+	}
+	
+	td,th{
+		border: 1px solid #000000;
+		vertical-align: middle !important;
+	}
+	#list{
+		display: none;
+	}
+</style>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {	
@@ -16,6 +42,7 @@ $(document).ready(function() {
 			url:"afInfo.do?fno="+fsArr[0]+"&fCount="+fsArr[1]+"",
 			dataType:"html",
 			success:function(e){
+				$("#list").css("display", "block");
 				$("#list").html($(e).find("#list").html());
 				}
 			});

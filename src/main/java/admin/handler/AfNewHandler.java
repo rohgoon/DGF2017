@@ -171,7 +171,7 @@ public class AfNewHandler implements CommandHandler {
 					session.close();
 				
 				}	
-				return "afInfo.do";
+				return "/WEB-INF/admin/afNewForm.jsp";
 				
 			default:
 				

@@ -21,12 +21,48 @@
 		font-size: 0.9em;
 		margin-top: 10px;
 	}
+	.selectFes{
+		font-size: 2em;
+	}
+	.selectFes #selectFno{
+		font-size: 1.1em;
+		width: 50px;
+		font-family: 'Hanna', serif;
+	}
+	.selectFes #afDelBtn{
+		font-family: 'Hanna', serif;
+		padding: 10px;
+		font-size: 0.9em;
+		margin-top: 10px;
+	}
+	table {
+		border: 1px solid #000000;
+		border-collapse: collapse;
+		
+	}
+	
+	td,th{
+		border: 1px solid #000000;
+		vertical-align: middle !important;
+	}
+	#list{
+		display: none;
+	}
 </style>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-		$("#afDelBtn").click(function() {
-			location.href = "afDel.do?fno=${fesInfo.fno }&fCount=${fCount}";
+		$(document).on("click", "#afDelBtn", function() {
+			var fnoAndSfNum = $("#selectFno").val();
+			var fsArr = fnoAndSfNum.split(",");
+			$.ajax({
+				url:"afDel.do?fno="+fsArr[0]+"",
+				dataType:"html",
+				success:function(e){					
+					$("#wrapContent").html($(e).find("#wrapContent").html());
+					}
+				});
+			return false;
 		});
 		$("#selectFno").on("change focusout", function() {
 			var fnoAndSfNum = $(this).val();
@@ -35,7 +71,7 @@
 				url:"afEdit.do?fno="+fsArr[0]+"&fCount="+fsArr[1]+"",
 				dataType:"html",
 				success:function(e){
-					
+					$("#list").css("display", "block");
 					$("#list").html($(e).find("#list").html());
 					}
 				});
@@ -55,15 +91,16 @@
 						<c:set var="sfnum" value="${sfnum+1}"></c:set>
 					</c:forEach>
 				</select>
+				<input type="button" value="행사 삭제" id="afDelBtn" class="fesEditBtns">
 				<hr>
 			</div>
 		<div id="list">
 			<div id="inTitle">
 				<form action="afEdit.do?fno=${fesInfo.fno }" method="post">				
-					<h1 id="h1Title">페스티벌 회차 : ${fCountSelected }회</h1>
+					<h1 id="h1Title">페스티벌 회차 : <span id="fCountSelected">${fCountSelected }</span>회</h1>
 					<label for="place">장소 : </label>
 					<input type="text" name="place" value="${fesInfo.place }" id="place">
-					<br><input type="submit" value="행사 수정" class="fesEditBtns">  <input type="reset" value="행사 삭제" id="afDelBtn" class="fesEditBtns"> 	
+					<br><input type="submit" value="행사 수정" class="fesEditBtns">   	
 			</form>
 			</div>
 			<hr>

@@ -22,9 +22,8 @@ public class AfDelHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
-		int fno  = Integer.parseInt(req.getParameter("fno"));
-		int fCount = Integer.parseInt(req.getParameter("fCount"));
-		
+		int fno  = Integer.parseInt(req.getParameter("fno"));		
+		int fCount = 0;
 		SqlSession session = null;
 		try {
 		session =MySqlSessionFactory.openSession();
@@ -53,6 +52,8 @@ public class AfDelHandler implements CommandHandler {
 				FestivalDao festivalDao = session.getMapper(FestivalDao.class);
 				festivalDao.deleteFestival(fno);
 				session.commit();
+				fCount= festivalDao.selectCountAll();
+				fno = festivalDao.selectMaxFno();
 			}
 			
 		}catch (Exception e) {
@@ -62,7 +63,7 @@ public class AfDelHandler implements CommandHandler {
 			session.close();
 		}
 		
-		return "afInfo.do?fno=2&fCount=2"; // 임시용
+		return "afEdit.do?fno="+fno+"&fCount="+fCount+""; // 임시용
 	}
 
 }
