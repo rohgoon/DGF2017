@@ -14,9 +14,11 @@
 				<a onclick="movepage(this);">TICKETS</a>
 
 			</li>
+			
 			<li>
 				<a onclick="movepage(this);">COMMUNITY</a>
 			</li>
+			
 			<c:if test="${auth.id == 'admin'}">
 				<li>
 					<a onclick="movepage(this);">MANAGER</a>
