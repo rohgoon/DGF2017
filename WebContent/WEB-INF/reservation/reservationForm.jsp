@@ -13,7 +13,7 @@
 @import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
 #innerContent {
 	width: 1000px;
-	height: 1600px; /* 1600에서 바꿈 */
+	height: auto; /* 1600에서 바꿈 */
 	margin: 0 auto;
 	padding: 20px;
 	font-family: 'Hanna', serif;
@@ -60,7 +60,7 @@ td{
 	}
 #wrapContent{
 		overflow:auto;
-		height: 1500px; 
+		height: 700px; 
 	}
 .result{
 	font-size: 3em !important;
