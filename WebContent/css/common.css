@@ -10,88 +10,95 @@ body{
 }
 
 #container{
-	width: 1900px;
+	width: 100%;
 	height: auto;
 	margin: 0 auto;
 }
 
+
+/* -------------------------------header------------------------------- */
+
 #header{
-	width: 100%;
-	height: 100px;
-	float: left;
-	position: fixed;
-	top: 0;
+	display : flex;
+ 	justify-content: space-between;
+ 	flex-wrap:wrap;
+ 	padding: 10px;
+ 	width:100%;
 }
 
-/* -------------------------------NAV------------------------------- */
 #nav{
-	height: 100%;
-	width: 75%;
-	display: inline;
+	display: flex;
+	align-items: center;
 }
 
-#nav ul li{
-	list-style: none;
-	display: inline;
-	float: left;
-	margin: 20px;
+#login{
+	display: flex;
+	align-items: center;
+	flex-direction : column;
+	margin-right:20px;
 }
 
-#nav ul li a{
-	text-decoration: none;
-	font-style: normal;
+.headerItem{
+	cursor: pointer;
 	font-weight: bold;
 	font-size: 30px;
 	color: #000000;
+	padding: 5px 15px;      
 }
 
-#nav ul li a:HOVER{
-	color: #F48FB1;
-	border-bottom: 4px solid #F48FB1;
-}
-
-/* -------------------------------login------------------------------- */
-#login{
-	height: 100%;
-	width: 10%;
-	display: inline;
-	float: right;
-}
-
-#login a{
-	text-decoration: none;
-	margin: 10px;
-	padding: 10px;
-	display: block;
-	font-size: 20px;
+.headerItem:hover{
 	color: #000000;
-	border: 1px solid #000000;
-	text-align: center;
+	border-bottom: 4px solid #000000;
 }
 
-#login a:HOVER{
-	color: #ffffff;
-	background-color: #F48FB1;
+#login .headerItem{
+	font-size:20px;
+	text-align:center;
+	margin:5px;
+	padding:10px;
+	width:140px;
 }
 
+.DGF, .DGF:hover{
+	color: #F48FB1;
+	border:none;
+	cursor: default;
+}
+
+.header-up{
+	background: none;
+	position:relative;
+}
+
+.headerItem-up{
+	color:black;
+}
+
+.header-down{
+	background: #E91E63;
+	position:fixed;
+	color:white;
+}
+
+.headerItem-down{
+	color:white;
+	border:none;
+}
+
+#map{
+	background: url("../img/map.png") no-repeat center;
+	background-size:contain;
+	width:50px;
+	height:50px;
+}
 
 /* -------------------------------title------------------------------- */
 #title{
 	width: 100%;
-	height: 500px;
+	height:45%;
 	clear: both;
-	margin-top: 80px;
-}
-
-#title .capital{
-	color: #F48FB1;
-}
-
-#title a{
-	font-style: normal;
-	font-weight: bold;
-	font-size: 211px;
-	color: #000000;
+	background: url("../img/title.png") no-repeat;
+	background-size: contain;
 }
 
 /* -------------------------------CONTENT------------------------------- */
@@ -167,92 +174,25 @@ body{
 	font-size: 12px;
 }
 
-/* ----------------------------------------- 반응형 추가 시킨것 ----------------------------------------- */
-.header-up{
-	background: none;
-	color:black;
-}
 
-.header-down{
-	background: white;
-	border-bottom : 5px dotted #EDAEC4;
-	height:120px;
-}
 
 
 
 /* 1199 ~ 1025 */
 @media screen and (min-width:1025px) and (max-width:1199px) {
 
-	
-	/* -------------------------------NAV------------------------------- */
-	#nav ul li {margin: 16px;}
-	#nav ul li a {font-size: 26px;}
-	#nav ul li a:HOVER {border-bottom: 3px solid #F48FB1;}
-
-	/* -------------------------------login------------------------------- */
-	#login {width: 13%;}
-
-	/* -------------------------------title------------------------------- */
-	#title {height: 240px;margin-top: 110px;s}
-
-	#title a {font-size: 700%;}
-
-	/* -------------------------------FOOTER------------------------------- */
-	#footer {height: 120px;}
-	
-	/* class */
-	.header-up{}
-
-	.header-down{}
 }
 
 
 
 /*          1024 ~ 481        */
 @media screen and (min-width:480px) and (max-width:1024px) {
-	/* -------------------------------NAV------------------------------- */
-	#nav ul li {margin: 7px;}
-	#nav ul li a {font-size: 22px;}
 
-	/* -------------------------------login------------------------------- */
-	#login {width: 20%;}
-	#login a{font-size: 12px;}
-	
-
-	/* -------------------------------title------------------------------- */
-	#title {height: 90px;margin-top: 100px;}
-
-	#title a {font-size: 300%;}
-
-	/* -------------------------------FOOTER------------------------------- */
-	#footer {height: 80px;}
-	
-	/* class */
-	.header-up{}
-
-	.header-down{height:105px;}
 }
 
 /*          ~ 480        */
 @media screen and (max-width:480px) {
-	/* -------------------------------NAV------------------------------- */
-	#nav {}
-	#nav ul li {margin: 4px;}
-	#nav ul li a {font-size: 14px; }
 
-	/* -------------------------------login------------------------------- */
-	#login {width:100%; top: 30px;}
-	#login a{font-size: 10px;}
-
-	/* -------------------------------title------------------------------- */
-	#title {height: 100px;margin-top: 120px;}
-	#title a {font-size: 200%; line-height: 40px;}
-
-	/* -------------------------------FOOTER------------------------------- */
-	#footer {height: 80px;}
-	
-	.header-down{height:135px;}
 	
 	
 }

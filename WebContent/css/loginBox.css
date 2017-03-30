@@ -1,18 +1,13 @@
 @CHARSET "UTF-8";
 
-@font-face {
-	font-family: 'Arca Majora 3 Heavy';
-	src:url(../font/ArcaMajora3-Heavy.otf); 
-	} 
-
 .loginBox{
 	padding:20px;
 	margin:0 auto;
 	width:400px;
 	height:340px;
-	border: 3px solid rgba(255, 255, 255, 0.6);
-	border-radius:5px;
-	background: rgba(50, 50, 50, 0.35);
+	border : outset 3px white;
+	border-radius:5px; 
+	background: rgba(255,255,255,0.3);
 	text-align: center;
 	
 }
@@ -23,8 +18,8 @@
 	padding:10px;
 	margin:0;
 	font-size: 20px;
-	color:white;
-	background: rgba(0, 0, 0, 0.55);
+	color:black;
+	background: rgba(255, 255, 255, 0.55);
 	font-family: 'Arca Majora 3 Heavy';
 	border-radius:5px;
 	border:none;
@@ -86,3 +81,4 @@
 	height:50px;
 	font-family: 'Arca Majora 3 Heavy';
 }
+

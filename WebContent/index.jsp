@@ -7,12 +7,6 @@
 <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Julius+Sans+One|Monoton" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/index.css">
 <link rel="stylesheet" type="text/css" href="css/loginBox.css">
-<style>
-@font-face {
-	font-family: 'Arca Majora 3 Heavy';
-	 src:url(font/ArcaMajora3-Heavy.otf); 
-	} 
-</style>
 <meta charset="UTF-8">
 <title>DGF::Daegu Girl-Group Festival Intro</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

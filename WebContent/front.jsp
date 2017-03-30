@@ -38,19 +38,16 @@ body{
 	</div>
 	<div id="container">
 		<div id="header">
-			<div id="hWrap">
-				<div id="nav">
-					<jsp:include page="template/nav.jsp"></jsp:include>
-				</div>
-	
-				<div id="login">
-					<jsp:include page="template/login.jsp"></jsp:include>
-				</div>
+			<div id="nav">
+				<jsp:include page="template/nav.jsp"></jsp:include>
+			</div>
+			<div id="login">
+				<jsp:include page="template/login.jsp"></jsp:include>
 			</div>
 		</div>
 
 		<div id="title">
-			<jsp:include page="template/title.jsp"></jsp:include>
+		
 		</div>
 
 		<div id="content">
