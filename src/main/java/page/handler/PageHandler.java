@@ -25,7 +25,7 @@ public class PageHandler implements CommandHandler  {
 			return "reservation.do?fesno=4&id=" + auth.getId();
 		}else if(page.equalsIgnoreCase("info")){
 			/*return "festivalList.do";*/
-			return "lineupDetail.do";
+			return "information.do";
 		}else if(page.equalsIgnoreCase("community")){
 			return "community.do";
 		}else if(page.equalsIgnoreCase("manager")){

@@ -166,3 +166,93 @@ body{
 	color: #E91E63;
 	font-size: 12px;
 }
+
+/* ----------------------------------------- 반응형 추가 시킨것 ----------------------------------------- */
+.header-up{
+	background: none;
+	color:black;
+}
+
+.header-down{
+	background: white;
+	border-bottom : 5px dotted #EDAEC4;
+	height:120px;
+}
+
+
+
+/* 1199 ~ 1025 */
+@media screen and (min-width:1025px) and (max-width:1199px) {
+
+	
+	/* -------------------------------NAV------------------------------- */
+	#nav ul li {margin: 16px;}
+	#nav ul li a {font-size: 26px;}
+	#nav ul li a:HOVER {border-bottom: 3px solid #F48FB1;}
+
+	/* -------------------------------login------------------------------- */
+	#login {width: 13%;}
+
+	/* -------------------------------title------------------------------- */
+	#title {height: 240px;margin-top: 110px;s}
+
+	#title a {font-size: 700%;}
+
+	/* -------------------------------FOOTER------------------------------- */
+	#footer {height: 120px;}
+	
+	/* class */
+	.header-up{}
+
+	.header-down{}
+}
+
+
+
+/*          1024 ~ 481        */
+@media screen and (min-width:480px) and (max-width:1024px) {
+	/* -------------------------------NAV------------------------------- */
+	#nav ul li {margin: 7px;}
+	#nav ul li a {font-size: 22px;}
+
+	/* -------------------------------login------------------------------- */
+	#login {width: 20%;}
+	#login a{font-size: 12px;}
+	
+
+	/* -------------------------------title------------------------------- */
+	#title {height: 90px;margin-top: 100px;}
+
+	#title a {font-size: 300%;}
+
+	/* -------------------------------FOOTER------------------------------- */
+	#footer {height: 80px;}
+	
+	/* class */
+	.header-up{}
+
+	.header-down{height:105px;}
+}
+
+/*          ~ 480        */
+@media screen and (max-width:480px) {
+	/* -------------------------------NAV------------------------------- */
+	#nav {}
+	#nav ul li {margin: 4px;}
+	#nav ul li a {font-size: 14px; }
+
+	/* -------------------------------login------------------------------- */
+	#login {width:100%; top: 30px;}
+	#login a{font-size: 10px;}
+
+	/* -------------------------------title------------------------------- */
+	#title {height: 100px;margin-top: 120px;}
+	#title a {font-size: 200%; line-height: 40px;}
+
+	/* -------------------------------FOOTER------------------------------- */
+	#footer {height: 80px;}
+	
+	.header-down{height:135px;}
+	
+	
+}
