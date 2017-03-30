@@ -34,7 +34,7 @@
 </style>
 </head>
 <body>
-		<a href="registerUpload.do" class="subNav">새 라인업 등록</a>
+		<a href="registerStep.do?step=1" class="subNav">새 라인업 등록</a>
 		<div class="subNavInner">
 			<table>
 				<tr>

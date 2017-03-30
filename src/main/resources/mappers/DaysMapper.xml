@@ -40,5 +40,8 @@
 	<delete id="deleteDaysByFno" parameterType="int">
 		delete from days where fno = #{fno}
 	</delete>
+	<select id="selectListAfterFno" parameterType="int" resultType="days">
+      select * from days where fno &gt;= #{fno}
+  </select>
 
 </mapper>

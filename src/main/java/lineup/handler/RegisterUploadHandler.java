@@ -25,6 +25,7 @@ public class RegisterUploadHandler implements CommandHandler {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		
 		if (req.getMethod().equalsIgnoreCase("get")) {
+			int dno = Integer.parseInt(req.getParameter("dno"));
 			return "/WEB-INF/view/lineupRegister.jsp";
 		}else if(req.getMethod().equalsIgnoreCase("post")){
 //---------------------------upload---------------------------//

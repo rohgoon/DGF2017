@@ -39,7 +39,7 @@
 				</tr>
 				<tr>
 					<th>일정 번호</th>
-					<td><input type="text" name="dno"></td>
+					<td><input type="text" name="dno" value="${dno }" disabled="disabled"></td>
 				</tr>
 				<tr>
 					<th>아티스트 명</th>

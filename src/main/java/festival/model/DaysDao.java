@@ -14,5 +14,6 @@ public interface DaysDao {
 	public int deleteDays(int dno) throws SQLException;
 	public void updateDays(Days days) throws SQLException;
 	public int deleteDaysByFno(int fno) throws SQLException;
+	public List<Days> selectListAfterFno(int fno) throws SQLException;
 	
 }
